@@ -96,10 +96,12 @@ If **Track8** is unable to boot, or if a major update requires a reset, follow t
 ## Steps to Reset
 
 1. **Download the Base System**  
-   Get the latest `track8.iso` from the [Track8 Releases page](https://github.com/ThingstoneGmbH/Track8/releases).
+   Get the latest `track8-base-system-x_x_x.img.zip` from the [Track8 Releases page](https://github.com/ThingstoneGmbH/Track8/releases).
 
-2. **Unzip the Downloaded File**  
-   Extract the contents of the `.zip` file on your computer.
+2. **Download and Install Raspberry Pi Imager**
+   - Visit the [Raspberry Pi Software page](https://www.raspberrypi.com/software/)  
+   - Download the installer for your operating system  
+   - Install and open the Raspberry Pi Imager  
 
 3. **Connect Track8 to Your PC**  
    Plug in the **USB-C to USB-A cable** between Track8 and your computer.
@@ -107,22 +109,26 @@ If **Track8** is unable to boot, or if a major update requires a reset, follow t
 4. **Enter Reset Mode**  
    Hold down the **RST Button** on Track8 using a paper clip.
 
-5. **Locate the Boot Drive**  
-   At least one external drive will appear in your file manager: **bootfs**.
+5. **Choose Base System**  
+   - In Raspberry Pi Imager, click **"Use Custom"**  
+   - Select the downloaded `track8-base-system-x_x_x.img.zip` file
 
-6. **Restore the Base System Image**  
-   Use your computer’s **Disk Utility** (or another ISO writing tool) to restore `track8.iso` onto the **bootfs** disk.
+6. **Choose Storage Device**  
+   - Click **"Choose Storage"**  
+   - Select `mmcblk0p1`
+     
+7. **Wait until finished**
 
-7. **Safely Unmount the Drive**  
+8. **Safely Unmount the Drive**  
    Eject the **TRACK8 Drive** safely using your operating system’s removal procedure.
 
-8. **Power Down Track8**  
+9. **Power Down Track8**  
    Turn off Track8 and wait until the **Power light** is fully off.
 
-9. **Disconnect the Cable**  
+19. **Disconnect the Cable**  
    Remove the **USB-A cable** from your PC.
 
-10. **Restart Track8**  
+11. **Restart Track8**  
     Power Track8 back on. The system will boot from the restored base system.
 
 ---
