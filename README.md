@@ -53,7 +53,7 @@ By participating in this project, you agree to uphold the standards of our [Code
 # Track8 Application Update
 
 Follow these steps to update the **Track8 Application**.  
-(For instructions on how to access the internal SSD, see **page 34** of the main manual.)
+(For instructions on how to access the internal SSD, please check the manual.)
 
 ---
 
@@ -62,12 +62,16 @@ Follow these steps to update the **Track8 Application**.
 1. **Download the Application**  
    Go to the [Track8 Releases page](https://github.com/ThingstoneGmbH/Track8/releases) and download the latest release.
 
-2. **Unzip the Downloaded File**  
-   Extract the contents of the `.zip` file on your computer.
+2. **Start Track8 in Disk Mode**
+   - Power on Track8
+   - Wait until Bootup is finished
+   - Connect the USB-C to USB-A cable to Track8s `PC` Port and the USB-A Side to your computer (dont use a USB-C to USB-C cable)
+   - Track8 will automatically restart to Disk mode
+   - On your computer a new external drive will appear, named `TRACK8`
 
 3. **Copy the New File**  
-   - Locate the extracted `track8` file.  
-   - Copy it to the **TRACK8 Drive** → `bin` folder.  
+   - Locate the downloaded `track8` file.  
+   - Copy the the file to the **TRACK8 Drive** → `bin` folder.  
    - Overwrite the existing file when prompted.
 
 4. **Safely Unmount the TRACK8 Drive**  
