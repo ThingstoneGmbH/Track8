@@ -1,0 +1,1351 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Controls &amp; Shortcuts Reference - Track8 Manual</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-141cb0ad.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-6c720178.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Track8 Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <!-- GENERATED FILE — do not edit. Regenerate with: cargo test -p track8 --lib --no-default-features export_shortcuts_doc -- --ignored -->
+<h1 id="controls--shortcuts-reference"><a class="header" href="#controls--shortcuts-reference">Controls &amp; Shortcuts Reference</a></h1>
+<p>This page is generated from the firmware source (the per-screen control description tables) and lists what every hardware control does on each screen.</p>
+<p><em>Turn</em> and <em>Push</em> are the two encoder actions. “Shift + …” applies while SHIFT is held or latched. A dash (—) means the control has no separate function in that state.</p>
+<h2 id="global-controls"><a class="header" href="#global-controls">Global controls</a></h2>
+<p>These button functions apply on every screen. Screens that reassign a button list the change in their own section below.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Audio</td><td>Audio</td><td>Audio Edit</td></tr>
+<tr><td>MIDI</td><td>MIDI</td><td>MIDI Edit</td></tr>
+<tr><td>Master FX</td><td>Master FX</td><td>Track FX</td></tr>
+<tr><td>Settings</td><td>Settings</td><td>USB Browser</td></tr>
+<tr><td>Play</td><td>Play/Pause</td><td>Jump to start</td></tr>
+<tr><td>Record</td><td>Record</td><td>Undo</td></tr>
+<tr><td>Loop / Loop In / Loop Out</td><td>Toggle Loop, set In / Out, hold [ + ] to set from marker bounds, hold Loop + Cut/Copy to use loop region</td><td>Toggle Punch, set In / Out, hold [ + ] to set from marker bounds</td></tr>
+<tr><td>Cut Point</td><td>Create Marker</td><td>Clear Markers</td></tr>
+<tr><td>Cut / Copy / Paste</td><td>Cut, Copy, Paste selected Track</td><td>Cut, Copy all unmuted Tracks. Paste to bounce</td></tr>
+<tr><td>Shift</td><td>Shift</td><td>—</td></tr>
+<tr><td>Left</td><td>Jump Left</td><td>Beat Left</td></tr>
+<tr><td>Right</td><td>Jump Right</td><td>Beat Right</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="audio-overview"><a class="header" href="#audio-overview">Audio Overview</a></h2>
+<p><strong>Encoders with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Push: Volume</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Push: Pan</td><td>—</td></tr>
+<tr><td>Encoder 3</td><td>Push: Scroll</td><td>—</td></tr>
+<tr><td>Encoder 4</td><td>Push: Rec Offset</td><td>—</td></tr>
+<tr><td>Encoder 5</td><td>Push: Return Mix</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>Push: Return Vol</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Push: Varispeed</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Push: Redo</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons:</strong> all track buttons — SELECT TRACK</p>
+<p><strong>Track buttons with Shift held:</strong> all track buttons — MUTE TRACK</p>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Audio</td><td>Cycle Audio Overview / Track Mixer</td><td>Audio Edit</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-overview--volume"><a class="header" href="#audio-overview--volume">Audio Overview — Volume</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>All encoders</td><td>Change the Volume for each track</td><td>Push → Pan</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-overview--pan"><a class="header" href="#audio-overview--pan">Audio Overview — Pan</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>All encoders</td><td>Change the Pan for each track</td><td>Push → Scroll</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-overview--scroll"><a class="header" href="#audio-overview--scroll">Audio Overview — Scroll</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Record Offset</td></tr>
+<tr><td>Encoder 8</td><td>Turn to scroll</td><td>Push → Record Offset</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-overview--record-offset"><a class="header" href="#audio-overview--record-offset">Audio Overview — Record Offset</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>All encoders</td><td>Set the record offset per track</td><td>Push → Varispeed</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-overview--return-mix"><a class="header" href="#audio-overview--return-mix">Audio Overview — Return Mix</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>All encoders</td><td>Change the mix of the return signal</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-overview--return-level"><a class="header" href="#audio-overview--return-level">Audio Overview — Return Level</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>All encoders</td><td>Adjust the return level for each track</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-overview--varispeed"><a class="header" href="#audio-overview--varispeed">Audio Overview — Varispeed</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 6</td><td>Change Percent / Semitones</td><td>Push → Volume</td></tr>
+<tr><td>Encoder 7</td><td>Enable / Disable Varispeed</td><td>Push → Volume</td></tr>
+<tr><td>Encoder 8</td><td>Change Amount, positive = faster, negative = slower</td><td>Push → Volume</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="track-mixer"><a class="header" href="#track-mixer">Track Mixer</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>All encoders</td><td>Adjust Track</td><td>Push → Next Parameter</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons:</strong> all track buttons — Mute Track</p>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Audio</td><td>Cycle Audio Overview / Track Mixer</td><td>Audio Edit</td></tr>
+<tr><td>Cut / Copy / Paste</td><td>Copy, Cut, Paste all Mixer values. Cut resets to default</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="audio-edit"><a class="header" href="#audio-edit">Audio Edit</a></h2>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>7</td><td>Fine grained edits</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-edit--volume"><a class="header" href="#audio-edit--volume">Audio Edit — Volume</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
+<tr><td>Encoder 4</td><td>Current Volume at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Clear automation between markers</td></tr>
+<tr><td>7</td><td>Fine grained edits</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point, Cut / Copy / Paste.</em></p>
+<h3 id="audio-edit--pan"><a class="header" href="#audio-edit--pan">Audio Edit — Pan</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
+<tr><td>Encoder 4</td><td>Current Pan at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>Clear automation between markers</td></tr>
+<tr><td>7</td><td>Fine grained edits</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point, Cut / Copy / Paste.</em></p>
+<h3 id="audio-edit--track-fx"><a class="header" href="#audio-edit--track-fx">Audio Edit — Track FX</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
+<tr><td>Encoder 4</td><td>Current FX Value at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 6</td><td>Select TrackFX parameter</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>Clear automation between markers</td></tr>
+<tr><td>7</td><td>Fine grained edits</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point, Cut / Copy / Paste.</em></p>
+<h3 id="audio-edit--return"><a class="header" href="#audio-edit--return">Audio Edit — Return</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
+<tr><td>Encoder 4</td><td>Current Value at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 6</td><td>Select Return Mix/Volume parameter</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>Clear automation between markers</td></tr>
+<tr><td>7</td><td>Fine grained edits</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point, Cut / Copy / Paste.</em></p>
+<h3 id="audio-edit--edit"><a class="header" href="#audio-edit--edit">Audio Edit — Edit</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
+<tr><td>Encoder 4</td><td>Slide Edit Region</td><td>—</td></tr>
+<tr><td>Encoder 5</td><td>Start Edit Region</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>End Edit Region</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Cut / Copy / Paste</td><td>Edit Selection</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point.</em></p>
+<h3 id="audio-edit--nudge"><a class="header" href="#audio-edit--nudge">Audio Edit — Nudge</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
+<tr><td>Encoder 4</td><td>Nudge Region</td><td>Push to confirm</td></tr>
+<tr><td>Encoder 5</td><td>Start Nudge Region</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>End Nudge Region</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point, Cut / Copy / Paste.</em></p>
+<h2 id="audio-clipboard-modifier"><a class="header" href="#audio-clipboard-modifier">Audio Clipboard Modifier</a></h2>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Volume Group</td></tr>
+<tr><td>2</td><td>Time Group</td></tr>
+<tr><td>3</td><td>Reverse Group</td></tr>
+<tr><td>4</td><td>Crush Group</td></tr>
+<tr><td>5</td><td>Crop Group</td></tr>
+<tr><td>8</td><td>Apply</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Volume Group</td></tr>
+<tr><td>2</td><td>Time Group</td></tr>
+<tr><td>3</td><td>Reverse Group</td></tr>
+<tr><td>4</td><td>Crush Group</td></tr>
+<tr><td>5</td><td>Crop Group</td></tr>
+<tr><td>8</td><td>Write Back</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Loop / Loop In / Loop Out</td><td>Toggle Loop, set loop In / Out to playhead</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Cut Point, Cut / Copy / Paste.</em></p>
+<h3 id="audio-clipboard-modifier--volume-group"><a class="header" href="#audio-clipboard-modifier--volume-group">Audio Clipboard Modifier — Volume group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Volume</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-clipboard-modifier--time-group"><a class="header" href="#audio-clipboard-modifier--time-group">Audio Clipboard Modifier — Time group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Time</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-clipboard-modifier--reverse-group"><a class="header" href="#audio-clipboard-modifier--reverse-group">Audio Clipboard Modifier — Reverse group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Reverse</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-clipboard-modifier--crush-group"><a class="header" href="#audio-clipboard-modifier--crush-group">Audio Clipboard Modifier — Crush group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Crush</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-clipboard-modifier--crop-group"><a class="header" href="#audio-clipboard-modifier--crop-group">Audio Clipboard Modifier — Crop group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Slide</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="midi-overview"><a class="header" href="#midi-overview">MIDI Overview</a></h2>
+<p><strong>Encoders with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Push: Channel</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Push: Offset</td><td>—</td></tr>
+<tr><td>Encoder 3</td><td>Push: Scroll</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Push: Varispeed</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Push: Redo</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons:</strong> all track buttons — SELECT TRACK</p>
+<p><strong>Track buttons with Shift held:</strong> all track buttons — MUTE TRACK</p>
+<h3 id="midi-overview--channel"><a class="header" href="#midi-overview--channel">MIDI Overview — Channel</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>All encoders</td><td>Change the MIDI Channel for each track</td><td>Push → Offset mode</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="midi-overview--offset"><a class="header" href="#midi-overview--offset">MIDI Overview — Offset</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>All encoders</td><td>Change the Track Offset for each track</td><td>Push → Scroll</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="midi-overview--scroll"><a class="header" href="#midi-overview--scroll">MIDI Overview — Scroll</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Varispeed</td></tr>
+<tr><td>Encoder 8</td><td>Turn to scroll</td><td>Push → Varispeed</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="midi-overview--varispeed"><a class="header" href="#midi-overview--varispeed">MIDI Overview — Varispeed</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 6</td><td>Change Percent / Semitones</td><td>Push → Channel</td></tr>
+<tr><td>Encoder 7</td><td>Enable / Disable Varispeed</td><td>Push → Channel</td></tr>
+<tr><td>Encoder 8</td><td>Change Amount, positive = faster, negative = slower</td><td>Push → Channel</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="midi-edit"><a class="header" href="#midi-edit">MIDI Edit</a></h2>
+<h3 id="midi-edit--note"><a class="header" href="#midi-edit--note">MIDI Edit — Note</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Grid</td><td>Push to toggle triplets</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>Enable Record for Add/Replace/Delete note</td></tr>
+<tr><td>7</td><td>Toggle Snap Mode</td></tr>
+<tr><td>8</td><td>Toggle Step Record</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point, Cut / Copy / Paste.</em></p>
+<h3 id="midi-edit--edit"><a class="header" href="#midi-edit--edit">MIDI Edit — Edit</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Grid</td><td>Push to toggle triplets</td></tr>
+<tr><td>Encoder 3</td><td>Edit selected Notes</td><td>Push to confirm</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>Select Edit Action: Transpose, Quantize, Velocity, Nudge</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Cut / Copy / Paste</td><td>Edit Selection</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point.</em></p>
+<h3 id="midi-edit--cc"><a class="header" href="#midi-edit--cc">MIDI Edit — CC</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Grid</td><td>Push to toggle triplets</td></tr>
+<tr><td>Encoder 5</td><td>Select CC</td><td>Push to cycle between CC/AT</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>Clear automation between markers</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point, Cut / Copy / Paste.</em></p>
+<h3 id="midi-edit--pitch-bend"><a class="header" href="#midi-edit--pitch-bend">MIDI Edit — Pitch Bend</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Grid</td><td>Push to toggle triplets</td></tr>
+<tr><td>Encoder 4</td><td>Draw on the Screen</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>Clear automation between markers</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Cut / Copy / Paste</td><td>Edit Selection</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point.</em></p>
+<h2 id="track-fx"><a class="header" href="#track-fx">Track FX</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Select Filter Node (or touch a node)</td><td>Push toggle selected Node</td></tr>
+<tr><td>Encoder 2</td><td>Filter Node Parameters (or drag node: Freq / Gain)</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 3</td><td>Attack/Sidechain</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 7</td><td>Delay Send</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Reverb Send</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Toggle Filter On/Off</td></tr>
+<tr><td>2</td><td>Node Filter Type</td></tr>
+<tr><td>3</td><td>Toggle Compressor On/Off</td></tr>
+<tr><td>6</td><td>Ratio</td></tr>
+<tr><td>7</td><td>Toggle Send</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons with Shift held:</strong> all track buttons — Quick select Track</p>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Cut / Copy / Paste</td><td>Copy, Cut, Paste Track FX. Cut resets to default</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point.</em></p>
+<h2 id="master-fx"><a class="header" href="#master-fx">Master FX</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Delay Time</td><td>Push to toggle between ms and note values</td></tr>
+<tr><td>Encoder 2</td><td>Feedback, PingPong Width</td><td>Push to toggle</td></tr>
+<tr><td>Encoder 3</td><td>Reverb Size</td><td>—</td></tr>
+<tr><td>Encoder 4</td><td>Width, Damp, Predelay</td><td>Push to toggle</td></tr>
+<tr><td>Encoder 5</td><td>Compressor Values</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Toggle Delay</td></tr>
+<tr><td>2</td><td>Toggle PingPong</td></tr>
+<tr><td>3</td><td>Toggle Reverb</td></tr>
+<tr><td>4</td><td>Select Algorithm</td></tr>
+<tr><td>5</td><td>Toggle Compressor</td></tr>
+<tr><td>8</td><td>Ratio</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Master FX</td><td>Cycle Master FX / Mastering / External views</td><td>Track FX</td></tr>
+<tr><td>Cut / Copy / Paste</td><td>Copy, Cut, Paste Master FX. Cut resets to default</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point.</em></p>
+<h2 id="master-fx-2"><a class="header" href="#master-fx-2">Master FX 2</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 3</td><td>Drive and Thickness</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 4</td><td>Gain and Frequency</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 5</td><td>Gain and Frequency</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 6</td><td>Gain and Crossover Freq</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 7</td><td>High and Low Gain</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 8</td><td>Output Gain and Brickwall Limiter</td><td>Push to access Limiter control</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Bypass Mastering</td></tr>
+<tr><td>2</td><td>Highpass Filter</td></tr>
+<tr><td>3</td><td>Tape Drive</td></tr>
+<tr><td>4</td><td>Low/High EQ</td></tr>
+<tr><td>6</td><td>High Frequency Compressor</td></tr>
+<tr><td>7</td><td>Stereo Enhancer</td></tr>
+<tr><td>8</td><td>Toggle Limiter</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Master FX</td><td>Cycle Master FX / Mastering / External views</td><td>Track FX</td></tr>
+<tr><td>Cut / Copy / Paste</td><td>Copy, Cut, Paste Mastering. Cut resets to default</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point.</em></p>
+<h2 id="external-channels"><a class="header" href="#external-channels">External Channels</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>All encoders</td><td>Adjust External Input</td><td>Push → Next Parameter</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons:</strong> all track buttons — Mute External Input</p>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Master FX</td><td>Cycle Master FX / Mastering / External views</td><td>Track FX</td></tr>
+<tr><td>Cut / Copy / Paste</td><td>Copy, Cut, Paste all Channel values. Cut resets to default</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="sample-browser"><a class="header" href="#sample-browser">Sample Browser</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Select Midi Channel</td><td>For playback</td></tr>
+<tr><td>Encoder 4</td><td>Press to Delete</td><td>Hold SHIFT</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Exit folder</td></tr>
+<tr><td>4</td><td>Paste audio from clipboard</td></tr>
+<tr><td>5</td><td>Paste Midi from clipboard</td></tr>
+<tr><td>8</td><td>Play selected File</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>The transport, edit, navigation and screen-select buttons have no labelled function on this screen.</em></p>
+<h2 id="project-browser"><a class="header" href="#project-browser">Project Browser</a></h2>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>Backup to USB Stick</td></tr>
+<tr><td>3</td><td>Import Backup from USB Stick</td></tr>
+<tr><td>6</td><td>Hold SHIFT to delete</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>The transport, edit, navigation and screen-select buttons have no labelled function on this screen.</em></p>
+<h2 id="export"><a class="header" href="#export">Export</a></h2>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point, Cut / Copy / Paste.</em></p>
+<h3 id="export--destination-usb"><a class="header" href="#export--destination-usb">Export — Destination: USB</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 3</td><td>Export Destination</td><td>USB Stick or Bounce to a Track</td></tr>
+<tr><td>Encoder 5</td><td>Realtime Export with External Soundcard</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>Stem = All Track Files / MIX = Stereo Mix</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="export--destination-track"><a class="header" href="#export--destination-track">Export — Destination: Track</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 3</td><td>Export Destination</td><td>USB Stick or Bounce to a Track</td></tr>
+<tr><td>Encoder 5</td><td>Insert Point at Destination Track</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="settings"><a class="header" href="#settings">Settings</a></h2>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Tap Tempo</td></tr>
+<tr><td>2</td><td>Global Settings</td></tr>
+<tr><td>6</td><td>Name your Tracks</td></tr>
+<tr><td>7</td><td>Switch Projects</td></tr>
+<tr><td>8</td><td>Export audio to USB or Bounce to a Track</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point, Cut / Copy / Paste.</em></p>
+<h3 id="settings--whole-number-bpm"><a class="header" href="#settings--whole-number-bpm">Settings — Whole-number BPM</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>BPM. Hold SHIFT for steps of 10</td><td>Push to switch between whole BPM and decimals</td></tr>
+<tr><td>Encoder 2</td><td>Measure</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 6</td><td>Recording Mode</td><td>Audio AND Midi / Audio OR Midi</td></tr>
+<tr><td>Encoder 7</td><td>Change what the 1/4“ Footswitch does</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Audio Mon / Midi Mon</td><td>Push to cycle. Audio: disable when using Speakers and a Microphone. Midi: disable to stop input being echoed to Midi Out</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Encoders with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>BPM in steps of 10</td><td>Push to switch between whole BPM and decimals</td></tr>
+<tr><td>Encoder 2</td><td>Measure</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 6</td><td>Recording Mode</td><td>Audio AND Midi / Audio OR Midi</td></tr>
+<tr><td>Encoder 7</td><td>Change what the 1/4“ Footswitch does</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Audio Mon / Midi Mon</td><td>Push to cycle. Audio: disable when using Speakers and a Microphone. Midi: disable to stop input being echoed to Midi Out</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="settings--decimal-bpm"><a class="header" href="#settings--decimal-bpm">Settings — Decimal BPM</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>BPM in steps of 0.01. Hold SHIFT for steps of 0.1</td><td>Push to switch between whole BPM and decimals</td></tr>
+<tr><td>Encoder 2</td><td>Measure</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 6</td><td>Recording Mode</td><td>Audio AND Midi / Audio OR Midi</td></tr>
+<tr><td>Encoder 7</td><td>Change what the 1/4“ Footswitch does</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Audio Mon / Midi Mon</td><td>Push to cycle. Audio: disable when using Speakers and a Microphone. Midi: disable to stop input being echoed to Midi Out</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Encoders with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>BPM in steps of 0.1</td><td>Push to switch between whole BPM and decimals</td></tr>
+<tr><td>Encoder 2</td><td>Measure</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 6</td><td>Recording Mode</td><td>Audio AND Midi / Audio OR Midi</td></tr>
+<tr><td>Encoder 7</td><td>Change what the 1/4“ Footswitch does</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Audio Mon / Midi Mon</td><td>Push to cycle. Audio: disable when using Speakers and a Microphone. Midi: disable to stop input being echoed to Midi Out</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="utilities"><a class="header" href="#utilities">Utilities</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Change Navigation</td><td>When pressing Shift + ← →</td></tr>
+<tr><td>Encoder 2</td><td>Show Overlay</td><td>when Shift is held</td></tr>
+<tr><td>Encoder 5</td><td>Create new Project at Startup</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>Visual/Playhead utility toggles</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Brightness and Standby</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Exit to Project Settings</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>The transport, edit, navigation and screen-select buttons have no labelled function on this screen.</em></p>
+<h2 id="tuner"><a class="header" href="#tuner">Tuner</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Change Footswitch behavior</td><td>When set to Tuner</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Exit to Global Settings</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>The transport, edit, navigation and screen-select buttons have no labelled function on this screen.</em></p>
+<h2 id="threshold-recording"><a class="header" href="#threshold-recording">Threshold Recording</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Also applies to Midi</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Autopause Behavior</td><td>Can be set to pause on Grid</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Exit to Global Settings</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>The transport, edit, navigation and screen-select buttons have no labelled function on this screen.</em></p>
+<h2 id="midi-settings"><a class="header" href="#midi-settings">MIDI Settings</a></h2>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Exit to Global Settings</td></tr>
+<tr><td>8</td><td>Name your MIDI Channels</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>The transport, edit, navigation and screen-select buttons have no labelled function on this screen.</em></p>
+<h2 id="tape-utility"><a class="header" href="#tape-utility">Tape Utility</a></h2>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Exit to Global Settings</td></tr>
+<tr><td>8</td><td>Truncate Tape to reclaim Disk Space</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>The transport, edit, navigation and screen-select buttons have no labelled function on this screen.</em></p>
+<h2 id="audio-settings"><a class="header" href="#audio-settings">Audio Settings</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Select a Soundcard</td><td>Must be class-compliant</td></tr>
+<tr><td>Encoder 3</td><td>Multi allows to record more than 1 Track at a time</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>Fallback to 44.1k</td><td>Degrades audio</td></tr>
+<tr><td>Encoder 7</td><td>Some Interfaces might need a higher Buffer</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Exit to Project Settings</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>The transport, edit, navigation and screen-select buttons have no labelled function on this screen.</em></p>
+<hr>
+<p><em>Screens not listed here (project save/rename/import dialogs, audio I/O mapping pages, MIDI mapping pages, firmware update) use the standard controls shown on screen.</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="user-interface.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="icons-overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="user-interface.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="icons-overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

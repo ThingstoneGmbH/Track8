@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="track8-keys" xmlns="http://www.w3.org/2000/svg" width="138" height="138" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 138 138">
+  <defs>
+    <symbol id="cushin-dark" viewBox="0 0 137.5 137.5">
+      <g id="rect-background-dark">
+        <path d="M17.99,2.38C51.83-.79,85.67-.79,119.51,2.38c7.75.76,14.84,7.86,15.61,15.61,3.18,33.84,3.18,67.68,0,101.52-.76,7.75-7.86,14.84-15.61,15.61-33.84,3.18-67.68,3.18-101.52,0-7.75-.76-14.84-7.86-15.61-15.61C-.79,85.67-.79,51.83,2.38,17.99c.76-7.75,7.86-14.84,15.61-15.61Z" fill="#323232" fill-rule="evenodd"/>
+      </g>
+    </symbol>
+  </defs>
+  <g id="keypad-dark">
+    <g id="shift-dark">
+      <use width="137.5" height="137.5" transform="" xlink:href="#cushin-dark"/>
+      <path id="arrow-up" d="M35.53,62.8l32.81-27.34c.5-.41,1.21-.41,1.71,0l32.61,27.17c.57.47.23,1.4-.51,1.4h-16.88c-.79,0-1.43.64-1.43,1.43v32.36c0,.74-.6,1.34-1.34,1.34h-26.63c-.72,0-1.31-.59-1.31-1.31v-32.45c0-.76-.61-1.37-1.37-1.37h-17.21c-.65,0-.94-.81-.44-1.23Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.72"/>
+    </g>
+  </g>
+</svg>

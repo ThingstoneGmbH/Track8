@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="track8-keys" xmlns="http://www.w3.org/2000/svg" width="138" height="138" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 138 138">
+  <defs>
+    <symbol id="cushin-dark" viewBox="0 0 137.5 137.5">
+      <g id="rect-background-dark">
+        <path d="M17.99,2.38C51.83-.79,85.67-.79,119.51,2.38c7.75.76,14.84,7.86,15.61,15.61,3.18,33.84,3.18,67.68,0,101.52-.76,7.75-7.86,14.84-15.61,15.61-33.84,3.18-67.68,3.18-101.52,0-7.75-.76-14.84-7.86-15.61-15.61C-.79,85.67-.79,51.83,2.38,17.99c.76-7.75,7.86-14.84,15.61-15.61Z" fill="#323232" fill-rule="evenodd"/>
+      </g>
+    </symbol>
+  </defs>
+  <g id="keypad-dark">
+    <g id="audio-overview-dark">
+      <use width="137.5" height="137.5" transform="" xlink:href="#cushin-dark"/>
+      <g id="waveform">
+        <g>
+          <path id="path24300" d="M33.87,62.98v12.04" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24302" d="M40.9,57.96v22.08" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24304" d="M47.92,53.15v31.87" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24306" d="M61.97,62.98v12.04" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24308" d="M76.03,52.94v32.12" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24310" d="M83.05,46.92v44.16" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24312" d="M54.95,57.96v22.08" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24314" d="M69,57.95v22.08" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24316" d="M90.08,52.94v32.12" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24318" d="M97.1,58.96v20.07" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24320" d="M104.13,62.98v12.04" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24322" d="M26.85,68v2.01" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+          <path id="path24324" d="M111.15,67.91v2.09" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="3.1" stroke-width="3.5"/>
+        </g>
+        <g>
+          <path id="path24300-2" data-name="path24300" d="M33.87,62.98v12.04" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24302-2" data-name="path24302" d="M40.9,57.96v22.08" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24304-2" data-name="path24304" d="M47.92,53.15v31.87" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24306-2" data-name="path24306" d="M61.97,62.98v12.04" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24308-2" data-name="path24308" d="M76.03,52.94v32.12" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24310-2" data-name="path24310" d="M83.05,46.92v44.16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24312-2" data-name="path24312" d="M54.95,57.96v22.08" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24314-2" data-name="path24314" d="M69,57.95v22.08" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24316-2" data-name="path24316" d="M90.08,52.94v32.12" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24318-2" data-name="path24318" d="M97.1,58.96v20.07" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24320-2" data-name="path24320" d="M104.13,62.98v12.04" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24322-2" data-name="path24322" d="M26.85,68v2.01" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+          <path id="path24324-2" data-name="path24324" d="M111.15,67.91v2.09" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

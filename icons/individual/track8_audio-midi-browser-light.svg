@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="track8-keys" xmlns="http://www.w3.org/2000/svg" width="138" height="138" viewBox="0 0 138 138">
+  <g id="keypad-light">
+    <g id="audio-midi-browser-light">
+      <g id="document">
+        <path id="path24288" d="M46.15,41.04h37.19c.09,0,.17.04.23.1l10.55,10.55h-9.37c-.7,0-1.28-.57-1.28-1.28v-9.37l10.65,10.65v43.92c0,.73-.6,1.33-1.33,1.33h-46.67c-.69,0-1.25-.56-1.25-1.25v-53.38c0-.7.57-1.28,1.28-1.28Z" fill="none" stroke="#323232" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.72"/>
+        <path id="path24290" d="M56.86,61.01h25.29" fill="none" stroke="#323232" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.72"/>
+        <path id="path24292" d="M56.86,71.66h25.29" fill="none" stroke="#323232" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.72"/>
+        <path id="path24294" d="M56.86,82.31h25.29" fill="none" stroke="#323232" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.72"/>
+      </g>
+      <g id="cushion-outline">
+        <g id="rect24298">
+          <path d="M69,4.7c16.77,0,33.78.8,50.53,2.37,5.52.54,10.85,5.87,11.39,11.37,3.15,33.55,3.15,67.56,0,101.09-.54,5.52-5.87,10.85-11.37,11.39-16.77,1.58-33.78,2.38-50.55,2.38s-33.78-.8-50.53-2.37c-5.52-.54-10.85-5.87-11.39-11.37-3.15-33.55-3.15-67.56,0-101.09.54-5.52,5.87-10.85,11.37-11.39,16.77-1.58,33.78-2.38,50.55-2.38M69,0C52,0,35,.8,18.01,2.4c-7.75.76-14.85,7.86-15.61,15.61C-.8,52-.8,86,2.4,119.99c.76,7.75,7.86,14.84,15.61,15.61,17,1.6,34,2.4,50.99,2.4s34-.8,50.99-2.4c7.75-.76,14.85-7.86,15.61-15.61,3.2-34,3.2-67.99,0-101.99-.76-7.75-7.86-14.84-15.61-15.61C103,.8,86,0,69,0h0Z" fill="#323232"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
