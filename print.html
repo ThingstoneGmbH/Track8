@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-141cb0ad.js";
+            window.path_to_searchindex_js = "searchindex-544a361a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6c720178.js"></script>
@@ -209,19 +209,19 @@
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="hardware-overview"><a href="#hardware-overview" class="header">Hardware Overview</a></h1>
 <h2 id="front-plate"><a class="header" href="#front-plate">Front Plate</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/fcea989c-3a5e-4b36-a5df-acd830465766" />
+<img width="900" alt="Track8 front plate" src="images/hardware/front-plate.png" />
 <h3 id="dimensions"><a class="header" href="#dimensions">Dimensions</a></h3>
 <p>340mm x 170mm x 60mm
 1.5kg</p>
 <h2 id="audio-path"><a class="header" href="#audio-path">Audio Path</a></h2>
-<img width="900" alt="Screenshot 2026-04-26 at 14 35 39" src="https://github.com/user-attachments/assets/ef3a279e-e012-4c04-8e7e-0fe41546b19e" />
+<img width="900" alt="Track8 audio path" src="images/hardware/audio-path.png" />
 <ul>
 <li>Audio Converter work at 24bit/48kHz</li>
 <li>Internal Signal path is entirely float32</li>
 <li>WAV files are stored as IEEE 48kHz / 32 bit float</li>
 </ul>
 <h2 id="connections"><a class="header" href="#connections">Connections</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/a4ab9ccb-1727-4828-9f7d-ee2fbc59e3fd" />
+<img width="900" alt="Track8 connections" src="images/hardware/connections.png" />
 <h3 id="inputsoutputs"><a class="header" href="#inputsoutputs">Inputs/Outputs</a></h3>
 <ul>
 <li>Headphone (6.3mm Stereo phone jack)</li>
@@ -256,7 +256,7 @@ cleaners.</p>
 <p>Do not discard this product along with ordinary household waste.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/94649377-ed3f-4fb6-86bb-e91335928527" />
+<img width="900" alt="Audio Overview after first boot" src="images/screens/AudioOverview-Empty.png" />
 <h2 id="1-power--connections"><a class="header" href="#1-power--connections">1. Power &amp; Connections</a></h2>
 <ul>
 <li>Connect USB-C power supply (PD, 9V, ≥20W)</li>
@@ -336,7 +336,10 @@ take is rolling (solid). It is visible on every screen (new in v1.2.1)</li>
 <li>While a take is rolling, actions that would break the recording (changing
 BPM, switching the record domain, opening heavy screens) are refused with
 an on-screen error instead of silently stopping the take (new in v1.2.1)</li>
+<li>The status bar at the bottom of the Overview screens shows the active
+recording mode, the overdub state and the current time/beat position:</li>
 </ul>
+<img alt="Transport bar of the Audio Overview with labeled indicators" src="images/annotated/audio-overview-transport-detail.png" width="900">
 <h3 id="-touch"><a class="header" href="#-touch">👆 Touch</a></h3>
 <ul>
 <li>Screens that accept touch input show a small <code>[TOUCH]</code> indicator
@@ -1802,7 +1805,7 @@ FX and Mastering screens (new in v1.2.1).</p>
 </ul>
 <hr>
 <h2 id="-audio-overview-screen"><a class="header" href="#-audio-overview-screen">🖥 Audio Overview Screen</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/2a01a8d7-0e1c-4040-8be6-0c5ada771fe6" />
+<img alt="Audio Overview screen with labeled controls and indicators" src="images/annotated/audio-overview-labeled.png" width="900">
 <h3 id="controls"><a class="header" href="#controls">Controls</a></h3>
 <h4 id="-track-encoders-1"><a class="header" href="#-track-encoders-1">🎛 Track Encoders</a></h4>
 <ul>
@@ -1861,7 +1864,7 @@ FX and Mastering screens (new in v1.2.1).</p>
 <li>The speed can’t be changed while a recording is running</li>
 <li>Playback audio is degraded; recorded audio is resampled at a higher quality</li>
 </ul>
-<img width="1274" height="137" alt="image" src="https://github.com/user-attachments/assets/6e96c026-1f70-466a-8dd9-dae660a26a21" />
+<img alt="Varispeed encoder strip on the Audio Overview" src="images/annotated/audio-overview-varispeed-detail.png" width="900">
 <hr>
 <h3 id="-recording-modes-since-v112"><a class="header" href="#-recording-modes-since-v112">🎙 Recording Modes (since v1.1.2)</a></h3>
 <p>Touch the <strong>stereo input meter</strong> to cycle between three recording modes:</p>
@@ -1871,7 +1874,7 @@ FX and Mastering screens (new in v1.2.1).</p>
 <li><code>ATM</code>: Records automation only, no audio</li>
 </ul>
 <p>In <code>A+A</code> and <code>ATM</code> mode the overview draws automation lines for the currently selected encoder mode (Volume, Pan, Return Mix, Return Vol). While recording is running, turning a track’s encoder writes its moves into that track’s automation lane.</p>
-<img width="1279" height="404" alt="Screenshot" src="https://github.com/user-attachments/assets/912e479d-4a60-4f3a-a686-51b677fd5e9a" />
+<img alt="Audio Overview in A+A mode with volume automation curves" src="images/annotated/audio-overview-automation-detail.png" width="900">
 <p>Recording behavior:</p>
 <ul>
 <li>Recording keeps running when switching views (except Settings / USB Browser)</li>
@@ -1895,7 +1898,7 @@ FX and Mastering screens (new in v1.2.1).</p>
 <li>Up to 8 takes; take 9 overwrites take 1</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Track Button</code> still mutes, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <code>Track Button</code> still solos during a take session</li>
 </ul>
-<!-- screenshot: Audio Overview during a multi-take session with the take row and TAKE badge visible -->
+<img alt="Audio Overview during a multi-take session with the take row visible" src="images/screens/AudioOverview-Takes.png" width="900">
 <hr>
 <h3 id="-meters--indicators"><a class="header" href="#-meters--indicators">📊 Meters &amp; Indicators</a></h3>
 <h4 id="input-level"><a class="header" href="#input-level">Input Level</a></h4>
@@ -2033,7 +2036,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <p>👉 This is intentional (tape workflow)</p>
 </blockquote>
 <h2 id="-audio-edit-volume--pan"><a class="header" href="#-audio-edit-volume--pan">🖥 Audio Edit (Volume / Pan)</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/19845f78-c207-4414-bf5a-6ab826d89350" />
+<img width="900" alt="Audio Edit overview with labels" src="images/annotated/audio-edit-labeled.png" />
 <p>Open Audio Edit with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture>. The view opens on the parameter you last adjusted with an encoder anywhere in the audio views — turn a control, then jump straight to editing its automation (new in v1.2.1).</p>
 <h3 id="encoders"><a class="header" href="#encoders">Encoders</a></h3>
 <div class="table-wrapper">
@@ -2117,7 +2120,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </ul>
 <hr>
 <h2 id="-region-editing"><a class="header" href="#-region-editing">✂️ Region Editing</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/70d1c7d3-b78f-4d9a-ae7e-11d66293e489" />
+<img width="900" alt="Region editing with a START/END selection" src="images/screens/AudioEdit-Edit.png" />
 <p>Region Editing (Track Button 7) allows for fine grained editing of a single Track. In this mode you are not bound to the Regions set by Markers.</p>
 <h3 id="workflow"><a class="header" href="#workflow">Workflow</a></h3>
 <ol>
@@ -2145,7 +2148,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </ul>
 <hr>
 <h2 id="-nudge-editing"><a class="header" href="#-nudge-editing">↔️ Nudge Editing</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/3974134b-d52f-4cdc-9b1b-69b6cf9f5f1d" />
+<img alt="Nudge editing with a displaced audio preview and the NUDGE amount highlighted" src="images/annotated/nudge-editing.png" width="900">
 <p>Nudge (Track Button 8) moves selected audio on the timeline. The changes can be pre listened without committing the edit to tape.</p>
 <h3 id="behavior-1"><a class="header" href="#behavior-1">Behavior</a></h3>
 <ul>
@@ -2170,7 +2173,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="audio-clipboard-modifier-1"><a href="#audio-clipboard-modifier-1" class="header">Audio Clipboard Modifier</a></h1>
 <h2 id="clipboard-audio-clipboard-modifier"><a class="header" href="#clipboard-audio-clipboard-modifier">:clipboard: Audio Clipboard Modifier</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/af777aeb-7710-473b-a0da-c86fc9e3ce1d" />
+<img alt="Clipboard Modifier with the TIME group selected" src="images/screens/AudioClipboardEdit-Time.png" width="900">
 <p>The Clipboard Modifier (introduced in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.3">v1.1.3</a>) is a small self-contained editor that works on the <strong>audio clipboard</strong> instead of the tape. Copy audio, mangle it, audition it, then paste the result — the tape stays untouched until you paste.</p>
 <p>The screen is marked with an <strong>orange border</strong> so it can’t be confused with the regular Audio Edit view.</p>
 <hr>
@@ -2248,7 +2251,6 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-in-dark.svg"><img alt="loop-in" src="icons/individual/track8_set-punch-in-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-out-dark.svg"><img alt="loop-out" src="icons/individual/track8_set-punch-out-light.svg" width="24"></picture> together to snap the loop to the current <code>START</code>/<code>END</code> region (new in v1.2.1)</li>
 <li>Tape playback is silenced while the modifier is open; it resumes when you leave the screen</li>
 </ul>
-<!-- screenshot: Clipboard Modifier with the TIME group selected, showing SPEED/REPITCH/WARP on encoders 4-6 and the orange region shading -->
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="midi-overview-1"><a class="header" href="#midi-overview-1">MIDI Overview</a></h1>
 <p>Track8 treats MIDI similarly to audio:</p>
@@ -2259,7 +2261,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </ul>
 <hr>
 <h2 id="-midi-overview"><a class="header" href="#-midi-overview">🖥 MIDI Overview</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/e71a8634-c2ed-4276-8173-b2e348ba9439" />
+<img width="900" alt="MIDI Overview with labels" src="images/annotated/midi-overview-labeled.png" />
 <h3 id="track-behavior"><a class="header" href="#track-behavior">Track Behavior</a></h3>
 <p>Track8 aims to make MIDI routing as simple as possible. Instead of listing all connected MIDI devices Track8 introduces a Track to MIDI Channel mapping.</p>
 <ul>
@@ -2303,7 +2305,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li>Recording with Varispeed is limited to one track, and the amount cannot be changed while a recording is running</li>
 <li>Playback audio is degraded; recorded audio is resampled at a higher quality</li>
 </ul>
-<!-- screenshot: MIDI Overview with the VARISPEED encoder mode active -->
+<img alt="MIDI Overview with the VARISPEED encoder mode active" src="images/screens/MidiOverview-Varispeed.png" width="900">
 <hr>
 <h2 id="-track-buttons-2"><a class="header" href="#-track-buttons-2">🔘 Track Buttons</a></h2>
 <ul>
@@ -2376,7 +2378,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="editing-midi"><a class="header" href="#editing-midi">Editing MIDI</a></h1>
 <h2 id="-midi-edit-notes"><a class="header" href="#-midi-edit-notes">🖥 MIDI Edit (Notes)</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/986e6ba0-d50e-4a7a-89cc-cf7b8857779e" />
+<img width="900" alt="MIDI Edit note view with labels" src="images/annotated/midi-edit-labeled.png" />
 <p>The MIDI Edit screen has four sub-views, selected with the first four Track Buttons:</p>
 <div class="table-wrapper">
 <table>
@@ -2467,7 +2469,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </ul>
 <hr>
 <h2 id="-midi-tools-edit-view"><a class="header" href="#-midi-tools-edit-view">🛠 MIDI Tools (Edit view)</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/01153be4-f329-4b4f-83c5-899e1cf6ea68" />
+<img width="900" alt="MIDI Edit tools with an edit region" src="images/screens/MidiEdit-Edit.png" />
 <p>Work on the edit region, then confirm:</p>
 <ul>
 <li>Encoder 4 / Encoder 5: set region start/end (push = set at playhead, since v1.1.2)</li>
@@ -2497,7 +2499,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </ul>
 <hr>
 <h2 id="-cc--aftertouch-editing"><a class="header" href="#-cc--aftertouch-editing">🎛 CC / Aftertouch Editing</a></h2>
-<img width="900" alt="Screenshot 2026-04-26 at 14 47 32" src="https://github.com/user-attachments/assets/9969c24c-942c-4559-beaa-1e9210263dba" />
+<img alt="CC/AT view with a CC1 modulation curve" src="images/screens/MidiEdit-CC.png" width="900">
 <h3 id="behavior-2"><a class="header" href="#behavior-2">Behavior</a></h3>
 <ul>
 <li>Draw via touchscreen, range 0–127</li>
@@ -2753,7 +2755,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <p>👉 Real clipping happens at final output</p>
 <hr>
 <h2 id="-master-fx"><a class="header" href="#-master-fx">🖥 Master FX</a></h2>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/69c253b2-a6ff-4043-a923-03a81fb68318" />
+<img width="900" alt="Master FX overview with labels" src="images/annotated/master-fx-labeled.png" />
 <p>The global Delay and Reverb (fed by the track sends) plus a master bus compressor.</p>
 <hr>
 <h3 id="delay"><a class="header" href="#delay">Delay</a></h3>
