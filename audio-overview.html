@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-544a361a.js";
+            window.path_to_searchindex_js = "searchindex-21e01e3e.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6c720178.js"></script>
@@ -252,6 +252,11 @@
 <li><code>ATM</code>: Records automation only, no audio</li>
 </ul>
 <p>In <code>A+A</code> and <code>ATM</code> mode the overview draws automation lines for the currently selected encoder mode (Volume, Pan, Return Mix, Return Vol). While recording is running, turning a track’s encoder writes its moves into that track’s automation lane.</p>
+<ul>
+<li>In <code>ATM</code> mode <strong>every</strong> track records — turning any track’s encoder writes into its lane, no track selection or arming needed; in <code>A+A</code> mode automation is only written for the tracks being recorded (new in v1.2.1)</li>
+<li>A recorded automation pass undoes as a <strong>single step</strong>, however many tracks and parameters were ridden (new in v1.2.1)</li>
+<li>The <a href="mixer.html">Track Mixer</a> can arm an automation pass directly: pressing <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_arm-record-dark.svg"><img alt="record" src="icons/individual/track8_arm-record-light.svg" width="24"></picture> there switches to <code>ATM</code> automatically (new in v1.2.1)</li>
+</ul>
 <img alt="Audio Overview in A+A mode with volume automation curves" src="images/annotated/audio-overview-automation-detail.png" width="900">
 <p>Recording behavior:</p>
 <ul>
@@ -279,6 +284,22 @@
 <img alt="Audio Overview during a multi-take session with the take row visible" src="images/screens/AudioOverview-Takes.png" width="900">
 <hr>
 <h3 id="-meters--indicators"><a class="header" href="#-meters--indicators">📊 Meters &amp; Indicators</a></h3>
+<p>The level meters read peak in 8 bars of 6 dB each, counted from the red end of the scale. Quieter bars stay lit as the level rises, so the last lit bar is the reading. The per-track meters run bottom-to-top; the stereo <code>-IN-</code> and <code>-OUT-</code> meters run outwards from their label:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Bar</th><th>Color</th><th>Lights from</th></tr>
+</thead>
+<tbody>
+<tr><td>1 (red end)</td><td>🔴 Red</td><td>-3 dBFS and above</td></tr>
+<tr><td>2</td><td>🟠 Orange</td><td>-3 to -9 dBFS</td></tr>
+<tr><td>3</td><td>🟡 Yellow</td><td>-9 to -15 dBFS</td></tr>
+<tr><td>4</td><td>🟢 Yellow-green</td><td>-15 to -21 dBFS</td></tr>
+<tr><td>5-8 (quiet end)</td><td>🟢 Green</td><td>-21 to -48 dBFS</td></tr>
+</tbody>
+</table>
+</div>
+<p>Below -48 dBFS no bar lights.</p>
 <h4 id="input-level"><a class="header" href="#input-level">Input Level</a></h4>
 <ul>
 <li>Shows incoming signal of selected track</li>
@@ -329,6 +350,12 @@
 <li>Markers that change the tempo are always considered locked</li>
 </ul>
 </li>
+<li>Colour-code the marker with <strong>Encoder 7</strong> (<code>COLOR</code>) — turn to cycle
+through the regular marker colour plus red, yellow, green, cyan, blue,
+purple, pink and white; push to go back to the regular colour. The
+<code>COLOR</code> label is drawn in the selected colour as a preview. The marker
+head, its label background and its marker leg all follow, which makes
+sections easy to tell apart when scrolling a long project (new in v1.2.1)</li>
 </ul>
 </li>
 <li><code>UTILITY</code> → <code>MKR LEG</code> draws a vertical line under each marker for easier visual reference (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
@@ -342,6 +369,18 @@
 <li>Only <strong>unmuted tracks</strong> are included in Cut/Copy All Operations (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_cut-area-dark.svg"><img alt="cut-area" src="icons/individual/track8_cut-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_copy-area-dark.svg"><img alt="copy-area" src="icons/individual/track8_copy-area-light.svg" width="24"></picture> )</li>
 <li>The Clipboard is kept in Memory, and will be cleared when shutting down the device</li>
 <li>Touch the clipboard indicator to open the <a href="audio-clipboard-modifier.html">Audio Clipboard Modifier</a> and process the clipboard content</li>
+</ul>
+<h3 id="arrange-audio-and-midi-together"><a class="header" href="#arrange-audio-and-midi-together">Arrange Audio and MIDI together</a></h3>
+<p>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture> and press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_cut-area-dark.svg"><img alt="cut-area" src="icons/individual/track8_cut-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_copy-area-dark.svg"><img alt="copy-area" src="icons/individual/track8_copy-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_paste-at-position-dark.svg"><img alt="paste-at-position" src="icons/individual/track8_paste-at-position-light.svg" width="24"></picture> to run the operation on <strong>both</strong> the audio and the MIDI side in one gesture (new in v1.2.1). Use it to move whole song sections — a verse, a chorus — without leaving half the arrangement behind.</p>
+<ul>
+<li>Both domains share the playhead and the Markers, so both use the same region</li>
+<li>Like <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_cut-area-dark.svg"><img alt="cut-area" src="icons/individual/track8_cut-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_copy-area-dark.svg"><img alt="copy-area" src="icons/individual/track8_copy-area-light.svg" width="24"></picture>, only <strong>unmuted</strong> tracks are included — on the audio side <em>and</em> the MIDI side, each judged by its own mutes</li>
+<li>Paste puts every copied track back on its own track — also when only a single track was copied. There is no bouncing here: the multi-track clipboard keeps its layout on both sides</li>
+<li>Paste <em>replaces</em> the destination on both sides for the length of the pasted audio: the audio is overwritten and the MIDI events in that span are cleared before the clipboard is written, so nothing of the old section bleeds into the new one</li>
+<li>Both clipboards are used, so the chord replaces whatever was in them</li>
+<li>The chord works on the <a href="audio-overview.html">Audio Overview</a> and the <a href="midi-overview.html">MIDI Overview</a> — it does the same thing from either side</li>
+<li>Keep the two buttons held to chain operations: Copy, move the playhead, Paste, all in one grip</li>
+<li>Undo stays per-domain: undo the audio half on an audio screen (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><code>Record</code>) and the MIDI half on the MIDI Overview</li>
 </ul>
 <p>The clipboard can hold <strong>12 minutes</strong> of audio in total (since v1.2.1). This has the following implications on the Workflow:</p>
 <ul>

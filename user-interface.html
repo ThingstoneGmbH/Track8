@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-544a361a.js";
+            window.path_to_searchindex_js = "searchindex-21e01e3e.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6c720178.js"></script>
@@ -211,7 +211,9 @@ take is rolling (solid). It is visible on every screen (new in v1.2.1)</li>
 BPM, switching the record domain, opening heavy screens) are refused with
 an on-screen error instead of silently stopping the take (new in v1.2.1)</li>
 <li>The status bar at the bottom of the Overview screens shows the active
-recording mode, the overdub state and the current time/beat position:</li>
+recording mode, the overdub state and the current time/beat position.
+Bars and beats are counted from 1, so the start of the tape reads
+<code>01:01</code> (changed in v1.2.1 — it used to read <code>00:01</code>):</li>
 </ul>
 <img alt="Transport bar of the Audio Overview with labeled indicators" src="images/annotated/audio-overview-transport-detail.png" width="900">
 <h3 id="-touch"><a class="header" href="#-touch">👆 Touch</a></h3>
@@ -301,6 +303,9 @@ surrounding marker bounds; with <strong>SHIFT</strong> the punch region (since v
 </li>
 <li>
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_paste-at-position-dark.svg"><img alt="paste-at-position" src="icons/individual/track8_paste-at-position-light.svg" width="24"></picture> Bounce Clipboard into selected Track (audio)</p>
+</li>
+<li>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_cut-area-dark.svg"><img alt="cut-area" src="icons/individual/track8_cut-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_copy-area-dark.svg"><img alt="copy-area" src="icons/individual/track8_copy-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_paste-at-position-dark.svg"><img alt="paste-at-position" src="icons/individual/track8_paste-at-position-light.svg" width="24"></picture> Cut / Copy / Paste Audio <strong>and</strong> MIDI together, for arranging the whole song at once — see <a href="audio-overview.html#arrange-audio-and-midi-together">Arrange Audio and MIDI together</a> (new in v1.2.1)</p>
 </li>
 </ul>
 <p>After a paste the playhead can jump to the end of the pasted region to chain

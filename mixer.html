@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-544a361a.js";
+            window.path_to_searchindex_js = "searchindex-21e01e3e.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6c720178.js"></script>
@@ -192,7 +192,8 @@
 <li><code>D</code> — Delay send in %</li>
 <li><code>R</code> — Reverb send in %</li>
 </ul>
-<p>Muted strips are dimmed — including tracks silenced because another track is soloed. Only the <code>MUTE</code> label stays at full contrast: it is the way back.</p>
+<p>The strip meter shows the track’s post-fader output on the same 6 dB-per-bar scale as the <a href="audio-overview.html">Audio Overview</a> meters: red at the top is 0 dBFS, and a track pushed past 0 dBFS by its own volume holds the red bar lit.</p>
+<p>Muted strips are dimmed — including tracks silenced because another track is soloed. On silent tracks the <code>MUTE</code> button label lights up at full contrast: it is the way back. While a solo is active the soloed track’s label reads <code>SOLO</code> instead.</p>
 <h2 id="controls"><a class="header" href="#controls">Controls</a></h2>
 <h3 id="encoders"><a class="header" href="#encoders">Encoders</a></h3>
 <ul>
@@ -205,6 +206,11 @@
 <h3 id="track-buttons"><a class="header" href="#track-buttons">Track Buttons</a></h3>
 <ul>
 <li><code>Track Button</code> <em>n</em> toggles Mute for track <em>n</em> (no <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> needed — muting is the point of this screen)</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <code>Track Button</code> → Solo / Un-solo, the same gesture as on the <a href="audio-overview.html">Audio Overview</a> (new in v1.2.1)
+<ul>
+<li>Solo ignores the Mute states; while a solo is active, pressing any track button exits solo mode</li>
+</ul>
+</li>
 </ul>
 <h3 id="transport"><a class="header" href="#transport">Transport</a></h3>
 <ul>
@@ -212,8 +218,12 @@
 </ul>
 <h2 id="automation"><a class="header" href="#automation">Automation</a></h2>
 <ul>
+<li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_arm-record-dark.svg"><img alt="record" src="icons/individual/track8_arm-record-light.svg" width="24"></picture> to arm an automation-recording pass right from the mixer: the recording mode switches to <code>ATM</code> (automation only — recording from this screen never touches audio) and Record is armed; press Play and ride away (new in v1.2.1)</li>
+<li>In <code>ATM</code> mode <strong>every</strong> track records: turning any strip’s encoder writes into its automation lane — no track selection or arming needed (new in v1.2.1)</li>
+<li>While an automation-recording pass is running (<code>ATM</code>, or <code>A+A</code> started from the <a href="audio-overview.html">Audio Overview</a>), the value flashes in the recording color while writing</li>
+<li>A recorded automation pass undoes as a <strong>single step</strong>, no matter how many tracks and parameters you rode (in <code>A+A</code> mode the audio take and the automation pass are separate undo steps) (new in v1.2.1)</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_arm-record-dark.svg"><img alt="record" src="icons/individual/track8_arm-record-light.svg" width="24"></picture> while recording aborts the pass: playback stops and the automation recorded in it is discarded</li>
 <li>Values driven by an automation lane are rendered <strong>green</strong> and follow the playhead</li>
-<li>While an automation-recording pass is running (<code>A+A</code> or <code>ATM</code> recording mode, see <a href="audio-overview.html">Audio Overview</a>), turning a mixer encoder writes its moves into the matching automation lane — the value flashes in the recording color while writing</li>
 <li>The <code>D</code> and <code>R</code> sends record into their Track FX automation lanes</li>
 <li>To edit the recorded curve afterwards, use <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> — <a href="editing-audio.html">Audio Edit</a> opens on the parameter you last moved</li>
 </ul>
