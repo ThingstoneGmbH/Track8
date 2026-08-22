@@ -13,6 +13,11 @@ To ensure a friendly and collaborative environment, please follow these guidelin
 
 ---
 
+# Manual
+You can find an up to date manual on GithubPages here: [thingstonegmbh.github.io/Track8](https://thingstonegmbh.github.io/Track8)  
+
+---
+
 # Submitting Bug Reports & Issues
 
 If you encounter a problem with the Track8, please let us know by opening an issue on GitHub.  
