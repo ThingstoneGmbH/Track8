@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-2095f605.js";
+            window.path_to_searchindex_js = "searchindex-a3e2f399.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-6c720178.js"></script>
+        <script src="toc-257c0483.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -557,6 +557,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>Audio</td><td>Cycle Audio Overview / Track Mixer</td><td>Audio Edit</td></tr>
+<tr><td>Record</td><td>Record</td><td>Undo (both domains after an AUDIO + MIDI edit)</td></tr>
 <tr><td>Cut / Copy / Paste</td><td>Cut, Copy, Paste selected Track. Hold AUDIO + MIDI for Audio and MIDI together</td><td>Cut, Copy all unmuted Tracks. Paste to bounce</td></tr>
 </tbody>
 </table>
@@ -1002,6 +1003,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
 </thead>
 <tbody>
+<tr><td>Record</td><td>Record</td><td>Undo (both domains after an AUDIO + MIDI edit)</td></tr>
 <tr><td>Cut / Copy / Paste</td><td>Cut, Copy, Paste selected Track. Hold AUDIO + MIDI for Audio and MIDI together</td><td>Cut, Copy all unmuted Tracks. Paste to bounce</td></tr>
 </tbody>
 </table>
@@ -1068,6 +1070,8 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Grid</td><td>Push to toggle triplets</td></tr>
+<tr><td>Encoder 6</td><td>Note cursor</td><td>Steps through the device profile’s rows when one is bound</td></tr>
+<tr><td>Encoder 7</td><td>Zoom</td><td>SHIFT + Push: chromatic piano / profile rows</td></tr>
 </tbody>
 </table>
 </div>
@@ -1238,7 +1242,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>Encoder 1</td><td>Delay Time</td><td>Push to toggle between ms and note values</td></tr>
-<tr><td>Encoder 2</td><td>Feedback, PingPong Width</td><td>Push to toggle</td></tr>
+<tr><td>Encoder 2</td><td>Feedback, Width, Mod Rate, Mod Depth</td><td>Push to cycle</td></tr>
 <tr><td>Encoder 3</td><td>Reverb Size</td><td>—</td></tr>
 <tr><td>Encoder 4</td><td>Width, Damp, Predelay</td><td>Push to toggle</td></tr>
 <tr><td>Encoder 5</td><td>Compressor Values</td><td>—</td></tr>
@@ -1384,7 +1388,11 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tbody>
 <tr><td>2</td><td>Backup to USB Stick</td></tr>
 <tr><td>3</td><td>Import Backup from USB Stick</td></tr>
+<tr><td>4</td><td>Save As, SHIFT: save settings as Template</td></tr>
+<tr><td>5</td><td>Rename project / template</td></tr>
 <tr><td>6</td><td>Hold SHIFT to delete</td></tr>
+<tr><td>7</td><td>New project, Encoder 1 picks a Template</td></tr>
+<tr><td>8</td><td>Load, on a Template: new project FROM TMP</td></tr>
 </tbody>
 </table>
 </div>
@@ -1990,6 +1998,30 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <li>Markers that change the tempo are always considered locked</li>
 </ul>
 </li>
+<li>Send <strong>MIDI events</strong> to external gear when the playhead crosses the
+marker (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>):
+<ul>
+<li><strong>Encoder 4</strong> picks what Encoders 5/6 edit: <code>-</code> (no MIDI event — turning
+back to <code>-</code> clears it), <code>TRANS</code> or <code>PROG</code>. A marker sends one or the
+other — setting one clears the other</li>
+<li><code>TRANS</code> — <strong>Encoder 5</strong>: <code>---</code> / <code>START</code> / <code>STOP</code>. Sends MIDI Start or
+Stop at the marker, e.g. to kick a drum machine’s pattern in at the
+chorus or stop an external sequencer for a breakdown. Only while Track8
+is MIDI Clock <strong>Master</strong>; independent of the <code>TRANSPORT</code> send setting.
+With <code>CLOCK</code> on, the message is aligned to the next clock tick like
+Track8’s own transport</li>
+<li><code>PROG</code> — <strong>Encoder 5</strong>: channel (<code>CH 1…16</code>, starts on the selected MIDI
+track’s channel), <strong>Encoder 6</strong>: <code>PROG 1…128</code> (turn below <code>1</code> → <code>---</code>
+removes the program change); push Encoder 6 to switch Encoder 6 to
+<code>BANK 1…128</code> (Bank Select MSB). One event per marker; use two markers
+for two devices or for a program change plus a transport command</li>
+<li>Program changes are <strong>caught up</strong>: on play start, locate and loop wrap
+the latest program change at or before the playhead is re-sent per
+channel, so a synth is in the right patch when you start mid-song.
+Transport events fire only when the marker is actually crossed</li>
+<li>Markers with MIDI events show an <code>M</code> on the marker head</li>
+</ul>
+</li>
 <li>Colour-code the marker with <strong>Encoder 7</strong> (<code>COLOR</code>) — turn to cycle
 through the regular marker colour plus red, yellow, green, cyan, blue,
 purple, pink and white; push to go back to the regular colour. The
@@ -2020,7 +2052,11 @@ sections easy to tell apart when scrolling a long project (new in <a href="https
 <li>Both clipboards are used, so the chord replaces whatever was in them</li>
 <li>The chord works on the <a href="#audio-overview-1">Audio Overview</a> and the <a href="#midi-overview-1">MIDI Overview</a> — it does the same thing from either side</li>
 <li>Keep the two buttons held to chain operations: Copy, move the playhead, Paste, all in one grip</li>
-<li>Undo stays per-domain: undo the audio half on an audio screen (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><code>Record</code>) and the MIDI half on the MIDI Overview</li>
+<li><strong>One Undo reverts both halves.</strong> After a chord Cut or Paste, a plain Undo (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><code>Record</code>) takes the audio <em>and</em> the MIDI side back, from either screen, and shows <code>UNDO Audio + MIDI</code>. Redo (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture>push Encoder 8) restores both the same way (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)
+<ul>
+<li>This holds as long as the chord edit is the newest thing on both sides. Edit one domain on its own afterwards and Undo stays per-domain: on that domain’s screen it reverts the newer edit first — the chord edit underneath is only <em>covered up</em>, not lost: undo that edit and the following Undo pairs both domains again. On the <em>other</em> screen it reverts that side’s half of the chord on its own, and from then on the two halves are undone and redone independently</li>
+</ul>
+</li>
 </ul>
 <p>The clipboard can hold <strong>12 minutes</strong> of audio in total (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>). This has the following implications on the Workflow:</p>
 <ul>
@@ -2399,6 +2435,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Cut/Copy includes all tracks</li>
 <li>Paste always goes to the <strong>Playhead</strong> position on the selected track and — like audio — <em>replaces</em> what is there for the length of the clipboard (notes, controllers, pitchbend, aftertouch); it does not merge onto existing events (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>, before that Paste merged)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture> + Cut/Copy/Paste runs the operation on the MIDI <strong>and</strong> the audio side at once, for arranging the whole song — see <a href="#arrange-audio-and-midi-together">Arrange Audio and MIDI together</a> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li>After such a chord Cut/Paste, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Record</code> undoes the MIDI <strong>and</strong> the audio half in one press (<code>UNDO Audio + MIDI</code>), and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push Encoder 8 redoes both (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 </ul>
 </li>
 </ul>
@@ -2435,7 +2472,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li>MTC mode: frame rate (24/25/29.97/30 fps) and, as slave, an MTC offset</li>
 </ul>
 <p>Clock sync has been hardened over several releases (tighter DIN clock since v1.1.1, larger averaging and outlier detection for slave sync, further MIDI scheduling and jitter improvements new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>).</p>
-<p>The <code>DEVICE</code>, <code>CONTROL</code> and <code>CH NAMES</code> buttons on this screen configure <a href="#midi-remote-control-since-v114">MIDI Remote Control</a> and channel names.</p>
+<p>The <code>DEVICE</code>, <code>CONTROL</code> and <code>CH NAMES</code> buttons on this screen configure <a href="#midi-remote-control-since-v114">MIDI Remote Control</a>, channel names and <a href="#midi-device-profiles">MIDI Device Profiles</a> (per-channel note/CC names for drum machines and synths, since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>).</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="editing-midi"><a class="header" href="#editing-midi">Editing MIDI</a></h1>
 <h2 id="-midi-edit-notes"><a class="header" href="#-midi-edit-notes">🖥 MIDI Edit (Notes)</a></h2>
@@ -2458,7 +2495,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <ul>
 <li>Encoder 1: selected track</li>
 <li>Encoder 2: <code>GRID</code> resolution — push to toggle triplets (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
-<li>Encoder 7: zoom</li>
+<li>Encoder 7: zoom — <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push toggles the chromatic piano / profile rows when a <a href="#midi-device-profiles">MIDI Device Profile</a> is bound (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 <li>Encoder 8: scroll along the timeline</li>
 <li><code>Left</code>/<code>Right</code>: nudge the playhead by grid steps, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Left</code>/<code>Right</code>: jump between markers</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Play</code>: jump to the edit region start; playback stops at the region end unless <code>LOOP</code> is enabled (since v1.2.0)</li>
@@ -2466,6 +2503,13 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </ul>
 <hr>
 <h2 id="-note-editing"><a class="header" href="#-note-editing">🎹 Note Editing</a></h2>
+<h3 id="profile-piano-roll-since-v121-snapshot"><a class="header" href="#profile-piano-roll-since-v121-snapshot">Profile piano roll (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</a></h3>
+<p>If the track’s MIDI channel has a <a href="#midi-device-profiles">MIDI Device Profile</a>
+with named notes, the piano on the left is replaced by those names — one row
+per drum sound, expanded to fill the screen for up to 15 rows (more rows keep a readable height and scroll around the cursor).
+Notes with data that are not in the profile still get a row (labelled with the note name). The
+note cursor (<code>Encoder 6</code>) steps from row to row; <code>SNAP</code> is off in this view.</p>
+<img alt="MIDI Edit with a TR-909 device profile" src="images/screens/MidiEdit-Profile.png" width="900">
 <h3 id="editable-parameters"><a class="header" href="#editable-parameters">Editable Parameters</a></h3>
 <ul>
 <li>Start (Encoder 3)</li>
@@ -2567,8 +2611,8 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + touch erases instead of drawing</li>
 <li>Encoder 5 selects the CC; push Encoder 5 to cycle the CC list mode:
 <ul>
-<li><strong>Named CCs</strong> (standard controllers)</li>
-<li><strong>Free CCs</strong> (all numbered controllers)</li>
+<li><strong>Named CCs</strong> (standard controllers — or the device’s own list when the track’s channel has a <a href="#midi-device-profiles">MIDI Device Profile</a> with controllers, since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li><strong>Free CCs</strong> (all numbered controllers not in the named list)</li>
 <li><strong>AFTERTOUCH</strong> — Channel Aftertouch recording and editing (since v1.1.3)</li>
 </ul>
 </li>
@@ -2586,6 +2630,88 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li>Clearing respects Marker positions: only the region between the surrounding markers is cleared, same as audio automations (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 </ul>
 <!-- screenshot: CC/AT view in AFTERTOUCH mode showing the GLOBAL AT lane -->
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="midi-device-profiles"><a class="header" href="#midi-device-profiles">MIDI Device Profiles</a></h1>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</p>
+<p>A <strong>device profile</strong> tells Track8 what an external MIDI device understands:
+which notes trigger which drum sound, and which CCs it listens to. Bind a
+profile to a MIDI channel and every track sent to that channel gets:</p>
+<ul>
+<li>a <strong>profile piano roll</strong> in MIDI Edit — one labelled row per named note
+(<code>Kick</code>, <code>Snare</code>, <code>HH Close</code> …) instead of the chromatic piano, rows
+expanded to fill the screen when only a few notes are configured</li>
+<li>a <strong>CC selector</strong> that lists the device’s controllers, in the profile’s
+order and with the profile’s names</li>
+</ul>
+<img alt="MIDI Edit with a TR-909 device profile" src="images/screens/MidiEdit-Profile.png" width="900">
+<p>Profiles are bound <strong>per MIDI channel, globally</strong> — a synth on channel 5 is
+the same synth in every project. Binding lives in <code>UTILITY</code> → <code>MIDI</code> →
+<code>CH NAMES</code>, next to the channel names.</p>
+<h2 id="binding-a-profile-to-a-channel"><a class="header" href="#binding-a-profile-to-a-channel">Binding a profile to a channel</a></h2>
+<p><code>UTILITY</code> → <code>MIDI</code> → <code>CH NAMES</code>:</p>
+<ul>
+<li><strong>Encoder 1</strong> highlights a channel row</li>
+<li><strong>Encoder 8</strong> cycles the profile for that channel: <code>---</code> (none) and every
+profile file found on the SSD; <strong>push</strong> clears the binding</li>
+<li>A bound channel shows the profile’s name (in the automation colour); a
+custom channel name (touch the row) still wins for display</li>
+</ul>
+<p>The folder is rescanned every time you open <code>CH NAMES</code>, so a file you just
+copied over USB shows up immediately.</p>
+<h2 id="profile-files"><a class="header" href="#profile-files">Profile files</a></h2>
+<p>Profiles are JSON files in <code>midi_profiles/</code> on the Track8 SSD (next to
+<code>projects/</code>). Edit them on a computer in USB-disk mode. On first start
+Track8 creates the folder with a few examples to copy from: <code>GM Drums</code>,
+<code>TR-909</code>, <code>TR-808</code>, <code>Generic Synth</code>.</p>
+<pre><code class="language-json">{
+  "version": 1,
+  "name": "Tempest",
+  "notes": {
+    "36": "Kick",
+    "38": "Snare",
+    "42": "HH Close",
+    "46": "HH Open"
+  },
+  "controllers": [
+    { "cc": 74, "name": "Cutoff" },
+    { "cc": 71, "name": "Reso" },
+    { "cc": 1,  "name": "Mod" }
+  ]
+}
+</code></pre>
+<ul>
+<li><code>name</code> — shown on the device (max 16 characters). Empty → the file name.</li>
+<li><code>notes</code> — note number (0–127) → label (max 10 characters). Only these notes
+get a row in the profile piano roll. Leave empty for a melodic device.</li>
+<li><code>controllers</code> — the CC list of the <strong>Named</strong> selector, in this order, with
+these names (max 10 characters). Leave empty to keep the standard list.</li>
+<li>The file name (without <code>.json</code>) is what the channel binding remembers —
+rename the file and the binding shows <code>name ?</code> until you re-bind it.</li>
+<li>A file that does not parse is ignored (and logged); it never breaks the
+others.</li>
+</ul>
+<h2 id="in-midi-edit"><a class="header" href="#in-midi-edit">In MIDI Edit</a></h2>
+<p><strong>Note view</strong> (profile with <code>notes</code>):</p>
+<ul>
+<li>The piano keys on the left are replaced by the note names; rows that are
+not in the profile but carry data on this track still get a row, labelled
+with the note name (<code>E2</code>), so nothing becomes unreachable.</li>
+<li><code>Encoder 6</code> (note cursor) steps from row to row; moving or adding a note
+works the same way — a note can only sit on a row.</li>
+<li>Up to 15 rows (named notes plus any notes with data) → rows grow (up to
+3× the chromatic row) and the block is centred; with more rows the labels
+would become unreadable, so the rows keep their readable height and scroll
+around the cursor instead (like the chromatic piano).</li>
+<li><strong><code>SHIFT</code> + push <code>Encoder 7</code></strong> (zoom) toggles back to the chromatic piano
+(and back again) for the session — e.g. to play a melodic part on a drum
+channel.</li>
+<li><code>SNAP</code> helpers (TRKR / HARM) are off while the profile rows are shown.</li>
+</ul>
+<p><strong>CC/AT view</strong> (profile with <code>controllers</code>):</p>
+<ul>
+<li><strong>Named CCs</strong> = the profile’s list; <strong>Free CCs</strong> = every other CC, so a CC
+the profile hides is still reachable there.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="track-mixer-1"><a class="header" href="#track-mixer-1">Track Mixer</a></h1>
 <p>The Track Mixer (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>) shows all 8 audio tracks as classic mixer strips — level meter, volume, pan and the delay/reverb sends side by side — so you can balance a whole mix from one screen.</p>
@@ -2832,10 +2958,20 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <h3 id="delay"><a class="header" href="#delay">Delay</a></h3>
 <ul>
 <li><code>Encoder 1</code>: Time — ms <strong>or</strong> beat-synced (push to toggle)</li>
-<li><code>Encoder 2</code>: Feedback / Ping-pong width (push to toggle)</li>
-<li><code>Track Button 1</code>: Delay on/off</li>
+<li><code>Encoder 2</code>: Feedback / Width / Mod Rate / Mod Depth (push to cycle)</li>
+<li><code>Track Button 1</code>: Delay on/off — off mutes the delay return; the track sends themselves are unaffected (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>, previously the sends passed through dry)</li>
 <li><code>Track Button 2</code>: Ping-pong on/off</li>
 </ul>
+<h4 id="delay-lfo-chorus--flanger"><a class="header" href="#delay-lfo-chorus--flanger">Delay LFO (chorus / flanger)</a></h4>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</p>
+<p>The delay time can be modulated by an LFO — this turns the delay into a chorus or flanger:</p>
+<ul>
+<li><strong>Mod Rate</strong> (0.1–10 Hz) — LFO speed</li>
+<li><strong>Mod Depth</strong> (0–20 ms) — how far the delay time swings; <code>0 ms</code> = LFO off (default)</li>
+<li><strong>Width</strong> — with modulation active, Width also sets the L/R phase offset of the LFO: <code>0%</code> = both channels move together (mono chorus), <code>100%</code> = 180° apart (wide stereo). When <strong>Ping-pong</strong> is on, Width additionally controls the ping-pong spread as before.</li>
+<li><code>Shift + Encoder 2</code> = fine steps</li>
+</ul>
+<p>Recipes: <em>Chorus</em> — Time 15–30 ms, Feedback 0–20 %, Mod Rate 0.3–1 Hz, Mod Depth 2–5 ms. <em>Flanger</em> — Time 10 ms, Feedback 50–80 %, Mod Rate 0.1–0.5 Hz, Mod Depth 1–3 ms. The radar’s time arc wobbles to indicate rate and depth.</p>
 <hr>
 <h3 id="reverb"><a class="header" href="#reverb">Reverb</a></h3>
 <ul>
@@ -3071,7 +3207,30 @@ as a preview. Projects are sorted alphanumerically (new in <a href="https://gith
 <li><strong>RENAME</strong> (Track 5) — rename the selected project</li>
 <li><strong>SHIFT</strong> + Track 6 — delete the selected project (the active project
 cannot be deleted; a confirmation dialog appears)</li>
-<li><strong>NEW</strong> (Track 7) — create a new project</li>
+<li><strong>NEW</strong> (Track 7) — create a new project; <strong>Encoder 1</strong> on the name
+keyboard picks a <strong>template</strong> (<code>TEMPLATE: ---</code> = empty project)</li>
+</ul>
+<h3 id="project-templates"><a class="header" href="#project-templates">Project Templates</a></h3>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</p>
+<p>A template is a project without content: it keeps the <strong>settings</strong> (BPM,
+time signature, metronome, record modes), track names and colours, MIDI
+channels, mixer levels / pans / mutes, Track FX, sends, Master FX and
+Mastering, external channel mapping and grid preferences — but no audio,
+MIDI, automation, markers, loop or punch. It also carries a <strong>setup</strong>: the
+audio interface configuration, MIDI sync settings, threshold record and
+tuner settings (channel names and device profiles stay as they are).</p>
+<ul>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <strong>SAVE AS</strong> → <strong>SAVE TMP</strong> saves the current project’s settings as a template</li>
+<li>Templates are listed at the bottom of the browser as <code>TEMPLATE: &lt;name&gt;</code>
+(no waveform preview). With a template highlighted, <strong>LOAD</strong> turns into
+<strong>FROM TMP</strong>: enter a name for the new project (a random one is
+suggested) and it is created from the template</li>
+<li><strong>RENAME</strong> and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track 6 (delete) work on templates too</li>
+<li>The template’s setup is applied when the project is created. The active
+audio interface itself is never switched automatically: if the template
+was saved with a different interface, a hint asks you to select it in
+<code>UTILITY</code> → <code>AUDIO</code></li>
+<li>Templates live in <code>templates/</code> next to <code>projects/</code> on the SSD</li>
 </ul>
 <p>Projects load faster since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>: the waveform overview is cached with the
 project. The first load of an older project (or after editing its files
@@ -3172,7 +3331,7 @@ or <code>A &amp;&amp; M</code> recording is enabled in the project settings (sin
 <li><strong>DEVICE</strong> and <strong>CONTROL</strong> — flag a MIDI device for remote control and
 edit control mappings, see <a href="#midi-remote-control-since-v114">MIDI Remote Control</a>
 (since v1.1.4)</li>
-<li><strong>CH NAMES</strong> — name your MIDI channels</li>
+<li><strong>CH NAMES</strong> — name your MIDI channels and bind a <a href="#midi-device-profiles">MIDI Device Profile</a> per channel (Encoder 1 picks the row, Encoder 8 the profile; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 </ul>
 <h3 id="tape-track-5"><a class="header" href="#tape-track-5">Tape (Track 5)</a></h3>
 <img alt="Tape" src="images/screens/UtilitiesTape.png" width="900">

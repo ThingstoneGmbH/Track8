@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Safety and Compliance - Track8 Manual</title>
+        <title>MIDI Device Profiles - Track8 Manual</title>
 
 
         <!-- Custom HTML head -->
@@ -174,36 +174,99 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="safety--compliance"><a class="header" href="#safety--compliance">Safety &amp; Compliance</a></h1>
-<h2 id="power"><a class="header" href="#power">Power</a></h2>
+                        <h1 id="midi-device-profiles"><a class="header" href="#midi-device-profiles">MIDI Device Profiles</a></h1>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</p>
+<p>A <strong>device profile</strong> tells Track8 what an external MIDI device understands:
+which notes trigger which drum sound, and which CCs it listens to. Bind a
+profile to a MIDI channel and every track sent to that channel gets:</p>
 <ul>
-<li>USB-C PD required</li>
-<li>9V ≥ 20W</li>
+<li>a <strong>profile piano roll</strong> in MIDI Edit — one labelled row per named note
+(<code>Kick</code>, <code>Snare</code>, <code>HH Close</code> …) instead of the chromatic piano, rows
+expanded to fill the screen when only a few notes are configured</li>
+<li>a <strong>CC selector</strong> that lists the device’s controllers, in the profile’s
+order and with the profile’s names</li>
 </ul>
-<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<img alt="MIDI Edit with a TR-909 device profile" src="images/screens/MidiEdit-Profile.png" width="900">
+<p>Profiles are bound <strong>per MIDI channel, globally</strong> — a synth on channel 5 is
+the same synth in every project. Binding lives in <code>UTILITY</code> → <code>MIDI</code> →
+<code>CH NAMES</code>, next to the channel names.</p>
+<h2 id="binding-a-profile-to-a-channel"><a class="header" href="#binding-a-profile-to-a-channel">Binding a profile to a channel</a></h2>
+<p><code>UTILITY</code> → <code>MIDI</code> → <code>CH NAMES</code>:</p>
 <ul>
-<li>Avoid high volume exposure</li>
-<li>Keep away from liquids</li>
-<li>Avoid extreme temperatures</li>
+<li><strong>Encoder 1</strong> highlights a channel row</li>
+<li><strong>Encoder 8</strong> cycles the profile for that channel: <code>---</code> (none) and every
+profile file found on the SSD; <strong>push</strong> clears the binding</li>
+<li>A bound channel shows the profile’s name (in the automation colour); a
+custom channel name (touch the row) still wins for display</li>
 </ul>
-<h2 id="certifications"><a class="header" href="#certifications">Certifications</a></h2>
+<p>The folder is rescanned every time you open <code>CH NAMES</code>, so a file you just
+copied over USB shows up immediately.</p>
+<h2 id="profile-files"><a class="header" href="#profile-files">Profile files</a></h2>
+<p>Profiles are JSON files in <code>midi_profiles/</code> on the Track8 SSD (next to
+<code>projects/</code>). Edit them on a computer in USB-disk mode. On first start
+Track8 creates the folder with a few examples to copy from: <code>GM Drums</code>,
+<code>TR-909</code>, <code>TR-808</code>, <code>Generic Synth</code>.</p>
+<pre><code class="language-json">{
+  "version": 1,
+  "name": "Tempest",
+  "notes": {
+    "36": "Kick",
+    "38": "Snare",
+    "42": "HH Close",
+    "46": "HH Open"
+  },
+  "controllers": [
+    { "cc": 74, "name": "Cutoff" },
+    { "cc": 71, "name": "Reso" },
+    { "cc": 1,  "name": "Mod" }
+  ]
+}
+</code></pre>
 <ul>
-<li>CE</li>
-<li>FCC (Part 15 Class B)</li>
-<li>ICES-003</li>
+<li><code>name</code> — shown on the device (max 16 characters). Empty → the file name.</li>
+<li><code>notes</code> — note number (0–127) → label (max 10 characters). Only these notes
+get a row in the profile piano roll. Leave empty for a melodic device.</li>
+<li><code>controllers</code> — the CC list of the <strong>Named</strong> selector, in this order, with
+these names (max 10 characters). Leave empty to keep the standard list.</li>
+<li>The file name (without <code>.json</code>) is what the channel binding remembers —
+rename the file and the binding shows <code>name ?</code> until you re-bind it.</li>
+<li>A file that does not parse is ignored (and logged); it never breaks the
+others.</li>
 </ul>
-<hr>
-<h2 id="fcc-note"><a class="header" href="#fcc-note">FCC Note</a></h2>
-<p>Use compliant USB-C power supplies to avoid emissions issues.</p>
+<h2 id="in-midi-edit"><a class="header" href="#in-midi-edit">In MIDI Edit</a></h2>
+<p><strong>Note view</strong> (profile with <code>notes</code>):</p>
+<ul>
+<li>The piano keys on the left are replaced by the note names; rows that are
+not in the profile but carry data on this track still get a row, labelled
+with the note name (<code>E2</code>), so nothing becomes unreachable.</li>
+<li><code>Encoder 6</code> (note cursor) steps from row to row; moving or adding a note
+works the same way — a note can only sit on a row.</li>
+<li>Up to 15 rows (named notes plus any notes with data) → rows grow (up to
+3× the chromatic row) and the block is centred; with more rows the labels
+would become unreadable, so the rows keep their readable height and scroll
+around the cursor instead (like the chromatic piano).</li>
+<li><strong><code>SHIFT</code> + push <code>Encoder 7</code></strong> (zoom) toggles back to the chromatic piano
+(and back again) for the session — e.g. to play a melodic part on a drum
+channel.</li>
+<li><code>SNAP</code> helpers (TRKR / HARM) are off while the profile rows are shown.</li>
+</ul>
+<p><strong>CC/AT view</strong> (profile with <code>controllers</code>):</p>
+<ul>
+<li><strong>Named CCs</strong> = the profile’s list; <strong>Free CCs</strong> = every other CC, so a CC
+the profile hides is still reachable there.</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="design-principles.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="editing-midi.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
+                            <a rel="next prefetch" href="mixer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -211,10 +274,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="design-principles.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="editing-midi.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
+                    <a rel="next prefetch" href="mixer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
             </nav>
 
         </div>

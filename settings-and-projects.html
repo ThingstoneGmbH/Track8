@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-2095f605.js";
+            window.path_to_searchindex_js = "searchindex-a3e2f399.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-6c720178.js"></script>
+        <script src="toc-257c0483.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -233,7 +233,30 @@ as a preview. Projects are sorted alphanumerically (new in <a href="https://gith
 <li><strong>RENAME</strong> (Track 5) — rename the selected project</li>
 <li><strong>SHIFT</strong> + Track 6 — delete the selected project (the active project
 cannot be deleted; a confirmation dialog appears)</li>
-<li><strong>NEW</strong> (Track 7) — create a new project</li>
+<li><strong>NEW</strong> (Track 7) — create a new project; <strong>Encoder 1</strong> on the name
+keyboard picks a <strong>template</strong> (<code>TEMPLATE: ---</code> = empty project)</li>
+</ul>
+<h3 id="project-templates"><a class="header" href="#project-templates">Project Templates</a></h3>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</p>
+<p>A template is a project without content: it keeps the <strong>settings</strong> (BPM,
+time signature, metronome, record modes), track names and colours, MIDI
+channels, mixer levels / pans / mutes, Track FX, sends, Master FX and
+Mastering, external channel mapping and grid preferences — but no audio,
+MIDI, automation, markers, loop or punch. It also carries a <strong>setup</strong>: the
+audio interface configuration, MIDI sync settings, threshold record and
+tuner settings (channel names and device profiles stay as they are).</p>
+<ul>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <strong>SAVE AS</strong> → <strong>SAVE TMP</strong> saves the current project’s settings as a template</li>
+<li>Templates are listed at the bottom of the browser as <code>TEMPLATE: &lt;name&gt;</code>
+(no waveform preview). With a template highlighted, <strong>LOAD</strong> turns into
+<strong>FROM TMP</strong>: enter a name for the new project (a random one is
+suggested) and it is created from the template</li>
+<li><strong>RENAME</strong> and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track 6 (delete) work on templates too</li>
+<li>The template’s setup is applied when the project is created. The active
+audio interface itself is never switched automatically: if the template
+was saved with a different interface, a hint asks you to select it in
+<code>UTILITY</code> → <code>AUDIO</code></li>
+<li>Templates live in <code>templates/</code> next to <code>projects/</code> on the SSD</li>
 </ul>
 <p>Projects load faster since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>: the waveform overview is cached with the
 project. The first load of an older project (or after editing its files

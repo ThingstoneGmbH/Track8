@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-2095f605.js";
+            window.path_to_searchindex_js = "searchindex-a3e2f399.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-6c720178.js"></script>
+        <script src="toc-257c0483.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -230,6 +230,7 @@
 </thead>
 <tbody>
 <tr><td>Audio</td><td>Cycle Audio Overview / Track Mixer</td><td>Audio Edit</td></tr>
+<tr><td>Record</td><td>Record</td><td>Undo (both domains after an AUDIO + MIDI edit)</td></tr>
 <tr><td>Cut / Copy / Paste</td><td>Cut, Copy, Paste selected Track. Hold AUDIO + MIDI for Audio and MIDI together</td><td>Cut, Copy all unmuted Tracks. Paste to bounce</td></tr>
 </tbody>
 </table>
@@ -675,6 +676,7 @@
 <tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
 </thead>
 <tbody>
+<tr><td>Record</td><td>Record</td><td>Undo (both domains after an AUDIO + MIDI edit)</td></tr>
 <tr><td>Cut / Copy / Paste</td><td>Cut, Copy, Paste selected Track. Hold AUDIO + MIDI for Audio and MIDI together</td><td>Cut, Copy all unmuted Tracks. Paste to bounce</td></tr>
 </tbody>
 </table>
@@ -741,6 +743,8 @@
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Grid</td><td>Push to toggle triplets</td></tr>
+<tr><td>Encoder 6</td><td>Note cursor</td><td>Steps through the device profile’s rows when one is bound</td></tr>
+<tr><td>Encoder 7</td><td>Zoom</td><td>SHIFT + Push: chromatic piano / profile rows</td></tr>
 </tbody>
 </table>
 </div>
@@ -911,7 +915,7 @@
 </thead>
 <tbody>
 <tr><td>Encoder 1</td><td>Delay Time</td><td>Push to toggle between ms and note values</td></tr>
-<tr><td>Encoder 2</td><td>Feedback, PingPong Width</td><td>Push to toggle</td></tr>
+<tr><td>Encoder 2</td><td>Feedback, Width, Mod Rate, Mod Depth</td><td>Push to cycle</td></tr>
 <tr><td>Encoder 3</td><td>Reverb Size</td><td>—</td></tr>
 <tr><td>Encoder 4</td><td>Width, Damp, Predelay</td><td>Push to toggle</td></tr>
 <tr><td>Encoder 5</td><td>Compressor Values</td><td>—</td></tr>
@@ -1057,7 +1061,11 @@
 <tbody>
 <tr><td>2</td><td>Backup to USB Stick</td></tr>
 <tr><td>3</td><td>Import Backup from USB Stick</td></tr>
+<tr><td>4</td><td>Save As, SHIFT: save settings as Template</td></tr>
+<tr><td>5</td><td>Rename project / template</td></tr>
 <tr><td>6</td><td>Hold SHIFT to delete</td></tr>
+<tr><td>7</td><td>New project, Encoder 1 picks a Template</td></tr>
+<tr><td>8</td><td>Load, on a Template: new project FROM TMP</td></tr>
 </tbody>
 </table>
 </div>

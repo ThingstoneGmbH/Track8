@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-2095f605.js";
+            window.path_to_searchindex_js = "searchindex-a3e2f399.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-6c720178.js"></script>
+        <script src="toc-257c0483.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -350,6 +350,30 @@
 <li>Markers that change the tempo are always considered locked</li>
 </ul>
 </li>
+<li>Send <strong>MIDI events</strong> to external gear when the playhead crosses the
+marker (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>):
+<ul>
+<li><strong>Encoder 4</strong> picks what Encoders 5/6 edit: <code>-</code> (no MIDI event — turning
+back to <code>-</code> clears it), <code>TRANS</code> or <code>PROG</code>. A marker sends one or the
+other — setting one clears the other</li>
+<li><code>TRANS</code> — <strong>Encoder 5</strong>: <code>---</code> / <code>START</code> / <code>STOP</code>. Sends MIDI Start or
+Stop at the marker, e.g. to kick a drum machine’s pattern in at the
+chorus or stop an external sequencer for a breakdown. Only while Track8
+is MIDI Clock <strong>Master</strong>; independent of the <code>TRANSPORT</code> send setting.
+With <code>CLOCK</code> on, the message is aligned to the next clock tick like
+Track8’s own transport</li>
+<li><code>PROG</code> — <strong>Encoder 5</strong>: channel (<code>CH 1…16</code>, starts on the selected MIDI
+track’s channel), <strong>Encoder 6</strong>: <code>PROG 1…128</code> (turn below <code>1</code> → <code>---</code>
+removes the program change); push Encoder 6 to switch Encoder 6 to
+<code>BANK 1…128</code> (Bank Select MSB). One event per marker; use two markers
+for two devices or for a program change plus a transport command</li>
+<li>Program changes are <strong>caught up</strong>: on play start, locate and loop wrap
+the latest program change at or before the playhead is re-sent per
+channel, so a synth is in the right patch when you start mid-song.
+Transport events fire only when the marker is actually crossed</li>
+<li>Markers with MIDI events show an <code>M</code> on the marker head</li>
+</ul>
+</li>
 <li>Colour-code the marker with <strong>Encoder 7</strong> (<code>COLOR</code>) — turn to cycle
 through the regular marker colour plus red, yellow, green, cyan, blue,
 purple, pink and white; push to go back to the regular colour. The
@@ -380,7 +404,11 @@ sections easy to tell apart when scrolling a long project (new in <a href="https
 <li>Both clipboards are used, so the chord replaces whatever was in them</li>
 <li>The chord works on the <a href="audio-overview.html">Audio Overview</a> and the <a href="midi-overview.html">MIDI Overview</a> — it does the same thing from either side</li>
 <li>Keep the two buttons held to chain operations: Copy, move the playhead, Paste, all in one grip</li>
-<li>Undo stays per-domain: undo the audio half on an audio screen (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><code>Record</code>) and the MIDI half on the MIDI Overview</li>
+<li><strong>One Undo reverts both halves.</strong> After a chord Cut or Paste, a plain Undo (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><code>Record</code>) takes the audio <em>and</em> the MIDI side back, from either screen, and shows <code>UNDO Audio + MIDI</code>. Redo (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture>push Encoder 8) restores both the same way (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)
+<ul>
+<li>This holds as long as the chord edit is the newest thing on both sides. Edit one domain on its own afterwards and Undo stays per-domain: on that domain’s screen it reverts the newer edit first — the chord edit underneath is only <em>covered up</em>, not lost: undo that edit and the following Undo pairs both domains again. On the <em>other</em> screen it reverts that side’s half of the chord on its own, and from then on the two halves are undone and redone independently</li>
+</ul>
+</li>
 </ul>
 <p>The clipboard can hold <strong>12 minutes</strong> of audio in total (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>). This has the following implications on the Workflow:</p>
 <ul>

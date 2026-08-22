@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-2095f605.js";
+            window.path_to_searchindex_js = "searchindex-a3e2f399.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-6c720178.js"></script>
+        <script src="toc-257c0483.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -259,10 +259,20 @@
 <h3 id="delay"><a class="header" href="#delay">Delay</a></h3>
 <ul>
 <li><code>Encoder 1</code>: Time — ms <strong>or</strong> beat-synced (push to toggle)</li>
-<li><code>Encoder 2</code>: Feedback / Ping-pong width (push to toggle)</li>
-<li><code>Track Button 1</code>: Delay on/off</li>
+<li><code>Encoder 2</code>: Feedback / Width / Mod Rate / Mod Depth (push to cycle)</li>
+<li><code>Track Button 1</code>: Delay on/off — off mutes the delay return; the track sends themselves are unaffected (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>, previously the sends passed through dry)</li>
 <li><code>Track Button 2</code>: Ping-pong on/off</li>
 </ul>
+<h4 id="delay-lfo-chorus--flanger"><a class="header" href="#delay-lfo-chorus--flanger">Delay LFO (chorus / flanger)</a></h4>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</p>
+<p>The delay time can be modulated by an LFO — this turns the delay into a chorus or flanger:</p>
+<ul>
+<li><strong>Mod Rate</strong> (0.1–10 Hz) — LFO speed</li>
+<li><strong>Mod Depth</strong> (0–20 ms) — how far the delay time swings; <code>0 ms</code> = LFO off (default)</li>
+<li><strong>Width</strong> — with modulation active, Width also sets the L/R phase offset of the LFO: <code>0%</code> = both channels move together (mono chorus), <code>100%</code> = 180° apart (wide stereo). When <strong>Ping-pong</strong> is on, Width additionally controls the ping-pong spread as before.</li>
+<li><code>Shift + Encoder 2</code> = fine steps</li>
+</ul>
+<p>Recipes: <em>Chorus</em> — Time 15–30 ms, Feedback 0–20 %, Mod Rate 0.3–1 Hz, Mod Depth 2–5 ms. <em>Flanger</em> — Time 10 ms, Feedback 50–80 %, Mod Rate 0.1–0.5 Hz, Mod Depth 1–3 ms. The radar’s time arc wobbles to indicate rate and depth.</p>
 <hr>
 <h3 id="reverb"><a class="header" href="#reverb">Reverb</a></h3>
 <ul>
