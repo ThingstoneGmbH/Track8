@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-21e01e3e.js";
+            window.path_to_searchindex_js = "searchindex-2095f605.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6c720178.js"></script>
@@ -259,8 +259,8 @@
 <li>The indicator highlights the origin Track of the clipboard content</li>
 <li>Cut/Copy always adheres to the regions defined by Markers</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Cut/Copy includes all tracks</li>
-<li>Paste always goes to the <strong>Playhead</strong> position on the selected track and — like audio — <em>replaces</em> what is there for the length of the clipboard (notes, controllers, pitchbend, aftertouch); it does not merge onto existing events (since v1.2.1, before that Paste merged)</li>
-<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture> + Cut/Copy/Paste runs the operation on the MIDI <strong>and</strong> the audio side at once, for arranging the whole song — see <a href="audio-overview.html#arrange-audio-and-midi-together">Arrange Audio and MIDI together</a> (new in v1.2.1)</li>
+<li>Paste always goes to the <strong>Playhead</strong> position on the selected track and — like audio — <em>replaces</em> what is there for the length of the clipboard (notes, controllers, pitchbend, aftertouch); it does not merge onto existing events (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>, before that Paste merged)</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture> + Cut/Copy/Paste runs the operation on the MIDI <strong>and</strong> the audio side at once, for arranging the whole song — see <a href="audio-overview.html#arrange-audio-and-midi-together">Arrange Audio and MIDI together</a> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 </ul>
 </li>
 </ul>
@@ -280,7 +280,7 @@
 <h3 id="threshold-recording-via-midi-since-v113"><a class="header" href="#threshold-recording-via-midi-since-v113">Threshold Recording via MIDI (since v1.1.3)</a></h3>
 <p>Incoming MIDI notes can trigger threshold recording. For this you have to be in one of the MIDI views, or <code>A &amp;&amp; M</code> recording has to be enabled in the Project Settings.</p>
 <hr>
-<h2 id="-midi-monitor-new-in-v121"><a class="header" href="#-midi-monitor-new-in-v121">🎧 MIDI Monitor (new in v1.2.1)</a></h2>
+<h2 id="-midi-monitor-new-in-v121-snapshot"><a class="header" href="#-midi-monitor-new-in-v121-snapshot">🎧 MIDI Monitor (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</a></h2>
 <p>Incoming MIDI is echoed to the output channel of the selected track. This can now be switched off independently of the audio monitor:</p>
 <ul>
 <li>In the Project Settings, push Encoder 8 to cycle between <code>AUDIO MON</code> and <code>MIDI MON</code>, then turn to set <code>ON</code>/<code>OFF</code></li>
@@ -296,7 +296,7 @@
 <li>Clock mode: send/receive SPP, Transport and Clock individually</li>
 <li>MTC mode: frame rate (24/25/29.97/30 fps) and, as slave, an MTC offset</li>
 </ul>
-<p>Clock sync has been hardened over several releases (tighter DIN clock since v1.1.1, larger averaging and outlier detection for slave sync, further MIDI scheduling and jitter improvements new in v1.2.1).</p>
+<p>Clock sync has been hardened over several releases (tighter DIN clock since v1.1.1, larger averaging and outlier detection for slave sync, further MIDI scheduling and jitter improvements new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>).</p>
 <p>The <code>DEVICE</code>, <code>CONTROL</code> and <code>CH NAMES</code> buttons on this screen configure <a href="midi-remote-control.html">MIDI Remote Control</a> and channel names.</p>
 
                     </main>

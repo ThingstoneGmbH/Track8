@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-21e01e3e.js";
+            window.path_to_searchindex_js = "searchindex-2095f605.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6c720178.js"></script>
@@ -193,7 +193,7 @@
 </blockquote>
 <h2 id="-audio-edit-volume--pan"><a class="header" href="#-audio-edit-volume--pan">🖥 Audio Edit (Volume / Pan)</a></h2>
 <img width="900" alt="Audio Edit overview with labels" src="images/annotated/audio-edit-labeled.png" />
-<p>Open Audio Edit with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture>. The view opens on the parameter you last adjusted with an encoder anywhere in the audio views — turn a control, then jump straight to editing its automation (new in v1.2.1).</p>
+<p>Open Audio Edit with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture>. The view opens on the parameter you last adjusted with an encoder anywhere in the audio views — turn a control, then jump straight to editing its automation (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>).</p>
 <h3 id="encoders"><a class="header" href="#encoders">Encoders</a></h3>
 <div class="table-wrapper">
 <table>
@@ -248,13 +248,13 @@
 <li>Automation is drawn via <strong>touchscreen</strong> (the <code>[TOUCH]</code> indicator shows when a screen accepts touch input)</li>
 <li>Automated Values are rendered <strong>green</strong></li>
 <li>Multiple automation lanes can coexist</li>
-<li>Automation lanes can contain <strong>holes</strong> — cleared regions fall back to the track’s base value instead of interpolating across (new in v1.2.1)</li>
+<li>Automation lanes can contain <strong>holes</strong> — cleared regions fall back to the track’s base value instead of interpolating across (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 <li>Parameters that already have automation are marked with an <code>*</code> in the TrackFX / Return parameter list, so they are easy to find (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
 </ul>
 <h3 id="writing-automation-with-encoder-4-since-v112"><a class="header" href="#writing-automation-with-encoder-4-since-v112">Writing automation with Encoder 4 (since v1.1.2)</a></h3>
 <p>Encoder 4 shows the current value of the selected parameter at the playhead. Turning it writes an automation point there:</p>
 <ul>
-<li>Works live during playback — ride the encoder and the old points under the playhead are replaced as you go (new in v1.2.1)</li>
+<li>Works live during playback — ride the encoder and the old points under the playhead are replaced as you go (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 <li>Works while stopped — combine with <code>SCROLL</code> to place individual values precisely</li>
 <li>While an automation recording (<code>A+A</code> / <code>ATM</code> mode) is running, encoder moves on the Overview and <a href="mixer.html">Track Mixer</a> are recorded the same way</li>
 </ul>
@@ -262,7 +262,7 @@
 <h3 id="-clearing-automation"><a class="header" href="#-clearing-automation">🧹 Clearing Automation</a></h3>
 <ul>
 <li>Selectively delete automation points with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <strong>touchscreen</strong> — this simplifies the curve without creating holes</li>
-<li>Clear automation <strong>between the surrounding Markers</strong> with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + the Track Button of the selected mode (new in v1.2.1 — previously this cleared the whole lane):
+<li>Clear automation <strong>between the surrounding Markers</strong> with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + the Track Button of the selected mode (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a> — previously this cleared the whole lane):
 <ul>
 <li>Volume: <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track Button 1</li>
 <li>Pan: <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track Button 2</li>
@@ -298,7 +298,7 @@
 </ul>
 <h3 id="helpers"><a class="header" href="#helpers">Helpers</a></h3>
 <ul>
-<li><code>SLIDE</code> (Encoder 4): moves Start and End together in <code>GRID</code> / <code>JUMP</code> increments, keeping the region length (new in v1.2.1)</li>
+<li><code>SLIDE</code> (Encoder 4): moves Start and End together in <code>GRID</code> / <code>JUMP</code> increments, keeping the region length (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> moves the playhead to the Start of the selection; playback stops at the End unless <code>LOOP</code> is enabled (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
 <li>Modification highlights (<code>UTILITY</code> → <code>MOD HI</code>) are also shown in this view (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
 </ul>
@@ -313,7 +313,7 @@
 <li>Highlighted region = active nudge</li>
 <li>Pre listen the change by pressing play (It’s useful to create a loop region around that change, so you can listen to the change repeatedly)</li>
 <li>Confirm the change by pushing Encoder 4</li>
-<li>The Nudge region is limited to 4 minutes (since v1.2.1)</li>
+<li>The Nudge region is limited to 4 minutes (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 </ul>
 <h3 id="cancel"><a class="header" href="#cancel">Cancel</a></h3>
 <ul>
