@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-6d10c6a4.js";
+            window.path_to_searchindex_js = "searchindex-0d03df31.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-257c0483.js"></script>
@@ -200,9 +200,9 @@
 </blockquote>
 <hr>
 <h2 id="-encoders"><a class="header" href="#-encoders">🎛 Encoders</a></h2>
-<p>Press any encoder to cycle through five encoder modes:</p>
-<p><code>CHANNEL</code> → <code>OFFSET</code> → <code>SCROLL</code> → <code>QUANTIZE</code> → <code>VARISPEED</code></p>
-<p>Or jump directly with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Encoder Push: 1 = <code>CHANNEL</code>, 2 = <code>OFFSET</code>, 3 = <code>SCROLL</code>, 6 = <code>QUANTIZE</code>, 7 = <code>VARISPEED</code>.</p>
+<p>Press any encoder to cycle through six encoder modes:</p>
+<p><code>CHANNEL</code> → <code>OFFSET</code> → <code>SCROLL</code> → <code>REC OFFSET</code> → <code>QUANTIZE</code> → <code>VARISPEED</code></p>
+<p>Or jump directly with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Encoder Push: 1 = <code>CHANNEL</code>, 2 = <code>OFFSET</code>, 3 = <code>SCROLL</code>, 4 = <code>REC OFFSET</code>, 6 = <code>QUANTIZE</code>, 7 = <code>VARISPEED</code>.</p>
 <h3 id="channel"><a class="header" href="#channel">CHANNEL</a></h3>
 <ul>
 <li>Sets the MIDI output channel (1–16) per track</li>
@@ -218,6 +218,13 @@
 <ul>
 <li>Encoder 8 scrolls the timeline, Encoder 1 changes the scroll increment</li>
 <li>A mouse scroll wheel (USB) also scrolls the timeline (since v1.1.1)</li>
+</ul>
+<h3 id="rec-offset-new-in-v121-snapshot"><a class="header" href="#rec-offset-new-in-v121-snapshot">REC OFFSET (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</a></h3>
+<ul>
+<li>Per-track MIDI record offset, 0 to -50 ms — the MIDI counterpart of the audio REC OFFSET</li>
+<li>Recorded notes and CCs are stored this much earlier than they arrive. Use it when your takes land late on the grid: what you hear while recording (metronome, tracks) reaches your monitors after the audio output latency, so notes played in time with it arrive that much late</li>
+<li>Start with roughly your audio buffer latency and adjust by ear; it applies to live recording only (not step record)</li>
+<li>Turn left to increase (shifts earlier), like the audio REC OFFSET</li>
 </ul>
 <h3 id="quantize-new-in-v121-snapshot"><a class="header" href="#quantize-new-in-v121-snapshot">QUANTIZE (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</a></h3>
 <p>Record quantize: while enabled, incoming MIDI notes are snapped to the grid as they are recorded.</p>
