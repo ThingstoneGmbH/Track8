@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-a3e2f399.js";
+            window.path_to_searchindex_js = "searchindex-7c1d2ca9.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-257c0483.js"></script>
@@ -194,6 +194,15 @@
 </ul>
 <p>The strip meter shows the track’s post-fader output on the same 6 dB-per-bar scale as the <a href="audio-overview.html">Audio Overview</a> meters: red at the top is 0 dBFS, and a track pushed past 0 dBFS by its own volume holds the red bar lit.</p>
 <p>Muted strips are dimmed — including tracks silenced because another track is soloed. On silent tracks the <code>MUTE</code> button label lights up at full contrast: it is the way back. While a solo is active the soloed track’s label reads <code>SOLO</code> instead.</p>
+<h2 id="full-meter-view"><a class="header" href="#full-meter-view">Full Meter View</a></h2>
+<p><strong>Touch the level meters</strong> to expand them into a full-height meter view (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>):</p>
+<img alt="Track Mixer Full Meter View" src="images/screens/TrackMixer-Meters.png" width="900">
+<ul>
+<li>The meters use the finer Mastering-screen scale — 16 bars from +12 dBFS down to −55 dBFS, about 4 dB per bar</li>
+<li><code>TP</code> at the bottom of each meter is the track’s <strong>True Peak</strong> (dBTP) over the last 3 seconds, the same measurement as the <code>TP 3s</code> readout on the <a href="effects-and-mastering.html">Mastering</a> screen. It reads <code>-</code> while the track is silent. Ideal for gain staging — e.g. aim your input peaks at −12 dB</li>
+<li>The box at the bottom shows each strip’s active parameter; the encoders keep working exactly as before (turn to adjust, push to cycle), as do mutes, solo, automation recording and Copy/Cut/Paste</li>
+</ul>
+<p>Touch the meters again to return to the normal channel strips. The mixer remembers which view you left it in.</p>
 <h2 id="controls"><a class="header" href="#controls">Controls</a></h2>
 <h3 id="encoders"><a class="header" href="#encoders">Encoders</a></h3>
 <ul>

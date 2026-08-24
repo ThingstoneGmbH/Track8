@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-a3e2f399.js";
+            window.path_to_searchindex_js = "searchindex-7c1d2ca9.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-257c0483.js"></script>
@@ -268,6 +268,9 @@
 <hr>
 <h3 id="-multi-take-recording-new-in-v121-snapshot-preview"><a class="header" href="#-multi-take-recording-new-in-v121-snapshot-preview">🎬 Multi-Take Recording (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>, preview)</a></h3>
 <p>Record multiple takes of the same section and pick the best one:</p>
+<blockquote>
+<p><strong>Tip — rehearse the punch:</strong> set <code>AUDIO MON</code> (or <code>MIDI MON</code>) to <code>PUNCH</code> in the <a href="settings-and-projects.html">Project Settings</a> and the input is only audible while the playhead is inside the punch brackets — even with punch recording off. What you hear on a rehearsal pass is exactly what a recorded pass will sound like (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>).</p>
+</blockquote>
 <ol>
 <li>Set a Punch In region (best inside a Loop region so the playhead cycles automatically)</li>
 <li>Start playback — each pass through the punch region records a take; the take row appears at the bottom</li>
@@ -404,6 +407,7 @@ sections easy to tell apart when scrolling a long project (new in <a href="https
 <li>Both clipboards are used, so the chord replaces whatever was in them</li>
 <li>The chord works on the <a href="audio-overview.html">Audio Overview</a> and the <a href="midi-overview.html">MIDI Overview</a> — it does the same thing from either side</li>
 <li>Keep the two buttons held to chain operations: Copy, move the playhead, Paste, all in one grip</li>
+<li>Each chord action confirms on screen: <code>Copy Audio + MIDI to Clipboard</code>, <code>Cut Audio + MIDI to Clipboard</code>, <code>Paste Audio + MIDI</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 <li><strong>One Undo reverts both halves.</strong> After a chord Cut or Paste, a plain Undo (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><code>Record</code>) takes the audio <em>and</em> the MIDI side back, from either screen, and shows <code>UNDO Audio + MIDI</code>. Redo (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture>push Encoder 8) restores both the same way (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)
 <ul>
 <li>This holds as long as the chord edit is the newest thing on both sides. Edit one domain on its own afterwards and Undo stays per-domain: on that domain’s screen it reverts the newer edit first — the chord edit underneath is only <em>covered up</em>, not lost: undo that edit and the following Undo pairs both domains again. On the <em>other</em> screen it reverts that side’s half of the chord on its own, and from then on the two halves are undone and redone independently</li>
@@ -423,7 +427,7 @@ sections easy to tell apart when scrolling a long project (new in <a href="https
 <ul>
 <li><code>UTILITY</code> → <code>PASTE JMP</code>: when enabled, Paste moves the playhead to the end of the pasted region, so you can quickly fill the tape with a repeating pattern (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
 <li><code>UTILITY</code> → <code>MOD HI</code>: highlights all modified (pasted/cut) areas in orange until the next clipboard operation or view switch (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
-<li>Long operations (more than ~1 minute of audio) show an overlay and lock the controls until the audio is safely written to disk (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li>Every Cut/Copy/Paste confirms with a short overlay, e.g. <code>COPY</code> / <code>Copy all tracks to Clipboard</code> or <code>PASTE</code> / <code>Paste to Track 3: Drums</code>. For long operations the overlay stays up and locks the controls until the audio is safely written to disk, then lingers a moment as the same confirmation (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 </ul>
 <hr>
 <h2 id="-undo--redo"><a class="header" href="#-undo--redo">🚀 Undo / Redo</a></h2>
@@ -433,6 +437,7 @@ sections easy to tell apart when scrolling a long project (new in <a href="https
 <li>As the Stack is capped at 12 minutes, older Undo steps get discarded</li>
 <li>As the Undo Stack has the same size as the Cut/Copy Limit, you can always undo once</li>
 <li>Undo moves the playhead to the start of the undone region (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li>Undo and Redo confirm what they touched with a short overlay, e.g. <code>UNDO Track 3: Drums</code>, <code>UNDO all tracks</code>, <code>REDO Automation</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 <li>In two low-memory situations the device frees history early — always with an on-screen message: <code>CLIPBOARD CLEARED</code> and <code>UNDO HISTORY TRIMMED</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 </ul>
 <p>Redo was introduced in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.2">v1.1.2</a></p>
