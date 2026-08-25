@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0d03df31.js";
+            window.path_to_searchindex_js = "searchindex-e00000f1.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-257c0483.js"></script>
@@ -271,6 +271,10 @@ note cursor (<code>Encoder 6</code>) steps from row to row; <code>SNAP</code> is
 <li>Played notes are added at the playhead, which advances automatically</li>
 <li>Note length = grid size</li>
 <li>While holding keys, press <code>Right</code>/<code>Left</code> to extend/shrink the note by grid steps</li>
+<li>The note cursor follows what you play, so a note entered above or below the
+visible range scrolls into view. A chord struck at once is centred when it
+fits on screen; otherwise the view stays on the part nearest the cursor
+(new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
 </ul>
 <hr>
 <h2 id="-midi-tools-edit-view"><a class="header" href="#-midi-tools-edit-view">🛠 MIDI Tools (Edit view)</a></h2>
