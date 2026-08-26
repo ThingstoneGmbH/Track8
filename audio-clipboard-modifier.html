@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-e00000f1.js";
+            window.path_to_searchindex_js = "searchindex-92feb303.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-257c0483.js"></script>
@@ -185,8 +185,8 @@
 <li>Or from Audio Edit: Track Button 6 <code>CLIPMOD</code> opens the modifier; <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track Button 6 <code>COPY &gt; CLIP</code> copies the current selection and opens the modifier in one step (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
 <li>Multi-track clipboards open with all copied tracks included — every edit is applied to all of them</li>
 <li><strong>Exit</strong> via any view button (e.g. <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> or <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture>)</li>
-<li>The modifier remembers the group you last worked in and reopens there (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>); all parameters start neutral on each visit</li>
-<li>It also remembers the encoder 1 resolution — the <code>GRID</code> division, or <code>JUMP</code> mode and its millisecond step — so switching to the overview or wave edit screen and back no longer resets it to <code>1/4</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li>The modifier remembers the group you last worked in and reopens there (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>); all parameters start neutral on each visit</li>
+<li>It also remembers the encoder 1 resolution — the <code>GRID</code> division, or <code>JUMP</code> mode and its millisecond step — so switching to the overview or wave edit screen and back no longer resets it to <code>1/4</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <blockquote class="blockquote-tag blockquote-tag-important">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
@@ -233,11 +233,11 @@
 <ul>
 <li><code>PAN</code>: a balance on the clip’s existing stereo pair — panning right attenuates the left channel and leaves the right untouched (and vice versa). A clip recorded into one input only lives on one side, so panning it towards the silent side fades it out rather than moving it across.</li>
 <li><code>FADE</code>: negative values = fade-in, positive = fade-out. Values up to ±100 use an equal-power curve; beyond ±100 the curve gets steeper, up to ±200 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
-<li><code>SPEED</code> / <code>WARP</code> respect the 12-minute clipboard limit across all copied tracks combined — the encoder simply stops at the last value that still fits (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li><code>SPEED</code> / <code>WARP</code> respect the 12-minute clipboard limit across all copied tracks combined — the encoder simply stops at the last value that still fits (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Automation copied along with the clip follows a length change: after an <code>APPLY</code> that resizes the clip (<code>SPEED</code>, <code>WARP</code>, <code>CROP</code>), pasting places the automation over the new length rather than the original one</li>
 <li><code>CROP</code> needs no parameters: set <code>START</code>/<code>END</code> (or <code>SLIDE</code> the region), then <code>APPLY</code> to discard everything outside it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
 <li>Switching to another group (or re-pressing the current one) <strong>discards</strong> any un-applied settings of the current group</li>
-<li>On a multi-track clipboard, <code>APPLY</code> shows its progress per track (“Track 3/8”) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li>On a multi-track clipboard, <code>APPLY</code> shows its progress per track (“Track 3/8”) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <h3 id="write-back-since-v115"><a class="header" href="#write-back-since-v115">WRITE BACK (since v1.1.5)</a></h3>
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track Button 8 writes the clipboard back to the position it was originally cut/copied from and returns you to the screen you came from:</p>
@@ -253,7 +253,7 @@
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_jump-left-dark.svg"><img alt="left" src="icons/individual/track8_jump-left-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_jump-right-dark.svg"><img alt="right" src="icons/individual/track8_jump-right-light.svg" width="24"></picture> move the playhead by the <code>GRID</code> / <code>JUMP</code> step</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture> toggles looped playback</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-in-dark.svg"><img alt="loop-in" src="icons/individual/track8_set-punch-in-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-out-dark.svg"><img alt="loop-out" src="icons/individual/track8_set-punch-out-light.svg" width="24"></picture> set the loop points to the playhead</li>
-<li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-in-dark.svg"><img alt="loop-in" src="icons/individual/track8_set-punch-in-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-out-dark.svg"><img alt="loop-out" src="icons/individual/track8_set-punch-out-light.svg" width="24"></picture> together to snap the loop to the current <code>START</code>/<code>END</code> region (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-in-dark.svg"><img alt="loop-in" src="icons/individual/track8_set-punch-in-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-out-dark.svg"><img alt="loop-out" src="icons/individual/track8_set-punch-out-light.svg" width="24"></picture> together to snap the loop to the current <code>START</code>/<code>END</code> region (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Tape playback is silenced while the modifier is open; it resumes when you leave the screen</li>
 </ul>
 

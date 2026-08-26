@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-e00000f1.js";
+            window.path_to_searchindex_js = "searchindex-92feb303.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-257c0483.js"></script>
@@ -192,7 +192,7 @@
 <li><code>MODE</code> (<code>Encoder 3</code>): <code>MULTI</code> records multiple tracks at once, <code>SINGLE</code> is the classic one-track workflow</li>
 <li><code>MON</code> (<code>Encoder 5</code>): internal monitoring — routes the main mix to Track8’s own headphone output (useful for rack interfaces). Locked <code>ON</code> for input-only interfaces</li>
 <li><code>RATE</code> (<code>Encoder 6</code>): 48k / 44.1k (since v1.1.1)</li>
-<li><code>BUFFER SIZE</code> (<code>Encoder 7/8</code>): some interfaces need a higher buffer. Push the encoder to switch to <code>PERIODS</code> (3-5, default 3) if you get crackles at your preferred buffer size (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li><code>BUFFER SIZE</code> (<code>Encoder 7/8</code>): some interfaces need a higher buffer. Push the encoder to switch to <code>PERIODS</code> (3-5, default 3) if you get crackles at your preferred buffer size (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li><code>Track Button 8</code> (<code>APPLY</code>): apply changes and restart the audio engine</li>
 </ul>
 <p>⚠️ <strong>44.1kHz is a last resort</strong> (since v1.1.1). Track8 always runs at 48kHz internally — at <code>RATE</code> 44.1k all incoming/outgoing audio is resampled (in the worst case input/send/return/output resamples 4 times). This degrades audio quality and costs performance. Only use it if your interface cannot run at 48kHz.</p>
@@ -203,13 +203,13 @@
 <ul>
 <li>Assign an input pair per track (in <code>SINGLE</code> mode: one <code>SINGLE IN</code> input pair)</li>
 </ul>
-<h3 id="inserts-renamed-from-sendreturns-in-v121-snapshot"><a class="header" href="#inserts-renamed-from-sendreturns-in-v121-snapshot">INSERTS (renamed from Send/Returns in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</a></h3>
+<h3 id="inserts-renamed-from-sendreturns-in-v121"><a class="header" href="#inserts-renamed-from-sendreturns-in-v121">INSERTS (renamed from Send/Returns in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <ul>
 <li>Per-track <strong>insert send</strong> and <strong>insert return</strong> for external processing</li>
 <li>The insert send taps the track <strong>post volume/pan, pre track-FX</strong></li>
 <li>The return is blended back in before the Track FX</li>
 </ul>
-<h3 id="sends-new-in-v121-snapshot"><a class="header" href="#sends-new-in-v121-snapshot">SENDS (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</a></h3>
+<h3 id="sends-new-in-v121"><a class="header" href="#sends-new-in-v121">SENDS (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <ul>
 <li>Map each of the <strong>8 aux send buses</strong> to a hardware output pair</li>
 <li>One channel mapped = mono, both = stereo; channels can be set to <code>-</code></li>
@@ -223,7 +223,7 @@
 <ul>
 <li>Choose the main output channel pair</li>
 <li>Channels can be set to <code>-</code> to disable them, e.g. when using Track8 purely as a USB soundcard front-end (since v1.2.0)</li>
-<li><code>ALT METRON</code> (<code>Encoder 8</code>, new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>): route the metronome to separate output channel(s). When set, the metronome is <strong>removed from the main mix</strong> and only sent there — perfect for a drummer’s cue mix. One channel = mono, both = stereo</li>
+<li><code>ALT METRON</code> (<code>Encoder 8</code>, new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>): route the metronome to separate output channel(s). When set, the metronome is <strong>removed from the main mix</strong> and only sent there — perfect for a drummer’s cue mix. One channel = mono, both = stereo</li>
 </ul>
 <h3 id="io-names"><a class="header" href="#io-names">IO NAMES</a></h3>
 <img alt="Audio I/O Mapping" src="images/screens/AudioIoMapping.png" width="900">
@@ -233,12 +233,12 @@
 <hr>
 <h2 id="-external-inputs-screen"><a class="header" href="#-external-inputs-screen">🎚 External Inputs Screen</a></h2>
 <img alt="External Inputs" src="images/screens/ExternalChannels.png" width="900">
-<p>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> to cycle <strong>Master FX → Mastering → External Inputs</strong> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</p>
+<p>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> to cycle <strong>Master FX → Mastering → External Inputs</strong> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
 <ul>
 <li><code>Encoders 1-8</code>: adjust each channel — push to cycle <strong>VOLUME → PAN → DELAY SEND → REVERB SEND</strong></li>
 <li><code>Track Buttons 1-8</code>: mute a channel</li>
 <li>External inputs are mixed with the 8 tracks <strong>before Mastering</strong> and can feed the Master Delay/Reverb via their sends</li>
-<li>Copy/Cut/Paste works on all 8 channels’ values; Cut resets to defaults, Paste restores (mute states are excluded) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li>Copy/Cut/Paste works on all 8 channels’ values; Cut resets to defaults, Paste restores (mute states are excluded) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <hr>
 <h2 id="-monitoring"><a class="header" href="#-monitoring">🎧 Monitoring</a></h2>
@@ -281,7 +281,7 @@
 <li><code>RETURN LEVEL</code> → level of the returned signal (-60 to 0 dB)</li>
 <li><code>RETURN MIX</code> → dry/return balance (0% = track only, 100% = return only)</li>
 </ul>
-<p>Both are also available in <code>SINGLE</code> mode (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>) and can be automated.</p>
+<p>Both are also available in <code>SINGLE</code> mode (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>) and can be automated.</p>
 
                     </main>
 

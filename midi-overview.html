@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-e00000f1.js";
+            window.path_to_searchindex_js = "searchindex-92feb303.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-257c0483.js"></script>
@@ -219,14 +219,14 @@
 <li>Encoder 8 scrolls the timeline, Encoder 1 changes the scroll increment</li>
 <li>A mouse scroll wheel (USB) also scrolls the timeline (since v1.1.1)</li>
 </ul>
-<h3 id="rec-offset-new-in-v121-snapshot"><a class="header" href="#rec-offset-new-in-v121-snapshot">REC OFFSET (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</a></h3>
+<h3 id="rec-offset-new-in-v121"><a class="header" href="#rec-offset-new-in-v121">REC OFFSET (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <ul>
 <li>Per-track MIDI record offset, 0 to -50 ms — the MIDI counterpart of the audio REC OFFSET</li>
 <li>Recorded notes and CCs are stored this much earlier than they arrive. Use it when your takes land late on the grid: what you hear while recording (metronome, tracks) reaches your monitors after the audio output latency, so notes played in time with it arrive that much late</li>
 <li>Start with roughly your audio buffer latency and adjust by ear; it applies to live recording only (not step record)</li>
 <li>Turn left to increase (shifts earlier), like the audio REC OFFSET</li>
 </ul>
-<h3 id="quantize-new-in-v121-snapshot"><a class="header" href="#quantize-new-in-v121-snapshot">QUANTIZE (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</a></h3>
+<h3 id="quantize-new-in-v121"><a class="header" href="#quantize-new-in-v121">QUANTIZE (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <p>Record quantize: while enabled, incoming MIDI notes are snapped to the grid as they are recorded.</p>
 <ul>
 <li>Encoder 6: quantize grid, <code>1/4</code> to <code>1/64</code> — push to toggle triplets (e.g. <code>1/16T</code>), like the grid encoder in <a href="editing-midi.html">MIDI Edit</a></li>
@@ -277,10 +277,10 @@
 <li>The indicator highlights the origin Track of the clipboard content</li>
 <li>Cut/Copy always adheres to the regions defined by Markers</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Cut/Copy includes all tracks</li>
-<li>Paste always goes to the <strong>Playhead</strong> position on the selected track and — like audio — <em>replaces</em> what is there for the length of the clipboard (notes, controllers, pitchbend, aftertouch); it does not merge onto existing events (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>, before that Paste merged)</li>
-<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture> + Cut/Copy/Paste runs the operation on the MIDI <strong>and</strong> the audio side at once, for arranging the whole song — see <a href="audio-overview.html#arrange-audio-and-midi-together">Arrange Audio and MIDI together</a> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
-<li>Each chord action confirms on screen: <code>Copy Audio + MIDI to Clipboard</code>, <code>Cut Audio + MIDI to Clipboard</code>, <code>Paste Audio + MIDI</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
-<li>After such a chord Cut/Paste, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Record</code> undoes the MIDI <strong>and</strong> the audio half in one press (<code>UNDO Audio + MIDI</code>), and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push Encoder 8 redoes both (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li>Paste always goes to the <strong>Playhead</strong> position on the selected track and — like audio — <em>replaces</em> what is there for the length of the clipboard (notes, controllers, pitchbend, aftertouch); it does not merge onto existing events (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>, before that Paste merged)</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture> + Cut/Copy/Paste runs the operation on the MIDI <strong>and</strong> the audio side at once, for arranging the whole song — see <a href="audio-overview.html#arrange-audio-and-midi-together">Arrange Audio and MIDI together</a> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li>Each chord action confirms on screen: <code>Copy Audio + MIDI to Clipboard</code>, <code>Cut Audio + MIDI to Clipboard</code>, <code>Paste Audio + MIDI</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li>After such a chord Cut/Paste, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Record</code> undoes the MIDI <strong>and</strong> the audio half in one press (<code>UNDO Audio + MIDI</code>), and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push Encoder 8 redoes both (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 </li>
 </ul>
@@ -290,7 +290,7 @@
 <ul>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Record</code> → Undo the last MIDI operation</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push Encoder 8 → Redo (one step, since v1.1.2)</li>
-<li>Both confirm what they touched with a short overlay, e.g. <code>UNDO Track 2: Bass</code> or <code>REDO all tracks</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li>Both confirm what they touched with a short overlay, e.g. <code>UNDO Track 2: Bass</code> or <code>REDO all tracks</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <hr>
 <h2 id="-loop--punch"><a class="header" href="#-loop--punch">🔁 Loop &amp; Punch</a></h2>
@@ -301,11 +301,11 @@
 <h3 id="threshold-recording-via-midi-since-v113"><a class="header" href="#threshold-recording-via-midi-since-v113">Threshold Recording via MIDI (since v1.1.3)</a></h3>
 <p>Incoming MIDI notes can trigger threshold recording. For this you have to be in one of the MIDI views, or <code>A &amp;&amp; M</code> recording has to be enabled in the Project Settings.</p>
 <hr>
-<h2 id="-midi-monitor-new-in-v121-snapshot"><a class="header" href="#-midi-monitor-new-in-v121-snapshot">🎧 MIDI Monitor (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</a></h2>
+<h2 id="-midi-monitor-new-in-v121"><a class="header" href="#-midi-monitor-new-in-v121">🎧 MIDI Monitor (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h2>
 <p>Incoming MIDI is echoed to the output channel of the selected track. This can now be switched off independently of the audio monitor:</p>
 <ul>
 <li>In the Project Settings, push Encoder 8 to cycle between <code>AUDIO MON</code> and <code>MIDI MON</code>, then turn to set <code>OFF</code>/<code>ON</code>/<code>PUNCH</code></li>
-<li><code>PUNCH</code> echoes input only while the playhead is inside the punch brackets — whether or not punch recording is armed — so a rehearsal pass sounds exactly like the recorded result (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>)</li>
+<li><code>PUNCH</code> echoes input only while the playhead is inside the punch brackets — whether or not punch recording is armed — so a rehearsal pass sounds exactly like the recorded result (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Defaults to <code>ON</code></li>
 <li>Note-off messages always pass, so no notes get stuck</li>
 </ul>
@@ -318,8 +318,8 @@
 <li>Clock mode: send/receive SPP, Transport and Clock individually</li>
 <li>MTC mode: frame rate (24/25/29.97/30 fps) and, as slave, an MTC offset</li>
 </ul>
-<p>Clock sync has been hardened over several releases (tighter DIN clock since v1.1.1, larger averaging and outlier detection for slave sync, further MIDI scheduling and jitter improvements new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>).</p>
-<p>The <code>DEVICE</code>, <code>CONTROL</code> and <code>CH NAMES</code> buttons on this screen configure <a href="midi-remote-control.html">MIDI Remote Control</a>, channel names and <a href="midi-device-profiles.html">MIDI Device Profiles</a> (per-channel note/CC names for drum machines and synths, since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1-SNAPSHOT">v1.2.1-SNAPSHOT</a>).</p>
+<p>Clock sync has been hardened over several releases (tighter DIN clock since v1.1.1, larger averaging and outlier detection for slave sync, further MIDI scheduling and jitter improvements new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</p>
+<p>The <code>DEVICE</code>, <code>CONTROL</code> and <code>CH NAMES</code> buttons on this screen configure <a href="midi-remote-control.html">MIDI Remote Control</a>, channel names and <a href="midi-device-profiles.html">MIDI Device Profiles</a> (per-channel note/CC names for drum machines and synths, since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</p>
 
                     </main>
 
