@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-92feb303.js";
+            window.path_to_searchindex_js = "searchindex-3a6f3587.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-257c0483.js"></script>
+        <script src="toc-36f5414a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -218,10 +218,36 @@ Bars and beats are counted from 1, so the start of the tape reads
 <img alt="Transport bar of the Audio Overview with labeled indicators" src="images/annotated/audio-overview-transport-detail.png" width="900">
 <h3 id="-touch"><a class="header" href="#-touch">👆 Touch</a></h3>
 <ul>
-<li>Screens that accept touch input show a small <code>[TOUCH]</code> indicator
-(new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
-<li>A USB mouse scroll wheel or a jog wheel behaves like the <strong>SCROLL</strong>
-encoder in the Audio/MIDI Overview and Edit views (since v1.1.1)</li>
+<li>
+<p>Screens that accept touch input show a small <code>[TOUCH]</code> indicator
+(new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
+</li>
+<li>
+<p><strong>Quick Settings</strong>: touch and hold the track area of the Audio or MIDI
+Overview for about a second to open a panel of the everyday toggles that
+otherwise live on the <a href="utility.html">Utility</a> screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>):</p>
+<img alt="Quick Settings overlay on the Audio Overview" src="images/screens/AudioOverview-QuickSettings.png" width="900">
+<ul>
+<li><strong>VIEW</strong>: MKR LEG, MOD HI, BIG TIME, SHIFT HOLD — <strong>NAVIGATION</strong>: SHIFT NAV,
+TIMED JUMP, SHIFT PLAY, PASTE JMP — <strong>SOUND &amp; RECORD</strong>: SCROLL SND, TAPE SND,
+OVERDUB, CLIPBOARD</li>
+<li>Touch a tile to switch it (TIMED JUMP, SHIFT PLAY and TAPE SND cycle
+through their values); lit tiles are on. TIMED JUMP is greyed out while
+SHIFT NAV is set to BEATS</li>
+<li>CLIPBOARD opens the <a href="audio-clipboard-modifier.html">Audio Clipboard Modifier</a>
+(Audio Overview only, and only with something in the clipboard)</li>
+<li>Touch anywhere outside the tiles to close the panel. Any button or encoder
+closes it as well and still does its normal job — Play plays, the screen
+keys switch screens</li>
+<li>A short tap on the tracks still does what it always did (e.g. touching a
+marker edits its label), and the panel is a shortcut only: every setting
+stays on the Utility screen</li>
+</ul>
+</li>
+<li>
+<p>A USB mouse scroll wheel or a jog wheel behaves like the <strong>SCROLL</strong>
+encoder in the Audio/MIDI Overview and Edit views (since v1.1.1)</p>
+</li>
 </ul>
 <h2 id="buttons-and-shortcuts"><a class="header" href="#buttons-and-shortcuts">Buttons and Shortcuts</a></h2>
 <h3 id="screens"><a class="header" href="#screens">Screens</a></h3>
@@ -273,15 +299,16 @@ Overview (since v1.1.2)</li>
 track for both Audio and MIDI (since v1.1.3)</li>
 <li>Hold <strong>Settings</strong>, then press <strong>Audio</strong> — open the Soundcard settings</li>
 <li>Hold <strong>Settings</strong>, then press <strong>Midi</strong> — open the MIDI settings</li>
-<li>Hold <strong>Loop</strong> + Cut/Copy — cut/copy based on the current loop region
-instead of marker bounds (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li>Hold <strong>Loop</strong> + Cut/Copy/Paste — arrange the current loop region: all unmuted tracks, Audio + MIDI, with the Markers inside the loop
+instead of marker bounds (Audio Overview since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>,
+MIDI Overview since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Press <strong>Loop In</strong> + <strong>Loop Out</strong> together — set the loop region to the
 surrounding marker bounds; with <strong>SHIFT</strong> the punch region (since v1.2.0)</li>
 </ul>
 <h3 id="edit"><a class="header" href="#edit">Edit</a></h3>
 <ul>
 <li>
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-marker-dark.svg"><img alt="set-marker" src="icons/individual/track8_set-marker-light.svg" width="24"></picture> Set Marker</p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-marker-dark.svg"><img alt="set-marker" src="icons/individual/track8_set-marker-light.svg" width="24"></picture> Set Marker / remove the Marker at the playhead (locked markers are kept)</p>
 </li>
 <li>
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_cut-area-dark.svg"><img alt="cut-area" src="icons/individual/track8_cut-area-light.svg" width="24"></picture> Cut Area</p>
@@ -305,7 +332,7 @@ surrounding marker bounds; with <strong>SHIFT</strong> the punch region (since v
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_paste-at-position-dark.svg"><img alt="paste-at-position" src="icons/individual/track8_paste-at-position-light.svg" width="24"></picture> Bounce Clipboard into selected Track (audio)</p>
 </li>
 <li>
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_cut-area-dark.svg"><img alt="cut-area" src="icons/individual/track8_cut-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_copy-area-dark.svg"><img alt="copy-area" src="icons/individual/track8_copy-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_paste-at-position-dark.svg"><img alt="paste-at-position" src="icons/individual/track8_paste-at-position-light.svg" width="24"></picture> Cut / Copy / Paste Audio <strong>and</strong> MIDI together, for arranging the whole song at once — see <a href="audio-overview.html#arrange-audio-and-midi-together">Arrange Audio and MIDI together</a> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_cut-area-dark.svg"><img alt="cut-area" src="icons/individual/track8_cut-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_copy-area-dark.svg"><img alt="copy-area" src="icons/individual/track8_copy-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_paste-at-position-dark.svg"><img alt="paste-at-position" src="icons/individual/track8_paste-at-position-light.svg" width="24"></picture> Cut / Copy / Paste Audio <strong>and</strong> MIDI together — with the Markers inside the Loop region — for arranging the whole song at once; see <a href="audio-overview.html#arrange-audio-midi-and-markers-together-with-loop">Arrange Audio, MIDI and Markers together with LOOP</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</p>
 </li>
 </ul>
 <p>After a paste the playhead can jump to the end of the pasted region to chain
@@ -362,7 +389,7 @@ separate for Audio and MIDI (since v1.1.2)</p>
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_jump-right-dark.svg"><img alt="jump-right" src="icons/individual/track8_jump-right-light.svg" width="24"></picture> Jump one Bar to the Right</p>
 </li>
 <li>
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play-pause" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> Jump to Tape Start — or to the first Marker, configurable via <code>SHIFT PLAY</code> in <a href="utility.html">Utility</a> (since v1.1.5)</p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play-pause" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> Jump to Tape Start — or to the first Marker, configurable via <code>SHIFT PLAY</code> in <a href="utility.html">Utility</a> (since v1.1.5) — or to the <a href="audio-overview.html#markers">start marker</a> whenever one is flagged (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</p>
 </li>
 <li>
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_jump-left-dark.svg"><img alt="jump-left" src="icons/individual/track8_jump-left-light.svg" width="24"></picture> Jump one Beat or one Marker to the Left (<code>SHIFT NAV</code> in <a href="utility.html">Utility</a>)</p>

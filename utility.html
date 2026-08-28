@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-92feb303.js";
+            window.path_to_searchindex_js = "searchindex-3a6f3587.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-257c0483.js"></script>
+        <script src="toc-36f5414a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -199,7 +199,14 @@ screen and press <strong>UTILITY</strong> (Track 2) — or simply press <strong>
 </div>
 <p>Create your own color themes with the theme editor:
 <a href="https://thingstone.com/theme-editor">https://thingstone.com/theme-editor</a></p>
+<p>The <a href="companion-app.html">companion app</a> has a built-in theme editor that
+previews every change live on the real UI and exports the finished
+<code>theme.json</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>).</p>
 <h3 id="feature-toggles-encoder-6-push-to-cycle"><a class="header" href="#feature-toggles-encoder-6-push-to-cycle">Feature toggles (Encoder 6, push to cycle)</a></h3>
+<p>All of these (together with SHIFT NAV, SHIFT HOLD, TIMED JUMP and OVERDUB)
+are also one touch away on the overviews: <strong>touch and hold the track area</strong>
+of the Audio or MIDI Overview to open the <strong>Quick Settings</strong> panel, see
+<a href="user-interface.html#-touch">Touch</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>).</p>
 <ul>
 <li><strong>MKR LEG</strong> — draw a vertical line under each marker for easy visual
 reference (since v1.1.4)</li>
@@ -208,7 +215,10 @@ edit or view switch (since v1.1.4)</li>
 <li><strong>SCROLL SND</strong> — tape-style FFW/RWD sound while navigating and scrolling
 (since v1.1.5)</li>
 <li><strong>SHIFT PLAY</strong> — START / MARKER 1: where <strong>SHIFT</strong> + Play jumps
-(since v1.1.5)</li>
+(since v1.1.5). Reads <code>START MKR</code> while a marker carries the
+<a href="audio-overview.html#markers">start flag</a>: <strong>SHIFT</strong> + Play then always goes
+to that marker, and the setting takes over again once the flag is removed
+(new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li><strong>PASTE JMP</strong> — after a paste, jump the playhead to the end of the pasted
 region to quickly fill the tape with a repeating pattern (since v1.2.0)</li>
 <li><strong>TAPE SND</strong> — tape-stop effect on stop: OFF / 0.4s / 0.8s / 1.5s tail
@@ -216,7 +226,9 @@ region to quickly fill the tape with a repeating pattern (since v1.2.0)</li>
 <li><strong>BIG TIME</strong> — big time / bar-beat readout (<code>T 00:00</code> / <code>B 01:01</code>) as a
 translucent overlay on the left half of the Audio and MIDI Overview,
 readable from across the room
-(new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+(new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).
+Also toggled by <strong>touching the time / beat readout</strong> at the bottom of
+either overview (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 </ul>
 <h2 id="sub-screens"><a class="header" href="#sub-screens">Sub-screens</a></h2>
 <p>The track buttons lead to the Utility sub-screens. <strong>EXIT</strong> (Track 1)
@@ -308,7 +320,7 @@ request</li>
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="updates.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="companion-app.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -322,7 +334,7 @@ request</li>
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="updates.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="companion-app.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

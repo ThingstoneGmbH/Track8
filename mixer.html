@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-92feb303.js";
+            window.path_to_searchindex_js = "searchindex-3a6f3587.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-257c0483.js"></script>
+        <script src="toc-36f5414a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -200,7 +200,7 @@
 <ul>
 <li>The meters use the finer Mastering-screen scale — 16 bars from +12 dBFS down to −55 dBFS, about 4 dB per bar</li>
 <li><code>TP</code> at the bottom of each meter is the track’s <strong>True Peak</strong> (dBTP) over the last 3 seconds, the same measurement as the <code>TP 3s</code> readout on the <a href="effects-and-mastering.html">Mastering</a> screen. It reads <code>-</code> while the track is silent. Ideal for gain staging — e.g. aim your input peaks at −12 dB</li>
-<li>The box at the bottom shows each strip’s active parameter; the encoders keep working exactly as before (turn to adjust, push to cycle), as do mutes, solo, automation recording and Copy/Cut/Paste</li>
+<li>The box at the bottom shows each strip’s active parameter; the encoders keep working exactly as before (turn to adjust, push to cycle), as do mutes, solo, automation recording and Copy/Cut/Paste. Touching the box cycles the parameter, like pushing the encoder (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 </ul>
 <p>Touch the meters again to return to the normal channel strips. The mixer remembers which view you left it in.</p>
 <h2 id="controls"><a class="header" href="#controls">Controls</a></h2>
@@ -208,6 +208,7 @@
 <ul>
 <li>Encoder <em>n</em> adjusts the active parameter of strip <em>n</em></li>
 <li>Push the encoder to cycle its strip’s parameter: <code>VOLUME</code> → <code>PAN</code> → <code>D</code> (Delay send) → <code>R</code> (Reverb send)</li>
+<li><strong>Touch a parameter box</strong> (<code>VOLUME</code>, <code>PAN</code>, <code>D</code> or <code>R</code>) to make it the strip’s active parameter directly — one touch instead of up to three pushes (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Each strip remembers its own parameter — you can ride volume on one track and a send on another</li>
 <li>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning for fine-grained changes</li>
 <li>Turning a send encoder switches that send <strong>on</strong> automatically so the change is audible immediately; switching a send off is done on the Track FX screen</li>

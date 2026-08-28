@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-92feb303.js";
+            window.path_to_searchindex_js = "searchindex-3a6f3587.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-257c0483.js"></script>
+        <script src="toc-36f5414a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -218,6 +218,14 @@
 <ul>
 <li>Encoder 8 scrolls the timeline, Encoder 1 changes the scroll increment</li>
 <li>A mouse scroll wheel (USB) also scrolls the timeline (since v1.1.1)</li>
+<li>Encoder 5 → <strong>SPLICE</strong>: insert or remove time at the playhead (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)
+<ul>
+<li>Turn clockwise to stage blank time, one SCROLL step per click; counter-clockwise to stage a removal. The overview previews the result — notes, markers and loop/punch points are drawn where they will end up, an insert shows the blank as a band, a removal a cut line — and the encoder label shows the amount (<code>+1 bar</code>, <code>-2 beats</code>)</li>
+<li>Push Encoder 5 to apply. Switching screens or the encoder mode discards the staged splice</li>
+<li>It is the same operation as on the <a href="audio-overview.html#-splice--insert--remove-time">Audio Overview</a>: everything behind the splice point moves — all MIDI tracks (notes, CC, pitch-bend, aftertouch), all audio tracks with their automation, and the markers, loop and punch points. CC / pitch-bend / aftertouch set inside a removed span carry their last value over to the splice point</li>
+<li>Removals are limited to 1:30 per splice and refused over a tempo or signature marker; see the Audio Overview page for the full rules</li>
+</ul>
+</li>
 </ul>
 <h3 id="rec-offset-new-in-v121"><a class="header" href="#rec-offset-new-in-v121">REC OFFSET (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <ul>
@@ -270,17 +278,26 @@
 <ul>
 <li>Shows outgoing MIDI activity</li>
 </ul>
+<h3 id="quick-settings"><a class="header" href="#quick-settings">Quick Settings</a></h3>
+<ul>
+<li><strong>Touch and hold the track area</strong> (about a second) to open the <strong>Quick Settings</strong> panel with the everyday <a href="utility.html">Utility</a> toggles (MKR LEG, MOD HI, BIG TIME, SHIFT HOLD, SHIFT NAV, TIMED JUMP, SHIFT PLAY, PASTE JMP, SCROLL SND, TAPE SND, OVERDUB); see <a href="user-interface.html#-touch">Touch</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>). The CLIPBOARD shortcut is only available on the Audio Overview</li>
+</ul>
+<h3 id="time--beat-readout"><a class="header" href="#time--beat-readout">Time / Beat readout</a></h3>
+<ul>
+<li><strong>Touch the time / beat readout</strong> at the bottom of the screen to toggle <strong>BIG TIME</strong>, the big translucent time / bar-beat overlay on the left half of the screen — the same toggle as on the <a href="audio-overview.html#-timeline-indicators">Audio Overview</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
+</ul>
 <h3 id="clipboard"><a class="header" href="#clipboard">Clipboard</a></h3>
 <ul>
 <li>Same behavior as audio
 <ul>
 <li>The indicator highlights the origin Track of the clipboard content</li>
 <li>Cut/Copy always adheres to the regions defined by Markers</li>
+<li>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture> + Cut/Copy/Paste to arrange the current <strong>Loop region</strong> — all unmuted tracks, audio and MIDI, with the Markers inside the loop — exactly like on the Audio Overview, see <a href="audio-overview.html#arrange-audio-midi-and-markers-together-with-loop">Arrange Audio, MIDI and Markers together with LOOP</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Cut/Copy includes all tracks</li>
 <li>Paste always goes to the <strong>Playhead</strong> position on the selected track and — like audio — <em>replaces</em> what is there for the length of the clipboard (notes, controllers, pitchbend, aftertouch); it does not merge onto existing events (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>, before that Paste merged)</li>
-<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture> + Cut/Copy/Paste runs the operation on the MIDI <strong>and</strong> the audio side at once, for arranging the whole song — see <a href="audio-overview.html#arrange-audio-and-midi-together">Arrange Audio and MIDI together</a> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
-<li>Each chord action confirms on screen: <code>Copy Audio + MIDI to Clipboard</code>, <code>Cut Audio + MIDI to Clipboard</code>, <code>Paste Audio + MIDI</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
-<li>After such a chord Cut/Paste, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Record</code> undoes the MIDI <strong>and</strong> the audio half in one press (<code>UNDO Audio + MIDI</code>), and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push Encoder 8 redoes both (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture> + Cut/Copy/Paste runs the operation on the MIDI <strong>and</strong> the audio side at once, over the Loop region and with the Markers inside it, for arranging the whole song — see <a href="audio-overview.html#arrange-audio-midi-and-markers-together-with-loop">Arrange Audio, MIDI and Markers together with LOOP</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>); in v1.2.1 this was <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture> + Cut/Copy/Paste over the Marker region</li>
+<li>Each action confirms on screen: <code>Copy Loop: Audio + MIDI + Markers</code>, <code>Cut Loop: Audio + MIDI + Markers</code>, <code>Paste Audio + MIDI + Markers</code></li>
+<li>After such a LOOP Cut/Paste, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Record</code> undoes the MIDI <strong>and</strong> the audio half in one press (<code>UNDO Audio + MIDI</code>), Markers included, and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push Encoder 8 redoes both (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 </li>
 </ul>
@@ -291,6 +308,7 @@
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Record</code> → Undo the last MIDI operation</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push Encoder 8 → Redo (one step, since v1.1.2)</li>
 <li>Both confirm what they touched with a short overlay, e.g. <code>UNDO Track 2: Bass</code> or <code>REDO all tracks</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li>A <a href="#scroll">SPLICE</a> is undone as a whole: one Undo reverts the MIDI <em>and</em> the audio side, from either screen (markers keep their post-splice positions) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 </ul>
 <hr>
 <h2 id="-loop--punch"><a class="header" href="#-loop--punch">🔁 Loop &amp; Punch</a></h2>

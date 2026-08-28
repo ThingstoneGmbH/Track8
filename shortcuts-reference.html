@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-92feb303.js";
+            window.path_to_searchindex_js = "searchindex-3a6f3587.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-257c0483.js"></script>
+        <script src="toc-36f5414a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -192,8 +192,8 @@
 <tr><td>Settings</td><td>Settings</td><td>USB Browser</td></tr>
 <tr><td>Play</td><td>Play/Pause</td><td>Jump to start</td></tr>
 <tr><td>Record</td><td>Record</td><td>Undo</td></tr>
-<tr><td>Loop / Loop In / Loop Out</td><td>Toggle Loop, set In / Out, hold [ + ] to set from marker bounds, hold Loop + Cut/Copy to use loop region</td><td>Toggle Punch, set In / Out, hold [ + ] to set from marker bounds</td></tr>
-<tr><td>Cut Point</td><td>Create Marker</td><td>Clear Markers</td></tr>
+<tr><td>Loop / Loop In / Loop Out</td><td>Toggle Loop, set In / Out, hold [ + ] to set from marker bounds, hold Loop + Cut/Copy/Paste to arrange the loop region (all Tracks, Audio + MIDI + Markers)</td><td>Toggle Punch, set In / Out, hold [ + ] to set from marker bounds</td></tr>
+<tr><td>Cut Point</td><td>Create Marker / remove the Marker at the playhead (locked markers are kept)</td><td>Clear all unlocked Markers</td></tr>
 <tr><td>Cut / Copy / Paste</td><td>Cut, Copy, Paste selected Track</td><td>Cut, Copy all unmuted Tracks. Paste to bounce</td></tr>
 <tr><td>Shift</td><td>Shift</td><td>—</td></tr>
 <tr><td>Left</td><td>Jump Left</td><td>Beat Left</td></tr>
@@ -230,8 +230,8 @@
 </thead>
 <tbody>
 <tr><td>Audio</td><td>Cycle Audio Overview / Track Mixer</td><td>Audio Edit</td></tr>
-<tr><td>Record</td><td>Record</td><td>Undo (both domains after an AUDIO + MIDI edit)</td></tr>
-<tr><td>Cut / Copy / Paste</td><td>Cut, Copy, Paste selected Track. Hold AUDIO + MIDI for Audio and MIDI together</td><td>Cut, Copy all unmuted Tracks. Paste to bounce</td></tr>
+<tr><td>Record</td><td>Record</td><td>Undo (both domains after a LOOP edit)</td></tr>
+<tr><td>Cut / Copy / Paste</td><td>Cut, Copy, Paste selected Track. Hold LOOP for Audio + MIDI + Markers over the loop region</td><td>Cut, Copy all unmuted Tracks. Paste to bounce</td></tr>
 </tbody>
 </table>
 </div>
@@ -268,6 +268,7 @@
 </thead>
 <tbody>
 <tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Record Offset</td></tr>
+<tr><td>Encoder 5</td><td>SPLICE: turn to stage blank time at the playhead, one Scroll step per click (CW inserts, CCW removes). Moves all tracks, MIDI and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 8</td><td>Turn to scroll</td><td>Push → Record Offset</td></tr>
 </tbody>
 </table>
@@ -678,8 +679,8 @@
 <tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
 </thead>
 <tbody>
-<tr><td>Record</td><td>Record</td><td>Undo (both domains after an AUDIO + MIDI edit)</td></tr>
-<tr><td>Cut / Copy / Paste</td><td>Cut, Copy, Paste selected Track. Hold AUDIO + MIDI for Audio and MIDI together</td><td>Cut, Copy all unmuted Tracks. Paste to bounce</td></tr>
+<tr><td>Record</td><td>Record</td><td>Undo (both domains after a LOOP edit)</td></tr>
+<tr><td>Cut / Copy / Paste</td><td>Cut, Copy, Paste selected Track. Hold LOOP for Audio + MIDI + Markers over the loop region</td><td>Cut, Copy all unmuted Tracks. Paste to bounce</td></tr>
 </tbody>
 </table>
 </div>
@@ -716,6 +717,7 @@
 </thead>
 <tbody>
 <tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Rec Offset</td></tr>
+<tr><td>Encoder 5</td><td>SPLICE: turn to stage blank time at the playhead, one Scroll step per click (CW inserts, CCW removes). Moves all tracks, audio and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 8</td><td>Turn to scroll</td><td>Push → Rec Offset</td></tr>
 </tbody>
 </table>
@@ -1216,9 +1218,11 @@
 <tbody>
 <tr><td>Encoder 1</td><td>Change Navigation</td><td>When pressing Shift + ← →</td></tr>
 <tr><td>Encoder 2</td><td>Show Overlay</td><td>when Shift is held</td></tr>
+<tr><td>Encoder 3</td><td>Timed Jump</td><td>with MARKER navigation</td></tr>
 <tr><td>Encoder 5</td><td>Create new Project at Startup</td><td>—</td></tr>
-<tr><td>Encoder 6</td><td>Visual/Playhead utility toggles</td><td>—</td></tr>
-<tr><td>Encoder 8</td><td>Brightness and Standby</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>Marker Legs / Modified Highlight / Scroll Sound / SHIFT Play target (overridden by a start marker: START MKR) / Paste Jump / Tape Stop Sound / Big Time</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 7</td><td>Theme / Shader</td><td>Push to toggle</td></tr>
+<tr><td>Encoder 8</td><td>Brightness / Standby</td><td>Push to toggle</td></tr>
 </tbody>
 </table>
 </div>

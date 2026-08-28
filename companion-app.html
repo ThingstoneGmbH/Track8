@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>External Audio - Track8 Manual</title>
+        <title>Companion App (Mac / iPad) - Track8 Manual</title>
 
 
         <!-- Custom HTML head -->
@@ -174,124 +174,67 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="external-audio-v110"><a class="header" href="#external-audio-v110">External Audio (&gt;=v1.1.0)</a></h1>
-<img alt="Soundcard Settings (External Interface)" src="images/screens/AudioSettings-External.png" width="900">
-<hr>
-<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
-<p>Track8 supports <strong>class-compliant USB audio interfaces</strong> for:</p>
-<ul>
-<li>Multitrack recording</li>
-<li>External FX routing (insert send/returns + 8 aux sends)</li>
-<li>Hybrid setups — mix external gear into the master chain</li>
-</ul>
-<hr>
-<h2 id="-setup"><a class="header" href="#-setup">⚙️ Setup</a></h2>
-<p>Open <code>SETTINGS</code> → <code>UTILITY</code> → <code>AUDIO</code>:</p>
-<ul>
-<li><code>SOUNDCARD</code> (<code>Encoder 1</code>): select the interface (must be class-compliant)</li>
-<li><code>MODE</code> (<code>Encoder 3</code>): <code>MULTI</code> records multiple tracks at once, <code>SINGLE</code> is the classic one-track workflow</li>
-<li><code>MON</code> (<code>Encoder 5</code>): internal monitoring — routes the main mix to Track8’s own headphone output (useful for rack interfaces). Locked <code>ON</code> for input-only interfaces</li>
-<li><code>RATE</code> (<code>Encoder 6</code>): 48k / 44.1k (since v1.1.1)</li>
-<li><code>BUFFER SIZE</code> (<code>Encoder 7/8</code>): some interfaces need a higher buffer. Push the encoder to switch to <code>PERIODS</code> (3-5, default 3) if you get crackles at your preferred buffer size (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
-<li><code>Track Button 8</code> (<code>APPLY</code>): apply changes and restart the audio engine</li>
-</ul>
-<p>⚠️ <strong>44.1kHz is a last resort</strong> (since v1.1.1). Track8 always runs at 48kHz internally — at <code>RATE</code> 44.1k all incoming/outgoing audio is resampled (in the worst case input/send/return/output resamples 4 times). This degrades audio quality and costs performance. Only use it if your interface cannot run at 48kHz.</p>
-<hr>
-<h2 id="-routing"><a class="header" href="#-routing">🔁 Routing</a></h2>
-<p>Configure the channel mapping with the Track Buttons on the <code>AUDIO</code> settings screen:</p>
-<h3 id="trk-in"><a class="header" href="#trk-in">TRK IN</a></h3>
-<ul>
-<li>Assign an input pair per track (in <code>SINGLE</code> mode: one <code>SINGLE IN</code> input pair)</li>
-</ul>
-<h3 id="inserts-renamed-from-sendreturns-in-v121"><a class="header" href="#inserts-renamed-from-sendreturns-in-v121">INSERTS (renamed from Send/Returns in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
-<ul>
-<li>Per-track <strong>insert send</strong> and <strong>insert return</strong> for external processing</li>
-<li>The insert send taps the track <strong>post volume/pan, pre track-FX</strong></li>
-<li>The return is blended back in before the Track FX</li>
-</ul>
-<h3 id="sends-new-in-v121"><a class="header" href="#sends-new-in-v121">SENDS (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
-<ul>
-<li>Map each of the <strong>8 aux send buses</strong> to a hardware output pair</li>
-<li>One channel mapped = mono, both = stereo; channels can be set to <code>-</code></li>
-<li>Send levels are set per track on the <strong>Track Sends</strong> screen — see <a href="effects-and-mastering.html">Effects &amp; Mastering</a></li>
-</ul>
-<h3 id="external"><a class="header" href="#external">EXTERNAL</a></h3>
-<ul>
-<li>Assign up to 8 external input pairs for mixing external gear (grooveboxes, synths, mixers)</li>
-</ul>
-<h3 id="main-out"><a class="header" href="#main-out">MAIN OUT</a></h3>
-<ul>
-<li>Choose the main output channel pair</li>
-<li>Channels can be set to <code>-</code> to disable them, e.g. when using Track8 purely as a USB soundcard front-end (since v1.2.0)</li>
-<li><code>ALT METRON</code> (<code>Encoder 8</code>, new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>): route the metronome to separate output channel(s). When set, the metronome is <strong>removed from the main mix</strong> and only sent there — perfect for a drummer’s cue mix. One channel = mono, both = stereo</li>
-</ul>
-<h3 id="io-names"><a class="header" href="#io-names">IO NAMES</a></h3>
-<img alt="Audio I/O Mapping" src="images/screens/AudioIoMapping.png" width="900">
-<ul>
-<li>Give your interface’s inputs/outputs readable names — they show up in all mapping screens</li>
-</ul>
-<hr>
-<h2 id="-external-inputs-screen"><a class="header" href="#-external-inputs-screen">🎚 External Inputs Screen</a></h2>
-<img alt="External Inputs" src="images/screens/ExternalChannels.png" width="900">
-<p>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> to cycle <strong>Master FX → Mastering → External Inputs</strong> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
-<ul>
-<li><code>Encoders 1-8</code>: adjust each channel — push to cycle <strong>VOLUME → PAN → DELAY SEND → REVERB SEND</strong></li>
-<li><code>Track Buttons 1-8</code>: mute a channel</li>
-<li>External inputs are mixed with the 8 tracks <strong>before Mastering</strong> and can feed the Master Delay/Reverb via their sends</li>
-<li>Copy/Cut/Paste works on all 8 channels’ values; Cut resets to defaults, Paste restores (mute states are excluded) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
-</ul>
-<hr>
-<h2 id="-monitoring"><a class="header" href="#-monitoring">🎧 Monitoring</a></h2>
-<ul>
-<li>Internal Monitoring (<code>MON</code>) routes the main mix to the built-in headphone output</li>
-<li>Interfaces <strong>without outputs</strong> are supported (since v1.1.5) — internal monitoring is then always on, and the Inserts/Sends/Main Out pages are hidden</li>
-<li>If the USB interface disconnects, Track8 automatically falls back to the internal soundcard</li>
-</ul>
-<hr>
-<h2 id="-modes"><a class="header" href="#-modes">⚙️ Modes</a></h2>
-<ul>
-<li>Multi-track → record multiple tracks simultaneously</li>
-<li>Single-track → classic behavior, one configurable input pair</li>
-</ul>
-<hr>
-<h2 id="-requirements"><a class="header" href="#-requirements">⚠️ Requirements</a></h2>
-<ul>
-<li>Must support <strong>48kHz</strong> (or use the <code>RATE</code> 44.1k fallback, see above)</li>
-<li>Bus-powered: &lt;5W</li>
-</ul>
-<hr>
-<h2 id="-multitrack-recording-behavior"><a class="header" href="#-multitrack-recording-behavior">🎛 Multitrack Recording Behavior</a></h2>
-<ul>
-<li>Arm tracks first:
-<ul>
-<li>Hold <code>Track Button</code> + press <code>Record</code></li>
-<li>Only tracks with assigned inputs can be armed</li>
-</ul>
-</li>
-<li>Recording:
-<ul>
-<li>All armed tracks start together</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="-return-mixing"><a class="header" href="#-return-mixing">🎚 Return Mixing</a></h2>
-<p>For tracks with an insert return, the <a href="audio-overview.html">Audio Overview</a> encoders gain two extra modes (push an encoder to cycle to them):</p>
-<ul>
-<li><code>RETURN LEVEL</code> → level of the returned signal (-60 to 0 dB)</li>
-<li><code>RETURN MIX</code> → dry/return balance (0% = track only, 100% = return only)</li>
-</ul>
-<p>Both are also available in <code>SINGLE</code> mode (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>) and can be automated.</p>
+                        <h1 id="companion-app-mac--ipad"><a class="header" href="#companion-app-mac--ipad">Companion App (Mac / iPad)</a></h1>
+<p>The Track8 companion app runs the same firmware as the hardware natively on
+iPad and on Apple-silicon Macs. The device image is a fully working control
+surface — tap the encoders and buttons to operate it — and the screen in the
+middle is the real Track8 UI, rendered live. External audio inputs and
+multitrack recording remain hardware-only features.</p>
+<p>Two touch buttons live in the corners of the window, outside the device:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Corner</th><th>Button</th><th>What it does</th></tr>
+</thead>
+<tbody>
+<tr><td>bottom-left</td><td><strong>ⓘ</strong></td><td>Info overlay: labels every encoder and button with what it does on the current screen (hold <strong>SHIFT</strong> to see the shifted actions)</td></tr>
+<tr><td>bottom-right</td><td><strong>🎨</strong></td><td>Theme editor (below)</td></tr>
+</tbody>
+</table>
+</div>
+<p>Only one of the two can be open at a time.</p>
+<h2 id="theme-editor"><a class="header" href="#theme-editor">Theme editor</a></h2>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</p>
+<p>The theme editor lets you build a color theme while watching the real UI
+change, instead of guessing from static previews. It uses the same
+<code>theme.json</code> format as the hardware (and the
+<a href="https://thingstone.com/theme-editor">web theme editor</a>), so anything you
+make here can go straight onto your Track8.</p>
+<ol>
+<li>Tap <strong>🎨</strong> in the bottom-right corner. Panels appear above and below the
+device listing every themeable color by name, grouped into <em>General</em>,
+<em>Encoders</em>, <em>Audio tracks</em>, <em>MIDI tracks</em>, <em>Markers</em> and <em>FX curves</em>.
+The editor starts from the theme currently selected under
+<a href="utility.html">Utility → THEME</a> (DEFAULT included).</li>
+<li>Tap a color swatch to open the system color picker. Every change is
+applied to the rendered screen immediately — keep operating the device
+(switch to the MIDI overview, open Track FX, mute a track, …) to see
+exactly which elements the color affects. Opacity is part of the color.</li>
+<li>Type a name into the text field and tap <strong>SAVE</strong>. The theme is written to
+the app’s <code>theme.json</code> and becomes the selected theme, so it also shows
+up under Utility → THEME. Saving under an existing name asks before
+replacing it. <strong>REVERT</strong> throws away unsaved changes and reloads the
+selected theme.</li>
+<li><strong>EXPORT</strong> opens the share sheet with the app’s <code>theme.json</code> (all your
+themes, plus any you imported). Save it to Files, AirDrop it, or mail it,
+then copy it over the <code>bin/theme.json</code> on your Track8 — it is a drop-in
+replacement.</li>
+<li><strong>IMPORT</strong> picks a <code>theme.json</code> from Files and merges its themes into the
+app’s list (same-named themes are replaced). Use it to bring themes from
+the web editor or from your Track8 into the app.</li>
+</ol>
+<p>Closing the editor (🎨 again, or opening the info overlay) discards unsaved
+changes after asking for confirmation and restores the selected theme.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="effects-and-mastering.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="utility.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="settings-and-projects.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="updates.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -301,11 +244,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="effects-and-mastering.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="utility.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="settings-and-projects.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="updates.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
