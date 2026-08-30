@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-3a6f3587.js";
+            window.path_to_searchindex_js = "searchindex-b77ed85d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -211,7 +211,15 @@ back (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2
 <li><strong>TRK NAMES</strong> (Track 6) — name your audio and MIDI tracks</li>
 <li><strong>BROWSE</strong> (Track 7) — open the Project Browser (see below)</li>
 <li><strong>EXPORT</strong> (Track 8) — export a mix or stems to USB, or bounce to a track
-(since v1.2.0)</li>
+(since v1.2.0)
+<ul>
+<li>Bouncing to a track overwrites that track’s audio from the insert point
+on — and a track is the default destination whenever no USB stick is
+plugged in. <strong>EXPORT</strong> therefore asks first: <strong>OVERWRITE</strong> (Track 6)
+goes ahead, <strong>Cancel</strong> (Track 3) leaves the track untouched
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
+</ul>
+</li>
 </ul>
 <h3 id="settings-while-recording"><a class="header" href="#settings-while-recording">Settings while recording</a></h3>
 <p>The Settings screen stays reachable during a take — that is how you toggle
