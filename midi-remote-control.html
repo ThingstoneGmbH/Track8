@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-b77ed85d.js";
+            window.path_to_searchindex_js = "searchindex-95853beb.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -213,8 +213,8 @@
 <ul>
 <li>A full sweep of the CC (0–127) always covers the full parameter range</li>
 <li>A mapping only fires while its screen is open and its function mode is active — cycling the encoder to another mode does not silently retarget your knob</li>
-<li>Audio Overview encoders are per-track: a mapping on Encoder 3 always drives Track 3. Map all 8 encoders for a full fader bank</li>
-<li>Track FX and Track Sends mappings are locked to the track (and filter node) that was selected when you learned them</li>
+<li>Audio Overview encoders are per-track: a mapping on Encoder 3 always drives Track 3. Map all 8 encoders for a full fader bank — or create a <code>SEL</code> mapping in <code>CONTROL</code> that drives whichever track is selected (see <a href="#-following-the-selected-track">Following the selected track</a>)</li>
+<li>Track FX and Track Sends mappings learned this way are locked to the track (and filter node) that was selected when you learned them. To make one follow the selected track instead, edit it in <code>CONTROL</code> and set <code>TRACK</code> to <code>SEL</code></li>
 </ul>
 <!-- screenshot: MIDI Learn modal with function picker and captured CC -->
 <hr>
@@ -238,15 +238,33 @@
 <tr><td>Encoder 2</td><td>CC number (0–127)</td></tr>
 <tr><td>Encoder 3</td><td>MIDI channel (1–16 or <code>ANY</code>)</td></tr>
 <tr><td>Encoder 4</td><td>Target screen</td></tr>
-<tr><td>Encoder 5</td><td>Target encoder (1–8) or button action</td></tr>
-<tr><td>Encoder 6</td><td>Function (only for encoders with multiple modes)</td></tr>
+<tr><td>Encoder 5</td><td>Target encoder (1–8, or <code>SEL</code> = the selected track’s encoder on the Audio Overview / Track Mixer) or button action</td></tr>
+<tr><td>Encoder 6</td><td>Function (only for encoders with multiple modes — e.g. Volume / Pan / sends on the mixers, per-node Frequency / Q / Gain (<code>N1 FREQ</code> … <code>N4 GAIN</code>) and Attack / Sidechain on Track FX, the delay / reverb / mastering pickers)</td></tr>
 <tr><td>Encoder 7</td><td>Mapping mode: <code>ENC</code> (encoder) or <code>BTN</code> (button)</td></tr>
+<tr><td>Encoder 8</td><td>Track binding on Track FX / Track Sends: <code>SEL</code> (follows the selected track) or a fixed track 1–8 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td></tr>
 <tr><td>Track Button 2</td><td><code>CANCEL</code></td></tr>
-<tr><td>Track Button 7</td><td><code>SAVE</code> / <code>REPLACE</code></td></tr>
+<tr><td>Track Button 8</td><td><code>SAVE</code> / <code>REPLACE</code></td></tr>
 </tbody>
 </table>
 </div>
 <p>While the modal is open, incoming CCs from your control surface <strong>auto-fill</strong> the CC number and channel — just wiggle the control you want to use.</p>
+<p>The list shows each mapping’s binding: <code>Audio Overview / Enc SEL / Volume</code>, <code>Track Fx SEL / Enc 2 / N1 FREQ</code> or <code>Track Fx Track3 / Enc 2 / N1 FREQ</code>.</p>
+<hr>
+<h2 id="-following-the-selected-track"><a class="header" href="#-following-the-selected-track">🎯 Following the selected track</a></h2>
+<p><em>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</em></p>
+<p>If you know the <em>auto channel</em> on Elektron boxes — one MIDI channel that always addresses the active track — this is the same idea: map a set of knobs <strong>once</strong>, and they control whichever track is selected on the Track8. Press a track button, and the same knobs now tweak that track.</p>
+<p>These mappings are created manually in <code>UTILITY</code> → <code>MIDI</code> → <code>CONTROL</code> (<code>ADD</code>), not with MIDI Learn:</p>
+<ul>
+<li><strong>Audio Overview / Track Mixer</strong> (Encoder N = Track N): turn Encoder 5 past <code>8</code> to <code>SEL</code>. The mapping drives the selected track’s Volume, Pan, sends, … — whatever you pick as the function</li>
+<li><strong>Track FX / Track Sends</strong> (one track on screen at a time): leave Encoder 8 (<code>TRACK</code>) on <code>SEL</code>. Pick the function with Encoder 6 (Frequency / Q / Gain per filter node — <code>N1 FREQ</code> … <code>N4 GAIN</code> — Attack / Sidechain, Release, Threshold, Gain, sends). Set <code>TRACK</code> to <code>1</code>–<code>8</code> instead to lock the mapping to one track, which is what MIDI Learn does when you hold an encoder</li>
+<li>The selected track is the one highlighted on the Audio Overview, Track Mixer, Track FX and Track Sends screens — a <code>Select</code> button mapping (see below) switches it from your controller, so a controller page with 8 select pads plus one set of knobs covers all 8 tracks</li>
+</ul>
+<p>Tips:</p>
+<ul>
+<li>A <code>SEL</code> mapping and a fixed-track mapping for the same function can coexist, as long as they use different CCs. Keeping the follow set on its own MIDI channel (e.g. channel 16) makes that easy to organise</li>
+<li>Track8 applies knob movement <strong>relative</strong> to the last position it saw, so switching tracks never makes a value jump — but a knob’s physical position does not reflect the newly selected track’s value until you move it</li>
+<li>Manually created filter mappings name their node (<code>N1 FREQ</code> …), so a follow mapping addresses the same node on every track. Map all twelve for full filter control from your controller</li>
+</ul>
 <!-- screenshot: Add/Edit mapping modal in BTN mode -->
 <hr>
 <h2 id="-button-mappings"><a class="header" href="#-button-mappings">🔘 Button mappings</a></h2>
