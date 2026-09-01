@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-95853beb.js";
+            window.path_to_searchindex_js = "searchindex-0c5e6983.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -235,7 +235,7 @@
 <li>Markers <strong>move with the tape</strong> — locked markers and tempo/signature markers too, so the bar/beat readout behind the splice stays what it was. Markers inside a removed span are deleted; loop and punch points inside it collapse to the splice point</li>
 <li>A removal is limited to <strong>1:30</strong> of tape per splice (the removed audio of all 8 tracks stays on the Undo stack, like a Cut). A removal that would swallow a tempo or signature marker is refused — move the playhead past it or remove the variation first</li>
 <li>Audio automation: an insert opens a gap that plays at the fader value; a removal lets the neighbouring points interpolate across the seam. MIDI CC / pitch-bend / aftertouch set inside a removed span carry their last value over to the splice point</li>
-<li><strong>Undo</strong> reverts a splice completely — audio, automation and MIDI, from either screen (<code>UNDO SPLICE n%</code>); <strong>Redo</strong> re-applies it. Markers, loop and punch points are <em>not</em> restored by Undo: they keep their post-splice positions</li>
+<li><strong>Undo</strong> reverts a splice completely — audio, automation, MIDI, and since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a> also the markers, loop and punch points — from either screen (<code>UNDO SPLICE n%</code>); <strong>Redo</strong> re-applies it</li>
 <li>The same SPLICE encoder is on the <a href="midi-overview.html#scroll">MIDI Overview</a> and does exactly the same thing from there</li>
 </ul>
 <hr>
@@ -368,7 +368,7 @@
 <li>Streaming state</li>
 <li>SSD usage</li>
 <li><strong>Touch and hold the track area</strong> (about a second) to open the <strong>Quick Settings</strong> panel — MKR LEG, MOD HI, BIG TIME, SHIFT HOLD, SHIFT NAV, TIMED JUMP, SHIFT PLAY, PASTE JMP, SCROLL SND, TAPE SND, OVERDUB and a CLIPBOARD shortcut, without leaving the overview; see <a href="user-interface.html#-touch">Touch</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
-<li><strong>Touch the time / beat readout</strong> (anywhere from <code>T 00:00</code> over the streaming indicator to <code>B 01:01</code>) to toggle <strong>BIG TIME</strong> — a big, translucent time / bar-beat overlay on the left half of the screen, readable from across the room. The setting is global and shows on both overviews (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>) — the same setting as <strong>BIG TIME</strong> on the <a href="utility.html">Utility</a> screen</li>
+<li><strong>Touch the time / beat readout</strong> (anywhere from <code>T 00:00</code> over the streaming indicator to <code>B 01:01</code>) to toggle <strong>BIG TIME</strong> — a big, translucent overlay on the left half of the screen, readable from across the room: the time / bar-beat readout plus the name of the <a href="#markers">marker</a> the playhead is in, the next one, and a progress bar with a <code>bars:beats</code> countdown to it — name your markers after chords or song sections and read the changes while playing. The setting is global and shows on both overviews (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>) — the same setting as <strong>BIG TIME</strong> on the <a href="utility.html">Utility</a> screen</li>
 </ul>
 <hr>
 <h3 id="markers"><a class="header" href="#markers">Markers</a></h3>
@@ -377,7 +377,7 @@
 <li>Markers snap to 1/4 notes — use the <a href="editing-audio.html">Audio Edit</a> view for finer cut/copy/paste work (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
 <li>Touch marker to edit label</li>
 <li>Everything in the marker edit screen — label, lock, start flag, colour, tempo / time signature and MIDI events — is written together when you press <strong>APPLY</strong>; the key lights up while something is pending, and <strong>EXIT</strong> discards all of it (before <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a> the button read <code>SET LABEL</code> and the lock took effect immediately)</li>
-<li>A <a href="#-splice--insert--remove-time">SPLICE</a> moves markers with the tape — locked and tempo markers included — and deletes the markers inside a removed span. Undo does not bring them back (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
+<li>A <a href="#-splice--insert--remove-time">SPLICE</a> moves markers with the tape — locked and tempo markers included — and deletes the markers inside a removed span. Undo of the splice brings them back (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>In the marker edit screen you can:
 <ul>
 <li>Lock / Unlock marker - Locked markers are shown with an <code>*</code> and cannot be deleted — neither by clear all Markers (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-marker-dark.svg"><img alt="set-marker" src="icons/individual/track8_set-marker-light.svg" width="24"></picture>) nor by pressing the Marker button next to them; a press near a locked marker shows <code>MARKER LOCKED</code> and changes nothing. Unlock the marker here first to delete it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.2">v1.1.2</a>; true lock against the Marker button new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
@@ -461,6 +461,7 @@ sections easy to tell apart when scrolling a long project (new in <a href="https
 <li><strong>The Markers inside the loop travel with the section.</strong> A Marker region can never contain Markers (it ends at the next one); a loop can span as many as you like
 <ul>
 <li>Cut/Copy stores every Marker inside the loop — label, colour, lock, tempo / time signature change, MIDI events — with its distance to the loop start in real time, so a tempo change inside the section still lines up with the pasted audio</li>
+<li>A Marker sitting exactly on the loop <strong>end</strong> bracket counts as part of the section and travels too. Pasting puts it right on the destination’s end bracket — unless a Marker already sits there, which keeps its place. Cut never deletes it: a Marker on the end bracket just as much marks the start of the section behind the loop, which a Cut leaves untouched (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Paste replaces the <strong>unlocked</strong> Markers in the destination span, the same way it replaces the audio and MIDI there. Locked Markers and Markers with a tempo / signature change or a MIDI event stay put — a paste is no way around the lock; a pasted Marker that would land exactly on one of them is skipped</li>
 <li>Cut removes the unlocked Markers inside the loop; locked ones stay. Markers behind the loop are not moved (Cut clears the region, it does not close the gap — use <a href="#-splice--insert--remove-time">SPLICE</a> for that)</li>
 <li>The ▶ start flag is never copied — there is only one start marker per project and it stays where it is</li>

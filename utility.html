@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-95853beb.js";
+            window.path_to_searchindex_js = "searchindex-0c5e6983.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -208,32 +208,53 @@ are also one touch away on the overviews: <strong>touch and hold the track area<
 of the Audio or MIDI Overview to open the <strong>Quick Settings</strong> panel, see
 <a href="user-interface.html#-touch">Touch</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>).</p>
 <ul>
-<li><strong>MKR LEG</strong> — draw a vertical line under each marker for easy visual
+<li>
+<p><strong>MKR LEG</strong> — draw a vertical line under each marker for easy visual
 reference (since v1.1.4). On the overviews the legs stop at the track
 area, like the waveform, so the input/output meters stay clear of them
-(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
-<li><strong>MOD HI</strong> — highlight pasted/modified audio in orange until the next
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</p>
+</li>
+<li>
+<p><strong>MOD HI</strong> — highlight pasted/modified audio in orange until the next
 edit or view switch (since v1.1.4). During <a href="audio-overview.html#-multi-take-recording-new-in-v121-preview">multi-take
 recording</a> nothing is highlighted
 while the takes are still open; the take you kept is highlighted once
-the session ends (punch off) (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
-<li><strong>SCROLL SND</strong> — tape-style FFW/RWD sound while navigating and scrolling
-(since v1.1.5)</li>
-<li><strong>SHIFT PLAY</strong> — START / MARKER 1: where <strong>SHIFT</strong> + Play jumps
+the session ends (punch off) (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</p>
+</li>
+<li>
+<p><strong>SCROLL SND</strong> — tape-style FFW/RWD sound while navigating and scrolling
+(since v1.1.5)</p>
+</li>
+<li>
+<p><strong>SHIFT PLAY</strong> — START / MARKER 1: where <strong>SHIFT</strong> + Play jumps
 (since v1.1.5). Reads <code>START MKR</code> while a marker carries the
 <a href="audio-overview.html#markers">start flag</a>: <strong>SHIFT</strong> + Play then always goes
 to that marker, and the setting takes over again once the flag is removed
-(new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
-<li><strong>PASTE JMP</strong> — after a paste, jump the playhead to the end of the pasted
-region to quickly fill the tape with a repeating pattern (since v1.2.0)</li>
-<li><strong>TAPE SND</strong> — tape-stop effect on stop: OFF / 0.4s / 0.8s / 1.5s tail
-(new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
-<li><strong>BIG TIME</strong> — big time / bar-beat readout (<code>T 00:00</code> / <code>B 01:01</code>) as a
-translucent overlay on the left half of the Audio and MIDI Overview,
-readable from across the room
+(new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</p>
+</li>
+<li>
+<p><strong>PASTE JMP</strong> — after a paste, jump the playhead to the end of the pasted
+region to quickly fill the tape with a repeating pattern (since v1.2.0)</p>
+</li>
+<li>
+<p><strong>TAPE SND</strong> — tape-stop effect on stop: OFF / 0.4s / 0.8s / 1.5s tail
+(new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
+</li>
+<li>
+<p><strong>BIG TIME</strong> — a big translucent overlay on the left half of the Audio and
+MIDI Overview, readable from across the room
 (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).
+Shows the time / bar-beat readout (<code>T 00:00</code> / <code>B 01:01</code>) with the
+markers between them — <code>current &gt; next</code> — and a progress bar with a
+<code>bars:beats</code> countdown to the next marker below; name your markers
+after chords or song sections and read the changes while playing.
+Unnamed markers show as their number (<code>M: 3</code>); after the last marker the
+next slot reads <code>M: -</code> and the countdown <code>--:--</code>
+(marker info since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>).
 Also toggled by <strong>touching the time / beat readout</strong> at the bottom of
-either overview (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
+either overview (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>):</p>
+<img alt="BIG TIME overlay on the Audio Overview" src="images/screens/AudioOverview-BigTime.png" width="900">
+</li>
 </ul>
 <h2 id="sub-screens"><a class="header" href="#sub-screens">Sub-screens</a></h2>
 <p>The track buttons lead to the Utility sub-screens. <strong>EXIT</strong> (Track 1)
