@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-34812402.js";
+            window.path_to_searchindex_js = "searchindex-eca718b7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -726,7 +726,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
-<tr><td>Encoder 4</td><td>Current Volume at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 4</td><td>Current Volume at Playhead</td><td>Turn to write automation at playhead, push to start an LFO</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 </tbody>
 </table>
@@ -754,7 +754,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
-<tr><td>Encoder 4</td><td>Current Pan at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 4</td><td>Current Pan at Playhead</td><td>Turn to write automation at playhead, push to start an LFO</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 </tbody>
 </table>
@@ -782,7 +782,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
-<tr><td>Encoder 4</td><td>Current FX Value at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 4</td><td>Current FX Value at Playhead</td><td>Turn to write automation at playhead, push to start an LFO</td></tr>
 <tr><td>Encoder 6</td><td>Select TrackFX parameter</td><td>—</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 </tbody>
@@ -811,7 +811,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
-<tr><td>Encoder 4</td><td>Current Value at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 4</td><td>Current Value at Playhead</td><td>Turn to write automation at playhead, push to start an LFO</td></tr>
 <tr><td>Encoder 6</td><td>Select Return Mix/Volume parameter</td><td>—</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 </tbody>
@@ -890,6 +890,8 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>3</td><td>Reverse Group</td></tr>
 <tr><td>4</td><td>Crush Group</td></tr>
 <tr><td>5</td><td>Crop Group</td></tr>
+<tr><td>6</td><td>Pitch Group</td></tr>
+<tr><td>7</td><td>Filter Group</td></tr>
 <tr><td>8</td><td>Apply</td></tr>
 </tbody>
 </table>
@@ -906,6 +908,8 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>3</td><td>Reverse Group</td></tr>
 <tr><td>4</td><td>Crush Group</td></tr>
 <tr><td>5</td><td>Crop Group</td></tr>
+<tr><td>6</td><td>Pitch Group</td></tr>
+<tr><td>7</td><td>Filter Group</td></tr>
 <tr><td>8</td><td>Write Back</td></tr>
 </tbody>
 </table>
@@ -1002,6 +1006,44 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 4</td><td>Slide</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-clipboard-modifier--pitch-group"><a class="header" href="#audio-clipboard-modifier--pitch-group">Audio Clipboard Modifier — Pitch group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Pitch From</td><td>Semitones at Start</td></tr>
+<tr><td>Encoder 5</td><td>Pitch To</td><td>Semitones at End</td></tr>
+<tr><td>Encoder 6</td><td>Curve</td><td>Linear / eased ramp</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-clipboard-modifier--filter-group"><a class="header" href="#audio-clipboard-modifier--filter-group">Audio Clipboard Modifier — Filter group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Filter Start</td><td>Cutoff at Start</td></tr>
+<tr><td>Encoder 5</td><td>Filter End</td><td>Cutoff at End</td></tr>
+<tr><td>Encoder 6</td><td>Q</td><td>Push to cycle LP / HP / BP</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
 </tbody>
@@ -1142,6 +1184,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>5</td><td>Enable Record for Add/Replace/Delete note</td></tr>
+<tr><td>6</td><td>Play the selected note (Delete while Record is on)</td></tr>
 <tr><td>7</td><td>Toggle Snap Mode</td></tr>
 <tr><td>8</td><td>Toggle Step Record</td></tr>
 </tbody>
@@ -2278,7 +2321,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tbody>
 <tr><td>1</td><td>Select Track</td></tr>
 <tr><td>2</td><td>Scroll resolution — push to switch between Grid and ms steps. In Grid mode the beat ruler shows sub-beat grid steps as shorter ticks; in ms mode only beats and bars are drawn (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td></tr>
-<tr><td>4</td><td>Value / automation at playhead (see below), SLIDE in Edit mode, Nudge in Nudge mode</td></tr>
+<tr><td>4</td><td>Value / automation at playhead (see below) — push starts an <a href="#️-lfo-since-v122-snapshot">LFO</a> on the lane; SLIDE in Edit mode, Nudge in Nudge mode</td></tr>
 <tr><td>5</td><td>Start of Edit/Nudge region — push to set Start to playhead (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.2">v1.1.2</a>)</td></tr>
 <tr><td>6</td><td>End of Edit/Nudge region — push to set End to playhead. Selects the FX parameter in TrackFX/Return mode</td></tr>
 <tr><td>7</td><td>Zoom (0.25x → 2048x)</td></tr>
@@ -2334,6 +2377,28 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li>While an automation recording (<code>A+A</code> / <code>ATM</code> mode) is running, encoder moves on the Overview and <a href="#track-mixer-1">Track Mixer</a> are recorded the same way</li>
 </ul>
 <hr>
+<h3 id="-lfo-since-v122-snapshot"><a class="header" href="#-lfo-since-v122-snapshot">〰️ LFO (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
+<p>Push Encoder 4 on any automation lane (Volume, Pan, TrackFX, Return) to generate a tempo-synced LFO into the region between the surrounding Markers. The LFO is written into the lane while you dial it in, so you see it in the lane and hear it during playback right away.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td><code>LFO</code> shape: <code>SINE</code>, <code>TRI</code>, <code>SAW DN</code>, <code>SAW UP</code>, <code>SQUARE</code>, <code>S&amp;H</code></td><td>Commit and leave LFO mode</td></tr>
+<tr><td>5</td><td><code>RATE</code> — one cycle per note value, same ladder as <code>GRID</code> (up to 4 whole notes); starts at the current <code>GRID</code></td><td>Shift the phase by 90°</td></tr>
+<tr><td>6</td><td><code>DEPTH</code> 0–100 %, or <code>DELTA</code> -100 to +100 % after a push (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> = 1 % steps)</td><td>Toggle Encoder 6 between <code>DEPTH</code> and <code>DELTA</code></td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>The lane’s value at the region start is the LFO’s resting level; set it with Encoder 4 before pushing, or shift it afterwards with <code>DELTA</code>, which moves the whole LFO up or down by up to half the lane’s range</li>
+<li>Volume and Return Level dip <strong>down</strong> from that level (100 % reaches silence), every other lane swings <strong>around</strong> it, TrackFX frequencies, Q and times in octaves rather than Hz</li>
+<li>Every shape except <code>SAW UP</code> starts at the resting level, so a volume LFO begins at full level; <code>SAW UP</code> swells up from the trough</li>
+<li>Automation that was in the region is replaced; automation outside it is untouched, and the lane returns to the resting level at the region end</li>
+<li>Anything other than turning the LFO encoders commits the LFO: moving the playhead, Play, touching the lane, zooming, changing the track or lane, leaving the screen, and <code>UNDO</code> itself (which then undoes the LFO)</li>
+<li>The whole LFO is <strong>one</strong> <code>UNDO</code> step</li>
+</ul>
 <h3 id="-clearing-automation"><a class="header" href="#-clearing-automation">🧹 Clearing Automation</a></h3>
 <ul>
 <li>Selectively delete automation points with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <strong>touchscreen</strong> — this simplifies the curve without creating holes</li>
@@ -2441,7 +2506,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <p>All edits apply to the region between <code>START</code> and <code>END</code> — by default the whole clipboard. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning a parameter encoder for fine steps.</p>
 <hr>
 <h2 id="groups-track-buttons"><a class="header" href="#groups-track-buttons">Groups (Track Buttons)</a></h2>
-<p>Track Buttons 1–5 select a group; each group puts its parameters on Encoders 4/5/6.</p>
+<p>Track Buttons 1–7 select a group; each group puts its parameters on Encoders 4/5/6.</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -2453,6 +2518,8 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><td>3</td><td><code>REVERSE</code></td><td>REVERSE (ON/OFF)</td><td>SHUFFLE (1–32 slices, push to re-roll the order)</td><td>STUTTER (1–64 repeats)</td></tr>
 <tr><td>4</td><td><code>CRUSH</code></td><td>BIT (32 down to 1 bit)</td><td>SAMPLE (1x–32x rate reduction)</td><td>—</td></tr>
 <tr><td>5</td><td><code>CROP</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</td><td>SLIDE (move the whole Start/End region)</td><td>—</td><td>—</td></tr>
+<tr><td>6</td><td><code>PITCH</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td><td>FROM (±24 st, pitch at Start)</td><td>TO (±24 st, pitch at End)</td><td>CURVE (LIN, -100 to +100)</td></tr>
+<tr><td>7</td><td><code>FILTER</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td><td>START (cutoff at Start, 20 Hz–20 kHz)</td><td>END (cutoff at End, 20 Hz–20 kHz)</td><td>Q (0.1–10), push to cycle <code>LP</code> / <code>HP</code> / <code>BP</code></td></tr>
 <tr><td>8</td><td><code>APPLY</code> — commit the group’s settings to the clipboard</td><td></td><td></td><td></td></tr>
 <tr><td>8 + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture></td><td><code>WRITE BACK</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</td><td></td><td></td><td></td></tr>
 </tbody>
@@ -2465,6 +2532,9 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li><code>SPEED</code> / <code>WARP</code> respect the 12-minute clipboard limit across all copied tracks combined — the encoder simply stops at the last value that still fits (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Automation copied along with the clip follows a length change: after an <code>APPLY</code> that resizes the clip (<code>SPEED</code>, <code>WARP</code>, <code>CROP</code>), pasting places the automation over the new length rather than the original one</li>
 <li><code>CROP</code> needs no parameters: set <code>START</code>/<code>END</code> (or <code>SLIDE</code> the region), then <code>APPLY</code> to discard everything outside it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
+<li><code>PITCH</code> bends the pitch smoothly from <code>FROM</code> at the region’s Start to <code>TO</code> at its End without changing the length (the same engine as <code>REPITCH</code>). A bend that resolves to the original pitch is <code>TO</code> = 0; one that drifts away is <code>FROM</code> = 0; <code>FROM</code> = <code>TO</code> is a static repitch. <code>CURVE</code> shapes the ramp: <code>LIN</code> is a straight line, positive values start slow and finish fast, negative values start fast and finish slow. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> for 0.1 st steps</li>
+<li><code>FILTER</code> runs one filter node over the region and sweeps its cutoff from <code>START</code> to <code>END</code> (interpolated in octaves, so a sweep sounds even across the spectrum). <code>START</code> = <code>END</code> gives a static filter. The cutoff encoders step in thirds of an octave (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> = a twelfth); push Encoder 6 to cycle the type <code>LP</code> → <code>HP</code> → <code>BP</code>. A low-pass with both ends at 20 kHz, or a high-pass with both at 20 Hz, is “open” and does nothing; cycling the type moves any open cutoff to the new type’s open end (1 kHz for <code>BP</code>, which has no open position)</li>
+<li>While a <code>PITCH</code> or <code>FILTER</code> setting is un-applied, the sweep is traced as a line over the waveform (0 st on the centre line for <code>PITCH</code>; 20 Hz at the bottom to 20 kHz at the top for <code>FILTER</code>)</li>
 <li>Switching to another group (or re-pressing the current one) <strong>discards</strong> any un-applied settings of the current group</li>
 <li>On a multi-track clipboard, <code>APPLY</code> shows its progress per track (“Track 3/8”) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
@@ -2713,6 +2783,8 @@ note cursor (<code>Encoder 6</code>) steps from row to row; <code>SNAP</code> is
 <li><code>Track 5</code> → Add a note at the playhead (or Replace the selected note); length = grid size</li>
 <li><code>Track 6</code> → Delete the selected note</li>
 </ul>
+<h3 id="play-the-selected-note-since-v122-snapshot"><a class="header" href="#play-the-selected-note-since-v122-snapshot">Play the selected note (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
+<p>With Record off, <code>Track 6</code> shows <code>Play</code>: it sends the selected note once to the track’s MIDI output channel, with its stored velocity and length, so you can check an edit without starting playback. Pressing again while the note still sounds retriggers it. The preview ignores the MIDI Monitor setting.</p>
 <hr>
 <h2 id="-snap-modes-since-v112"><a class="header" href="#-snap-modes-since-v112">🧲 SNAP Modes (since v1.1.2)</a></h2>
 <p><code>Track 7</code> cycles the cursor snap mode in the <code>Note</code> view: <code>SNAP</code> (off) → <code>HARM SNAP</code> → <code>TRKR SNAP</code>.</p>

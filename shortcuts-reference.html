@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-34812402.js";
+            window.path_to_searchindex_js = "searchindex-eca718b7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -372,7 +372,7 @@
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
-<tr><td>Encoder 4</td><td>Current Volume at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 4</td><td>Current Volume at Playhead</td><td>Turn to write automation at playhead, push to start an LFO</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 </tbody>
 </table>
@@ -400,7 +400,7 @@
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
-<tr><td>Encoder 4</td><td>Current Pan at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 4</td><td>Current Pan at Playhead</td><td>Turn to write automation at playhead, push to start an LFO</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 </tbody>
 </table>
@@ -428,7 +428,7 @@
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
-<tr><td>Encoder 4</td><td>Current FX Value at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 4</td><td>Current FX Value at Playhead</td><td>Turn to write automation at playhead, push to start an LFO</td></tr>
 <tr><td>Encoder 6</td><td>Select TrackFX parameter</td><td>—</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 </tbody>
@@ -457,7 +457,7 @@
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
-<tr><td>Encoder 4</td><td>Current Value at Playhead</td><td>Turn to write automation at playhead</td></tr>
+<tr><td>Encoder 4</td><td>Current Value at Playhead</td><td>Turn to write automation at playhead, push to start an LFO</td></tr>
 <tr><td>Encoder 6</td><td>Select Return Mix/Volume parameter</td><td>—</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 </tbody>
@@ -536,6 +536,8 @@
 <tr><td>3</td><td>Reverse Group</td></tr>
 <tr><td>4</td><td>Crush Group</td></tr>
 <tr><td>5</td><td>Crop Group</td></tr>
+<tr><td>6</td><td>Pitch Group</td></tr>
+<tr><td>7</td><td>Filter Group</td></tr>
 <tr><td>8</td><td>Apply</td></tr>
 </tbody>
 </table>
@@ -552,6 +554,8 @@
 <tr><td>3</td><td>Reverse Group</td></tr>
 <tr><td>4</td><td>Crush Group</td></tr>
 <tr><td>5</td><td>Crop Group</td></tr>
+<tr><td>6</td><td>Pitch Group</td></tr>
+<tr><td>7</td><td>Filter Group</td></tr>
 <tr><td>8</td><td>Write Back</td></tr>
 </tbody>
 </table>
@@ -648,6 +652,44 @@
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 4</td><td>Slide</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-clipboard-modifier--pitch-group"><a class="header" href="#audio-clipboard-modifier--pitch-group">Audio Clipboard Modifier — Pitch group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Pitch From</td><td>Semitones at Start</td></tr>
+<tr><td>Encoder 5</td><td>Pitch To</td><td>Semitones at End</td></tr>
+<tr><td>Encoder 6</td><td>Curve</td><td>Linear / eased ramp</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-clipboard-modifier--filter-group"><a class="header" href="#audio-clipboard-modifier--filter-group">Audio Clipboard Modifier — Filter group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Filter Start</td><td>Cutoff at Start</td></tr>
+<tr><td>Encoder 5</td><td>Filter End</td><td>Cutoff at End</td></tr>
+<tr><td>Encoder 6</td><td>Q</td><td>Push to cycle LP / HP / BP</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
 </tbody>
@@ -788,6 +830,7 @@
 </thead>
 <tbody>
 <tr><td>5</td><td>Enable Record for Add/Replace/Delete note</td></tr>
+<tr><td>6</td><td>Play the selected note (Delete while Record is on)</td></tr>
 <tr><td>7</td><td>Toggle Snap Mode</td></tr>
 <tr><td>8</td><td>Toggle Step Record</td></tr>
 </tbody>

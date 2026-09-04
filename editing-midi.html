@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-34812402.js";
+            window.path_to_searchindex_js = "searchindex-eca718b7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -233,6 +233,8 @@ note cursor (<code>Encoder 6</code>) steps from row to row; <code>SNAP</code> is
 <li><code>Track 5</code> → Add a note at the playhead (or Replace the selected note); length = grid size</li>
 <li><code>Track 6</code> → Delete the selected note</li>
 </ul>
+<h3 id="play-the-selected-note-since-v122-snapshot"><a class="header" href="#play-the-selected-note-since-v122-snapshot">Play the selected note (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
+<p>With Record off, <code>Track 6</code> shows <code>Play</code>: it sends the selected note once to the track’s MIDI output channel, with its stored velocity and length, so you can check an edit without starting playback. Pressing again while the note still sounds retriggers it. The preview ignores the MIDI Monitor setting.</p>
 <hr>
 <h2 id="-snap-modes-since-v112"><a class="header" href="#-snap-modes-since-v112">🧲 SNAP Modes (since v1.1.2)</a></h2>
 <p><code>Track 7</code> cycles the cursor snap mode in the <code>Note</code> view: <code>SNAP</code> (off) → <code>HARM SNAP</code> → <code>TRKR SNAP</code>.</p>

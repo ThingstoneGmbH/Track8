@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-34812402.js";
+            window.path_to_searchindex_js = "searchindex-eca718b7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -212,7 +212,7 @@
 <p>All edits apply to the region between <code>START</code> and <code>END</code> — by default the whole clipboard. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning a parameter encoder for fine steps.</p>
 <hr>
 <h2 id="groups-track-buttons"><a class="header" href="#groups-track-buttons">Groups (Track Buttons)</a></h2>
-<p>Track Buttons 1–5 select a group; each group puts its parameters on Encoders 4/5/6.</p>
+<p>Track Buttons 1–7 select a group; each group puts its parameters on Encoders 4/5/6.</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -224,6 +224,8 @@
 <tr><td>3</td><td><code>REVERSE</code></td><td>REVERSE (ON/OFF)</td><td>SHUFFLE (1–32 slices, push to re-roll the order)</td><td>STUTTER (1–64 repeats)</td></tr>
 <tr><td>4</td><td><code>CRUSH</code></td><td>BIT (32 down to 1 bit)</td><td>SAMPLE (1x–32x rate reduction)</td><td>—</td></tr>
 <tr><td>5</td><td><code>CROP</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</td><td>SLIDE (move the whole Start/End region)</td><td>—</td><td>—</td></tr>
+<tr><td>6</td><td><code>PITCH</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td><td>FROM (±24 st, pitch at Start)</td><td>TO (±24 st, pitch at End)</td><td>CURVE (LIN, -100 to +100)</td></tr>
+<tr><td>7</td><td><code>FILTER</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td><td>START (cutoff at Start, 20 Hz–20 kHz)</td><td>END (cutoff at End, 20 Hz–20 kHz)</td><td>Q (0.1–10), push to cycle <code>LP</code> / <code>HP</code> / <code>BP</code></td></tr>
 <tr><td>8</td><td><code>APPLY</code> — commit the group’s settings to the clipboard</td><td></td><td></td><td></td></tr>
 <tr><td>8 + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture></td><td><code>WRITE BACK</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</td><td></td><td></td><td></td></tr>
 </tbody>
@@ -236,6 +238,9 @@
 <li><code>SPEED</code> / <code>WARP</code> respect the 12-minute clipboard limit across all copied tracks combined — the encoder simply stops at the last value that still fits (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Automation copied along with the clip follows a length change: after an <code>APPLY</code> that resizes the clip (<code>SPEED</code>, <code>WARP</code>, <code>CROP</code>), pasting places the automation over the new length rather than the original one</li>
 <li><code>CROP</code> needs no parameters: set <code>START</code>/<code>END</code> (or <code>SLIDE</code> the region), then <code>APPLY</code> to discard everything outside it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
+<li><code>PITCH</code> bends the pitch smoothly from <code>FROM</code> at the region’s Start to <code>TO</code> at its End without changing the length (the same engine as <code>REPITCH</code>). A bend that resolves to the original pitch is <code>TO</code> = 0; one that drifts away is <code>FROM</code> = 0; <code>FROM</code> = <code>TO</code> is a static repitch. <code>CURVE</code> shapes the ramp: <code>LIN</code> is a straight line, positive values start slow and finish fast, negative values start fast and finish slow. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> for 0.1 st steps</li>
+<li><code>FILTER</code> runs one filter node over the region and sweeps its cutoff from <code>START</code> to <code>END</code> (interpolated in octaves, so a sweep sounds even across the spectrum). <code>START</code> = <code>END</code> gives a static filter. The cutoff encoders step in thirds of an octave (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> = a twelfth); push Encoder 6 to cycle the type <code>LP</code> → <code>HP</code> → <code>BP</code>. A low-pass with both ends at 20 kHz, or a high-pass with both at 20 Hz, is “open” and does nothing; cycling the type moves any open cutoff to the new type’s open end (1 kHz for <code>BP</code>, which has no open position)</li>
+<li>While a <code>PITCH</code> or <code>FILTER</code> setting is un-applied, the sweep is traced as a line over the waveform (0 st on the centre line for <code>PITCH</code>; 20 Hz at the bottom to 20 kHz at the top for <code>FILTER</code>)</li>
 <li>Switching to another group (or re-pressing the current one) <strong>discards</strong> any un-applied settings of the current group</li>
 <li>On a multi-track clipboard, <code>APPLY</code> shows its progress per track (“Track 3/8”) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>

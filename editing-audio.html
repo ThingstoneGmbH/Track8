@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-34812402.js";
+            window.path_to_searchindex_js = "searchindex-eca718b7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -203,7 +203,7 @@
 <tbody>
 <tr><td>1</td><td>Select Track</td></tr>
 <tr><td>2</td><td>Scroll resolution — push to switch between Grid and ms steps. In Grid mode the beat ruler shows sub-beat grid steps as shorter ticks; in ms mode only beats and bars are drawn (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td></tr>
-<tr><td>4</td><td>Value / automation at playhead (see below), SLIDE in Edit mode, Nudge in Nudge mode</td></tr>
+<tr><td>4</td><td>Value / automation at playhead (see below) — push starts an <a href="#️-lfo-since-v122-snapshot">LFO</a> on the lane; SLIDE in Edit mode, Nudge in Nudge mode</td></tr>
 <tr><td>5</td><td>Start of Edit/Nudge region — push to set Start to playhead (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.2">v1.1.2</a>)</td></tr>
 <tr><td>6</td><td>End of Edit/Nudge region — push to set End to playhead. Selects the FX parameter in TrackFX/Return mode</td></tr>
 <tr><td>7</td><td>Zoom (0.25x → 2048x)</td></tr>
@@ -259,6 +259,28 @@
 <li>While an automation recording (<code>A+A</code> / <code>ATM</code> mode) is running, encoder moves on the Overview and <a href="mixer.html">Track Mixer</a> are recorded the same way</li>
 </ul>
 <hr>
+<h3 id="-lfo-since-v122-snapshot"><a class="header" href="#-lfo-since-v122-snapshot">〰️ LFO (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
+<p>Push Encoder 4 on any automation lane (Volume, Pan, TrackFX, Return) to generate a tempo-synced LFO into the region between the surrounding Markers. The LFO is written into the lane while you dial it in, so you see it in the lane and hear it during playback right away.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td><code>LFO</code> shape: <code>SINE</code>, <code>TRI</code>, <code>SAW DN</code>, <code>SAW UP</code>, <code>SQUARE</code>, <code>S&amp;H</code></td><td>Commit and leave LFO mode</td></tr>
+<tr><td>5</td><td><code>RATE</code> — one cycle per note value, same ladder as <code>GRID</code> (up to 4 whole notes); starts at the current <code>GRID</code></td><td>Shift the phase by 90°</td></tr>
+<tr><td>6</td><td><code>DEPTH</code> 0–100 %, or <code>DELTA</code> -100 to +100 % after a push (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> = 1 % steps)</td><td>Toggle Encoder 6 between <code>DEPTH</code> and <code>DELTA</code></td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>The lane’s value at the region start is the LFO’s resting level; set it with Encoder 4 before pushing, or shift it afterwards with <code>DELTA</code>, which moves the whole LFO up or down by up to half the lane’s range</li>
+<li>Volume and Return Level dip <strong>down</strong> from that level (100 % reaches silence), every other lane swings <strong>around</strong> it, TrackFX frequencies, Q and times in octaves rather than Hz</li>
+<li>Every shape except <code>SAW UP</code> starts at the resting level, so a volume LFO begins at full level; <code>SAW UP</code> swells up from the trough</li>
+<li>Automation that was in the region is replaced; automation outside it is untouched, and the lane returns to the resting level at the region end</li>
+<li>Anything other than turning the LFO encoders commits the LFO: moving the playhead, Play, touching the lane, zooming, changing the track or lane, leaving the screen, and <code>UNDO</code> itself (which then undoes the LFO)</li>
+<li>The whole LFO is <strong>one</strong> <code>UNDO</code> step</li>
+</ul>
 <h3 id="-clearing-automation"><a class="header" href="#-clearing-automation">🧹 Clearing Automation</a></h3>
 <ul>
 <li>Selectively delete automation points with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <strong>touchscreen</strong> — this simplifies the curve without creating holes</li>
