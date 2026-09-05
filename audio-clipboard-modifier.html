@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-638a1f6c.js";
+            window.path_to_searchindex_js = "searchindex-f3a9eb63.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -218,7 +218,7 @@
 <tr><th><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Encoder</th><th>Setting</th><th>Values</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><code>SCALE</code></td><td><code>CHROMA</code>, <code>MAJOR</code>, <code>MINOR</code>, <code>PENTA</code>, <code>5TH+OCT</code>, <code>SINGLE</code> (root only)</td></tr>
+<tr><td>1</td><td><code>SCALE</code></td><td><code>CHROMA</code>, <code>MAJOR</code>, <code>MINOR</code>, <code>DORIAN</code>, <code>PHRYG</code>, <code>PHRYDOM</code> (Phrygian dominant), <code>LYDIAN</code>, <code>MIXO</code>, <code>HARM-M</code> (harmonic minor), <code>PENTA</code> (major pentatonic), <code>MINPENT</code>, <code>BLUES</code>, <code>WHOLE</code> (whole tone), <code>5TH+OCT</code>, <code>SINGLE</code> (root only)</td></tr>
 <tr><td>2</td><td><code>SPAN</code></td><td>1–4 octaves above <code>ROOT</code> (<code>RESO</code> band range, <code>SPRAY</code> transposition range)</td></tr>
 <tr><td>3</td><td><code>ROOT</code></td><td>C1–C6, the key of the <code>RESO</code> bank (<code>SPRAY</code> transposes relative to each grain’s own pitch and ignores it)</td></tr>
 </tbody>
@@ -234,10 +234,11 @@
 <tr><th><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Button</th><th>Page</th><th>Contents</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><code>EDIT</code></td><td>the original modifier: <code>VOLUME</code> … <code>FILTER</code></td></tr>
+<tr><td>1</td><td><code>EDIT</code></td><td>the original modifier: <code>VOLUME</code> … <code>FILTER</code> (<code>CRUSH</code> moved to <code>DIST</code>)</td></tr>
 <tr><td>2</td><td><code>GRAIN</code></td><td>rhythmic granular resynthesis and a tuned resonator</td></tr>
 <tr><td>3</td><td><code>MOD</code></td><td>LFOs printed over the region</td></tr>
-<tr><td>4</td><td><code>FX</code></td><td>colour, printed delay / reverb, loop tools</td></tr>
+<tr><td>4</td><td><code>FX</code></td><td>printed delay / reverb, loop tools</td></tr>
+<tr><td>5</td><td><code>DIST</code></td><td>crush, colour, tape, amp, wavefolder, ring modulator</td></tr>
 </tbody>
 </table>
 </div>
@@ -251,10 +252,9 @@
 <tr><td>1</td><td><code>VOLUME</code></td><td>VOLUME (-64 to +64 dB)</td><td>PAN (100L to 100R)</td><td>FADE (see below)</td></tr>
 <tr><td>2</td><td><code>TIME</code></td><td>SPEED (±24 st, length + pitch change)</td><td>REPITCH (±24 st, pitch only)</td><td>WARP (0.5x to 2.0x, length only)</td></tr>
 <tr><td>3</td><td><code>REVERSE</code></td><td>REVERSE (ON/OFF)</td><td>SHUFFLE (1–32 slices, push to re-roll the order)</td><td>STUTTER (1–64 repeats)</td></tr>
-<tr><td>4</td><td><code>CRUSH</code></td><td>BIT (32 down to 1 bit)</td><td>SAMPLE (1x–32x rate reduction)</td><td>—</td></tr>
-<tr><td>5</td><td><code>CROP</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</td><td>SLIDE (move the whole Start/End region)</td><td>—</td><td>—</td></tr>
-<tr><td>6</td><td><code>PITCH</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td><td>FROM (±24 st, pitch at Start)</td><td>TO (±24 st, pitch at End)</td><td>CURVE (LIN, -100 to +100)</td></tr>
-<tr><td>7</td><td><code>FILTER</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td><td>START (cutoff at Start, 20 Hz–20 kHz)</td><td>END (cutoff at End, 20 Hz–20 kHz)</td><td>Q (0.1–10), push to cycle <code>LP</code> / <code>HP</code> / <code>BP</code></td></tr>
+<tr><td>4</td><td><code>CROP</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</td><td>SLIDE (move the whole Start/End region)</td><td>—</td><td>—</td></tr>
+<tr><td>5</td><td><code>PITCH</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td><td>FROM (±24 st, pitch at Start), push to take TO’s value</td><td>TO (±24 st, pitch at End), push to take FROM’s value</td><td>CURVE (LIN, -100 to +100)</td></tr>
+<tr><td>6</td><td><code>FILTER</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td><td>START (cutoff at Start, 20 Hz–20 kHz), push to take END’s value</td><td>END (cutoff at End, 20 Hz–20 kHz), push to take START’s value</td><td>Q (0.1–10), push to cycle <code>LP</code> / <code>HP</code> / <code>BP</code></td></tr>
 <tr><td>8</td><td><code>APPLY</code> — commit the group’s settings to the clipboard</td><td></td><td></td><td></td></tr>
 <tr><td>8 + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture></td><td><code>WRITE BACK</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</td><td></td><td></td><td></td></tr>
 </tbody>
@@ -269,6 +269,7 @@
 <li><code>CROP</code> needs no parameters: set <code>START</code>/<code>END</code> (or <code>SLIDE</code> the region), then <code>APPLY</code> to discard everything outside it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
 <li><code>PITCH</code> bends the pitch smoothly from <code>FROM</code> at the region’s Start to <code>TO</code> at its End without changing the length (the same engine as <code>REPITCH</code>). A bend that resolves to the original pitch is <code>TO</code> = 0; one that drifts away is <code>FROM</code> = 0; <code>FROM</code> = <code>TO</code> is a static repitch. <code>CURVE</code> shapes the ramp: <code>LIN</code> is a straight line, positive values start slow and finish fast, negative values start fast and finish slow. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> for 0.1 st steps</li>
 <li><code>FILTER</code> runs one filter node over the region and sweeps its cutoff from <code>START</code> to <code>END</code> (interpolated in octaves, so a sweep sounds even across the spectrum). <code>START</code> = <code>END</code> gives a static filter. The cutoff encoders step in thirds of an octave (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> = a twelfth); push Encoder 6 to cycle the type <code>LP</code> → <code>HP</code> → <code>BP</code>. A low-pass with both ends at 20 kHz, or a high-pass with both at 20 Hz, is “open” and does nothing; cycling the type moves any open cutoff to the new type’s open end (1 kHz for <code>BP</code>, which has no open position)</li>
+<li>A static setting in one press: pushing <code>FROM</code> / <code>START</code> copies the other end’s value onto it, pushing <code>TO</code> / <code>END</code> does the reverse — so dial a sweep, then push the end you want to keep and the whole region gets that value</li>
 <li>While a <code>PITCH</code> or <code>FILTER</code> setting is un-applied, the sweep is traced as a line over the waveform (0 st on the centre line for <code>PITCH</code>; 20 Hz at the bottom to 20 kHz at the top for <code>FILTER</code>)</li>
 <li>On a multi-track clipboard, <code>APPLY</code> shows its progress per track (“Track 3/8”) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
@@ -281,7 +282,7 @@
 </thead>
 <tbody>
 <tr><td>1</td><td><code>GRAIN</code></td><td>SIZE (grain length, note value 1/1–1/64)</td><td>RATE (grain onset interval, note value)</td><td>CONTOUR (-100 ramp down · SINE · +100 ramp up), push to toggle <code>FOLLOW</code> / <code>HOLD</code></td></tr>
-<tr><td>2</td><td><code>SPRAY</code></td><td>POSITION (0–100 %, read-position scatter)</td><td>PITCH (0–100 %, chance of a scale-degree transposition)</td><td>REVERSE (0–100 %, chance of a backwards grain), push to re-roll</td></tr>
+<tr><td>2</td><td><code>SPRAY</code> (grains follow <code>GRID</code>)</td><td>POSITION (0–100 %, read-position scatter), push to re-roll</td><td>PITCH (0–100 %, chance of a scale-degree transposition)</td><td>REVERSE (0–100 %, chance of a backwards grain)</td></tr>
 <tr><td>3</td><td><code>RESO</code></td><td>SLOPE (<code>LP</code> -100 · <code>BP</code> · <code>HP</code> +100)</td><td>DECAY (0–100, ring time)</td><td>MIX (0–100 %)</td></tr>
 </tbody>
 </table>
@@ -289,8 +290,9 @@
 <p>Notes:</p>
 <ul>
 <li><code>GRAIN</code> and <code>SPRAY</code> engage on the first encoder turn (there is no neutral grain setting); re-pressing the group button disarms them. With <code>RATE</code> shorter than <code>SIZE</code> the grains overlap into a dense texture, with <code>RATE</code> longer than <code>SIZE</code> they gate the region rhythmically. <code>FOLLOW</code> reads each grain where it sounds, so the arrangement is kept but re-articulated; <code>HOLD</code> reads every grain from the region start, freezing that instant into a sustained texture</li>
-<li><code>SPRAY</code> runs the same scheduler with <code>GRAIN</code>’s current <code>SIZE</code> / <code>RATE</code> / <code>CONTOUR</code> (1/16, 1/16, SINE until you change them) and adds randomness per grain. Transpositions are drawn from the <code>SCALE</code> / <code>SPAN</code> tuning settings, relative to the grain’s own pitch. The random pattern is fixed by a seed, so what you audition is what <code>APPLY</code> prints; push Encoder 6 for a new roll</li>
-<li><code>RESO</code> is a bank of resonant filters tuned to the notes of <code>SCALE</code> across <code>SPAN</code> octaves above <code>ROOT</code> (at most 24 bands). Fed a drum loop it produces a pitched, plucked version of the groove; fed a pad it rings as a chord. <code>SLOPE</code> morphs every band from low-pass through band-pass to high-pass, <code>DECAY</code> sets how long the bands ring. The ring-out continues past <code>END</code> into the rest of the clip (up to 6 s) and is cut at the clip end</li>
+<li><code>SPRAY</code> runs the same scheduler with grains one <code>GRID</code> step long, back to back (or one <code>JUMP</code> step in <code>JUMP</code> mode), and adds randomness per grain; change <code>GRID</code> on Encoder 1 to change the grain size. Transpositions are drawn from the <code>SCALE</code> / <code>SPAN</code> tuning settings, relative to the grain’s own pitch. The random pattern is fixed by a seed, so what you audition is what <code>APPLY</code> prints; push Encoder 4 for a new roll</li>
+<li>While <code>GRAIN</code> or <code>SPRAY</code> is un-applied the grains are drawn over the waveform as window-shaped humps: their width is <code>SIZE</code>, their spacing <code>RATE</code>, their shape <code>CONTOUR</code>. A transposed grain sits higher or lower (0 st on the centre line, like the <code>PITCH</code> line), a reversed grain shows its contour mirrored, and when a grain reads from somewhere other than where it sounds (<code>POSITION</code>, <code>HOLD</code>) a thin line leads to its read position at the bottom of the waveform</li>
+<li><code>RESO</code> is a bank of resonant filters tuned to the notes of <code>SCALE</code> across <code>SPAN</code> octaves above <code>ROOT</code> (at most 24 bands). The root sits in the centre and the following bands alternate left and right, so a chord spreads across the stereo field; the wet signal is lifted with <code>DECAY</code> and soft-clipped, so a narrow, long-ringing band comes out loud rather than thin. While un-applied every band is drawn as a glowing line at its frequency (20 Hz at the bottom to 20 kHz at the top): the line is as wide as the band, the glow falls on the side <code>SLOPE</code> lets through, the root band carries its note name, and each band fades out past <code>END</code> over its ring time. Fed a drum loop it produces a pitched, plucked version of the groove; fed a pad it rings as a chord. <code>SLOPE</code> morphs every band from low-pass through band-pass to high-pass, <code>DECAY</code> sets how long the bands ring. The ring-out continues past <code>END</code> into the rest of the clip (up to 6 s) and is cut at the clip end</li>
 </ul>
 <h3 id="mod-page-since-v122-snapshot"><a class="header" href="#mod-page-since-v122-snapshot">MOD page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
 <p>One LFO per group, printed over the region. All four share the same encoder layout.</p>
@@ -319,18 +321,44 @@
 <tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><code>COLOR</code></td><td>DRIVE (0–100, tape saturation)</td><td>TILT (-100 drive the lows … +100 drive the highs)</td><td>COMP (0–100, one-knob compression), push to cycle the TILT crossover <code>LOW</code> (80 Hz) / <code>MID</code> (650 Hz) / <code>HIGH</code> (2.5 kHz)</td></tr>
-<tr><td>2</td><td><code>DELAY</code></td><td>TIME (note value)</td><td>FEEDBACK (0–95 %)</td><td>MIX (0–100 %)</td></tr>
-<tr><td>3</td><td><code>PINGPONG</code></td><td>TIME</td><td>FEEDBACK</td><td>MIX</td></tr>
-<tr><td>4</td><td><code>REVERB</code></td><td>SIZE (0–100)</td><td>DECAY (0–100)</td><td>MIX (0–100 %)</td></tr>
-<tr><td>5</td><td><code>LOOP</code></td><td>ROTATE (±64 grid steps)</td><td>XFADE (0–500 ms)</td><td>LAYER (0–100 %)</td></tr>
+<tr><td>1</td><td><code>DELAY</code></td><td>TIME (note value)</td><td>FEEDBACK (0–95 %)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>2</td><td><code>PINGPONG</code></td><td>TIME</td><td>FEEDBACK</td><td>MIX</td></tr>
+<tr><td>3</td><td><code>REVERB</code></td><td>SIZE (0–100)</td><td>DECAY (0–100)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>4</td><td><code>LOOP</code></td><td>ROTATE (±64 grid steps)</td><td>XFADE (0–500 ms)</td><td>LAYER (0–100 %)</td></tr>
 </tbody>
 </table>
 </div>
 <p>Notes:</p>
 <ul>
 <li><code>DELAY</code> / <code>PINGPONG</code> / <code>REVERB</code> are printed into the clip: inside the region <code>MIX</code> crossfades the dry signal with the effect, and the tail keeps running past <code>END</code> on top of the rest of the clip (up to 6 s, cut at the clip end). A printed tail can be reversed, granulated or resonated afterwards. The delay time is capped at 2 s</li>
-<li><code>ROTATE</code> turns the region cyclically by grid steps (or <code>JUMP</code> steps in <code>JUMP</code> mode) so another beat lands on its start. <code>XFADE</code> smooths the loop seam: it blends the audio that follows <code>END</code> into the region’s start (or, when <code>END</code> is the clip end, the audio before <code>START</code> into the region’s end; with neither available it fades both ends). <code>LAYER</code> stacks the region onto itself every grid step, wrapping around the region, with a decaying level — a circular canon</li>
+<li>While un-applied, <code>DELAY</code> / <code>PINGPONG</code> mark each repeat above the waveform (fading with <code>FEEDBACK</code>; <code>PINGPONG</code> alternates top and bottom for left and right) and <code>REVERB</code> shades the tail after <code>END</code></li>
+<li><code>ROTATE</code> turns the region cyclically by grid steps (or <code>JUMP</code> steps in <code>JUMP</code> mode) so another beat lands on its start. <code>XFADE</code> smooths the loop seam: it blends the audio that follows <code>END</code> into the region’s start (or, when <code>END</code> is the clip end, the audio before <code>START</code> into the region’s end; with neither available it fades both ends). <code>LAYER</code> stacks the region onto itself every grid step, wrapping around the region, with a decaying level — a circular canon. While un-applied the waveform shows the result of all three tools (turned, seamed and stacked, exactly as <code>APPLY</code> will print it); a dashed line marks the <code>ROTATE</code> seam, <code>XFADE</code> draws its crossfade curves over the seam span, and <code>LAYER</code> marks each tap with a fading marker</li>
+</ul>
+<h3 id="dist-page-since-v122-snapshot"><a class="header" href="#dist-page-since-v122-snapshot">DIST page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
+<p>Everything that bends the waveform itself. <code>CRUSH</code> (from the <code>EDIT</code> page) and <code>COLOR</code> (from the <code>FX</code> page) live here now.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>CRUSH</code></td><td>BIT (32 down to 1 bit)</td><td>SAMPLE (1x–32x rate reduction)</td><td>—</td></tr>
+<tr><td>2</td><td><code>COLOR</code></td><td>DRIVE (0–100, tape saturation)</td><td>TILT (-100 drive the lows … +100 drive the highs)</td><td>COMP (0–100, one-knob compression), push to cycle the TILT crossover <code>LOW</code> (80 Hz) / <code>MID</code> (650 Hz) / <code>HIGH</code> (2.5 kHz)</td></tr>
+<tr><td>3</td><td><code>TAPE</code></td><td>DRIVE (0–100)</td><td>DENSITY (0–100)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>4</td><td><code>AMP</code></td><td>GAIN (0–100, up to +30 dB), push to cycle the model <code>CLEAN</code> / <code>CRUNCH</code> / <code>FUZZ</code> / <code>METAL</code></td><td>TONE (-100 dark … +100 bright)</td><td>CAB (0–100, speaker low-pass)</td></tr>
+<tr><td>5</td><td><code>FOLD</code></td><td>FOLD (0–100)</td><td>SYMMETRY (-100 … +100)</td><td>SMOOTH (0 triangle … 100 sine)</td></tr>
+<tr><td>6</td><td><code>RING</code></td><td>FREQ (20 Hz–2 kHz)</td><td>MIX (0–100 %)</td><td>WAVE (<code>SINE</code> / <code>SQUARE</code> / <code>TRI</code>)</td></tr>
+</tbody>
+</table>
+</div>
+<p>Notes:</p>
+<ul>
+<li><code>TAPE</code> is the mastering tape saturator from the Master FX, printed into the clip, but let off the leash: <code>DRIVE</code> also pushes up to 12 dB of extra gain into the tape and above 50 blends in a second saturation pass, so <code>DRIVE</code> 100 is a fuzz rather than a polish. <code>DENSITY</code> is the tape’s thickness control, <code>MIX</code> blends the saturated signal with the dry one</li>
+<li><code>AMP</code> is a small amp chain: <code>TONE</code> shapes the sound before the stages (negative closes a low-pass, positive lifts the presence), <code>GAIN</code> drives the stages, <code>CAB</code> closes a 12 dB/octave speaker low-pass from fully open to 2.5 kHz. <code>CLEAN</code> is one soft stage, <code>CRUNCH</code> two asymmetric stages with a coupling filter between them, <code>FUZZ</code> a biased hard clip into a soft stage, <code>METAL</code> a tight high-pass into two hard stages with the mids scooped</li>
+<li><code>FOLD</code> is a wavefolder: <code>FOLD</code> drives the signal into the folder (up to 16x), <code>SYMMETRY</code> offsets it so even harmonics appear, <code>SMOOTH</code> morphs the folds from triangle (buzzy) to sine (round)</li>
+<li><code>AMP</code> and <code>FOLD</code> hold the level: their output is matched to the input’s envelope, so <code>GAIN</code> and <code>FOLD</code> add harmonics rather than volume and the result pastes back onto the tape at the level it was copied</li>
+<li><code>RING</code> multiplies the region with a carrier at <code>FREQ</code>: low carriers tremble, higher ones produce the metallic sidebands ring modulation is known for. <code>FREQ</code> steps in thirds of an octave (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> = a twelfth). The carrier is locked to the region’s Start, so audition and <code>APPLY</code> sound the same</li>
+<li>While a <code>TAPE</code>, <code>AMP</code>, <code>FOLD</code> or <code>RING</code> setting is un-applied the waveform shows the distorted result</li>
 </ul>
 <h3 id="write-back-since-v115"><a class="header" href="#write-back-since-v115">WRITE BACK (since v1.1.5)</a></h3>
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track Button 8 writes the clipboard back to the position it was originally cut/copied from and returns you to the screen you came from:</p>
@@ -347,6 +375,7 @@
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture> toggles looped playback</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-in-dark.svg"><img alt="loop-in" src="icons/individual/track8_set-punch-in-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-out-dark.svg"><img alt="loop-out" src="icons/individual/track8_set-punch-out-light.svg" width="24"></picture> set the loop points to the playhead</li>
 <li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-in-dark.svg"><img alt="loop-in" src="icons/individual/track8_set-punch-in-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-out-dark.svg"><img alt="loop-out" src="icons/individual/track8_set-punch-out-light.svg" width="24"></picture> together to snap the loop to the current <code>START</code>/<code>END</code> region (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li>Looped audition dips briefly (about 5 ms each side) through the loop point so the wrap never clicks; this is audition only — <code>APPLY</code> and the paste use the region exactly as it is (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Tape playback is silenced while the modifier is open; it resumes when you leave the screen</li>
 </ul>
 
