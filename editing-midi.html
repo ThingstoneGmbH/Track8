@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-f3a9eb63.js";
+            window.path_to_searchindex_js = "searchindex-91d5e25b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -200,6 +200,7 @@
 <li><code>Left</code>/<code>Right</code>: nudge the playhead by grid steps, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Left</code>/<code>Right</code>: jump between markers</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Play</code>: jump to the edit region start; playback stops at the region end unless <code>LOOP</code> is enabled (since v1.2.0)</li>
 <li>Push Encoder 4 / Encoder 5 in the <code>Edit</code> view sets the edit region start/end at the playhead (since v1.1.2)</li>
+<li><strong>Selection off</strong> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): press Track Button 2 again while in the <code>Edit</code> view to switch the selection off — the piano roll draws all bright, <code>START</code> / <code>END</code> read <code>-</code>, playback runs past the region end and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Play is the plain transport jump again. Turning or pushing Encoder 4 / 5 brings the selection back as it was (a turn only restores it, a push puts that end on the playhead); Cut / Copy and the edit actions show <code>NO SELECTION</code> while it is off. Entering the <code>Edit</code> view or the screen always starts with the selection on</li>
 </ul>
 <hr>
 <h2 id="-note-editing"><a class="header" href="#-note-editing">🎹 Note Editing</a></h2>

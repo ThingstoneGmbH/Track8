@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-f3a9eb63.js";
+            window.path_to_searchindex_js = "searchindex-91d5e25b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -268,6 +268,7 @@
 </thead>
 <tbody>
 <tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Record Offset</td></tr>
+<tr><td>Encoder 3</td><td>MOVE MARKER: with the playhead on a marker, turn to stage a move of that marker, one Scroll step per click (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
 <tr><td>Encoder 5</td><td>SPLICE: turn to stage blank time at the playhead, one Scroll step per click (CW inserts, CCW removes). Moves all tracks, MIDI and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 7</td><td>Turn to zoom the timeline (0.25x to 4x)</td><td>Push → Record Offset</td></tr>
 <tr><td>Encoder 8</td><td>Turn to scroll</td><td>Push → Record Offset</td></tr>
@@ -358,7 +359,7 @@
 <tr><th>Track button</th><th>Action</th></tr>
 </thead>
 <tbody>
-<tr><td>7</td><td>Fine grained edits</td></tr>
+<tr><td>7</td><td>Fine grained edits; in EDIT mode press again to switch the selection off / on (playback runs past END)</td></tr>
 </tbody>
 </table>
 </div>
@@ -385,7 +386,7 @@
 </thead>
 <tbody>
 <tr><td>1</td><td>Clear automation between markers</td></tr>
-<tr><td>7</td><td>Fine grained edits</td></tr>
+<tr><td>7</td><td>Fine grained edits; in EDIT mode press again to switch the selection off / on (playback runs past END)</td></tr>
 </tbody>
 </table>
 </div>
@@ -413,7 +414,7 @@
 </thead>
 <tbody>
 <tr><td>2</td><td>Clear automation between markers</td></tr>
-<tr><td>7</td><td>Fine grained edits</td></tr>
+<tr><td>7</td><td>Fine grained edits; in EDIT mode press again to switch the selection off / on (playback runs past END)</td></tr>
 </tbody>
 </table>
 </div>
@@ -442,7 +443,7 @@
 </thead>
 <tbody>
 <tr><td>3</td><td>Clear automation between markers</td></tr>
-<tr><td>7</td><td>Fine grained edits</td></tr>
+<tr><td>7</td><td>Fine grained edits; in EDIT mode press again to switch the selection off / on (playback runs past END)</td></tr>
 </tbody>
 </table>
 </div>
@@ -471,7 +472,7 @@
 </thead>
 <tbody>
 <tr><td>4</td><td>Clear automation between markers</td></tr>
-<tr><td>7</td><td>Fine grained edits</td></tr>
+<tr><td>7</td><td>Fine grained edits; in EDIT mode press again to switch the selection off / on (playback runs past END)</td></tr>
 </tbody>
 </table>
 </div>
@@ -547,6 +548,7 @@
 <tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
 </thead>
 <tbody>
+<tr><td>Play</td><td>Play / stop the clipboard audition</td><td>Jump to Start; pressed again on Start, jump to the clip start</td></tr>
 <tr><td>Loop / Loop In / Loop Out</td><td>Toggle Loop, set loop In / Out to playhead</td><td>—</td></tr>
 </tbody>
 </table>
@@ -1181,7 +1183,7 @@
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
-<tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
+<tr><td>Encoder 5</td><td>Depth</td><td>-100 to 100 %, positive low-pass, negative high-pass</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -1199,7 +1201,7 @@
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
 <tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
-<tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
+<tr><td>Encoder 5</td><td>Depth</td><td>-100 to 100 %, positive low-pass, negative high-pass</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -1814,6 +1816,7 @@
 </thead>
 <tbody>
 <tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Rec Offset</td></tr>
+<tr><td>Encoder 3</td><td>MOVE MARKER: with the playhead on a marker, turn to stage a move of that marker, one Scroll step per click (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
 <tr><td>Encoder 5</td><td>SPLICE: turn to stage blank time at the playhead, one Scroll step per click (CW inserts, CCW removes). Moves all tracks, audio and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 7</td><td>Turn to zoom the timeline (0.25x to 4x)</td><td>Push → Rec Offset</td></tr>
 <tr><td>Encoder 8</td><td>Turn to scroll</td><td>Push → Rec Offset</td></tr>
@@ -1912,6 +1915,7 @@
 <tr><th>Track button</th><th>Action</th></tr>
 </thead>
 <tbody>
+<tr><td>2</td><td>Press again to switch the selection off / on (playback runs past END)</td></tr>
 <tr><td>5</td><td>Select Edit Action: Transpose, Quantize, Velocity, Nudge</td></tr>
 </tbody>
 </table>
@@ -2320,7 +2324,7 @@
 <tr><td>Encoder 3</td><td>Timed Jump</td><td>with MARKER navigation</td></tr>
 <tr><td>Encoder 5</td><td>Create new Project at Startup</td><td>—</td></tr>
 <tr><td>Encoder 6</td><td>Marker Legs / Modified Highlight / Scroll Sound / SHIFT Play target (overridden by a start marker: START MKR) / Paste Jump / Tape Stop Sound / Big Time</td><td>Push to cycle</td></tr>
-<tr><td>Encoder 7</td><td>Theme / Shader</td><td>Push to toggle</td></tr>
+<tr><td>Encoder 7</td><td>Theme / Shader (OFF, BLOOM, CRT, SCANLINE, SOFT, SHARP, CUSTOM when bin/static/bloom.glsl exists) / Temp (colour temperature 2500–6500 K)</td><td>Push to cycle</td></tr>
 <tr><td>Encoder 8</td><td>Brightness / Standby</td><td>Push to toggle</td></tr>
 </tbody>
 </table>

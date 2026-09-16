@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-f3a9eb63.js";
+            window.path_to_searchindex_js = "searchindex-91d5e25b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -192,8 +192,8 @@ screen and press <strong>UTILITY</strong> (Track 2) — or simply press <strong>
 <tr><td>3</td><td><strong>TIMED JUMP</strong></td><td>OFF / AT BEAT / AT BAR — with MARKER navigation, marker jumps during playback wait for the next beat/bar so you stay in time</td></tr>
 <tr><td>5</td><td><strong>AT STARTUP</strong></td><td>LAST PRJ / NEW PRJ — with NEW PRJ, Track8 offers a fresh project (with a generated name) on every start (since v1.1.4)</td></tr>
 <tr><td>6</td><td>Feature toggles (push to cycle)</td><td>see below</td></tr>
-<tr><td>7</td><td><strong>THEME</strong> / <strong>SHADER</strong></td><td>Select a color theme (including a colorblind theme, since v1.1.3). Push for the SHADER (bloom) toggle</td></tr>
-<tr><td>8</td><td><strong>BRIGHTNESS</strong> / <strong>STANDBY</strong></td><td>Screen brightness. Push for Standby: OFF / 1m / 5m / 15m / 30m / 60m of inactivity before the screen dims to a screensaver — only while playback is stopped; any key wakes it up (since v1.1.3)</td></tr>
+<tr><td>7</td><td><strong>THEME</strong> / <strong>SHADER</strong> / <strong>TEMP</strong></td><td>Select a color theme (including a colorblind theme, since v1.1.3). Push to cycle to <strong>SHADER</strong> — the display filter: <code>OFF</code>, <code>BLOOM</code> (the horizontal glow, the former <code>ON</code>), <code>CRT</code> (phosphor glow, soft scanlines, shaded corners), <code>SCANLINE</code> (the lines and corners without the glow), <code>SOFT</code> (a light anti-aliasing blur), <code>SHARP</code> (crisper text and edges) and, only while a <code>bin/static/bloom.glsl</code> of your own exists on the SSD, <code>CUSTOM</code> (that file) — and once more to <strong>TEMP</strong>, the display colour temperature from <code>6500 K</code> (neutral) down to <code>2500 K</code> in steps of 500 K, which warms whichever filter is active, <code>OFF</code> included. A change takes effect about half a second after the last click, with a brief flicker while the screen compositor restarts (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>; Track8 hardware only — the companion app stores the setting but shows no filter)</td></tr>
+<tr><td>8</td><td><strong>BRIGHTNESS</strong> / <strong>STANDBY</strong></td><td>Screen brightness. Push for Standby: OFF / 1m / 5m / 15m / 30m / 60m of inactivity before the screen dims to a screensaver — only while playback is stopped; any key wakes it up (since v1.1.3). Playback and recording count as activity, so the timer starts when the transport stops, whether it was stopped on the device or over MIDI (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td></tr>
 </tbody>
 </table>
 </div>

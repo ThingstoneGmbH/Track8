@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-f3a9eb63.js";
+            window.path_to_searchindex_js = "searchindex-91d5e25b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -622,6 +622,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Record Offset</td></tr>
+<tr><td>Encoder 3</td><td>MOVE MARKER: with the playhead on a marker, turn to stage a move of that marker, one Scroll step per click (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
 <tr><td>Encoder 5</td><td>SPLICE: turn to stage blank time at the playhead, one Scroll step per click (CW inserts, CCW removes). Moves all tracks, MIDI and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 7</td><td>Turn to zoom the timeline (0.25x to 4x)</td><td>Push → Record Offset</td></tr>
 <tr><td>Encoder 8</td><td>Turn to scroll</td><td>Push → Record Offset</td></tr>
@@ -712,7 +713,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><th>Track button</th><th>Action</th></tr>
 </thead>
 <tbody>
-<tr><td>7</td><td>Fine grained edits</td></tr>
+<tr><td>7</td><td>Fine grained edits; in EDIT mode press again to switch the selection off / on (playback runs past END)</td></tr>
 </tbody>
 </table>
 </div>
@@ -739,7 +740,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>1</td><td>Clear automation between markers</td></tr>
-<tr><td>7</td><td>Fine grained edits</td></tr>
+<tr><td>7</td><td>Fine grained edits; in EDIT mode press again to switch the selection off / on (playback runs past END)</td></tr>
 </tbody>
 </table>
 </div>
@@ -767,7 +768,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>2</td><td>Clear automation between markers</td></tr>
-<tr><td>7</td><td>Fine grained edits</td></tr>
+<tr><td>7</td><td>Fine grained edits; in EDIT mode press again to switch the selection off / on (playback runs past END)</td></tr>
 </tbody>
 </table>
 </div>
@@ -796,7 +797,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>3</td><td>Clear automation between markers</td></tr>
-<tr><td>7</td><td>Fine grained edits</td></tr>
+<tr><td>7</td><td>Fine grained edits; in EDIT mode press again to switch the selection off / on (playback runs past END)</td></tr>
 </tbody>
 </table>
 </div>
@@ -825,7 +826,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>4</td><td>Clear automation between markers</td></tr>
-<tr><td>7</td><td>Fine grained edits</td></tr>
+<tr><td>7</td><td>Fine grained edits; in EDIT mode press again to switch the selection off / on (playback runs past END)</td></tr>
 </tbody>
 </table>
 </div>
@@ -901,6 +902,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
 </thead>
 <tbody>
+<tr><td>Play</td><td>Play / stop the clipboard audition</td><td>Jump to Start; pressed again on Start, jump to the clip start</td></tr>
 <tr><td>Loop / Loop In / Loop Out</td><td>Toggle Loop, set loop In / Out to playhead</td><td>—</td></tr>
 </tbody>
 </table>
@@ -1535,7 +1537,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
-<tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
+<tr><td>Encoder 5</td><td>Depth</td><td>-100 to 100 %, positive low-pass, negative high-pass</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -1553,7 +1555,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
 <tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
-<tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
+<tr><td>Encoder 5</td><td>Depth</td><td>-100 to 100 %, positive low-pass, negative high-pass</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -2168,6 +2170,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Rec Offset</td></tr>
+<tr><td>Encoder 3</td><td>MOVE MARKER: with the playhead on a marker, turn to stage a move of that marker, one Scroll step per click (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
 <tr><td>Encoder 5</td><td>SPLICE: turn to stage blank time at the playhead, one Scroll step per click (CW inserts, CCW removes). Moves all tracks, audio and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 7</td><td>Turn to zoom the timeline (0.25x to 4x)</td><td>Push → Rec Offset</td></tr>
 <tr><td>Encoder 8</td><td>Turn to scroll</td><td>Push → Rec Offset</td></tr>
@@ -2266,6 +2269,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><th>Track button</th><th>Action</th></tr>
 </thead>
 <tbody>
+<tr><td>2</td><td>Press again to switch the selection off / on (playback runs past END)</td></tr>
 <tr><td>5</td><td>Select Edit Action: Transpose, Quantize, Velocity, Nudge</td></tr>
 </tbody>
 </table>
@@ -2674,7 +2678,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 3</td><td>Timed Jump</td><td>with MARKER navigation</td></tr>
 <tr><td>Encoder 5</td><td>Create new Project at Startup</td><td>—</td></tr>
 <tr><td>Encoder 6</td><td>Marker Legs / Modified Highlight / Scroll Sound / SHIFT Play target (overridden by a start marker: START MKR) / Paste Jump / Tape Stop Sound / Big Time</td><td>Push to cycle</td></tr>
-<tr><td>Encoder 7</td><td>Theme / Shader</td><td>Push to toggle</td></tr>
+<tr><td>Encoder 7</td><td>Theme / Shader (OFF, BLOOM, CRT, SCANLINE, SOFT, SHARP, CUSTOM when bin/static/bloom.glsl exists) / Temp (colour temperature 2500–6500 K)</td><td>Push to cycle</td></tr>
 <tr><td>Encoder 8</td><td>Brightness / Standby</td><td>Push to toggle</td></tr>
 </tbody>
 </table>
@@ -2997,7 +3001,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <ul>
 <li>VOLUME → level (per track)</li>
 <li>PAN → stereo position (per track)</li>
-<li>SCROLL → timeline navigation (Encoder 1 sets the scroll increment, Encoder 8 scrolls, Encoder 5 → <a href="#-splice--insert--remove-time">SPLICE</a>, Encoder 7 zooms the timeline 0.25x to 4x (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)). While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid on <a href="#editing-audio">Audio Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
+<li>SCROLL → timeline navigation (Encoder 1 sets the scroll increment, Encoder 8 scrolls, Encoder 3 → <a href="#move-marker">MOVE MARKER</a>, Encoder 5 → <a href="#-splice--insert--remove-time">SPLICE</a>, Encoder 7 zooms the timeline 0.25x to 4x (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)). While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid on <a href="#editing-audio">Audio Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>REC OFFSET → per-track record offset, 0 to -50 ms (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
 <li>RETURN MIX / RETURN VOL → return signal balance and level (external soundcards only)</li>
 <li>VARISPEED → tape speed (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
@@ -3043,6 +3047,19 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <li>Audio automation: an insert opens a gap that plays at the fader value; a removal lets the neighbouring points interpolate across the seam. MIDI CC / pitch-bend / aftertouch set inside a removed span carry their last value over to the splice point</li>
 <li><strong>Undo</strong> reverts a splice completely — audio, automation, MIDI, and since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a> also the markers, loop and punch points — from either screen (<code>UNDO SPLICE n%</code>); <strong>Redo</strong> re-applies it</li>
 <li>The same SPLICE encoder is on the <a href="#scroll">MIDI Overview</a> and does exactly the same thing from there</li>
+</ul>
+<h3 id="move-marker"><a class="header" href="#move-marker">↔️ MOVE MARKER (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
+<p>Reposition a marker without recreating it — its label, colour, lock, ▶ start flag, tempo / time signature change and MIDI event all travel with it. Made for adjusting section starts and pre-rolls after the fact (<a href="https://github.com/ThingstoneGmbH/Track8/issues/315">#315</a>).</p>
+<ul>
+<li>Select the <strong>SCROLL</strong> encoder mode and put the playhead <strong>on a marker</strong> (the one a Marker press would toggle — jump there with SHIFT + ← →). Encoder 3 reads <code>MOVE &lt;name&gt;</code>; it stays blank while the playhead is not on a marker</li>
+<li>Turn Encoder 3 <strong>clockwise</strong> to stage a move later, <strong>counter-clockwise</strong> earlier, one SCROLL step per click (SCROLL at 1/4 → 4 clicks = 1 bar). The label shows the staged amount</li>
+<li>The overview <strong>previews the result</strong> while you stage: the marker is drawn where it will land, its old place stays as a muted ghost, and <code>MOVE &lt;name&gt; +2 beats - PUSH to apply</code> sits next to it. The <strong>playhead rides along</strong> with the marker, so it never leaves the screen however far you carry it — set SCROLL to a bar for long trips. Turning back onto the original place clears the staged move and brings the playhead back with the marker</li>
+<li><strong>Push Encoder 3 to apply.</strong> The playhead stays on the marker at its new place, so you can nudge it again or press Play to hear the new section start right away</li>
+<li><strong>Any other input discards the staged move</strong> — a button press, turning another encoder, scrolling, switching screens or encoder modes, Undo / Redo, a live recording. The one exception is Encoder 1: changing the SCROLL step keeps the staged move, so you can travel in bars and land in sixteenths</li>
+<li><strong>The lock does not stop a move</strong>: like a SPLICE, a staged-and-pushed move is a deliberate edit, while the lock guards against accidental deletion. Tempo / signature and MIDI-event markers move too — moving a tempo marker moves the grid, MIDI and metronome behind it with it</li>
+<li>Other markers are no obstacle while turning — moving past them reorders the sections. Landing <strong>exactly on another marker</strong> is settled at push, the way a LOOP Paste treats its destination: an unlocked marker there is replaced (Undo brings it back), a locked, tempo or MIDI-event marker refuses the push (<code>locked marker there</code>) and keeps the staged move, so one more click past it is all it takes. Nothing moves before the tape start</li>
+<li><strong>Undo</strong> puts the marker back (<code>UNDO Marker Move</code>); <strong>Redo</strong> moves it again</li>
+<li>The same MOVE encoder is on the <a href="#scroll">MIDI Overview</a></li>
 </ul>
 <hr>
 <h3 id="-varispeed-since-v115"><a class="header" href="#-varispeed-since-v115">🎚 Varispeed (since v1.1.5)</a></h3>
@@ -3183,11 +3200,12 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <li>Markers snap to 1/4 notes — use the <a href="#editing-audio">Audio Edit</a> view for finer cut/copy/paste work (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
 <li>Touch marker to edit label</li>
 <li>Everything in the marker edit screen — label, lock, start flag, colour, tempo / time signature and MIDI events — is written together when you press <strong>APPLY</strong>; the key lights up while something is pending, and <strong>EXIT</strong> discards all of it (before <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a> the button read <code>SET LABEL</code> and the lock took effect immediately)</li>
+<li><a href="#move-marker">MOVE MARKER</a> (Encoder 3 in SCROLL mode) repositions the marker under the playhead by SCROLL steps, with everything it carries (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>A <a href="#-splice--insert--remove-time">SPLICE</a> moves markers with the tape — locked and tempo markers included — and deletes the markers inside a removed span. Undo of the splice brings them back (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>In the marker edit screen you can:
 <ul>
 <li>Lock / Unlock marker - Locked markers are shown with an <code>*</code> and cannot be deleted — neither by clear all Markers (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-marker-dark.svg"><img alt="set-marker" src="icons/individual/track8_set-marker-light.svg" width="24"></picture>) nor by pressing the Marker button next to them; a press near a locked marker shows <code>MARKER LOCKED</code> and changes nothing. Unlock the marker here first to delete it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.2">v1.1.2</a>; true lock against the Marker button new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
-<li>Make it the <strong>start marker</strong> — the “start from here” point for repeated takes: while a marker carries the flag, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play-pause" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> always locates to it, whatever <code>SHIFT PLAY</code> in <a href="#utility">Utility</a> is set to (the setting shows <code>START MKR</code> meanwhile). Turn Encoder 8 to switch the flag button from the lock to ▶ (<code>START ON</code> / <code>START OFF</code>), then push Encoder 8 or touch the button to toggle it — turn back to return to the lock. Only one marker can be the start marker — flagging another one moves the flag. The start marker shows a ▶ in its head; deleting it hands <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play-pause" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> back to the setting (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
+<li>Make it the <strong>start marker</strong> — the “start from here” point for repeated takes: while a marker carries the flag, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play-pause" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> always locates to it, whatever <code>SHIFT PLAY</code> in <a href="#utility">Utility</a> is set to (the setting shows <code>START MKR</code> meanwhile). Push Encoder 8 to switch the flag button from the lock to ▶ (<code>START ON</code> / <code>START OFF</code>), then turn Encoder 8 up for on, down for off — or touch the button to toggle it; push again to return to the lock (like every other push-cycled encoder: push picks the function, turn sets it). Only one marker can be the start marker — flagging another one moves the flag. The start marker shows a ▶ in its head; deleting it hands <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play-pause" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> back to the setting (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Change BPM and Time Signature at the marker position (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.3">v1.1.3</a>)
 <ul>
 <li>Applies to all content after the marker, or until the next marker with a tempo change</li>
@@ -3448,8 +3466,8 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <ul>
 <li>The lane’s value at the region start is the LFO’s resting level; set it with Encoder 4 before pushing, or shift it afterwards with <code>DELTA</code>, which moves the whole LFO up or down by up to half the lane’s range</li>
 <li>Volume and Return Level dip <strong>down</strong> from that level (100 % reaches silence), every other lane swings <strong>around</strong> it, TrackFX frequencies, Q and times in octaves rather than Hz</li>
-<li>Every shape except <code>SAW UP</code> starts at the resting level, so a volume LFO begins at full level; <code>SAW UP</code> swells up from the trough</li>
-<li>Automation that was in the region is replaced; automation outside it is untouched, and the lane returns to the resting level at the region end</li>
+<li>Every shape except <code>SAW UP</code> starts at the resting level, so a volume LFO begins at full level; <code>SAW UP</code> swells up from the trough. On the lanes that swing around the resting level (Pan, TrackFX, Return Mix) every shape with a centre crossing starts there: <code>SINE</code>, <code>TRI</code> and <code>SAW UP</code> rise first, <code>SAW DN</code> falls first; <code>SQUARE</code> and <code>S&amp;H</code> begin at the top</li>
+<li>Automation that was in the region is replaced; automation outside it is untouched, and the lane returns to the resting level at the region end. The region is its own section of the lane: automation before or after it is <strong>not</strong> connected to the LFO — between them the lane reads the fader, exactly as after clearing a region between markers (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Anything other than turning the LFO encoders commits the LFO: moving the playhead, Play, touching the lane, zooming, changing the track or lane, leaving the screen, and <code>UNDO</code> itself (which then undoes the LFO)</li>
 <li>The whole LFO is <strong>one</strong> <code>UNDO</code> step</li>
 </ul>
@@ -3493,7 +3511,8 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <h3 id="helpers"><a class="header" href="#helpers">Helpers</a></h3>
 <ul>
 <li><code>SLIDE</code> (Encoder 4): moves Start and End together in <code>GRID</code> / <code>JUMP</code> increments, keeping the region length (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
-<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> moves the playhead to the Start of the selection; playback stops at the End unless <code>LOOP</code> is enabled (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
+<li><strong>Selection off</strong> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): press Track Button 7 again while in Region Editing to switch the selection off — the track draws all bright inside the usual EDIT frame, <code>START</code> / <code>END</code> read <code>-</code>, playback runs past the End and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Play is the plain transport jump again, so you can review an edit in context without leaving the view. The region is kept: turning <code>START</code>, <code>END</code> or <code>SLIDE</code> brings it back exactly as it was (the first click only restores it), pushing <code>START</code> / <code>END</code> brings it back with that end on the playhead, and pressing Track Button 7 once more toggles it on. Cut / Copy show <code>NO SELECTION</code> while it is off. Entering Region Editing or the screen always starts with the selection on</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> moves the playhead to the Start of the selection; playback stops at the End unless <code>LOOP</code> is enabled or the selection is switched off (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
 <li>Modification highlights (<code>UTILITY</code> → <code>MOD HI</code>) are also shown in this view (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
 </ul>
 <hr>
@@ -3612,6 +3631,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <ul>
 <li><code>PAN</code>: a balance on the clip’s existing stereo pair — panning right attenuates the left channel and leaves the right untouched (and vice versa). A clip recorded into one input only lives on one side, so panning it towards the silent side fades it out rather than moving it across.</li>
 <li><code>FADE</code>: negative values = fade-in, positive = fade-out. Values up to ±100 use an equal-power curve; beyond ±100 the curve gets steeper, up to ±200 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
+<li><code>SHUFFLE</code> / <code>STUTTER</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): while un-applied, the divisions are drawn over the waveform — thin lines with the source slice number for each <code>SHUFFLE</code> slice, dashed lines at each <code>STUTTER</code> repeat. Lines that would sit closer than a few pixels are left out; zoom in to see them</li>
 <li><code>SPEED</code> / <code>WARP</code> respect the 12-minute clipboard limit across all copied tracks combined — the encoder simply stops at the last value that still fits (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Automation copied along with the clip follows a length change: after an <code>APPLY</code> that resizes the clip (<code>SPEED</code>, <code>WARP</code>, <code>CROP</code>), pasting places the automation over the new length rather than the original one</li>
 <li><code>CROP</code> needs no parameters: set <code>START</code>/<code>END</code> (or <code>SLIDE</code> the region), then <code>APPLY</code> to discard everything outside it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
@@ -3639,8 +3659,8 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <ul>
 <li><code>GRAIN</code> and <code>SPRAY</code> engage on the first encoder turn (there is no neutral grain setting); re-pressing the group button disarms them. With <code>RATE</code> shorter than <code>SIZE</code> the grains overlap into a dense texture, with <code>RATE</code> longer than <code>SIZE</code> they gate the region rhythmically. <code>FOLLOW</code> reads each grain where it sounds, so the arrangement is kept but re-articulated; <code>HOLD</code> reads every grain from the region start, freezing that instant into a sustained texture</li>
 <li><code>SPRAY</code> runs the same scheduler with grains one <code>GRID</code> step long, back to back (or one <code>JUMP</code> step in <code>JUMP</code> mode), and adds randomness per grain; change <code>GRID</code> on Encoder 1 to change the grain size. Transpositions are drawn from the <code>SCALE</code> / <code>SPAN</code> tuning settings, relative to the grain’s own pitch. The random pattern is fixed by a seed, so what you audition is what <code>APPLY</code> prints; push Encoder 4 for a new roll</li>
-<li>While <code>GRAIN</code> or <code>SPRAY</code> is un-applied the grains are drawn over the waveform as window-shaped humps: their width is <code>SIZE</code>, their spacing <code>RATE</code>, their shape <code>CONTOUR</code>. A transposed grain sits higher or lower (0 st on the centre line, like the <code>PITCH</code> line), a reversed grain shows its contour mirrored, and when a grain reads from somewhere other than where it sounds (<code>POSITION</code>, <code>HOLD</code>) a thin line leads to its read position at the bottom of the waveform</li>
-<li><code>RESO</code> is a bank of resonant filters tuned to the notes of <code>SCALE</code> across <code>SPAN</code> octaves above <code>ROOT</code> (at most 24 bands). The root sits in the centre and the following bands alternate left and right, so a chord spreads across the stereo field; the wet signal is lifted with <code>DECAY</code> and soft-clipped, so a narrow, long-ringing band comes out loud rather than thin. While un-applied every band is drawn as a glowing line at its frequency (20 Hz at the bottom to 20 kHz at the top): the line is as wide as the band, the glow falls on the side <code>SLOPE</code> lets through, the root band carries its note name, and each band fades out past <code>END</code> over its ring time. Fed a drum loop it produces a pitched, plucked version of the groove; fed a pad it rings as a chord. <code>SLOPE</code> morphs every band from low-pass through band-pass to high-pass, <code>DECAY</code> sets how long the bands ring. The ring-out continues past <code>END</code> into the rest of the clip (up to 6 s) and is cut at the clip end</li>
+<li>While <code>GRAIN</code> or <code>SPRAY</code> is un-applied the grains are drawn over the waveform as window-shaped outlines on a dark backing, so they read over a waveform of the same colour: their width is <code>SIZE</code>, their spacing <code>RATE</code>, their shape <code>CONTOUR</code>. A transposed grain sits higher or lower (0 st on the centre line, like the <code>PITCH</code> line), a reversed grain shows its contour mirrored, and when a grain reads from somewhere other than where it sounds (<code>POSITION</code>, <code>HOLD</code>) a thin line leads to its read position at the bottom of the waveform</li>
+<li><code>RESO</code> is a bank of resonant filters tuned to the notes of <code>SCALE</code> across <code>SPAN</code> octaves above <code>ROOT</code> (at most 24 bands). The root sits in the centre and the following bands alternate left and right, so a chord spreads across the stereo field; the wet signal is lifted with <code>DECAY</code> and soft-clipped, so a narrow, long-ringing band comes out loud rather than thin. While un-applied the bank’s frequency response is drawn as a graph in a dark strip along the bottom of the waveform: one peak per band on a log frequency axis that spans the bank with an octave to spare on each side, <code>DECAY</code> narrowing the peaks, <code>SLOPE</code> growing a shelf on the side each band lets through, the root band’s note name under its peak (every band’s while there are few). The graph sits over the region while the region is wide enough, else across the whole screen. Fed a drum loop it produces a pitched, plucked version of the groove; fed a pad it rings as a chord. <code>SLOPE</code> morphs every band from low-pass through band-pass to high-pass, <code>DECAY</code> sets how long the bands ring. The ring-out continues past <code>END</code> into the rest of the clip (up to 6 s) and is cut at the clip end</li>
 </ul>
 <h3 id="mod-page-since-v122-snapshot"><a class="header" href="#mod-page-since-v122-snapshot">MOD page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
 <p>One LFO per group, printed over the region. All four share the same encoder layout.</p>
@@ -3653,13 +3673,14 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><td>1</td><td><code>VOL LFO</code> (tremolo)</td><td>RATE (note value 1/1–1/64)</td><td>DEPTH (0–100 %)</td><td>SHAPE (<code>SINE</code>, <code>TRI</code>, <code>SAW DN</code>, <code>SAW UP</code>, <code>SQUARE</code>, <code>S&amp;H</code>), push to advance the phase by 90°</td></tr>
 <tr><td>2</td><td><code>PAN LFO</code> (auto-pan)</td><td>RATE</td><td>DEPTH</td><td>SHAPE</td></tr>
 <tr><td>3</td><td><code>PITCH LFO</code> (vibrato, ±12 st at 100 %)</td><td>RATE</td><td>DEPTH</td><td>SHAPE</td></tr>
-<tr><td>4</td><td><code>FILT LFO</code> (auto-wah, a low-pass closing by up to 8 octaves)</td><td>RATE</td><td>DEPTH</td><td>SHAPE</td></tr>
+<tr><td>4</td><td><code>FILT LFO</code> (auto-wah)</td><td>RATE</td><td>DEPTH (-100 to 100 %): positive closes a low-pass from 20 kHz by up to 8 octaves, negative opens a high-pass from 20 Hz by up to 8 octaves</td><td>SHAPE</td></tr>
 </tbody>
 </table>
 </div>
 <p>Notes:</p>
 <ul>
-<li><code>DEPTH</code> 0 is neutral. Every shape starts unmodulated at the region’s Start (full level, centre, original pitch, open filter) and dips from there; <code>SAW UP</code> is the one swell that starts at the bottom. While a setting is un-applied the LFO is traced over the waveform</li>
+<li><code>DEPTH</code> 0 is neutral. Every shape starts unmodulated at the region’s Start: on <code>VOL LFO</code> and <code>FILT LFO</code> the wave dips from the top (<code>SAW UP</code> is the one swell that starts at the bottom); on <code>PAN LFO</code> and <code>PITCH LFO</code> it starts at the centre, <code>SINE</code> / <code>TRI</code> / <code>SAW UP</code> moving right / up first and <code>SAW DN</code> left / down first (<code>SQUARE</code> and <code>S&amp;H</code> have no centre to start from and begin at the top). Pushing <code>SHAPE</code> advances the phase by 90°, so on <code>PAN</code> / <code>PITCH</code> one push starts at the peak, two at the centre falling, three at the trough. While a setting is un-applied the LFO is traced over the waveform at its actual <code>DEPTH</code>: <code>VOL LFO</code> as the gain from the top, <code>PAN LFO</code> and <code>PITCH LFO</code> around the centre line, <code>FILT LFO</code> as the cutoff on the filter scale (low-pass dipping from the top, high-pass rising from the bottom)</li>
+<li><code>FILT LFO</code> shows <code>LP</code> or <code>HP</code> in front of its <code>DEPTH</code> value so the sign is readable at a glance</li>
 <li>A <code>SQUARE</code> on <code>VOL LFO</code> at 1/8 is a trance gate, a <code>SAW DN</code> at 1/4 a pump, <code>S&amp;H</code> on <code>PITCH LFO</code> a random pitch pattern</li>
 </ul>
 <h3 id="fx-page-since-v122-snapshot"><a class="header" href="#fx-page-since-v122-snapshot">FX page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
@@ -3679,7 +3700,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <p>Notes:</p>
 <ul>
 <li><code>DELAY</code> / <code>PINGPONG</code> / <code>REVERB</code> are printed into the clip: inside the region <code>MIX</code> crossfades the dry signal with the effect, and the tail keeps running past <code>END</code> on top of the rest of the clip (up to 6 s, cut at the clip end). A printed tail can be reversed, granulated or resonated afterwards. The delay time is capped at 2 s</li>
-<li>While un-applied, <code>DELAY</code> / <code>PINGPONG</code> mark each repeat above the waveform (fading with <code>FEEDBACK</code>; <code>PINGPONG</code> alternates top and bottom for left and right) and <code>REVERB</code> shades the tail after <code>END</code></li>
+<li>While un-applied, <code>DELAY</code> / <code>PINGPONG</code> mark each repeat above the waveform (fading with <code>FEEDBACK</code>; <code>PINGPONG</code> alternates top and bottom for left and right) and <code>REVERB</code> draws its decay envelope over the region: as tall as <code>MIX</code> at <code>START</code>, falling away over the tail’s length</li>
 <li><code>ROTATE</code> turns the region cyclically by grid steps (or <code>JUMP</code> steps in <code>JUMP</code> mode) so another beat lands on its start. <code>XFADE</code> smooths the loop seam: it blends the audio that follows <code>END</code> into the region’s start (or, when <code>END</code> is the clip end, the audio before <code>START</code> into the region’s end; with neither available it fades both ends). <code>LAYER</code> stacks the region onto itself every grid step, wrapping around the region, with a decaying level — a circular canon. While un-applied the waveform shows the result of all three tools (turned, seamed and stacked, exactly as <code>APPLY</code> will print it); a dashed line marks the <code>ROTATE</code> seam, <code>XFADE</code> draws its crossfade curves over the seam span, and <code>LAYER</code> marks each tap with a fading marker</li>
 </ul>
 <h3 id="dist-page-since-v122-snapshot"><a class="header" href="#dist-page-since-v122-snapshot">DIST page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
@@ -3719,6 +3740,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <h2 id="audition"><a class="header" href="#audition">Audition</a></h2>
 <ul>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> plays the <strong>clipboard</strong> (not the tape), including all pending, un-applied settings — tweak while it plays</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play-pause" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> jumps the playhead to <code>START</code> without toggling playback (a running audition restarts from there). Pressed again while the playhead sits on <code>START</code> — or has just restarted from it — it jumps to the <strong>start of the clip</strong>, so two presses review the whole clip after editing a section (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_jump-left-dark.svg"><img alt="left" src="icons/individual/track8_jump-left-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_jump-right-dark.svg"><img alt="right" src="icons/individual/track8_jump-right-light.svg" width="24"></picture> move the playhead by the <code>GRID</code> / <code>JUMP</code> step</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture> toggles looped playback</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-in-dark.svg"><img alt="loop-in" src="icons/individual/track8_set-punch-in-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-out-dark.svg"><img alt="loop-out" src="icons/individual/track8_set-punch-out-light.svg" width="24"></picture> set the loop points to the playhead</li>
@@ -3770,6 +3792,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <h3 id="scroll"><a class="header" href="#scroll">SCROLL</a></h3>
 <ul>
 <li>Encoder 8 scrolls the timeline, Encoder 1 changes the scroll increment</li>
+<li>Encoder 3 is <a href="#move-marker">MOVE MARKER</a>: with the playhead on a marker, turn to stage a move by SCROLL steps, push to apply — the same as on the Audio Overview (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid in <a href="#editing-midi">MIDI Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Encoder 7 zooms the timeline, 0.25x to 4x around the playhead (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>). The zoom is remembered per overview (Audio and MIDI zoom independently) and resets to 1x on startup</li>
 <li>A mouse scroll wheel (USB) also scrolls the timeline (since v1.1.1)</li>
@@ -3921,6 +3944,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li><code>Left</code>/<code>Right</code>: nudge the playhead by grid steps, <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Left</code>/<code>Right</code>: jump between markers</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Play</code>: jump to the edit region start; playback stops at the region end unless <code>LOOP</code> is enabled (since v1.2.0)</li>
 <li>Push Encoder 4 / Encoder 5 in the <code>Edit</code> view sets the edit region start/end at the playhead (since v1.1.2)</li>
+<li><strong>Selection off</strong> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): press Track Button 2 again while in the <code>Edit</code> view to switch the selection off — the piano roll draws all bright, <code>START</code> / <code>END</code> read <code>-</code>, playback runs past the region end and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Play is the plain transport jump again. Turning or pushing Encoder 4 / 5 brings the selection back as it was (a turn only restores it, a push puts that end on the playhead); Cut / Copy and the edit actions show <code>NO SELECTION</code> while it is off. Entering the <code>Edit</code> view or the screen always starts with the selection on</li>
 </ul>
 <hr>
 <h2 id="-note-editing"><a class="header" href="#-note-editing">🎹 Note Editing</a></h2>
@@ -4741,8 +4765,8 @@ screen and press <strong>UTILITY</strong> (Track 2) — or simply press <strong>
 <tr><td>3</td><td><strong>TIMED JUMP</strong></td><td>OFF / AT BEAT / AT BAR — with MARKER navigation, marker jumps during playback wait for the next beat/bar so you stay in time</td></tr>
 <tr><td>5</td><td><strong>AT STARTUP</strong></td><td>LAST PRJ / NEW PRJ — with NEW PRJ, Track8 offers a fresh project (with a generated name) on every start (since v1.1.4)</td></tr>
 <tr><td>6</td><td>Feature toggles (push to cycle)</td><td>see below</td></tr>
-<tr><td>7</td><td><strong>THEME</strong> / <strong>SHADER</strong></td><td>Select a color theme (including a colorblind theme, since v1.1.3). Push for the SHADER (bloom) toggle</td></tr>
-<tr><td>8</td><td><strong>BRIGHTNESS</strong> / <strong>STANDBY</strong></td><td>Screen brightness. Push for Standby: OFF / 1m / 5m / 15m / 30m / 60m of inactivity before the screen dims to a screensaver — only while playback is stopped; any key wakes it up (since v1.1.3)</td></tr>
+<tr><td>7</td><td><strong>THEME</strong> / <strong>SHADER</strong> / <strong>TEMP</strong></td><td>Select a color theme (including a colorblind theme, since v1.1.3). Push to cycle to <strong>SHADER</strong> — the display filter: <code>OFF</code>, <code>BLOOM</code> (the horizontal glow, the former <code>ON</code>), <code>CRT</code> (phosphor glow, soft scanlines, shaded corners), <code>SCANLINE</code> (the lines and corners without the glow), <code>SOFT</code> (a light anti-aliasing blur), <code>SHARP</code> (crisper text and edges) and, only while a <code>bin/static/bloom.glsl</code> of your own exists on the SSD, <code>CUSTOM</code> (that file) — and once more to <strong>TEMP</strong>, the display colour temperature from <code>6500 K</code> (neutral) down to <code>2500 K</code> in steps of 500 K, which warms whichever filter is active, <code>OFF</code> included. A change takes effect about half a second after the last click, with a brief flicker while the screen compositor restarts (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>; Track8 hardware only — the companion app stores the setting but shows no filter)</td></tr>
+<tr><td>8</td><td><strong>BRIGHTNESS</strong> / <strong>STANDBY</strong></td><td>Screen brightness. Push for Standby: OFF / 1m / 5m / 15m / 30m / 60m of inactivity before the screen dims to a screensaver — only while playback is stopped; any key wakes it up (since v1.1.3). Playback and recording count as activity, so the timer starts when the transport stops, whether it was stopped on the device or over MIDI (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td></tr>
 </tbody>
 </table>
 </div>

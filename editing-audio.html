@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-f3a9eb63.js";
+            window.path_to_searchindex_js = "searchindex-91d5e25b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -276,8 +276,8 @@
 <ul>
 <li>The lane’s value at the region start is the LFO’s resting level; set it with Encoder 4 before pushing, or shift it afterwards with <code>DELTA</code>, which moves the whole LFO up or down by up to half the lane’s range</li>
 <li>Volume and Return Level dip <strong>down</strong> from that level (100 % reaches silence), every other lane swings <strong>around</strong> it, TrackFX frequencies, Q and times in octaves rather than Hz</li>
-<li>Every shape except <code>SAW UP</code> starts at the resting level, so a volume LFO begins at full level; <code>SAW UP</code> swells up from the trough</li>
-<li>Automation that was in the region is replaced; automation outside it is untouched, and the lane returns to the resting level at the region end</li>
+<li>Every shape except <code>SAW UP</code> starts at the resting level, so a volume LFO begins at full level; <code>SAW UP</code> swells up from the trough. On the lanes that swing around the resting level (Pan, TrackFX, Return Mix) every shape with a centre crossing starts there: <code>SINE</code>, <code>TRI</code> and <code>SAW UP</code> rise first, <code>SAW DN</code> falls first; <code>SQUARE</code> and <code>S&amp;H</code> begin at the top</li>
+<li>Automation that was in the region is replaced; automation outside it is untouched, and the lane returns to the resting level at the region end. The region is its own section of the lane: automation before or after it is <strong>not</strong> connected to the LFO — between them the lane reads the fader, exactly as after clearing a region between markers (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Anything other than turning the LFO encoders commits the LFO: moving the playhead, Play, touching the lane, zooming, changing the track or lane, leaving the screen, and <code>UNDO</code> itself (which then undoes the LFO)</li>
 <li>The whole LFO is <strong>one</strong> <code>UNDO</code> step</li>
 </ul>
@@ -321,7 +321,8 @@
 <h3 id="helpers"><a class="header" href="#helpers">Helpers</a></h3>
 <ul>
 <li><code>SLIDE</code> (Encoder 4): moves Start and End together in <code>GRID</code> / <code>JUMP</code> increments, keeping the region length (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
-<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> moves the playhead to the Start of the selection; playback stops at the End unless <code>LOOP</code> is enabled (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
+<li><strong>Selection off</strong> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): press Track Button 7 again while in Region Editing to switch the selection off — the track draws all bright inside the usual EDIT frame, <code>START</code> / <code>END</code> read <code>-</code>, playback runs past the End and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Play is the plain transport jump again, so you can review an edit in context without leaving the view. The region is kept: turning <code>START</code>, <code>END</code> or <code>SLIDE</code> brings it back exactly as it was (the first click only restores it), pushing <code>START</code> / <code>END</code> brings it back with that end on the playhead, and pressing Track Button 7 once more toggles it on. Cut / Copy show <code>NO SELECTION</code> while it is off. Entering Region Editing or the screen always starts with the selection on</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> moves the playhead to the Start of the selection; playback stops at the End unless <code>LOOP</code> is enabled or the selection is switched off (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
 <li>Modification highlights (<code>UTILITY</code> → <code>MOD HI</code>) are also shown in this view (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
 </ul>
 <hr>
