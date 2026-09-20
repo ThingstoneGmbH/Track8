@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-aaacf4a3.js";
+            window.path_to_searchindex_js = "searchindex-822735f9.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -203,7 +203,7 @@
 <tbody>
 <tr><td>1</td><td>Select Track</td></tr>
 <tr><td>2</td><td>Scroll resolution — push to switch between Grid and ms steps. In Grid mode the beat ruler shows sub-beat grid steps as shorter ticks; in ms mode only beats and bars are drawn (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td></tr>
-<tr><td>4</td><td>Value / automation at playhead (see below) — push starts an <a href="#️-lfo-since-v122-snapshot">LFO</a> on the lane; SLIDE in Edit mode, Nudge in Nudge mode</td></tr>
+<tr><td>4</td><td>Value / automation at playhead (see below) — push starts an <a href="#-lfo-since-v122-snapshot">LFO</a> on the lane; SLIDE in Edit mode (push: selection = Loop region), Nudge in Nudge mode (push: confirm)</td></tr>
 <tr><td>5</td><td>Start of Edit/Nudge region — push to set Start to playhead (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.2">v1.1.2</a>)</td></tr>
 <tr><td>6</td><td>End of Edit/Nudge region — push to set End to playhead. Selects the FX parameter in TrackFX/Return mode</td></tr>
 <tr><td>7</td><td>Zoom (0.25x → 2048x)</td></tr>
@@ -321,6 +321,7 @@
 <h3 id="helpers"><a class="header" href="#helpers">Helpers</a></h3>
 <ul>
 <li><code>SLIDE</code> (Encoder 4): moves Start and End together in <code>GRID</code> / <code>JUMP</code> increments, keeping the region length (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li><strong>Selection = Loop</strong> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): push <code>SLIDE</code> (Encoder 4) to set <code>START</code> / <code>END</code> to the current <strong>Loop region</strong> — <code>SELECTION = LOOP</code> confirms it, and the playhead jumps to the new <code>START</code> so the selection is on screen (not while recording). Use it to edit one track over a long stretch without touching the Markers: set the loop around the part on the overview (it can span as many Markers as you like), open Audio Edit, Track Button 7, push <code>SLIDE</code>, Cut. Unlike LOOP + Cut on the overview, only the selected track is cleared and every Marker stays where it is. With no loop set the push shows <code>NO LOOP REGION</code> and changes nothing; the loop on/off state does not matter</li>
 <li><strong>Selection off</strong> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): press Track Button 7 again while in Region Editing to switch the selection off — the track draws all bright inside the usual EDIT frame, <code>START</code> / <code>END</code> read <code>-</code>, playback runs past the End and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Play is the plain transport jump again, so you can review an edit in context without leaving the view. The region is kept: turning <code>START</code>, <code>END</code> or <code>SLIDE</code> brings it back exactly as it was (the first click only restores it), pushing <code>START</code> / <code>END</code> brings it back with that end on the playhead, and pressing Track Button 7 once more toggles it on. Cut / Copy show <code>NO SELECTION</code> while it is off. Entering Region Editing or the screen always starts with the selection on</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> moves the playhead to the Start of the selection; playback stops at the End unless <code>LOOP</code> is enabled or the selection is switched off (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
 <li>Modification highlights (<code>UTILITY</code> → <code>MOD HI</code>) are also shown in this view (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>

@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-aaacf4a3.js";
+            window.path_to_searchindex_js = "searchindex-822735f9.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -843,10 +843,11 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tbody>
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
-<tr><td>Encoder 4</td><td>Slide Edit Region</td><td>—</td></tr>
-<tr><td>Encoder 5</td><td>Start Edit Region</td><td>—</td></tr>
-<tr><td>Encoder 6</td><td>End Edit Region</td><td>—</td></tr>
+<tr><td>Encoder 4</td><td>Slide Edit Region</td><td>Push to set the selection to the Loop region and jump to its Start</td></tr>
+<tr><td>Encoder 5</td><td>Start Edit Region</td><td>Push to set Start to the playhead</td></tr>
+<tr><td>Encoder 6</td><td>End Edit Region</td><td>Push to set End to the playhead</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>—</td><td>Push to move the Edit Region to the playhead</td></tr>
 </tbody>
 </table>
 </div>
@@ -873,9 +874,10 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
 <tr><td>Encoder 4</td><td>Nudge Region</td><td>Push to confirm</td></tr>
-<tr><td>Encoder 5</td><td>Start Nudge Region</td><td>—</td></tr>
-<tr><td>Encoder 6</td><td>End Nudge Region</td><td>—</td></tr>
+<tr><td>Encoder 5</td><td>Start Nudge Region</td><td>Push to set Start to the playhead</td></tr>
+<tr><td>Encoder 6</td><td>End Nudge Region</td><td>Push to set End to the playhead</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>—</td><td>Push to move the Nudge Region to the playhead</td></tr>
 </tbody>
 </table>
 </div>
@@ -2261,6 +2263,9 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Grid</td><td>Push to toggle triplets</td></tr>
 <tr><td>Encoder 3</td><td>Edit selected Notes</td><td>Push to confirm</td></tr>
+<tr><td>Encoder 4</td><td>Start Edit Region</td><td>Push to set Start to the playhead</td></tr>
+<tr><td>Encoder 5</td><td>End Edit Region</td><td>Push to set End to the playhead</td></tr>
+<tr><td>Encoder 8</td><td>—</td><td>Push to move the Edit Region to the playhead</td></tr>
 </tbody>
 </table>
 </div>
@@ -3293,6 +3298,7 @@ sections easy to tell apart when scrolling a long project (new in <a href="https
 <li>Like <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_cut-area-dark.svg"><img alt="cut-area" src="icons/individual/track8_cut-area-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_copy-area-dark.svg"><img alt="copy-area" src="icons/individual/track8_copy-area-light.svg" width="24"></picture>, only <strong>unmuted</strong> tracks are included — on the audio side <em>and</em> the MIDI side, each judged by its own mutes. To arrange a single track, mute the others — or solo it: a soloed track counts as the only unmuted one on its side (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Paste puts every copied track back on its own track — also when only a single track was copied. There is no bouncing here: the multi-track clipboard keeps its layout on both sides</li>
 <li>Paste <em>replaces</em> the destination on both sides for the length of the copied loop: every copied track is written back — the audio is overwritten and the MIDI events in that span are cleared before the clipboard is written, so nothing of the old section bleeds into the new one. A track that was <em>silent</em> in the copied section comes out silent at the destination too, on the MIDI side as on the audio side (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>); before, a MIDI track without events in the section left the destination’s events in place. Tracks that were muted at copy time are not part of the section and are left alone</li>
+<li>To clear or copy <strong>one track</strong> over the loop region and leave the Markers alone — e.g. to remove a lead that runs through twenty chord Markers — take the loop into <a href="#-region-editing">Region Editing</a>: Audio Edit, Track Button 7, push <code>SLIDE</code> (Encoder 4), Cut (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Mute <em>every</em> track, audio and MIDI, and LOOP + Copy/Paste moves just the Markers of a section — Undo takes them back like any other LOOP Paste (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Both clipboards are used, so LOOP + Cut/Copy replaces whatever was in them</li>
 <li>It works on the <a href="#audio-overview-1">Audio Overview</a> and the <a href="#midi-overview-1">MIDI Overview</a> — it does the same thing from either side</li>
@@ -3409,7 +3415,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tbody>
 <tr><td>1</td><td>Select Track</td></tr>
 <tr><td>2</td><td>Scroll resolution — push to switch between Grid and ms steps. In Grid mode the beat ruler shows sub-beat grid steps as shorter ticks; in ms mode only beats and bars are drawn (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td></tr>
-<tr><td>4</td><td>Value / automation at playhead (see below) — push starts an <a href="#️-lfo-since-v122-snapshot">LFO</a> on the lane; SLIDE in Edit mode, Nudge in Nudge mode</td></tr>
+<tr><td>4</td><td>Value / automation at playhead (see below) — push starts an <a href="#-lfo-since-v122-snapshot">LFO</a> on the lane; SLIDE in Edit mode (push: selection = Loop region), Nudge in Nudge mode (push: confirm)</td></tr>
 <tr><td>5</td><td>Start of Edit/Nudge region — push to set Start to playhead (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.2">v1.1.2</a>)</td></tr>
 <tr><td>6</td><td>End of Edit/Nudge region — push to set End to playhead. Selects the FX parameter in TrackFX/Return mode</td></tr>
 <tr><td>7</td><td>Zoom (0.25x → 2048x)</td></tr>
@@ -3527,6 +3533,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <h3 id="helpers"><a class="header" href="#helpers">Helpers</a></h3>
 <ul>
 <li><code>SLIDE</code> (Encoder 4): moves Start and End together in <code>GRID</code> / <code>JUMP</code> increments, keeping the region length (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li><strong>Selection = Loop</strong> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): push <code>SLIDE</code> (Encoder 4) to set <code>START</code> / <code>END</code> to the current <strong>Loop region</strong> — <code>SELECTION = LOOP</code> confirms it, and the playhead jumps to the new <code>START</code> so the selection is on screen (not while recording). Use it to edit one track over a long stretch without touching the Markers: set the loop around the part on the overview (it can span as many Markers as you like), open Audio Edit, Track Button 7, push <code>SLIDE</code>, Cut. Unlike LOOP + Cut on the overview, only the selected track is cleared and every Marker stays where it is. With no loop set the push shows <code>NO LOOP REGION</code> and changes nothing; the loop on/off state does not matter</li>
 <li><strong>Selection off</strong> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): press Track Button 7 again while in Region Editing to switch the selection off — the track draws all bright inside the usual EDIT frame, <code>START</code> / <code>END</code> read <code>-</code>, playback runs past the End and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Play is the plain transport jump again, so you can review an edit in context without leaving the view. The region is kept: turning <code>START</code>, <code>END</code> or <code>SLIDE</code> brings it back exactly as it was (the first click only restores it), pushing <code>START</code> / <code>END</code> brings it back with that end on the playhead, and pressing Track Button 7 once more toggles it on. Cut / Copy show <code>NO SELECTION</code> while it is off. Entering Region Editing or the screen always starts with the selection on</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> moves the playhead to the Start of the selection; playback stops at the End unless <code>LOOP</code> is enabled or the selection is switched off (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</li>
 <li>Modification highlights (<code>UTILITY</code> → <code>MOD HI</code>) are also shown in this view (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
