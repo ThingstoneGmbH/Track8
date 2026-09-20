@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-91d5e25b.js";
+            window.path_to_searchindex_js = "searchindex-aaacf4a3.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -248,10 +248,23 @@
 <li><strong>Any other input discards the staged move</strong> — a button press, turning another encoder, scrolling, switching screens or encoder modes, Undo / Redo, a live recording. The one exception is Encoder 1: changing the SCROLL step keeps the staged move, so you can travel in bars and land in sixteenths</li>
 <li><strong>The lock does not stop a move</strong>: like a SPLICE, a staged-and-pushed move is a deliberate edit, while the lock guards against accidental deletion. Tempo / signature and MIDI-event markers move too — moving a tempo marker moves the grid, MIDI and metronome behind it with it</li>
 <li>Other markers are no obstacle while turning — moving past them reorders the sections. Landing <strong>exactly on another marker</strong> is settled at push, the way a LOOP Paste treats its destination: an unlocked marker there is replaced (Undo brings it back), a locked, tempo or MIDI-event marker refuses the push (<code>locked marker there</code>) and keeps the staged move, so one more click past it is all it takes. Nothing moves before the tape start</li>
-<li><strong>Undo</strong> puts the marker back (<code>UNDO Marker Move</code>); <strong>Redo</strong> moves it again</li>
+<li><strong>Undo</strong> puts the marker back (<code>UNDO Marker Move</code>); <strong>Redo</strong> moves it again. The playhead goes with it both ways, like every other Undo lands on what changed, so Encoder 3 keeps reading <code>MOVE &lt;name&gt;</code> and you can stage the next try straight away</li>
 <li>The same MOVE encoder is on the <a href="midi-overview.html#scroll">MIDI Overview</a></li>
 </ul>
 <hr>
+<h3 id="free-bar"><a class="header" href="#free-bar">🔎 FREE BAR — find the next empty bar (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
+<p>Looking for room to paste or record without erasing anything? FREE BAR moves the playhead to the next empty bar, so you do not have to scroll for it (<a href="https://github.com/ThingstoneGmbH/Track8/issues/323">#323</a>).</p>
+<ul>
+<li><strong>Touch and hold the track area</strong> (about a second) to open <a href="user-interface.html#-touch">Quick Settings</a>, then touch <strong>FREE BAR</strong>. The panel closes, the playhead jumps and <code>FREE BAR</code> / <code>BAR 17</code> shows where it landed. The jump is immediate, stopped or playing</li>
+<li>A bar is <strong>free</strong> when, from its bar line for one full bar, <strong>all 8 audio tracks stay below -40 dB</strong> and <strong>no MIDI note sounds on any MIDI track</strong> — a note held over from an earlier bar counts. Hiss and room tone under -40 dB count as empty, and so does the very end of a fade-out; MIDI CCs and automation are not looked at</li>
+<li>Bars follow the grid you see: tempo and time signature changes on <a href="#markers">Markers</a> are taken into account</li>
+<li><strong>Mutes and solos are ignored</strong> — a muted track’s material is still material, and the point is never to land on any</li>
+<li>The target is the start of the next <strong>gap</strong>. If the playhead already stands in a free bar, the rest of that gap is skipped, so touching FREE BAR again walks from gap to gap instead of creeping one bar forward</li>
+<li>Behind the last audio and the last MIDI note everything is free, so the last stop is always the first bar line after your material. From there on, <code>TAPE IS FREE FROM HERE</code> appears and nothing moves</li>
+<li>Blocked while recording, like every other jump</li>
+<li>The same function is on the <a href="midi-overview.html">MIDI Overview</a> and, for a pad or footswitch, as the <code>Free Bar</code> button action in <a href="midi-remote-control.html">MIDI Remote Control</a></li>
+<li>Need room <em>between</em> two sections instead? <a href="#-splice--insert--remove-time">SPLICE</a> inserts blank bars at the playhead</li>
+</ul>
 <h3 id="-varispeed-since-v115"><a class="header" href="#-varispeed-since-v115">🎚 Varispeed (since v1.1.5)</a></h3>
 <p>Change the tape speed for playback and recording:</p>
 <ul>
@@ -380,13 +393,14 @@
 <li>Loop / Punch markers</li>
 <li>Streaming state</li>
 <li>SSD usage</li>
-<li><strong>Touch and hold the track area</strong> (about a second) to open the <strong>Quick Settings</strong> panel — MKR LEG, MOD HI, BIG TIME, SHIFT HOLD, SHIFT NAV, TIMED JUMP, SHIFT PLAY, PASTE JMP, SCROLL SND, TAPE SND, OVERDUB and a CLIPBOARD shortcut, without leaving the overview; see <a href="user-interface.html#-touch">Touch</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
+<li><strong>Touch and hold the track area</strong> (about a second) to open the <strong>Quick Settings</strong> panel — MKR LEG, MOD HI, BIG TIME, SHIFT HOLD, SHIFT NAV, TIMED JUMP, SHIFT PLAY, PASTE JMP, SCROLL SND, TAPE SND, OVERDUB and the <a href="#free-bar">FREE BAR</a> locate, without leaving the overview; see <a href="user-interface.html#-touch">Touch</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li><strong>Touch the time / beat readout</strong> (anywhere from <code>T 00:00</code> over the streaming indicator to <code>B 01:01</code>) to toggle <strong>BIG TIME</strong> — a big, translucent overlay on the left half of the screen, readable from across the room: the time / bar-beat readout plus the name of the <a href="#markers">marker</a> the playhead is in, the next one, and a progress bar with a <code>bars:beats</code> countdown to it — name your markers after chords or song sections and read the changes while playing. The setting is global and shows on both overviews (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>) — the same setting as <strong>BIG TIME</strong> on the <a href="utility.html">Utility</a> screen</li>
 </ul>
 <hr>
 <h3 id="markers"><a class="header" href="#markers">Markers</a></h3>
 <ul>
 <li>Markers can be given textual labels (e.g. “Verse”, “Chorus”)</li>
+<li>A label that <strong>starts with a number from 1 to 8</strong> (<code>1 Verse</code>, <code>2. Chorus</code>) makes the marker a locator: the <code>Locate 1</code> … <code>Locate 8</code> button actions of <a href="midi-remote-control.html#locators">MIDI Remote Control</a> jump straight to it from a pad controller (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</li>
 <li>Markers snap to 1/4 notes — use the <a href="editing-audio.html">Audio Edit</a> view for finer cut/copy/paste work (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
 <li>Touch marker to edit label</li>
 <li>Everything in the marker edit screen — label, lock, start flag, colour, tempo / time signature and MIDI events — is written together when you press <strong>APPLY</strong>; the key lights up while something is pending, and <strong>EXIT</strong> discards all of it (before <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a> the button read <code>SET LABEL</code> and the lock took effect immediately)</li>
