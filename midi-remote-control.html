@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-822735f9.js";
+            window.path_to_searchindex_js = "searchindex-8c3f6e2d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -213,7 +213,7 @@
 <ul>
 <li>A full sweep of the CC (0–127) always covers the full parameter range</li>
 <li>A mapping drives the screen and function it was learned for, whichever screen is open: a Volume knob keeps working while you are on MIDI Edit, and the Audio Overview switches to <code>VOLUME</code> when you turn it. Cycling an encoder to another mode on the device never retargets your knob</li>
-<li>Mappings learned on the Audio Overview’s <code>SCROLL</code> page follow the overview that is on screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): while the MIDI Overview is showing, the same knobs drive its scroll step, MOVE MARKER, SPLICE, zoom and scroll, and the MIDI Overview switches to <code>SCROLL</code>. Each overview keeps its own step and zoom, as with the encoders on the device. Volume, Pan and the return mappings always drive the Audio Overview</li>
+<li>Mappings learned on the Audio Overview’s <code>SCROLL</code> page follow the overview that is on screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>): while the MIDI Overview is showing, the same knobs drive its scroll step, MOVE MARKER, SPLICE, zoom and scroll, and the MIDI Overview switches to <code>SCROLL</code>. Each overview keeps its own step and zoom, as with the encoders on the device. Volume, Pan and the return mappings always drive the Audio Overview</li>
 <li>Audio Overview encoders are per-track: a mapping on Encoder 3 always drives Track 3. Map all 8 encoders for a full fader bank — or create a <code>SEL</code> mapping in <code>CONTROL</code> that drives whichever track is selected (see <a href="#-following-the-selected-track">Following the selected track</a>)</li>
 <li>Track FX and Track Sends mappings learned this way are locked to the track (and filter node) that was selected when you learned them. To make one follow the selected track instead, edit it in <code>CONTROL</code> and set <code>TRACK</code> to <code>SEL</code></li>
 </ul>
@@ -236,24 +236,24 @@
 <tr><th>Control</th><th>Sets</th></tr>
 </thead>
 <tbody>
-<tr><td>Encoder 1</td><td>Source kind: <code>CC</code> or <code>NOTE</code>. <code>NOTE</code> is for button mappings only, so pads and keys can fire actions (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td></tr>
+<tr><td>Encoder 1</td><td>Source kind: <code>CC</code> or <code>NOTE</code>. <code>NOTE</code> is for button mappings only, so pads and keys can fire actions (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</td></tr>
 <tr><td>Encoder 2</td><td>CC or note number (0–127)</td></tr>
 <tr><td>Encoder 3</td><td>MIDI channel (1–16 or <code>ANY</code>)</td></tr>
 <tr><td>Encoder 4</td><td>Target screen</td></tr>
 <tr><td>Encoder 5</td><td>Target encoder (1–8, or <code>SEL</code> = the selected track’s encoder on the Audio Overview / Track Mixer) or button action</td></tr>
 <tr><td>Encoder 6</td><td>Function (only for encoders with multiple modes — e.g. Volume / Pan / sends on the mixers, per-node Frequency / Q / Gain (<code>N1 FREQ</code> … <code>N4 GAIN</code>) and Attack / Sidechain on Track FX, the delay / reverb / mastering pickers)</td></tr>
 <tr><td>Encoder 7</td><td>Mapping mode: <code>ENC</code> (encoder) or <code>BTN</code> (button)</td></tr>
-<tr><td>Encoder 8</td><td>Track binding on Track FX / Track Sends: <code>SEL</code> (follows the selected track) or a fixed track 1–8 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td></tr>
-<tr><td>Track Button 1</td><td><code>CANCEL</code> (Track Button 2 before <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</td></tr>
+<tr><td>Encoder 8</td><td>Track binding on Track FX / Track Sends: <code>SEL</code> (follows the selected track) or a fixed track 1–8 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</td></tr>
+<tr><td>Track Button 1</td><td><code>CANCEL</code> (Track Button 2 before <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</td></tr>
 <tr><td>Track Button 8</td><td><code>SAVE</code> / <code>REPLACE</code></td></tr>
 </tbody>
 </table>
 </div>
-<p>While the modal is open, incoming CCs from your control surface <strong>auto-fill</strong> the CC number and channel — just wiggle the control you want to use. In <code>BTN</code> mode a pad or key does the same: its Note On fills in <code>NOTE</code>, the note number and the channel (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>).</p>
+<p>While the modal is open, incoming CCs from your control surface <strong>auto-fill</strong> the CC number and channel — just wiggle the control you want to use. In <code>BTN</code> mode a pad or key does the same: its Note On fills in <code>NOTE</code>, the note number and the channel (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>).</p>
 <p>The list shows each mapping’s binding: <code>Audio Overview / Enc SEL / Volume</code>, <code>Track Fx SEL / Enc 2 / N1 FREQ</code> or <code>Track Fx Track3 / Enc 2 / N1 FREQ</code>.</p>
 <hr>
 <h2 id="-following-the-selected-track"><a class="header" href="#-following-the-selected-track">🎯 Following the selected track</a></h2>
-<p><em>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</em></p>
+<p><em>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</em></p>
 <p>If you know the <em>auto channel</em> on Elektron boxes — one MIDI channel that always addresses the active track — this is the same idea: map a set of knobs <strong>once</strong>, and they control whichever track is selected on the Track8. Press a track button, and the same knobs now tweak that track.</p>
 <p>These mappings are created manually in <code>UTILITY</code> → <code>MIDI</code> → <code>CONTROL</code> (<code>ADD</code>), not with MIDI Learn:</p>
 <ul>
@@ -271,12 +271,12 @@
 <hr>
 <h2 id="-button-mappings"><a class="header" href="#-button-mappings">🔘 Button mappings</a></h2>
 <p>Set Encoder 7 to <code>BTN</code> in the Add/Edit modal. Button mappings are momentary: the action fires once when the CC value rises to 64 or above, and re-arms when it falls below 64 — perfect for pads and momentary switches.</p>
-<p>A button mapping can also listen to a <strong>note</strong> instead of a CC (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>): set Encoder 1 to <code>NOTE</code>, or simply hit the pad while the modal is open. The action fires on Note On at any velocity and re-arms on Note Off. A note and a CC of the same number are different sources, so both can be mapped. Notes only reach MIDI Control from a port flagged <code>CTRL</code> on the device screen, like CCs — they are not recorded or passed through. Encoder mappings stay CC-only: a note has no value to turn a parameter with.</p>
+<p>A button mapping can also listen to a <strong>note</strong> instead of a CC (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>): set Encoder 1 to <code>NOTE</code>, or simply hit the pad while the modal is open. The action fires on Note On at any velocity and re-arms on Note Off. A note and a CC of the same number are different sources, so both can be mapped. Notes only reach MIDI Control from a port flagged <code>CTRL</code> on the device screen, like CCs — they are not recorded or passed through. Encoder mappings stay CC-only: a note has no value to turn a parameter with.</p>
 <p><strong>Global actions</strong> (work on every screen):
-<code>Play</code>, <code>Record</code>, <code>Left</code>, <code>Right</code>, <code>Shift Left</code> / <code>Shift Right</code> (marker jump), <code>Loop Tgl</code>, <code>Loop In</code>, <code>Loop Out</code>, <code>Punch Tgl</code>, <code>Set Marker</code>, <code>Cut</code>, <code>Copy</code>, <code>Paste</code>, <code>Locate 1</code> … <code>Locate 8</code> (see <a href="#locators">Locators</a>), <code>Free Bar</code> (jump to the next empty bar, see <a href="audio-overview.html#free-bar">FREE BAR</a>; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</p>
+<code>Play</code>, <code>Record</code>, <code>Left</code>, <code>Right</code>, <code>Shift Left</code> / <code>Shift Right</code> (marker jump), <code>Loop Tgl</code>, <code>Loop In</code>, <code>Loop Out</code>, <code>Punch Tgl</code>, <code>Set Marker</code>, <code>Cut</code>, <code>Copy</code>, <code>Paste</code>, <code>Locate 1</code> … <code>Locate 8</code> (see <a href="#locators">Locators</a>), <code>Free Bar</code> (jump to the next empty bar, see <a href="audio-overview.html#free-bar">FREE BAR</a>; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</p>
 <p><strong>Audio Overview actions</strong>: Select / Mute / Solo / Arm for each of the 8 tracks</p>
 <p><strong>MIDI Overview actions</strong>: Select / Mute / Solo for each of the 8 tracks</p>
-<h3 id="locators"><a class="header" href="#locators">📍 Locators — jump straight to a section (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2-SNAPSHOT">v1.2.2-SNAPSHOT</a>)</a></h3>
+<h3 id="locators"><a class="header" href="#locators">📍 Locators — jump straight to a section (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</a></h3>
 <p><code>Locate 1</code> … <code>Locate 8</code> turn eight pads or buttons on your controller into a locator row, like the numbered locate keys of a tape machine (<a href="https://github.com/ThingstoneGmbH/Track8/issues/316">#316</a>).</p>
 <ul>
 <li><strong>Which marker a number means is decided by the marker’s label</strong>: a label that <strong>starts with the number</strong> is that locator — <code>1 Verse</code>, <code>2. Chorus</code>, <code>3-Solo</code>, or just <code>4</code>. Name your markers in the <a href="audio-overview.html#markers">marker edit screen</a> as usual; the number is visible on the timeline and stays with its marker when you add, move or reorder markers</li>
