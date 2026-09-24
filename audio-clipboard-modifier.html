@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-8c3f6e2d.js";
+            window.path_to_searchindex_js = "searchindex-bb574704.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -284,7 +284,7 @@
 <tbody>
 <tr><td>1</td><td><code>GRAIN</code></td><td>SIZE (grain length, note value 1/1–1/64)</td><td>RATE (grain onset interval, note value)</td><td>CONTOUR (-100 ramp down · SINE · +100 ramp up), push to toggle <code>FOLLOW</code> / <code>HOLD</code></td></tr>
 <tr><td>2</td><td><code>SPRAY</code> (grains follow <code>GRID</code>)</td><td>POSITION (0–100 %, read-position scatter), push to re-roll</td><td>PITCH (0–100 %, chance of a scale-degree transposition)</td><td>REVERSE (0–100 %, chance of a backwards grain)</td></tr>
-<tr><td>3</td><td><code>RESO</code></td><td>SLOPE (<code>LP</code> -100 · <code>BP</code> · <code>HP</code> +100)</td><td>DECAY (0–100, ring time)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>3</td><td><code>RESO</code></td><td>SLOPE (<code>LP</code> -100 · <code>BP</code> · <code>HP</code> +100)</td><td>DECAY (0–100, ring time)</td><td>MIX (0–100 %) — the wet is level-matched to the dry (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td></tr>
 </tbody>
 </table>
 </div>
@@ -325,13 +325,14 @@
 <tbody>
 <tr><td>1</td><td><code>DELAY</code></td><td>TIME (note value)</td><td>FEEDBACK (0–95 %)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>2</td><td><code>PINGPONG</code></td><td>TIME</td><td>FEEDBACK</td><td>MIX</td></tr>
-<tr><td>3</td><td><code>REVERB</code></td><td>SIZE (0–100)</td><td>DECAY (0–100)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>3</td><td><code>REVERB</code></td><td>SIZE (0–100), push to cycle the program <code>MODERN</code> / <code>HALL</code> / <code>AMBIENCE</code> / <code>GATED</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>DAMP (0–100) · WIDTH (0–100) · PREDEL (0–120 ms) · GATE (-48–0 dB, <code>GATED</code> only) — push to cycle which one the encoder edits (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>4</td><td><code>LOOP</code></td><td>ROTATE (±64 grid steps)</td><td>XFADE (0–500 ms)</td><td>LAYER (0–100 %)</td></tr>
 </tbody>
 </table>
 </div>
 <p>Notes:</p>
 <ul>
+<li><code>REVERB</code> is the <a href="master-fx.html">Master FX reverb</a> with the same four programs — <code>MODERN</code> (the dense plate the group started with), <code>HALL</code>, <code>AMBIENCE</code> and <code>GATED</code> — and the same parameters: SIZE, DAMP, WIDTH, PREDEL and, for <code>GATED</code>, GATE. The <code>^</code> in the encoder’s corner marks the pushes, as elsewhere on the screen (SIZE cycles the program, Encoder 5 cycles its parameter).</li>
 <li><code>DELAY</code> / <code>PINGPONG</code> / <code>REVERB</code> are printed into the clip: inside the region <code>MIX</code> crossfades the dry signal with the effect, and the tail keeps running past <code>END</code> on top of the rest of the clip (up to 6 s, cut at the clip end). A printed tail can be reversed, granulated or resonated afterwards. The delay time is capped at 2 s</li>
 <li>While un-applied, <code>DELAY</code> / <code>PINGPONG</code> mark each repeat above the waveform (fading with <code>FEEDBACK</code>; <code>PINGPONG</code> alternates top and bottom for left and right) and <code>REVERB</code> draws its decay envelope over the region: as tall as <code>MIX</code> at <code>START</code>, falling away over the tail’s length</li>
 <li><code>ROTATE</code> turns the region cyclically by grid steps (or <code>JUMP</code> steps in <code>JUMP</code> mode) so another beat lands on its start. <code>XFADE</code> smooths the loop seam: it blends the audio that follows <code>END</code> into the region’s start (or, when <code>END</code> is the clip end, the audio before <code>START</code> into the region’s end; with neither available it fades both ends). <code>LAYER</code> stacks the region onto itself every grid step, wrapping around the region, with a decaying level — a circular canon. While un-applied the waveform shows the result of all three tools (turned, seamed and stacked, exactly as <code>APPLY</code> will print it); a dashed line marks the <code>ROTATE</code> seam, <code>XFADE</code> draws its crossfade curves over the seam span, and <code>LAYER</code> marks each tap with a fading marker</li>

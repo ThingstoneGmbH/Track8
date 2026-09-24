@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-8c3f6e2d.js";
+            window.path_to_searchindex_js = "searchindex-bb574704.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -624,8 +624,8 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Record Offset</td></tr>
-<tr><td>Encoder 3</td><td>MOVE MARKER: with the playhead on a marker, turn to stage a move of that marker, one Scroll step per click (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
-<tr><td>Encoder 5</td><td>SPLICE: turn to stage blank time at the playhead, one Scroll step per click (CW inserts, CCW removes). Moves all tracks, MIDI and markers</td><td>Push → apply the staged SPLICE</td></tr>
+<tr><td>Encoder 3</td><td>MOVE MARKER: on a marker, turn to move it by Scroll steps (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
+<tr><td>Encoder 5</td><td>SPLICE: turn to insert (CW) or remove (CCW) blank time at the playhead by Scroll steps. Moves all tracks, MIDI and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 7</td><td>Turn to zoom the timeline (0.25x to 4x)</td><td>Push → Record Offset</td></tr>
 <tr><td>Encoder 8</td><td>Turn to scroll</td><td>Push → Record Offset</td></tr>
 </tbody>
@@ -1696,8 +1696,8 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Size</td><td>—</td></tr>
-<tr><td>Encoder 5</td><td>Decay</td><td>—</td></tr>
+<tr><td>Encoder 4</td><td>Size</td><td>Room size, push to cycle Modern / Hall / Ambience / Gated</td></tr>
+<tr><td>Encoder 5</td><td>Damp / Width / Predelay / Gate</td><td>Push to cycle what the encoder edits (Gate for the gated program)</td></tr>
 <tr><td>Encoder 6</td><td>Mix</td><td>Wet %</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -1714,8 +1714,8 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Size</td><td>—</td></tr>
-<tr><td>Encoder 5</td><td>Decay</td><td>—</td></tr>
+<tr><td>Encoder 4</td><td>Size</td><td>Room size, push to cycle Modern / Hall / Ambience / Gated</td></tr>
+<tr><td>Encoder 5</td><td>Damp / Width / Predelay / Gate</td><td>Push to cycle what the encoder edits (Gate for the gated program)</td></tr>
 <tr><td>Encoder 6</td><td>Mix</td><td>Wet %</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -2174,8 +2174,8 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Rec Offset</td></tr>
-<tr><td>Encoder 3</td><td>MOVE MARKER: with the playhead on a marker, turn to stage a move of that marker, one Scroll step per click (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
-<tr><td>Encoder 5</td><td>SPLICE: turn to stage blank time at the playhead, one Scroll step per click (CW inserts, CCW removes). Moves all tracks, audio and markers</td><td>Push → apply the staged SPLICE</td></tr>
+<tr><td>Encoder 3</td><td>MOVE MARKER: on a marker, turn to move it by Scroll steps (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
+<tr><td>Encoder 5</td><td>SPLICE: turn to insert (CW) or remove (CCW) blank time at the playhead by Scroll steps. Moves all tracks, audio and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 7</td><td>Turn to zoom the timeline (0.25x to 4x)</td><td>Push → Rec Offset</td></tr>
 <tr><td>Encoder 8</td><td>Turn to scroll</td><td>Push → Rec Offset</td></tr>
 </tbody>
@@ -3674,7 +3674,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tbody>
 <tr><td>1</td><td><code>GRAIN</code></td><td>SIZE (grain length, note value 1/1–1/64)</td><td>RATE (grain onset interval, note value)</td><td>CONTOUR (-100 ramp down · SINE · +100 ramp up), push to toggle <code>FOLLOW</code> / <code>HOLD</code></td></tr>
 <tr><td>2</td><td><code>SPRAY</code> (grains follow <code>GRID</code>)</td><td>POSITION (0–100 %, read-position scatter), push to re-roll</td><td>PITCH (0–100 %, chance of a scale-degree transposition)</td><td>REVERSE (0–100 %, chance of a backwards grain)</td></tr>
-<tr><td>3</td><td><code>RESO</code></td><td>SLOPE (<code>LP</code> -100 · <code>BP</code> · <code>HP</code> +100)</td><td>DECAY (0–100, ring time)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>3</td><td><code>RESO</code></td><td>SLOPE (<code>LP</code> -100 · <code>BP</code> · <code>HP</code> +100)</td><td>DECAY (0–100, ring time)</td><td>MIX (0–100 %) — the wet is level-matched to the dry (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td></tr>
 </tbody>
 </table>
 </div>
@@ -3715,13 +3715,14 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tbody>
 <tr><td>1</td><td><code>DELAY</code></td><td>TIME (note value)</td><td>FEEDBACK (0–95 %)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>2</td><td><code>PINGPONG</code></td><td>TIME</td><td>FEEDBACK</td><td>MIX</td></tr>
-<tr><td>3</td><td><code>REVERB</code></td><td>SIZE (0–100)</td><td>DECAY (0–100)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>3</td><td><code>REVERB</code></td><td>SIZE (0–100), push to cycle the program <code>MODERN</code> / <code>HALL</code> / <code>AMBIENCE</code> / <code>GATED</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>DAMP (0–100) · WIDTH (0–100) · PREDEL (0–120 ms) · GATE (-48–0 dB, <code>GATED</code> only) — push to cycle which one the encoder edits (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>4</td><td><code>LOOP</code></td><td>ROTATE (±64 grid steps)</td><td>XFADE (0–500 ms)</td><td>LAYER (0–100 %)</td></tr>
 </tbody>
 </table>
 </div>
 <p>Notes:</p>
 <ul>
+<li><code>REVERB</code> is the <a href="master-fx.html">Master FX reverb</a> with the same four programs — <code>MODERN</code> (the dense plate the group started with), <code>HALL</code>, <code>AMBIENCE</code> and <code>GATED</code> — and the same parameters: SIZE, DAMP, WIDTH, PREDEL and, for <code>GATED</code>, GATE. The <code>^</code> in the encoder’s corner marks the pushes, as elsewhere on the screen (SIZE cycles the program, Encoder 5 cycles its parameter).</li>
 <li><code>DELAY</code> / <code>PINGPONG</code> / <code>REVERB</code> are printed into the clip: inside the region <code>MIX</code> crossfades the dry signal with the effect, and the tail keeps running past <code>END</code> on top of the rest of the clip (up to 6 s, cut at the clip end). A printed tail can be reversed, granulated or resonated afterwards. The delay time is capped at 2 s</li>
 <li>While un-applied, <code>DELAY</code> / <code>PINGPONG</code> mark each repeat above the waveform (fading with <code>FEEDBACK</code>; <code>PINGPONG</code> alternates top and bottom for left and right) and <code>REVERB</code> draws its decay envelope over the region: as tall as <code>MIX</code> at <code>START</code>, falling away over the tail’s length</li>
 <li><code>ROTATE</code> turns the region cyclically by grid steps (or <code>JUMP</code> steps in <code>JUMP</code> mode) so another beat lands on its start. <code>XFADE</code> smooths the loop seam: it blends the audio that follows <code>END</code> into the region’s start (or, when <code>END</code> is the clip end, the audio before <code>START</code> into the region’s end; with neither available it fades both ends). <code>LAYER</code> stacks the region onto itself every grid step, wrapping around the region, with a decaying level — a circular canon. While un-applied the waveform shows the result of all three tools (turned, seamed and stacked, exactly as <code>APPLY</code> will print it); a dashed line marks the <code>ROTATE</code> seam, <code>XFADE</code> draws its crossfade curves over the seam span, and <code>LAYER</code> marks each tap with a fading marker</li>
@@ -4808,7 +4809,7 @@ screen and press <strong>UTILITY</strong> (Track 2) — or simply press <strong>
 </div>
 <p>Create your own color themes with the theme editor:
 <a href="https://thingstone.com/theme-editor">https://thingstone.com/theme-editor</a></p>
-<p>The <a href="#companion-app-mac--ipad">companion app</a> has a built-in theme editor that
+<p>The <a href="#companion-app-mac--ipad--iphone">companion app</a> has a built-in theme editor that
 previews every change live on the real UI and exports the finished
 <code>theme.json</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>).</p>
 <h3 id="feature-toggles-encoder-6-push-to-cycle"><a class="header" href="#feature-toggles-encoder-6-push-to-cycle">Feature toggles (Encoder 6, push to cycle)</a></h3>
@@ -4949,13 +4950,13 @@ performance overlays</li>
 request</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="companion-app-mac--ipad"><a class="header" href="#companion-app-mac--ipad">Companion App (Mac / iPad)</a></h1>
+<h1 id="companion-app-mac--ipad--iphone"><a class="header" href="#companion-app-mac--ipad--iphone">Companion App (Mac / iPad / iPhone)</a></h1>
 <p>The Track8 companion app runs the same firmware as the hardware natively on
-iPad and on Apple-silicon Macs. The device image is a fully working control
+iPad, iPhone and Apple-silicon Macs. The device image is a fully working control
 surface — tap the encoders and buttons to operate it — and the screen in the
 middle is the real Track8 UI, rendered live. External audio inputs and
 multitrack recording remain hardware-only features.</p>
-<p>Two touch buttons live in the corners of the window, outside the device:</p>
+<p>Three touch buttons live in the corners of the window, outside the device:</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -4963,11 +4964,69 @@ multitrack recording remain hardware-only features.</p>
 </thead>
 <tbody>
 <tr><td>bottom-left</td><td><strong>ⓘ</strong></td><td>Info overlay: labels every encoder and button with what it does on the current screen (hold <strong>SHIFT</strong> to see the shifted actions)</td></tr>
+<tr><td>top-left</td><td><strong>⤢</strong></td><td>Zoom: the window shows only the device panel — encoders, screen, track buttons and the button grid — as large as the window allows (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td></tr>
 <tr><td>bottom-right</td><td><strong>🎨</strong></td><td>Theme editor (below)</td></tr>
 </tbody>
 </table>
 </div>
-<p>Only one of the two can be open at a time.</p>
+<p>Only one of ⓘ and 🎨 can be open at a time, and neither is available while
+zoomed (their panels sit on the wood the zoom crops away); tapping ⤢ closes
+them. The zoom setting is remembered.</p>
+<p><a href="midi-control.html">MIDI Control</a> — MIDI Learn, the DEVICE and CONTROL
+screens, device profiles — works in the app with any CoreMIDI source: USB
+controllers, Bluetooth MIDI, network sessions (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>).
+The DEVICE screen lists the sources the iPad or Mac sees; flag a controller
+as CTRL there exactly as on the hardware, and its CCs and notes drive the
+mappings instead of being recorded. There is no DIN row in the app.
+Bluetooth MIDI controllers (Korg nanoKONTROL Studio, Bluetooth pedals, …)
+only become MIDI sources once they are paired through iOS’s Bluetooth MIDI
+page — not the Bluetooth settings: press <strong>BLUETOOTH</strong> on the DEVICE screen,
+tap the controller, Done. Track8 talks to the controller directly, so it
+stays connected while the app runs; a controller already paired through
+another app is picked up as a regular source.</p>
+<p>The app’s audio input <a href="#utility">MODE</a> defaults to SINGLE — one stereo
+input feeding every track — rather than the hardware’s MULTI (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>);
+switch it under Utility → AUDIO if you use a multi-channel interface.</p>
+<p>On iPhone (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)
+the app runs in landscape, starts zoomed, and has no ⓘ — there is no room
+around the device for its callouts. The zoomed device keeps the label row
+above the encoders as thumb room. The Dynamic Island covers the left end of
+the screen while zoomed; zoom out if you need the input meters.</p>
+<h2 id="latency"><a class="header" href="#latency">Latency</a></h2>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>The BUFFER SIZE setting under <a href="#utility">Utility → AUDIO</a> sets the iOS
+audio buffer, as it sets the JACK buffer on the hardware. iOS grants a
+nearby size of its own choosing (an iPad gave 96 frames for 80). The app
+starts at 64 frames (1.3 ms) on A17 Pro / M-series iPads, on iPhone 15 Pro
+and newer and on every Mac, and at 128 frames (2.7 ms) on older devices.
+If the sound crackles, pick a larger value.
+What you hear while monitoring is still delayed by the iPad’s own audio
+hardware — around 15 ms round trip on the built-in speaker and microphone,
+less on a USB-C interface. Bluetooth output (AirPods and the like) adds 150 ms or more on its own and
+cannot be tuned from the app — for playing along, use the speaker, a wired
+headphone adapter, or a USB-C audio interface. Align recordings with
+<a href="#audio-overview-1">REC OFFSET</a>, exactly as on the hardware.</p>
+<h2 id="sample-rate"><a class="header" href="#sample-rate">Sample rate</a></h2>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>The engine runs at 48 kHz. On iPad and iPhone the app sets the device to
+that rate. On a Mac the rate belongs to the system: the device keeps what
+is set in Audio MIDI Setup (Applications → Utilities), and the app
+resamples to and from 48 kHz on the fly, so a Mac at 44.1 or 96 kHz works
+too. 48,000 Hz is still the setting to prefer on a Mac: no resampling, and
+a few milliseconds less latency, which is why the app says so once per
+launch when it had to resample. Earlier versions quit a moment after
+launch on a Mac at any other rate. If the engine cannot start for another
+reason, the app shows <em>Audio engine could not start</em> with the reason and a
+Retry button instead of the device.</p>
+<h2 id="orientation"><a class="header" href="#orientation">Orientation</a></h2>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>The device stays put. Tilt or flip the iPad and the drawing does not rotate
+with the screen — it keeps the landscape orientation you last used, and
+system sheets (file pickers, share sheet) open in whatever orientation the
+iPad is actually in. In Split View or Stage Manager the app lays out to the
+window it is given.</p>
 <h2 id="theme-editor"><a class="header" href="#theme-editor">Theme editor</a></h2>
 <p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</p>
 <p>The theme editor lets you build a color theme while watching the real UI
@@ -4976,14 +5035,16 @@ change, instead of guessing from static previews. It uses the same
 <a href="https://thingstone.com/theme-editor">web theme editor</a>), so anything you
 make here can go straight onto your Track8.</p>
 <ol>
-<li>Tap <strong>🎨</strong> in the bottom-right corner. Panels appear above and below the
-device listing every themeable color by name, grouped into <em>General</em>,
-<em>Encoders</em>, <em>Audio tracks</em>, <em>MIDI tracks</em>, <em>Markers</em> and <em>FX curves</em>.
+<li>Tap <strong>🎨</strong> in the bottom-right corner. Panels cover everything above and
+below the Track8 screen, listing every themeable color by name, grouped
+into <em>General</em>, <em>Encoders</em>, <em>Audio tracks</em>, <em>MIDI tracks</em>, <em>Markers</em> and
+<em>FX curves</em>. The encoders and track buttons are under the panels while
+the editor is open; the button grid beside the screen stays usable.
 The editor starts from the theme currently selected under
 <a href="#utility">Utility → THEME</a> (DEFAULT included).</li>
 <li>Tap a color swatch to open the system color picker. Every change is
-applied to the rendered screen immediately — keep operating the device
-(switch to the MIDI overview, open Track FX, mute a track, …) to see
+applied to the rendered screen immediately — switch screens with the
+buttons beside the display (Audio, MIDI, Master FX, Settings) to see
 exactly which elements the color affects. Opacity is part of the color.</li>
 <li>Type a name into the text field and tap <strong>SAVE</strong>. The theme is written to
 the app’s <code>theme.json</code> and becomes the selected theme, so it also shows

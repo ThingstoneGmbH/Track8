@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-8c3f6e2d.js";
+            window.path_to_searchindex_js = "searchindex-bb574704.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -174,13 +174,13 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="companion-app-mac--ipad"><a class="header" href="#companion-app-mac--ipad">Companion App (Mac / iPad)</a></h1>
+                        <h1 id="companion-app-mac--ipad--iphone"><a class="header" href="#companion-app-mac--ipad--iphone">Companion App (Mac / iPad / iPhone)</a></h1>
 <p>The Track8 companion app runs the same firmware as the hardware natively on
-iPad and on Apple-silicon Macs. The device image is a fully working control
+iPad, iPhone and Apple-silicon Macs. The device image is a fully working control
 surface — tap the encoders and buttons to operate it — and the screen in the
 middle is the real Track8 UI, rendered live. External audio inputs and
 multitrack recording remain hardware-only features.</p>
-<p>Two touch buttons live in the corners of the window, outside the device:</p>
+<p>Three touch buttons live in the corners of the window, outside the device:</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -188,11 +188,69 @@ multitrack recording remain hardware-only features.</p>
 </thead>
 <tbody>
 <tr><td>bottom-left</td><td><strong>ⓘ</strong></td><td>Info overlay: labels every encoder and button with what it does on the current screen (hold <strong>SHIFT</strong> to see the shifted actions)</td></tr>
+<tr><td>top-left</td><td><strong>⤢</strong></td><td>Zoom: the window shows only the device panel — encoders, screen, track buttons and the button grid — as large as the window allows (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td></tr>
 <tr><td>bottom-right</td><td><strong>🎨</strong></td><td>Theme editor (below)</td></tr>
 </tbody>
 </table>
 </div>
-<p>Only one of the two can be open at a time.</p>
+<p>Only one of ⓘ and 🎨 can be open at a time, and neither is available while
+zoomed (their panels sit on the wood the zoom crops away); tapping ⤢ closes
+them. The zoom setting is remembered.</p>
+<p><a href="midi-control.html">MIDI Control</a> — MIDI Learn, the DEVICE and CONTROL
+screens, device profiles — works in the app with any CoreMIDI source: USB
+controllers, Bluetooth MIDI, network sessions (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>).
+The DEVICE screen lists the sources the iPad or Mac sees; flag a controller
+as CTRL there exactly as on the hardware, and its CCs and notes drive the
+mappings instead of being recorded. There is no DIN row in the app.
+Bluetooth MIDI controllers (Korg nanoKONTROL Studio, Bluetooth pedals, …)
+only become MIDI sources once they are paired through iOS’s Bluetooth MIDI
+page — not the Bluetooth settings: press <strong>BLUETOOTH</strong> on the DEVICE screen,
+tap the controller, Done. Track8 talks to the controller directly, so it
+stays connected while the app runs; a controller already paired through
+another app is picked up as a regular source.</p>
+<p>The app’s audio input <a href="utility.html">MODE</a> defaults to SINGLE — one stereo
+input feeding every track — rather than the hardware’s MULTI (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>);
+switch it under Utility → AUDIO if you use a multi-channel interface.</p>
+<p>On iPhone (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)
+the app runs in landscape, starts zoomed, and has no ⓘ — there is no room
+around the device for its callouts. The zoomed device keeps the label row
+above the encoders as thumb room. The Dynamic Island covers the left end of
+the screen while zoomed; zoom out if you need the input meters.</p>
+<h2 id="latency"><a class="header" href="#latency">Latency</a></h2>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>The BUFFER SIZE setting under <a href="utility.html">Utility → AUDIO</a> sets the iOS
+audio buffer, as it sets the JACK buffer on the hardware. iOS grants a
+nearby size of its own choosing (an iPad gave 96 frames for 80). The app
+starts at 64 frames (1.3 ms) on A17 Pro / M-series iPads, on iPhone 15 Pro
+and newer and on every Mac, and at 128 frames (2.7 ms) on older devices.
+If the sound crackles, pick a larger value.
+What you hear while monitoring is still delayed by the iPad’s own audio
+hardware — around 15 ms round trip on the built-in speaker and microphone,
+less on a USB-C interface. Bluetooth output (AirPods and the like) adds 150 ms or more on its own and
+cannot be tuned from the app — for playing along, use the speaker, a wired
+headphone adapter, or a USB-C audio interface. Align recordings with
+<a href="audio-overview.html">REC OFFSET</a>, exactly as on the hardware.</p>
+<h2 id="sample-rate"><a class="header" href="#sample-rate">Sample rate</a></h2>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>The engine runs at 48 kHz. On iPad and iPhone the app sets the device to
+that rate. On a Mac the rate belongs to the system: the device keeps what
+is set in Audio MIDI Setup (Applications → Utilities), and the app
+resamples to and from 48 kHz on the fly, so a Mac at 44.1 or 96 kHz works
+too. 48,000 Hz is still the setting to prefer on a Mac: no resampling, and
+a few milliseconds less latency, which is why the app says so once per
+launch when it had to resample. Earlier versions quit a moment after
+launch on a Mac at any other rate. If the engine cannot start for another
+reason, the app shows <em>Audio engine could not start</em> with the reason and a
+Retry button instead of the device.</p>
+<h2 id="orientation"><a class="header" href="#orientation">Orientation</a></h2>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>The device stays put. Tilt or flip the iPad and the drawing does not rotate
+with the screen — it keeps the landscape orientation you last used, and
+system sheets (file pickers, share sheet) open in whatever orientation the
+iPad is actually in. In Split View or Stage Manager the app lays out to the
+window it is given.</p>
 <h2 id="theme-editor"><a class="header" href="#theme-editor">Theme editor</a></h2>
 <p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</p>
 <p>The theme editor lets you build a color theme while watching the real UI
@@ -201,14 +259,16 @@ change, instead of guessing from static previews. It uses the same
 <a href="https://thingstone.com/theme-editor">web theme editor</a>), so anything you
 make here can go straight onto your Track8.</p>
 <ol>
-<li>Tap <strong>🎨</strong> in the bottom-right corner. Panels appear above and below the
-device listing every themeable color by name, grouped into <em>General</em>,
-<em>Encoders</em>, <em>Audio tracks</em>, <em>MIDI tracks</em>, <em>Markers</em> and <em>FX curves</em>.
+<li>Tap <strong>🎨</strong> in the bottom-right corner. Panels cover everything above and
+below the Track8 screen, listing every themeable color by name, grouped
+into <em>General</em>, <em>Encoders</em>, <em>Audio tracks</em>, <em>MIDI tracks</em>, <em>Markers</em> and
+<em>FX curves</em>. The encoders and track buttons are under the panels while
+the editor is open; the button grid beside the screen stays usable.
 The editor starts from the theme currently selected under
 <a href="utility.html">Utility → THEME</a> (DEFAULT included).</li>
 <li>Tap a color swatch to open the system color picker. Every change is
-applied to the rendered screen immediately — keep operating the device
-(switch to the MIDI overview, open Track FX, mute a track, …) to see
+applied to the rendered screen immediately — switch screens with the
+buttons beside the display (Audio, MIDI, Master FX, Settings) to see
 exactly which elements the color affects. Opacity is part of the color.</li>
 <li>Type a name into the text field and tap <strong>SAVE</strong>. The theme is written to
 the app’s <code>theme.json</code> and becomes the selected theme, so it also shows
