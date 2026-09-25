@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-bb574704.js";
+            window.path_to_searchindex_js = "searchindex-6d3a26e8.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-36f5414a.js"></script>
@@ -3797,6 +3797,9 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <blockquote>
 <p>Devices flagged as control surface in <code>UTILITY</code> → <code>MIDI</code> → <code>DEVICE</code> are the exception: their CCs drive <a href="#midi-remote-control-since-v114">MIDI Remote Control</a> instead of being recorded (since v1.1.4).</p>
 </blockquote>
+<blockquote>
+<p>Companion app: a track also plays into every plugin slot of the <a href="#plugins-auv3">rack</a> whose receive channel matches the track’s channel, and MIDI a plugin emits follows the rule above — channel discarded, recorded on the selected track (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>).</p>
+</blockquote>
 <hr>
 <h2 id="-encoders"><a class="header" href="#-encoders">🎛 Encoders</a></h2>
 <p>Press any encoder to cycle through six encoder modes:</p>
@@ -4607,6 +4610,10 @@ the profile hides is still reachable there.</li>
 <li>Channels can be set to <code>-</code> to disable them, e.g. when using Track8 purely as a USB soundcard front-end (since v1.2.0)</li>
 <li><code>ALT METRON</code> (<code>Encoder 8</code>, new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>): route the metronome to separate output channel(s). When set, the metronome is <strong>removed from the main mix</strong> and only sent there — perfect for a drummer’s cue mix. One channel = mono, both = stereo</li>
 </ul>
+<h3 id="plugin-slots-companion-app"><a class="header" href="#plugin-slots-companion-app">Plugin slots (companion app)</a></h3>
+<ul>
+<li>On iPad and Mac every loaded slot of the plugin rack (<code>UTILITY</code> → <code>AU RACK</code>) appears as one more stereo pair on each of these pages, named after the plugin and listed after the interface’s channels — a plugin’s outputs on the input pages (<code>TRK IN</code>, insert return, <code>EXTERNAL</code>), its inputs on the output pages (insert send, <code>SENDS</code>, <code>MAIN OUT</code>). See <a href="#plugins-auv3">Companion App → Plugins</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</li>
+</ul>
 <h3 id="io-names"><a class="header" href="#io-names">IO NAMES</a></h3>
 <img alt="Audio I/O Mapping" src="images/screens/AudioIoMapping.png" width="900">
 <ul>
@@ -4923,7 +4930,9 @@ confirmation. This shortens the tape files on disk and cannot be undone</li>
 <p>The soundcard setup — internal converters or a class-compliant USB
 interface. See <a href="#external-audio-v110">External Audio</a> for details.</p>
 <ul>
-<li><strong>SOUNDCARD</strong> — Internal or a connected USB interface</li>
+<li><strong>SOUNDCARD</strong> — Internal or a connected USB interface (in the
+<a href="#audio-device">companion app</a> the device iOS is using,
+shown by name)</li>
 <li><strong>BUFFER SIZE</strong> / <strong>PERIODS</strong> — buffer size, and 3–5 audio periods for
 external interfaces (PERIODS new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>); the resulting round-trip
 latency is shown</li>
@@ -4954,8 +4963,9 @@ request</li>
 <p>The Track8 companion app runs the same firmware as the hardware natively on
 iPad, iPhone and Apple-silicon Macs. The device image is a fully working control
 surface — tap the encoders and buttons to operate it — and the screen in the
-middle is the real Track8 UI, rendered live. External audio inputs and
-multitrack recording remain hardware-only features.</p>
+middle is the real Track8 UI, rendered live. Multi-channel interfaces and
+AUv3 plugins are wired in through the same mapping pages as on the hardware
+(see <a href="#plugins-auv3">Plugins</a> below).</p>
 <p>Three touch buttons live in the corners of the window, outside the device:</p>
 <div class="table-wrapper">
 <table>
@@ -4994,6 +5004,61 @@ the app runs in landscape, starts zoomed, and has no ⓘ — there is no room
 around the device for its callouts. The zoomed device keeps the label row
 above the encoders as thumb room. The Dynamic Island covers the left end of
 the screen while zoomed; zoom out if you need the input meters.</p>
+<h2 id="plugins-auv3"><a class="header" href="#plugins-auv3">Plugins (AUv3)</a></h2>
+<p>Since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>
+the app hosts Audio Unit v3 plugins as <strong>outboard gear</strong>: a plugin is a box
+with audio ins and outs and a MIDI in, wired through the same mapping pages
+you use for a multi-channel interface. Nothing changes on the overviews, the
+transport or the record gesture; a project with a plugin wired in records and
+plays exactly like one with a hardware synth on the inputs.</p>
+<p><strong>The rack.</strong> <code>UTILITY</code> → <code>AU RACK</code> shows eight slots, one per encoder; a loaded slot’s label carries the plugin kind (<code>AU1 (FX)</code>, <code>INST</code>, <code>GEN</code>, <code>MFX</code>, <code>MIDI</code>), its box turns orange while the plugin loads and red when it cannot, and the notes under the title recap the controls. Turn
+an encoder to pick the plugin for its slot (or <code>-</code> to empty it); push it to
+switch the encoder to the slot’s <strong>MIDI receive channel</strong> (<code>OMNI</code> or <code>CH 1</code>
+to <code>CH 16</code>, default = the slot number). The line under each slot says what
+the app made of it: the plugin kind once it is loaded, <code>LOADING</code>,
+<code>MISSING</code> when the plugin is no longer installed, <code>UNSUPPORTED</code> when it
+refuses 48 kHz float stereo, <code>FAILED</code> when its extension stopped rendering.
+<strong>Touch a loaded slot</strong> to open the plugin’s own view as a sheet; the
+buttons and encoders keep working underneath, <code>Done</code> (or a swipe down)
+closes it. Slot settings and plugin states are stored with the app’s other
+device settings, never in the project, so projects stay identical to the
+hardware’s.</p>
+<p><strong>Wiring.</strong> Every loaded slot adds one stereo pair of channels to the
+mapping pages on <code>UTILITY</code> → <code>AUDIO</code>, named after the plugin and listed
+after the interface’s own channels:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>You want</th><th>Wire it as</th><th>What happens</th></tr>
+</thead>
+<tbody>
+<tr><td>a synth in the mix</td><td>plugin → <code>EXTERNAL</code> channel</td><td>live synth with volume, pan, mute and delay / reverb sends; not recorded</td></tr>
+<tr><td>a synth on tape</td><td>plugin → <code>TRK IN</code> (<code>MULTI</code> mode) and arm the track</td><td>the instrument is printed like any input; plays back on the hardware without the plugin</td></tr>
+<tr><td>an effect on one track</td><td><code>INSERTS</code>: track send → plugin, plugin → track return</td><td>“process this track through this box”; blend with <code>RETURN MIX</code> as on the hardware</td></tr>
+<tr><td>a send effect</td><td><code>SENDS</code> n → plugin, plugin → <code>EXTERNAL</code> channel</td><td>“a parallel wash of this box”, fed from the Track Sends screen</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>MIDI.</strong> A MIDI track plays into every slot whose receive channel matches
+its channel, and to CoreMIDI as before, so one track can drive a hardware
+synth and a plugin at once; live playing reaches the instrument on the
+selected MIDI track’s channel, gated by <code>MIDI MON</code> like the hardware’s MIDI
+thru. Plugins that <em>emit</em> MIDI (arpeggiators, sequencers) are treated like
+any input port: channel discarded, recorded on the selected MIDI track,
+never a control surface.</p>
+<p><strong>Latency.</strong> The app does not read or compensate a plugin’s latency, so a
+slot behaves exactly like outboard gear: set <code>REC OFFSET</code> by ear if a
+recorded instrument lands late. A plugin fed from a send or insert sees the
+audio one engine chunk later, the same one-block loop a hardware insert has.</p>
+<p><strong>Export.</strong> An export renders the rack offline with its own plugin
+instances, seeded from the live plugins’ current state, so what you hear
+is what you get; an export with several plugins takes correspondingly
+longer. A slot that cannot be loaded for the export renders silence.</p>
+<p><strong>Multi-channel interfaces.</strong> The same release opens every channel of a
+USB interface on iPad and Mac: <code>TRK IN</code>, <code>INSERTS</code>, <code>SENDS</code>, <code>EXTERNAL</code>,
+<code>MAIN OUT</code> and <code>ALT METRON</code> now reach beyond channels 1/2, exactly as on
+the hardware. Before, the app used two inputs and two outputs whatever the
+interface offered.</p>
 <h2 id="latency"><a class="header" href="#latency">Latency</a></h2>
 <p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
 <p>The BUFFER SIZE setting under <a href="#utility">Utility → AUDIO</a> sets the iOS
@@ -5004,10 +5069,29 @@ and newer and on every Mac, and at 128 frames (2.7 ms) on older devices.
 If the sound crackles, pick a larger value.
 What you hear while monitoring is still delayed by the iPad’s own audio
 hardware — around 15 ms round trip on the built-in speaker and microphone,
-less on a USB-C interface. Bluetooth output (AirPods and the like) adds 150 ms or more on its own and
+less on a USB-C interface. The <strong>RTL</strong> figure next to BUFFER SIZE is what
+iOS reports for the device in use: its input and output hardware latency
+plus one buffer each way, using the buffer size iOS actually granted. When
+that differs from the setting, the granted size follows in brackets:
+<code>64 (512) 21.7ms</code> means the system runs 512 frames whatever was asked, as a
+Mac does with its device’s own buffer, so the latency does not move with
+the setting there. The figure
+changes with the route, so plugging in an interface or headphones updates
+it. Bluetooth output (AirPods and the like) adds 150 ms or more on its own and
 cannot be tuned from the app — for playing along, use the speaker, a wired
 headphone adapter, or a USB-C audio interface. Align recordings with
 <a href="#audio-overview-1">REC OFFSET</a>, exactly as on the hardware.</p>
+<h2 id="audio-device"><a class="header" href="#audio-device">Audio device</a></h2>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>iOS chooses the audio device, not the app: whatever is plugged in or paired
+is the route. <strong>SOUNDCARD</strong> on <a href="#utility">Utility → AUDIO</a> shows that
+route by name — <code>Mic + Speaker</code> for the built-ins, <code>Mic + Headphones</code> with
+a wired headset, or the interface’s own name such as <code>MOTU UltraLite mk5</code>
+— and there is nothing to select with the encoder. Every route keeps its
+own BUFFER SIZE, MODE and I/O settings, exactly as each USB interface does
+on the hardware, so an interface remembers its buffer size when it is
+plugged back in. The buffer size takes effect the moment the route
+changes; other settings apply with the next engine start.</p>
 <h2 id="sample-rate"><a class="header" href="#sample-rate">Sample rate</a></h2>
 <p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
 <p>The engine runs at 48 kHz. On iPad and iPhone the app sets the device to
