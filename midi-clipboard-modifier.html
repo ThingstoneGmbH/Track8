@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MIDI Clipboard Modifier - Track8 Manual</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-af626a62.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-db70ddd0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Track8 Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h2 id="clipboard-midi-clipboard-modifier-since-v123-snapshot"><a class="header" href="#clipboard-midi-clipboard-modifier-since-v123-snapshot">:clipboard: MIDI Clipboard Modifier (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</a></h2>
+<p>The MIDI Clipboard Modifier is the <a href="audio-clipboard-modifier.html">Audio Clipboard Modifier</a>’s sibling for the <strong>MIDI clipboard</strong>: copy notes, mangle them, audition the result, then paste it — the tape stays untouched until you paste. It works the same way as the audio one (pages, groups, <code>APPLY</code>, <code>WRITE BACK</code>, the tuning settings on the <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> layer), in musical time: every position is a bar and beat, never a millisecond.</p>
+<p>The screen is marked with the same <strong>orange border</strong>.</p>
+<hr>
+<h2 id="entering--leaving"><a class="header" href="#entering--leaving">Entering / Leaving</a></h2>
+<ul>
+<li><strong>Enter</strong> by touching the clipboard indicator on the <a href="midi-overview.html">MIDI Overview</a> after a MIDI Cut/Copy (any copied track that holds events opens it)</li>
+<li>Multi-track clipboards open with all copied tracks included — every edit is applied to all of them</li>
+<li><strong>Exit</strong> via any view button (e.g. <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> or <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture>). Un-applied settings are discarded</li>
+<li>The screen remembers its page, group, <code>GRID</code> and tuning settings for the next visit; every group’s parameters come back neutral</li>
+</ul>
+<blockquote class="blockquote-tag blockquote-tag-important">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>Clipboard edits have <strong>no undo</strong>. If you don’t like a result, Copy the notes again for a fresh clipboard.</p>
+</blockquote>
+<hr>
+<h2 id="the-roll"><a class="header" href="#the-roll">The roll</a></h2>
+<p>The clipboard is drawn as a piano roll: one row per key (black keys shaded, every C labelled), bars and the <code>GRID</code> across, the playhead fixed at the centre. The rows always <strong>scale to fit</strong> every note of the original and of the result (at least one octave), so nothing is ever off screen and there is no vertical scrolling. Notes are bars whose brightness is their velocity. CC, pitch bend and aftertouch that travelled with the copy are shown as ticks in a thin strip along the bottom — they are carried along, and pasted back with the notes.</p>
+<p>While the focused group has un-applied settings the <strong>result</strong> is drawn in orange over the original, which is dimmed: what you see is exactly what <code>APPLY</code> will print and what the audition plays. A group that changes the clip’s length (<code>STRETCH</code>, <code>CROP</code>) moves the clip-end line to the result’s end.</p>
+<hr>
+<h2 id="navigation-encoders"><a class="header" href="#navigation-encoders">Navigation Encoders</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Function</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>GRID</code> — step size for Start/End/Scroll, 1/1 … 1/64. Push to toggle triplets (<code>1/8T</code>)</td></tr>
+<tr><td>2</td><td><code>START</code> of the edit region — push to set Start to the playhead</td></tr>
+<tr><td>3</td><td><code>END</code> of the edit region — push to set End to the playhead</td></tr>
+<tr><td>4–6</td><td>Parameters of the selected group (see below)</td></tr>
+<tr><td>7</td><td>Zoom (0.125x → 64x)</td></tr>
+<tr><td>8</td><td>Scroll / move the playhead</td></tr>
+</tbody>
+</table>
+</div>
+<p>All edits apply to the notes that <strong>start</strong> between <code>START</code> and <code>END</code> — by default the whole clipboard. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning a parameter encoder for fine steps. Several groups treat notes that start together (within a 32nd note, so a played chord counts) as <strong>one onset</strong>: <code>STRUM</code>, <code>ARP</code>, <code>MELODIZE</code>, <code>CHANCE</code>, <code>EUCLID</code>, <code>LENGTH</code>’s legato.</p>
+<h3 id="tuning-settings---encoders-13"><a class="header" href="#tuning-settings---encoders-13">Tuning settings (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Encoders 1–3)</a></h3>
+<p>The same <code>SCALE</code> / <code>SPAN</code> / <code>ROOT</code> settings as on the audio modifier, read by every control that works in <strong>scale degrees</strong>: <code>TRANSPOSE</code>’s <code>DEGREE</code> and <code>SNAP</code>, <code>MELODIZE</code>, <code>CHORD</code>, <code>ECHO</code>’s pitched repeats. They persist like <code>GRID</code>, have no <code>APPLY</code>, and turning them never discards a group’s un-applied changes.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Encoder</th><th>Setting</th><th>Values</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>SCALE</code></td><td><code>CHROMA</code>, <code>MAJOR</code>, <code>MINOR</code>, <code>DORIAN</code>, <code>PHRYG</code>, <code>PHRYDOM</code>, <code>LYDIAN</code>, <code>MIXO</code>, <code>HARM-M</code>, <code>PENTA</code>, <code>MINPENT</code>, <code>BLUES</code>, <code>WHOLE</code>, <code>5TH+OCT</code>, <code>SINGLE</code></td></tr>
+<tr><td>2</td><td><code>SPAN</code></td><td>1–4 octaves above <code>ROOT</code> — the pitch range <code>MELODIZE</code> draws from</td></tr>
+<tr><td>3</td><td><code>ROOT</code></td><td>C1–C6</td></tr>
+</tbody>
+</table>
+</div>
+<p>With <code>SCALE</code> at <code>CHROMA</code> (the default) a degree is a semitone, so the degree-based controls behave chromatically until you pick a scale.</p>
+<hr>
+<h2 id="pages-and-groups-track-buttons"><a class="header" href="#pages-and-groups-track-buttons">Pages and Groups (Track Buttons)</a></h2>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track Button 1–7 selects a page, Track Buttons 1–7 select a group on the current page, and Track Button 8 stays <code>APPLY</code>. The current page is shown at the top left of the roll as <code>[EDIT]</code>, <code>[GEN]</code>, <code>[MOD]</code> or <code>[RHYTHM]</code>. Switching page or group (or re-pressing the current group) <strong>discards</strong> any un-applied settings of the current group. <code>^</code> in an encoder’s corner marks a push.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Button</th><th>Page</th><th>Contents</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>EDIT</code></td><td>the everyday tools: <code>VELOCITY</code>, <code>TIME</code>, <code>REVERSE</code>, <code>CROP</code>, <code>TRANSPOSE</code>, <code>FILTER</code>, <code>LENGTH</code></td></tr>
+<tr><td>2</td><td><code>GEN</code></td><td>generative tools: <code>MELODIZE</code>, <code>CHORD</code>, <code>STRUM</code>, <code>ARP</code></td></tr>
+<tr><td>3</td><td><code>MOD</code></td><td>LFOs printed over the region: <code>VEL LFO</code>, <code>CC LFO</code>, <code>PB LFO</code>, <code>AT LFO</code></td></tr>
+<tr><td>4</td><td><code>RHYTHM</code></td><td><code>ECHO</code>, <code>RATCHET</code>, <code>CHANCE</code>, <code>HUMANIZE</code>, <code>EUCLID</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>The pages follow the audio modifier’s layout by meaning (<code>EDIT</code> ↔ <code>EDIT</code>, <code>GEN</code> ↔ <code>GRAIN</code>, <code>MOD</code> ↔ <code>MOD</code>, <code>RHYTHM</code> ↔ <code>FX</code>), so the same page button means the same kind of thing on both screens.</p>
+<h3 id="edit-page"><a class="header" href="#edit-page">EDIT page</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>VELOCITY</code></td><td>SCALE (±100 %)</td><td>RAMP (−100 … +100)</td><td>JITTER (0–100 %), push to re-roll</td></tr>
+<tr><td>2</td><td><code>TIME</code></td><td>STRETCH (<code>/4</code> · <code>/2</code> · <code>x1</code> · <code>x2</code> · <code>x4</code>)</td><td>SWING (±50 %)</td><td>QUANTIZE (−100 … +200 %)</td></tr>
+<tr><td>3</td><td><code>REVERSE</code></td><td>REVERSE (<code>OFF</code>/<code>ON</code>)</td><td>SHUFFLE (1–32 slices), push to re-roll</td><td>STUTTER (1–64 repeats)</td></tr>
+<tr><td>4</td><td><code>CROP</code></td><td>SLIDE (moves the region)</td><td>—</td><td>—</td></tr>
+<tr><td>5</td><td><code>TRANSPOSE</code></td><td>SEMI (±24 st)</td><td>DEGREE (±14 scale degrees)</td><td>SNAP (<code>OFF</code> · <code>NEAR</code> · <code>UP</code> · <code>DOWN</code>)</td></tr>
+<tr><td>6</td><td><code>FILTER</code></td><td>LOW (C-1 … G9)</td><td>HIGH (C-1 … G9)</td><td>MIN VEL (1–127), push toggles <code>KEEP CC</code> / <code>DROP CC</code></td></tr>
+<tr><td>7</td><td><code>LENGTH</code></td><td>GATE (10–400 %)</td><td>LEGATO (<code>OFF</code>/<code>ON</code>)</td><td>FIXED (<code>OFF</code>, 1/64 … 1/1)</td></tr>
+<tr><td>8</td><td><code>APPLY</code> — commit the group’s settings to the clipboard</td><td></td><td></td><td></td></tr>
+<tr><td>8 + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture></td><td><code>WRITE BACK</code></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<p>Notes:</p>
+<ul>
+<li><code>VELOCITY</code>: <code>SCALE</code> multiplies every velocity; <code>RAMP</code> is the <code>FADE</code> of velocities — negative values swell in (quiet at <code>START</code>, full at <code>END</code>), positive values fade out; <code>JITTER</code> adds a random amount per note (up to ±40 at 100 %). The random pattern is fixed by a seed, so what you audition is what <code>APPLY</code> prints; push Encoder 6 for a new roll</li>
+<li><code>TIME</code>: <code>QUANTIZE</code> moves note starts towards the <code>GRID</code> with the same strength control as MIDI Edit (past 100 % forward only, below 0 % backward only, note lengths kept); <code>SWING</code> delays every second <code>GRID</code> step by up to half a step; <code>STRETCH</code> doubles or halves the region in time — the clip grows or shrinks, what follows <code>END</code> moves along, and the pasted result overwrites more or less than was copied. Order: quantize, then swing, then stretch</li>
+<li><code>REVERSE</code> mirrors the region (a note that crossed <code>END</code> is clamped to it first); <code>SHUFFLE</code> cuts the region into equal slices and re-orders them by seed (push Encoder 5 for a new order) — notes travel with the slice they start in; <code>STUTTER</code> repeats the first <code>region ÷ count</code> slice <code>count</code> times. Order: reverse, then shuffle, then stutter</li>
+<li><code>CROP</code> needs no parameters: set <code>START</code>/<code>END</code> (or <code>SLIDE</code> the region), then <code>APPLY</code> to keep only the region — the clip becomes the region, starting at bar 1</li>
+<li><code>TRANSPOSE</code>: <code>SEMI</code> is chromatic. <code>DEGREE</code> moves every note by whole steps of <code>SCALE</code> above <code>ROOT</code> (a note that is not on the scale is snapped to the nearest degree first) — with a scale set, +2 turns a line into its diatonic third. <code>SNAP</code> forces every note onto the scale: <code>NEAR</code> to the closest degree, <code>UP</code> / <code>DOWN</code> to the next one in that direction. Order: snap, then degrees, then semitones</li>
+<li><code>FILTER</code> removes notes outside <code>LOW</code>…<code>HIGH</code> (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> steps octaves) or quieter than <code>MIN VEL</code>; <code>DROP CC</code> also removes the region’s CC, pitch bend and aftertouch</li>
+<li><code>LENGTH</code>: <code>FIXED</code> gives every note the same length, <code>GATE</code> scales lengths (staccato below 100 %, overlapping above), <code>LEGATO</code> extends each note to the next onset (the last note keeps its length). Order: fixed, then gate, then legato</li>
+</ul>
+<h3 id="gen-page"><a class="header" href="#gen-page">GEN page</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>MELODIZE</code></td><td>MODE (<code>WALK</code> · <code>TURING</code> · <code>SHAPE</code>), push to re-roll</td><td>per mode: STEP (1–7) · LENGTH (2–16) · SHAPE (<code>RAMP UP</code> · <code>RAMP DN</code> · <code>ARCH</code> · <code>VALLEY</code> · <code>TRI</code> · <code>SINE</code>)</td><td>per mode: GRAVITY (0–100 %) · MUTATE (0–100 %) · JITTER (0–100 %)</td></tr>
+<tr><td>2</td><td><code>CHORD</code></td><td>VOICES (0–4)</td><td>STACK (<code>2ND</code> … <code>7TH</code>, <code>OCT</code>)</td><td>VEL (10–100 %)</td></tr>
+<tr><td>3</td><td><code>STRUM</code></td><td>TIME (<code>OFF</code>, 1/64 … 1/8), push toggles triplets</td><td>ORDER (<code>UP</code> · <code>DOWN</code> · <code>ALT</code> · <code>RANDOM</code>), push to re-roll</td><td>CURVE (−100 … +100)</td></tr>
+<tr><td>4</td><td><code>ARP</code></td><td>RATE (note value), push to re-roll <code>RANDOM</code></td><td>ORDER (<code>UP</code> · <code>DOWN</code> · <code>UPDOWN</code> · <code>RANDOM</code>)</td><td>OCTAVES (1–4)</td></tr>
+</tbody>
+</table>
+</div>
+<p>Notes:</p>
+<ul>
+<li><code>MELODIZE</code> turns a rhythm into a melody: it keeps every note’s position, length and velocity and rewrites only the <strong>pitch</strong>, drawn from <code>SCALE</code> across <code>SPAN</code> octaves above <code>ROOT</code>. Record a one-note rhythm, copy it, pick a scale, and turn <code>MODE</code>. It engages on the first encoder turn (there is no neutral setting); re-pressing the group button disarms it. Encoders 5 and 6 follow the mode — the value row shows their current names
+<ul>
+<li><code>WALK</code> — a drunkard’s walk: every note moves by up to <code>STEP</code> scale degrees from the previous one, starting where the first note was; <code>GRAVITY</code> pulls the line back towards the middle of the range (0 = a free walk that may sit at the edges, 100 = always heading home). One note in four repeats its pitch. Moves stepwise, so it sounds like a melody rather than random notes</li>
+<li><code>TURING</code> — a locked random loop of <code>LENGTH</code> pitches: the notes cycle through it, and after every pass each pitch has a <code>MUTATE</code> % chance to change. 0 % is a fixed loop, 100 % is new every pass — one knob from locked to random</li>
+<li><code>SHAPE</code> — a contour from the lowest to the highest pitch of the range, spread over the notes from the first to the last: <code>RAMP UP</code>, <code>RAMP DN</code>, <code>ARCH</code>, <code>VALLEY</code>, <code>TRI</code>, <code>SINE</code>. <code>JITTER</code> scatters the notes around it (up to ±3 degrees at 100 %); at 0 the result is fully predictable. The contour is traced over the roll while un-applied</li>
+<li>Chords are kept: notes starting together are one onset; the lowest note takes the generated pitch and the other notes keep their intervals above it</li>
+<li>Push Encoder 4 for a new roll; every track of a multi-track clipboard rolls differently</li>
+</ul>
+</li>
+<li><code>CHORD</code> harmonizes: every note gets <code>VOICES</code> extra notes above it, each <code>STACK</code> apart in the scale — <code>3RD</code> stacks thirds (<code>VOICES</code> 2 = triads, 3 = sevenths), <code>OCT</code> doubles in octaves — at <code>VEL</code> % of the source velocity. Notes off the scale are snapped to it first. With <code>CHROMA</code>, every degree is a semitone, so pick a scale for musical stacking</li>
+<li><code>STRUM</code> spreads the notes of every chord over <code>TIME</code> from the chord’s first note, in <code>ORDER</code>: <code>UP</code> from the lowest note, <code>DOWN</code> from the highest, <code>ALT</code> alternating chord by chord, <code>RANDOM</code> by seed (push Encoder 5 to re-roll). Push Encoder 4 for a triplet <code>TIME</code> (<code>1/16T</code>). The notes keep their ends, so the strummed ones get shorter. <code>CURVE</code> shapes the timing: negative = tight start, loose end; positive = the reverse</li>
+<li><code>ARP</code> replaces every chord with a run of its notes at <code>RATE</code>, over the chord’s duration, in <code>ORDER</code> across <code>OCTAVES</code> (<code>UPDOWN</code> goes up and back down without repeating the ends; <code>RANDOM</code> picks by seed, push Encoder 4 to re-roll). Single notes are left alone. Engages on the first turn</li>
+</ul>
+<h3 id="mod-page"><a class="header" href="#mod-page">MOD page</a></h3>
+<p>One LFO per group, printed over the region. All four share the same layout as the audio <code>MOD</code> page; the wave is traced over the roll while un-applied.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>VEL LFO</code></td><td>RATE (note value 1/1–1/64)</td><td>DEPTH (0–100 %)</td><td>SHAPE (<code>SINE</code>, <code>TRI</code>, <code>SAW DN</code>, <code>SAW UP</code>, <code>SQUARE</code>, <code>S&amp;H</code>), push to advance the phase by 90°</td></tr>
+<tr><td>2</td><td><code>CC LFO</code></td><td>CC (<code>#0</code>–<code>#127</code>), push to cycle the shape</td><td>RATE</td><td>DEPTH (0–100 %)</td></tr>
+<tr><td>3</td><td><code>PB LFO</code></td><td>RATE</td><td>DEPTH (0–100 % = the full bend range)</td><td>SHAPE, push = +90°</td></tr>
+<tr><td>4</td><td><code>AT LFO</code></td><td>RATE</td><td>DEPTH</td><td>SHAPE, push = +90°</td></tr>
+</tbody>
+</table>
+</div>
+<p>Notes:</p>
+<ul>
+<li><code>VEL LFO</code> scales each note’s velocity by the wave at the note’s start, dipping from the top like <code>VOL LFO</code>: a <code>SQUARE</code> at 1/8 is a velocity gate, <code>S&amp;H</code> a random accent pattern</li>
+<li><code>CC LFO</code>, <code>PB LFO</code> and <code>AT LFO</code> write events every quarter of a <code>GRID</code> step (at least a 64th) across the region, around the centre (CC 64, no bend, aftertouch 64), <strong>replacing</strong> what the region held of that kind (for <code>CC LFO</code>, of that controller only). <code>DEPTH</code> 0 is neutral. While one of these groups is focused, the values it writes (the selected controller for <code>CC LFO</code>, the bend around its centre, the aftertouch) are drawn as a lane along the bottom of the roll, so you see the curve as well as hear it</li>
+<li>Shapes start unmodulated at <code>START</code> as on the audio page; pushing <code>SHAPE</code> advances the start by a quarter cycle</li>
+</ul>
+<h3 id="rhythm-page"><a class="header" href="#rhythm-page">RHYTHM page</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>ECHO</code></td><td>TIME (note value)</td><td>REPEATS (1–8)</td><td>DECAY (0–100 %), push cycles the pitch per repeat <code>FLAT</code> · <code>+1 OCT</code> · <code>-1 OCT</code> · <code>+5TH</code></td></tr>
+<tr><td>2</td><td><code>RATCHET</code></td><td>DIVIDE (2–8)</td><td>CHANCE (0–100 %), push to re-roll</td><td>GATE (10–100 %)</td></tr>
+<tr><td>3</td><td><code>CHANCE</code></td><td>DROP (0–100 %), push to re-roll</td><td>EVERY (<code>OFF</code> · <code>2ND</code> · <code>3RD</code> · <code>4TH</code>)</td><td>DOWNBEAT (<code>KEEP</code> / <code>FREE</code>)</td></tr>
+<tr><td>4</td><td><code>HUMANIZE</code></td><td>TIME (0–100 %), push to re-roll</td><td>VEL (0–100 %)</td><td>LENGTH (0–100 %)</td></tr>
+<tr><td>5</td><td><code>EUCLID</code></td><td>STEPS (1–32 grid steps)</td><td>HITS (1–STEPS)</td><td>ROTATE (0–STEPS−1)</td></tr>
+</tbody>
+</table>
+</div>
+<p>Notes:</p>
+<ul>
+<li><code>ECHO</code> is a MIDI delay: every note in the region repeats <code>REPEATS</code> times, <code>TIME</code> apart, each repeat at <code>DECAY</code> % of the previous velocity and shifted by the pitch mode (snapped to <code>SCALE</code> when one is set). Repeats run past <code>END</code> and are cut at the clip end; each repeat is marked above the roll while un-applied. Neutral at <code>DECAY</code> 0</li>
+<li><code>RATCHET</code> splits <code>CHANCE</code> % of the notes (by seed) into <code>DIVIDE</code> equal pieces of <code>GATE</code> % length — rolls and ratchets</li>
+<li><code>CHANCE</code> drops onsets: <code>DROP</code> is a seeded probability per onset, <code>EVERY</code> drops every 2nd / 3rd / 4th onset deterministically, <code>DOWNBEAT</code> <code>KEEP</code> exempts onsets on a bar line from both</li>
+<li><code>HUMANIZE</code> adds seeded jitter: <code>TIME</code> up to ± half a <code>GRID</code> step, <code>VEL</code> up to ±40, <code>LENGTH</code> up to ± half the note’s length. Push Encoder 4 for a new roll</li>
+<li><code>EUCLID</code> moves the region’s onsets, in order, onto a Euclidean pattern of <code>HITS</code> in <code>STEPS</code> grid steps (rotated by <code>ROTATE</code>); with more onsets than hits the pattern repeats. Note lengths are kept. Engages on the first turn</li>
+</ul>
+<h3 id="write-back"><a class="header" href="#write-back">WRITE BACK</a></h3>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track Button 8 pastes the clipboard back over the position it was cut/copied from — every copied track onto its own track, replacing exactly the clipboard’s span — and returns you to the screen you came from:</p>
+<ul>
+<li>If the clipboard changed length (<code>STRETCH</code>, <code>CROP</code>), the write back overwrites more or less than the original region</li>
+<li>Only available when the current group has no un-applied changes — <code>APPLY</code> first</li>
+<li>The write back is a normal MIDI paste on the tape, so it can be undone with <code>UNDO</code> and jumps the playhead with <code>PASTE JMP</code></li>
+</ul>
+<hr>
+<h2 id="audition"><a class="header" href="#audition">Audition</a></h2>
+<ul>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> plays the <strong>clipboard</strong>, including all pending, un-applied settings — tweak while it plays, the audition follows without restarting</li>
+<li>Each track plays on its own output channel, exactly as the tape would, so the audition is as audible as the instrument connected to that channel. The tape itself (audio and MIDI) stays silent while the modifier is open</li>
+<li>The clip plays at the tempo under the tape’s playhead — the tempo it will be pasted into</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_play-pause-dark.svg"><img alt="play-pause" src="icons/individual/track8_play-pause-light.svg" width="24"></picture> jumps the playhead to <code>START</code> without toggling playback; pressed again on <code>START</code> it jumps to the start of the clip</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_jump-left-dark.svg"><img alt="left" src="icons/individual/track8_jump-left-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_jump-right-dark.svg"><img alt="right" src="icons/individual/track8_jump-right-light.svg" width="24"></picture> move the playhead by the <code>GRID</code> step</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture> toggles looped playback; <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-in-dark.svg"><img alt="loop-in" src="icons/individual/track8_set-punch-in-light.svg" width="24"></picture> / <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_set-punch-out-dark.svg"><img alt="loop-out" src="icons/individual/track8_set-punch-out-light.svg" width="24"></picture> set the loop points to the playhead, both together snap the loop to the <code>START</code>/<code>END</code> region</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="editing-midi.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="midi-device-profiles.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="editing-midi.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="midi-device-profiles.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-bfebf62e.js";
+            window.path_to_searchindex_js = "searchindex-af626a62.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-36f5414a.js"></script>
+        <script src="toc-db70ddd0.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -211,7 +211,7 @@
 </div>
 <p>All edits apply to the region between <code>START</code> and <code>END</code> — by default the whole clipboard. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning a parameter encoder for fine steps.</p>
 <h3 id="tuning-settings---encoders-13-since-v122"><a class="header" href="#tuning-settings---encoders-13-since-v122">Tuning settings (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Encoders 1–3) (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</a></h3>
-<p>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> and the first three encoders become the <strong>tuning settings</strong> that the <code>SPRAY</code> and <code>RESO</code> groups read. They are settings, not edits: they persist like <code>GRID</code>, have no <code>APPLY</code>, and turning them never discards a group’s un-applied changes. The pushes keep their normal jobs.</p>
+<p>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> and the first three encoders become the <strong>tuning settings</strong> that the <code>SPRAY</code>, <code>RESO</code>, <code>TUNED</code>, <code>COMB</code> and <code>HARMONY</code> groups read. They are settings, not edits: they persist like <code>GRID</code>, have no <code>APPLY</code>, and turning them never discards a group’s un-applied changes. The pushes keep their normal jobs.</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -220,7 +220,7 @@
 <tbody>
 <tr><td>1</td><td><code>SCALE</code></td><td><code>CHROMA</code>, <code>MAJOR</code>, <code>MINOR</code>, <code>DORIAN</code>, <code>PHRYG</code>, <code>PHRYDOM</code> (Phrygian dominant), <code>LYDIAN</code>, <code>MIXO</code>, <code>HARM-M</code> (harmonic minor), <code>PENTA</code> (major pentatonic), <code>MINPENT</code>, <code>BLUES</code>, <code>WHOLE</code> (whole tone), <code>5TH+OCT</code>, <code>SINGLE</code> (root only)</td></tr>
 <tr><td>2</td><td><code>SPAN</code></td><td>1–4 octaves above <code>ROOT</code> (<code>RESO</code> band range, <code>SPRAY</code> transposition range)</td></tr>
-<tr><td>3</td><td><code>ROOT</code></td><td>C1–C6, the key of the <code>RESO</code> bank (<code>SPRAY</code> transposes relative to each grain’s own pitch and ignores it)</td></tr>
+<tr><td>3</td><td><code>ROOT</code></td><td>C1–C6, the key of the <code>RESO</code> bank, the <code>TUNED</code> sieve and the <code>COMB</code> note (<code>SPRAY</code> and <code>HARMONY</code> transpose relative to the material’s own pitch and ignore it)</td></tr>
 </tbody>
 </table>
 </div>
@@ -239,6 +239,8 @@
 <tr><td>3</td><td><code>MOD</code></td><td>LFOs printed over the region</td></tr>
 <tr><td>4</td><td><code>FX</code></td><td>printed delay / reverb, loop tools</td></tr>
 <tr><td>5</td><td><code>DIST</code></td><td>crush, colour, tape, amp, wavefolder, ring modulator</td></tr>
+<tr><td>6</td><td><code>SPECTR</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>spectral tools: stretch, freeze, blur, gate, scale sieve, frequency shifter, partial sieve</td></tr>
+<tr><td>7</td><td><code>VOICE</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>chorus, flanger, phaser, comb, formant, harmony, width</td></tr>
 </tbody>
 </table>
 </div>
@@ -362,6 +364,64 @@
 <li><code>AMP</code> and <code>FOLD</code> hold the level: their output is matched to the input’s envelope, so <code>GAIN</code> and <code>FOLD</code> add harmonics rather than volume and the result pastes back onto the tape at the level it was copied</li>
 <li><code>RING</code> multiplies the region with a carrier at <code>FREQ</code>: low carriers tremble, higher ones produce the metallic sidebands ring modulation is known for. <code>FREQ</code> steps in thirds of an octave (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> = a twelfth). The carrier is locked to the region’s Start, so audition and <code>APPLY</code> sound the same</li>
 <li>While a <code>TAPE</code>, <code>AMP</code>, <code>FOLD</code> or <code>RING</code> setting is un-applied the waveform shows the distorted result</li>
+</ul>
+<h3 id="spectr-page-since-v123-snapshot"><a class="header" href="#spectr-page-since-v123-snapshot">SPECTR page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</a></h3>
+<p>Everything on this page works on the <strong>spectrum</strong> of the region, frame by frame, and is the experimental end of the modifier. It is where sounds are turned into textures.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>STRETCH</code></td><td>FACTOR (1x–64x)</td><td>WINDOW (note value 1/1–1/64)</td><td>ORIGIN (0–100 %), push to take the playhead</td></tr>
+<tr><td>2</td><td><code>FREEZE</code></td><td>POINT (0–100 %), push to take the playhead</td><td>LENGTH (note value 1/64–1/1, one step further down = <code>TO END</code>)</td><td>BLUR (0–100)</td></tr>
+<tr><td>3</td><td><code>BLUR</code></td><td>TIME (note value)</td><td>FREQ (0–100)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>4</td><td><code>GATE</code></td><td>THRESH (-60–0 dB), push to cycle <code>KEEP</code> / <code>RESIDUE</code></td><td>SMOOTH (0–100)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>5</td><td><code>TUNED</code></td><td>WIDTH (5–100 cents)</td><td>DEPTH (0–100 %)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>6</td><td><code>SHIFT</code></td><td>SHIFT (-2000–+2000 Hz)</td><td>MIX (0–100 %)</td><td>FEEDBK (0–90)</td></tr>
+<tr><td>7</td><td><code>PEAKS</code></td><td>PEAKS (1–64)</td><td>DECAY (0–100)</td><td>MIX (0–100 %)</td></tr>
+</tbody>
+</table>
+</div>
+<p>Notes:</p>
+<ul>
+<li><code>STRETCH</code> is a Paulstretch <strong>in place</strong>: the region is stretched by <code>FACTOR</code> and cut back to its own length, so it ends up holding the first <code>1/FACTOR</code> of the source, smeared into a texture. <code>ORIGIN</code> chooses where in the region that source starts (it wraps around the region), <code>WINDOW</code> sets the grain: short windows keep some rhythm and sound grainy, long ones are smooth and cloud-like. <code>FACTOR</code> 1 = off</li>
+<li><code>FREEZE</code> holds the instant at <code>POINT</code> for <code>LENGTH</code> — a spectral freeze. <code>LENGTH</code> steps through the note values like <code>GRID</code> (turn up for shorter); one step down past 1/1 is <code>TO END</code>, which holds the instant to the end of the region. <code>BLUR</code> 0 loops that instant as it is (a static, buzzing hold), 100 randomises the phases into a smooth cloud. The material before <code>POINT</code>, and after the held length, stays as it was, with a short crossfade at both ends</li>
+<li><code>BLUR</code> smears the spectrum: <code>TIME</code> averages each moment with its neighbours (up to about a second each way), so attacks turn into swells and notes bleed into each other; <code>FREQ</code> smears across frequency, blurring pitch into noise. What is silent stays silent</li>
+<li><code>GATE</code> is a spectral gate: every frequency bin below <code>THRESH</code> (0 dB = a full-scale sine) is removed, so <code>KEEP</code> cleans a sound down to its loud partials. <code>RESIDUE</code> keeps exactly what <code>KEEP</code> throws away — the quiet ghost of a sound, the breath under a voice. <code>SMOOTH</code> slows how fast each bin opens and closes</li>
+<li><code>TUNED</code> is a scale sieve: it keeps only the frequencies within <code>WIDTH</code> cents of a note of <code>SCALE</code> / <code>ROOT</code> (in every octave) and attenuates everything else by <code>DEPTH</code>. Unlike <code>RESO</code> it adds no ringing — it is <code>RESO</code>’s transparent sibling, and tunes noise and drums to a key</li>
+<li><code>SHIFT</code> is a frequency shifter (not a pitch shifter): every partial moves by the same number of Hz, so harmonic sounds turn into bells and metal, and a few Hz make a slow, phasing detune. The encoder steps finer near zero. <code>FEEDBK</code> re-shifts the delayed output, the barber-pole effect</li>
+<li><code>PEAKS</code> keeps only the <code>PEAKS</code> loudest partials of every instant and removes the rest — a sinusoidal reduction that turns anything into a thin, pure, slightly ghostly version of itself. <code>DECAY</code> lets a partial that just dropped out ring on</li>
+</ul>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>The <code>SPECTR</code> groups (and <code>HARMONY</code> on the <code>VOICE</code> page) are <strong>rendered</strong>, not played live: about a tenth of a second after you stop turning an encoder the region is rendered in the background, and <code>[RENDER]</code> shows top right while that runs. The audition keeps playing the previous render (or the dry clip before the first one) until the new one is ready, then fades to it, and the waveform shows the rendered result. <code>APPLY</code> uses exactly the same rendering, so what you auditioned is what is printed. Long regions take longer to render; the audio never stutters because of it.</p>
+</blockquote>
+<h3 id="voice-page-since-v123-snapshot"><a class="header" href="#voice-page-since-v123-snapshot">VOICE page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</a></h3>
+<p>Everything that adds or reshapes copies of the voice.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>CHORUS</code></td><td>RATE (note value)</td><td>DEPTH (0–100)</td><td>MIX (0–100 %), push to cycle <code>2</code> / <code>3</code> / <code>4</code> voices</td></tr>
+<tr><td>2</td><td><code>FLANGE</code></td><td>RATE</td><td>DEPTH (0–100)</td><td>FEEDBK (-95–+95)</td></tr>
+<tr><td>3</td><td><code>PHASER</code></td><td>RATE</td><td>DEPTH (0–100), push to cycle <code>4</code> / <code>8</code> / <code>12</code> stages</td><td>FEEDBK (-95–+95)</td></tr>
+<tr><td>4</td><td><code>COMB</code></td><td>NOTE (scale degrees from <code>ROOT</code>, -24–+24)</td><td>FEEDBK (-95–+95)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>5</td><td><code>FORMANT</code></td><td>SHIFT (±12 st)</td><td>MIX (0–100 %)</td><td>—</td></tr>
+<tr><td>6</td><td><code>HARMONY</code></td><td>INTERVAL (-7–+7 scale degrees)</td><td>DETUNE (±50 cents)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>7</td><td><code>WIDTH</code></td><td>SPREAD (0–100)</td><td>DELAY (0–30 ms)</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p>Notes:</p>
+<ul>
+<li><code>CHORUS</code>, <code>FLANGE</code> and <code>PHASER</code> sweep with a tempo-synced <code>RATE</code> like the <code>MOD</code> page LFOs, locked to <code>START</code>, so the audition and <code>APPLY</code> sound the same. <code>CHORUS</code> stacks two to four detuned copies around 20 ms; <code>FLANGE</code> sweeps one short tap (0.5–7.5 ms) with feedback, <code>PHASER</code> sweeps a cascade of allpass stages over four octaves. Negative <code>FEEDBK</code> inverts the feedback for a hollower tone. While un-applied the sweep is traced over the region, as tall as <code>DEPTH</code></li>
+<li><code>COMB</code> is a feedback comb tuned to a note of <code>SCALE</code> / <code>ROOT</code> (<code>NOTE</code> counts scale degrees, the resulting note is shown): it rings the region at that pitch’s harmonics. Negative <code>FEEDBK</code> puts the peaks on the odd harmonics of the note an octave down. The wet signal is held at the input’s level, like <code>AMP</code> / <code>FOLD</code> / <code>RESO</code>, so <code>FEEDBK</code> adds resonance rather than volume. The comb rings out past <code>END</code></li>
+<li><code>FORMANT</code> shifts the <strong>formants</strong> — the resonances that give a voice or instrument its character — without changing the pitch: up for a smaller, brighter body, down for a larger, darker one. Rendered like the <code>SPECTR</code> groups</li>
+<li><code>HARMONY</code> layers a pitch-shifted copy at <code>INTERVAL</code> scale degrees above or below (<code>SCALE</code> decides what a degree is; <code>ROOT</code> is ignored, the interval is relative to the material) with <code>DETUNE</code> in cents; <code>MIX</code> is the level of the added voice. Rendered like the <code>SPECTR</code> groups</li>
+<li><code>WIDTH</code> spreads the stereo image: <code>SPREAD</code> widens the side signal (up to 3x) and, so that a mono take widens too, blends a short delayed copy of the mid in as side (pseudo-stereo, which colours the tone a little); <code>DELAY</code> delays the right channel by a few milliseconds (a Haas delay). Turning either while the audition runs glides to the new setting instead of jumping</li>
 </ul>
 <h3 id="write-back-since-v115"><a class="header" href="#write-back-since-v115">WRITE BACK (since v1.1.5)</a></h3>
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track Button 8 writes the clipboard back to the position it was originally cut/copied from and returns you to the screen you came from:</p>
