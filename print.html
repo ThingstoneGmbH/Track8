@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-431e2676.js";
+            window.path_to_searchindex_js = "searchindex-9c5aeee9.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-db70ddd0.js"></script>
@@ -5550,8 +5550,8 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><td>3</td><td><code>MOD</code></td><td>LFOs printed over the region</td></tr>
 <tr><td>4</td><td><code>FX</code></td><td>printed delay / reverb, loop tools</td></tr>
 <tr><td>5</td><td><code>DIST</code></td><td>crush, colour, tape, amp, wavefolder, ring modulator</td></tr>
-<tr><td>6</td><td><code>SPECTR</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>spectral tools: stretch, freeze, blur, gate, scale sieve, frequency shifter, partial sieve</td></tr>
-<tr><td>7</td><td><code>VOICE</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>chorus, flanger, phaser, comb, formant, harmony, width</td></tr>
+<tr><td>6</td><td><code>SPECTR</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td><td>spectral tools: stretch, freeze, blur, gate, scale sieve, frequency shifter, partial sieve</td></tr>
+<tr><td>7</td><td><code>VOICE</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td><td>chorus, flanger, phaser, comb, formant, harmony, width</td></tr>
 </tbody>
 </table>
 </div>
@@ -5568,7 +5568,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><td>4</td><td><code>CROP</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.0">v1.2.0</a>)</td><td>SLIDE (move the whole Start/End region)</td><td>—</td><td>—</td></tr>
 <tr><td>5</td><td><code>PITCH</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</td><td>FROM (±24 st, pitch at Start), push to take TO’s value</td><td>TO (±24 st, pitch at End), push to take FROM’s value</td><td>CURVE (LIN, -100 to +100)</td></tr>
 <tr><td>6</td><td><code>FILTER</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</td><td>START (cutoff at Start, 20 Hz–20 kHz), push to take END’s value</td><td>END (cutoff at End, 20 Hz–20 kHz), push to take START’s value</td><td>Q (0.1–10), push to cycle <code>LP</code> / <code>HP</code> / <code>BP</code></td></tr>
-<tr><td>7</td><td><code>TUNE</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>SPEED (0–200 ms retune time)</td><td>AMOUNT (0–100 %)</td><td>RANGE (<code>BASS</code> / <code>VOICE</code> / <code>HIGH</code>)</td></tr>
+<tr><td>7</td><td><code>TUNE</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td><td>SPEED (0–200 ms retune time)</td><td>AMOUNT (0–100 %)</td><td>RANGE (<code>BASS</code> / <code>VOICE</code> / <code>HIGH</code>)</td></tr>
 <tr><td>8</td><td><code>APPLY</code> — commit the group’s settings to the clipboard</td><td></td><td></td><td></td></tr>
 <tr><td>8 + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture></td><td><code>WRITE BACK</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</td><td></td><td></td><td></td></tr>
 </tbody>
@@ -5623,7 +5623,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tbody>
 <tr><td>1</td><td><code>GRAIN</code></td><td>SIZE (grain length, note value 1/1–1/64)</td><td>RATE (grain onset interval, note value)</td><td>CONTOUR (-100 ramp down · SINE · +100 ramp up), push to toggle <code>FOLLOW</code> / <code>HOLD</code></td></tr>
 <tr><td>2</td><td><code>SPRAY</code> (grains follow <code>GRID</code>)</td><td>POSITION (0–100 %, read-position scatter), push to re-roll</td><td>PITCH (0–100 %, chance of a scale-degree transposition)</td><td>REVERSE (0–100 %, chance of a backwards grain)</td></tr>
-<tr><td>3</td><td><code>RESO</code></td><td>SLOPE (<code>LP</code> -100 · <code>BP</code> · <code>HP</code> +100)</td><td>DECAY (0–100, ring time)</td><td>MIX (0–100 %) — the wet is level-matched to the dry (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td></tr>
+<tr><td>3</td><td><code>RESO</code></td><td>SLOPE (<code>LP</code> -100 · <code>BP</code> · <code>HP</code> +100)</td><td>DECAY (0–100, ring time)</td><td>MIX (0–100 %) — the wet is level-matched to the dry (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td></tr>
 </tbody>
 </table>
 </div>
@@ -5664,7 +5664,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tbody>
 <tr><td>1</td><td><code>DELAY</code></td><td>TIME (note value)</td><td>FEEDBACK (0–95 %)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>2</td><td><code>PINGPONG</code></td><td>TIME</td><td>FEEDBACK</td><td>MIX</td></tr>
-<tr><td>3</td><td><code>REVERB</code></td><td>SIZE (0–100), push to cycle the program <code>MODERN</code> / <code>HALL</code> / <code>AMBIENCE</code> / <code>GATED</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>DAMP (0–100) · WIDTH (0–100) · PREDEL (0–120 ms) · GATE (-48–0 dB, <code>GATED</code> only) — push to cycle which one the encoder edits (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>3</td><td><code>REVERB</code></td><td>SIZE (0–100), push to cycle the program <code>MODERN</code> / <code>HALL</code> / <code>AMBIENCE</code> / <code>GATED</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td><td>DAMP (0–100) · WIDTH (0–100) · PREDEL (0–120 ms) · GATE (-48–0 dB, <code>GATED</code> only) — push to cycle which one the encoder edits (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>4</td><td><code>LOOP</code></td><td>ROTATE (±64 grid steps)</td><td>XFADE (0–500 ms)</td><td>LAYER (0–100 %)</td></tr>
 </tbody>
 </table>
@@ -5702,7 +5702,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li><code>RING</code> multiplies the region with a carrier at <code>FREQ</code>: low carriers tremble, higher ones produce the metallic sidebands ring modulation is known for. <code>FREQ</code> steps in thirds of an octave (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> = a twelfth). The carrier is locked to the region’s Start, so audition and <code>APPLY</code> sound the same</li>
 <li>While a <code>TAPE</code>, <code>AMP</code>, <code>FOLD</code> or <code>RING</code> setting is un-applied the waveform shows the distorted result</li>
 </ul>
-<h3 id="spectr-page-since-v123-snapshot"><a class="header" href="#spectr-page-since-v123-snapshot">SPECTR page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</a></h3>
+<h3 id="spectr-page-since-v123"><a class="header" href="#spectr-page-since-v123">SPECTR page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</a></h3>
 <p>Everything on this page works on the <strong>spectrum</strong> of the region, frame by frame, and is the experimental end of the modifier. It is where sounds are turned into textures.</p>
 <div class="table-wrapper">
 <table>
@@ -5734,7 +5734,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
 <p>The <code>SPECTR</code> groups (and <code>HARMONY</code> on the <code>VOICE</code> page) are <strong>rendered</strong>, not played live: about a tenth of a second after you stop turning an encoder the region is rendered in the background, and <code>[RENDER]</code> shows top right while that runs. The audition keeps playing the previous render (or the dry clip before the first one) until the new one is ready, then fades to it, and the waveform shows the rendered result. <code>APPLY</code> uses exactly the same rendering, so what you auditioned is what is printed. Long regions take longer to render; the audio never stutters because of it.</p>
 </blockquote>
-<h3 id="voice-page-since-v123-snapshot"><a class="header" href="#voice-page-since-v123-snapshot">VOICE page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</a></h3>
+<h3 id="voice-page-since-v123"><a class="header" href="#voice-page-since-v123">VOICE page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</a></h3>
 <p>Everything that adds or reshapes copies of the voice.</p>
 <div class="table-wrapper">
 <table>
@@ -5805,7 +5805,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <p>Devices flagged as control surface in <code>UTILITY</code> → <code>MIDI</code> → <code>DEVICE</code> are the exception: their CCs drive <a href="#midi-remote-control-since-v114">MIDI Remote Control</a> instead of being recorded (since v1.1.4).</p>
 </blockquote>
 <blockquote>
-<p>Companion app: a track also plays into every plugin slot of the <a href="#plugins-auv3">rack</a> whose receive channel matches the track’s channel, and MIDI a plugin emits follows the rule above — channel discarded, recorded on the selected track (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>).</p>
+<p>Companion app: a track also plays into every plugin slot of the <a href="#plugins-auv3">rack</a> whose receive channel matches the track’s channel, and MIDI a plugin emits follows the rule above — channel discarded, recorded on the selected track (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>).</p>
 </blockquote>
 <hr>
 <h2 id="-encoders"><a class="header" href="#-encoders">🎛 Encoders</a></h2>
@@ -5907,8 +5907,8 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture> + Cut/Copy/Paste to arrange the current <strong>Loop region</strong> — all unmuted tracks, audio and MIDI, with the Markers inside the loop — exactly like on the Audio Overview, see <a href="#arrange-audio-midi-and-markers-together-with-loop">Arrange Audio, MIDI and Markers together with LOOP</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Cut/Copy includes all unmuted tracks — a soloed track counts as the only unmuted one (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>Paste always goes to the <strong>Playhead</strong> position on the selected track and — like audio — <em>replaces</em> what is there for the length of the clipboard (notes, controllers, pitchbend, aftertouch); it does not merge onto existing events (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>, before that Paste merged)</li>
-<li>The length of the clipboard is the <strong>copied region</strong>, trailing silence included, exactly like the audio clipboard: pasting four copied bars whose notes end after bar two still clears all four bars at the destination (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>; before that a paste only cleared up to the last copied event). A copy “to the end of the tape” is as long as its last note</li>
-<li><strong>Touch the indicator</strong> to open the <a href="#midi-clipboard-modifier-1">MIDI Clipboard Modifier</a> and mangle the copied notes before pasting (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</li>
+<li>The length of the clipboard is the <strong>copied region</strong>, trailing silence included, exactly like the audio clipboard: pasting four copied bars whose notes end after bar two still clears all four bars at the destination (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>; before that a paste only cleared up to the last copied event). A copy “to the end of the tape” is as long as its last note</li>
+<li><strong>Touch the indicator</strong> to open the <a href="#midi-clipboard-modifier-1">MIDI Clipboard Modifier</a> and mangle the copied notes before pasting (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture> + Cut/Copy/Paste runs the operation on the MIDI <strong>and</strong> the audio side at once, over the Loop region and with the Markers inside it, for arranging the whole song — see <a href="#arrange-audio-midi-and-markers-together-with-loop">Arrange Audio, MIDI and Markers together with LOOP</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>); in v1.2.1 this was <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture> + Cut/Copy/Paste over the Marker region</li>
 <li>Each action confirms on screen: <code>Copy Loop: Audio + MIDI + Markers</code>, <code>Cut Loop: Audio + MIDI + Markers</code>, <code>Paste Audio + MIDI + Markers</code>. When Mutes leave audio tracks out of the section, the overlay counts what is actually taken — <code>Copy Loop: 7/8 Tracks + MIDI + Markers</code>, or <code>No Audio (muted)</code> when every audio track is muted</li>
 <li>LOOP + Paste writes back <em>every</em> copied MIDI track: one that was silent in the copied section clears its destination span, like the audio side pastes silence there; tracks muted at copy time are left alone (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
@@ -6090,7 +6090,7 @@ fits on screen; otherwise the view stays on the part nearest the cursor
 <ul>
 <li>Moves notes by grid steps</li>
 </ul>
-<p>For generative edits — velocity ramps, scale snapping, turning a rhythm into a melody, harmonizing, strumming — copy the notes and open the <a href="#midi-clipboard-modifier-1">MIDI Clipboard Modifier</a> from the clipboard indicator on the MIDI Overview (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>).</p>
+<p>For generative edits — velocity ramps, scale snapping, turning a rhythm into a melody, harmonizing, strumming — copy the notes and open the <a href="#midi-clipboard-modifier-1">MIDI Clipboard Modifier</a> from the clipboard indicator on the MIDI Overview (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>).</p>
 <hr>
 <h2 id="-cc--aftertouch-editing"><a class="header" href="#-cc--aftertouch-editing">🎛 CC / Aftertouch Editing</a></h2>
 <img alt="CC/AT view with a CC1 modulation curve" src="images/screens/MidiEdit-CC.png" width="900">
@@ -6121,7 +6121,7 @@ fits on screen; otherwise the view stays on the part nearest the cursor
 <!-- screenshot: CC/AT view in AFTERTOUCH mode showing the GLOBAL AT lane -->
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="midi-clipboard-modifier-1"><a href="#midi-clipboard-modifier-1" class="header">MIDI Clipboard Modifier</a></h1>
-<h2 id="clipboard-midi-clipboard-modifier-since-v123-snapshot"><a class="header" href="#clipboard-midi-clipboard-modifier-since-v123-snapshot">:clipboard: MIDI Clipboard Modifier (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</a></h2>
+<h2 id="clipboard-midi-clipboard-modifier-since-v123"><a class="header" href="#clipboard-midi-clipboard-modifier-since-v123">:clipboard: MIDI Clipboard Modifier (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</a></h2>
 <p>The MIDI Clipboard Modifier is the <a href="#audio-clipboard-modifier-1">Audio Clipboard Modifier</a>’s sibling for the <strong>MIDI clipboard</strong>: copy notes, mangle them, audition the result, then paste it — the tape stays untouched until you paste. It works the same way as the audio one (pages, groups, <code>APPLY</code>, <code>WRITE BACK</code>, the tuning settings on the <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> layer), in musical time: every position is a bar and beat, never a millisecond.</p>
 <p>The screen is marked with the same <strong>orange border</strong>.</p>
 <hr>
@@ -6505,7 +6505,7 @@ the profile hides is still reachable there.</li>
 <ul>
 <li>A full sweep of the CC (0–127) always covers the full parameter range</li>
 <li>A mapping drives the screen and function it was learned for, whichever screen is open: a Volume knob keeps working while you are on MIDI Edit, and the Audio Overview switches to <code>VOLUME</code> when you turn it. Cycling an encoder to another mode on the device never retargets your knob</li>
-<li>Mappings learned on the Audio Overview’s <code>SCROLL</code> page follow the overview that is on screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>): while the MIDI Overview is showing, the same knobs drive its scroll step, MOVE MARKER, SPLICE, zoom and scroll, and the MIDI Overview switches to <code>SCROLL</code>. Each overview keeps its own step and zoom, as with the encoders on the device. The zoom mapping goes one step further (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>): while Audio Edit, MIDI Edit or ClipMod is open, the same knob zooms that screen, just like Encoder 7 on the device; the other <code>SCROLL</code> knobs keep driving the Audio Overview from there. Volume, Pan and the return mappings always drive the Audio Overview</li>
+<li>Mappings learned on the Audio Overview’s <code>SCROLL</code> page follow the overview that is on screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>): while the MIDI Overview is showing, the same knobs drive its scroll step, MOVE MARKER, SPLICE, zoom and scroll, and the MIDI Overview switches to <code>SCROLL</code>. Each overview keeps its own step and zoom, as with the encoders on the device. The zoom mapping goes one step further (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>): while Audio Edit, MIDI Edit or ClipMod is open, the same knob zooms that screen, just like Encoder 7 on the device; the other <code>SCROLL</code> knobs keep driving the Audio Overview from there. Volume, Pan and the return mappings always drive the Audio Overview</li>
 <li>Audio Overview encoders are per-track: a mapping on Encoder 3 always drives Track 3. Map all 8 encoders for a full fader bank — or create a <code>SEL</code> mapping in <code>CONTROL</code> that drives whichever track is selected (see <a href="#-following-the-selected-track">Following the selected track</a>)</li>
 <li>Track FX and Track Sends mappings learned this way are locked to the track (and filter node) that was selected when you learned them. To make one follow the selected track instead, edit it in <code>CONTROL</code> and set <code>TRACK</code> to <code>SEL</code></li>
 </ul>
@@ -6812,7 +6812,7 @@ the profile hides is still reachable there.</li>
 </ul>
 <h3 id="plugin-slots-companion-app"><a class="header" href="#plugin-slots-companion-app">Plugin slots (companion app)</a></h3>
 <ul>
-<li>On iPad and Mac every loaded slot of the plugin rack (<code>UTILITY</code> → <code>AU RACK</code>) appears as one more stereo pair on each of these pages, named after the plugin and listed after the interface’s channels — a plugin’s outputs on the input pages (<code>TRK IN</code>, insert return, <code>EXTERNAL</code>), its inputs on the output pages (insert send, <code>SENDS</code>, <code>MAIN OUT</code>). See <a href="#plugins-auv3">Companion App → Plugins</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</li>
+<li>On iPad and Mac every loaded slot of the plugin rack (<code>UTILITY</code> → <code>AU RACK</code>) appears as one more stereo pair on each of these pages, named after the plugin and listed after the interface’s channels — a plugin’s outputs on the input pages (<code>TRK IN</code>, insert return, <code>EXTERNAL</code>), its inputs on the output pages (insert send, <code>SENDS</code>, <code>MAIN OUT</code>). See <a href="#plugins-auv3">Companion App → Plugins</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</li>
 </ul>
 <h3 id="io-names"><a class="header" href="#io-names">IO NAMES</a></h3>
 <img alt="Audio I/O Mapping" src="images/screens/AudioIoMapping.png" width="900">
@@ -7177,7 +7177,7 @@ AUv3 plugins are wired in through the same mapping pages as on the hardware
 </thead>
 <tbody>
 <tr><td>bottom-left</td><td><strong>ⓘ</strong></td><td>Info overlay: labels every encoder and button with what it does on the current screen (hold <strong>SHIFT</strong> to see the shifted actions)</td></tr>
-<tr><td>top-left</td><td><strong>⤢</strong></td><td>Zoom: the window shows only the device panel — encoders, screen, track buttons and the button grid — as large as the window allows (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td></tr>
+<tr><td>top-left</td><td><strong>⤢</strong></td><td>Zoom: the window shows only the device panel — encoders, screen, track buttons and the button grid — as large as the window allows (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td></tr>
 <tr><td>bottom-right</td><td><strong>🎨</strong></td><td>Theme editor (below)</td></tr>
 </tbody>
 </table>
@@ -7188,7 +7188,7 @@ them. The zoom setting is remembered.</p>
 <p><a href="midi-control.html">MIDI Control</a> — MIDI Learn, the DEVICE and CONTROL
 screens, device profiles — works in the app with any CoreMIDI source: USB
 controllers, Bluetooth MIDI, network sessions (since
-<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>).
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>).
 The DEVICE screen lists the sources the iPad or Mac sees; flag a controller
 as CTRL there exactly as on the hardware, and its CCs and notes drive the
 mappings instead of being recorded. There is no DIN row in the app.
@@ -7200,15 +7200,15 @@ stays connected while the app runs; a controller already paired through
 another app is picked up as a regular source.</p>
 <p>The app’s audio input <a href="#utility">MODE</a> defaults to SINGLE — one stereo
 input feeding every track — rather than the hardware’s MULTI (since
-<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>);
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>);
 switch it under Utility → AUDIO if you use a multi-channel interface.</p>
-<p>On iPhone (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)
+<p>On iPhone (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)
 the app runs in landscape, starts zoomed, and has no ⓘ — there is no room
 around the device for its callouts. The zoomed device keeps the label row
 above the encoders as thumb room. The Dynamic Island covers the left end of
 the screen while zoomed; zoom out if you need the input meters.</p>
 <h2 id="plugins-auv3"><a class="header" href="#plugins-auv3">Plugins (AUv3)</a></h2>
-<p>Since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>
+<p>Since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>
 the app hosts Audio Unit v3 plugins as <strong>outboard gear</strong>: a plugin is a box
 with audio ins and outs and a MIDI in, wired through the same mapping pages
 you use for a multi-channel interface. Nothing changes on the overviews, the
@@ -7263,7 +7263,7 @@ USB interface on iPad and Mac: <code>TRK IN</code>, <code>INSERTS</code>, <code>
 the hardware. Before, the app used two inputs and two outputs whatever the
 interface offered.</p>
 <h2 id="latency"><a class="header" href="#latency">Latency</a></h2>
-<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</p>
 <p>The BUFFER SIZE setting under <a href="#utility">Utility → AUDIO</a> sets the iOS
 audio buffer, as it sets the JACK buffer on the hardware. iOS grants a
 nearby size of its own choosing (an iPad gave 96 frames for 80). The app
@@ -7285,7 +7285,7 @@ cannot be tuned from the app — for playing along, use the speaker, a wired
 headphone adapter, or a USB-C audio interface. Align recordings with
 <a href="#audio-overview-1">REC OFFSET</a>, exactly as on the hardware.</p>
 <h2 id="audio-device"><a class="header" href="#audio-device">Audio device</a></h2>
-<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</p>
 <p>iOS chooses the audio device, not the app: whatever is plugged in or paired
 is the route. <strong>SOUNDCARD</strong> on <a href="#utility">Utility → AUDIO</a> shows that
 route by name — <code>Mic + Speaker</code> for the built-ins, <code>Mic + Headphones</code> with
@@ -7296,7 +7296,7 @@ on the hardware, so an interface remembers its buffer size when it is
 plugged back in. The buffer size takes effect the moment the route
 changes; other settings apply with the next engine start.</p>
 <h2 id="sample-rate"><a class="header" href="#sample-rate">Sample rate</a></h2>
-<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</p>
 <p>The engine runs at 48 kHz. On iPad and iPhone the app sets the device to
 that rate. On a Mac the rate belongs to the system: the device keeps what
 is set in Audio MIDI Setup (Applications → Utilities), and the app
@@ -7308,7 +7308,7 @@ launch on a Mac at any other rate. If the engine cannot start for another
 reason, the app shows <em>Audio engine could not start</em> with the reason and a
 Retry button instead of the device.</p>
 <h2 id="orientation"><a class="header" href="#orientation">Orientation</a></h2>
-<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</p>
 <p>The device stays put. Tilt or flip the iPad and the drawing does not rotate
 with the screen — it keeps the landscape orientation you last used, and
 system sheets (file pickers, share sheet) open in whatever orientation the

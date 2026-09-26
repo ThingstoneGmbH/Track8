@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-431e2676.js";
+            window.path_to_searchindex_js = "searchindex-9c5aeee9.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-db70ddd0.js"></script>
@@ -192,7 +192,7 @@ AUv3 plugins are wired in through the same mapping pages as on the hardware
 </thead>
 <tbody>
 <tr><td>bottom-left</td><td><strong>ⓘ</strong></td><td>Info overlay: labels every encoder and button with what it does on the current screen (hold <strong>SHIFT</strong> to see the shifted actions)</td></tr>
-<tr><td>top-left</td><td><strong>⤢</strong></td><td>Zoom: the window shows only the device panel — encoders, screen, track buttons and the button grid — as large as the window allows (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</td></tr>
+<tr><td>top-left</td><td><strong>⤢</strong></td><td>Zoom: the window shows only the device panel — encoders, screen, track buttons and the button grid — as large as the window allows (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td></tr>
 <tr><td>bottom-right</td><td><strong>🎨</strong></td><td>Theme editor (below)</td></tr>
 </tbody>
 </table>
@@ -203,7 +203,7 @@ them. The zoom setting is remembered.</p>
 <p><a href="midi-control.html">MIDI Control</a> — MIDI Learn, the DEVICE and CONTROL
 screens, device profiles — works in the app with any CoreMIDI source: USB
 controllers, Bluetooth MIDI, network sessions (since
-<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>).
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>).
 The DEVICE screen lists the sources the iPad or Mac sees; flag a controller
 as CTRL there exactly as on the hardware, and its CCs and notes drive the
 mappings instead of being recorded. There is no DIN row in the app.
@@ -215,15 +215,15 @@ stays connected while the app runs; a controller already paired through
 another app is picked up as a regular source.</p>
 <p>The app’s audio input <a href="utility.html">MODE</a> defaults to SINGLE — one stereo
 input feeding every track — rather than the hardware’s MULTI (since
-<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>);
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>);
 switch it under Utility → AUDIO if you use a multi-channel interface.</p>
-<p>On iPhone (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)
+<p>On iPhone (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)
 the app runs in landscape, starts zoomed, and has no ⓘ — there is no room
 around the device for its callouts. The zoomed device keeps the label row
 above the encoders as thumb room. The Dynamic Island covers the left end of
 the screen while zoomed; zoom out if you need the input meters.</p>
 <h2 id="plugins-auv3"><a class="header" href="#plugins-auv3">Plugins (AUv3)</a></h2>
-<p>Since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>
+<p>Since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>
 the app hosts Audio Unit v3 plugins as <strong>outboard gear</strong>: a plugin is a box
 with audio ins and outs and a MIDI in, wired through the same mapping pages
 you use for a multi-channel interface. Nothing changes on the overviews, the
@@ -278,7 +278,7 @@ USB interface on iPad and Mac: <code>TRK IN</code>, <code>INSERTS</code>, <code>
 the hardware. Before, the app used two inputs and two outputs whatever the
 interface offered.</p>
 <h2 id="latency"><a class="header" href="#latency">Latency</a></h2>
-<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</p>
 <p>The BUFFER SIZE setting under <a href="utility.html">Utility → AUDIO</a> sets the iOS
 audio buffer, as it sets the JACK buffer on the hardware. iOS grants a
 nearby size of its own choosing (an iPad gave 96 frames for 80). The app
@@ -300,7 +300,7 @@ cannot be tuned from the app — for playing along, use the speaker, a wired
 headphone adapter, or a USB-C audio interface. Align recordings with
 <a href="audio-overview.html">REC OFFSET</a>, exactly as on the hardware.</p>
 <h2 id="audio-device"><a class="header" href="#audio-device">Audio device</a></h2>
-<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</p>
 <p>iOS chooses the audio device, not the app: whatever is plugged in or paired
 is the route. <strong>SOUNDCARD</strong> on <a href="utility.html">Utility → AUDIO</a> shows that
 route by name — <code>Mic + Speaker</code> for the built-ins, <code>Mic + Headphones</code> with
@@ -311,7 +311,7 @@ on the hardware, so an interface remembers its buffer size when it is
 plugged back in. The buffer size takes effect the moment the route
 changes; other settings apply with the next engine start.</p>
 <h2 id="sample-rate"><a class="header" href="#sample-rate">Sample rate</a></h2>
-<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</p>
 <p>The engine runs at 48 kHz. On iPad and iPhone the app sets the device to
 that rate. On a Mac the rate belongs to the system: the device keeps what
 is set in Audio MIDI Setup (Applications → Utilities), and the app
@@ -323,7 +323,7 @@ launch on a Mac at any other rate. If the engine cannot start for another
 reason, the app shows <em>Audio engine could not start</em> with the reason and a
 Retry button instead of the device.</p>
 <h2 id="orientation"><a class="header" href="#orientation">Orientation</a></h2>
-<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3-SNAPSHOT">v1.2.3-SNAPSHOT</a>)</p>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</p>
 <p>The device stays put. Tilt or flip the iPad and the drawing does not rotate
 with the screen — it keeps the landscape orientation you last used, and
 system sheets (file pickers, share sheet) open in whatever orientation the
