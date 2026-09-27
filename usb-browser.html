@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Design Principles - Track8 Manual</title>
+        <title>USB Browser - Track8 Manual</title>
 
 
         <!-- Custom HTML head -->
@@ -174,148 +174,126 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="-track8-feature-design-principles"><a class="header" href="#-track8-feature-design-principles">🎛️ Track8 Feature Design Principles</a></h1>
-<p>Track8 is a <strong>recording instrument</strong>.
-Track8 does not try to be a DAW.</p>
-<p>These principles guide how new features are evaluated and implemented.</p>
-<hr>
-<h2 id="-core-idea"><a class="header" href="#-core-idea">⚡ Core Idea</a></h2>
-<p>Track8 should feel:</p>
+                        <h1 id="usb-browser"><a class="header" href="#usb-browser">USB Browser</a></h1>
+<p>The USB Browser is Track8’s way in and out of a USB stick: audition WAV and
+MIDI files on the stick, pull one into the clipboard to paste into the
+project, write the clipboard back to the stick as a file, or delete files
+you no longer need. It is a file browser for the recorder, not a sample
+library — one file at a time, straight into the clipboard.</p>
+<p>Open it with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-midi-browser-dark.svg"><img alt="audio-midi-browser" src="icons/individual/track8_audio-midi-browser-light.svg" width="24"></picture> (<strong>SHIFT</strong> + Settings, since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.3">v1.1.3</a> — before that the Settings button itself opened the browser).</p>
 <ul>
-<li><strong>Immediate</strong> – no waiting, no friction</li>
-<li><strong>Obvious</strong> – works without reading a manual</li>
-<li><strong>Fast</strong> – supports creative flow without interruption</li>
-<li><strong>Intentional</strong> – advanced features require deliberate action</li>
+<li>A <strong>FAT32</strong> USB stick has to be connected. Without one, Track8 shows
+<code>NO USB STICK FOUND</code>; a stick it cannot read shows <code>ERROR LOADING FROM USB</code>.</li>
+<li>The browser does not open while a recording is running (<code>Browsing</code>
+refused), and it closes on its own — back to the Audio Overview — when the
+stick is pulled.</li>
+<li>Opening the browser stops playback.</li>
+<li>In the <a href="companion-app.html">Companion App</a> there is no stick: a system folder
+picker opens instead, and the folder you choose becomes the browser’s root.</li>
 </ul>
-<p>If a feature compromises any of these, it likely doesn’t belong in its current form.</p>
-<hr>
-<h2 id="-two-layers-of-interaction"><a class="header" href="#-two-layers-of-interaction">🧱 Two Layers of Interaction</a></h2>
-<p>Track8 separates functionality into two clear layers:</p>
-<h3 id="primary-core"><a class="header" href="#primary-core">Primary (Core)</a></h3>
+<img alt="USB Browser" src="images/screens/SampleBrowser.png" width="900">
+<h2 id="navigating"><a class="header" href="#navigating">Navigating</a></h2>
+<p>The list shows the folders, <code>.wav</code> and <code>.mid</code> files of the current folder,
+sorted by name; everything else is hidden. The path is shown top-left, and
+at the root of the stick the used space (<code>USED:</code>).</p>
 <ul>
-<li>Instant</li>
-<li>Physical (buttons, encoders)</li>
-<li>Always available</li>
-<li>Used constantly during usage</li>
+<li><strong>Encoder 8</strong> (SCROLL) — move the selection</li>
+<li><strong>Track 8</strong> — <strong>OPEN</strong> the selected folder, or <strong>PLAY</strong> / <strong>STOP</strong> the
+selected file (Encoder 8 push does the same)</li>
+<li><strong>Track 1</strong> or <strong>Encoder 7</strong> push — <strong>EXIT</strong> the current folder, one level
+up. At the root the browser has nowhere to go; use any screen button to
+leave it.</li>
 </ul>
-<h3 id="secondary-expert"><a class="header" href="#secondary-expert">Secondary (Expert)</a></h3>
+<img alt="USB Browser with a folder selected" src="images/screens/SampleBrowser-Folder.png" width="900">
+<h2 id="previewing-files"><a class="header" href="#previewing-files">Previewing files</a></h2>
+<p>Selecting a file loads it in the background, ready to play with <strong>Track 8</strong>
+and to copy.</p>
+<p><strong>WAV files</strong> show their waveform and length on the right. Mono and stereo
+files at any sample rate and bit depth are accepted; they are converted to
+Track8’s 48 kHz on the way in. The waveform is drawn while the file loads
+and brightens once it is complete. Files longer than 12 minutes are not
+loaded (<code>Too Long</code>), and a file Track8 cannot decode shows <code>Reading error</code>.</p>
+<p><strong>MIDI files</strong> show a piano-roll preview and play on the MIDI channel
+selected with <strong>Encoder 1</strong> (<code>CHANNEL 1</code>–<code>16</code>) through Track8’s MIDI
+outputs, so you hear them on whatever synth listens on that channel. The
+first track of the file is used; the channels and tempo stored in the file
+are ignored and the file plays at the project tempo.</p>
+<img alt="USB Browser previewing a MIDI file" src="images/screens/SampleBrowser-Midi.png" width="900">
+<h2 id="importing-into-the-project"><a class="header" href="#importing-into-the-project">Importing into the project</a></h2>
+<p>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_copy-area-dark.svg"><img alt="copy" src="icons/individual/track8_copy-area-light.svg" width="24"></picture> (<strong>Copy</strong>) with a file selected:</p>
 <ul>
-<li>Accessed intentionally (e.g. touch interaction)</li>
-<li>Slightly slower by design</li>
-<li>Contextual</li>
-<li>Cannot be triggered accidentally</li>
+<li>a <code>.wav</code> goes into the <strong>audio clipboard</strong> as one track</li>
+<li>a <code>.mid</code> goes into the <strong>MIDI clipboard</strong> as one track</li>
 </ul>
-<blockquote>
-<p>The primary layer must never be compromised by adding complexity.</p>
-</blockquote>
-<hr>
-<h2 id="-core-actions"><a class="header" href="#-core-actions">⚡ Core Actions</a></h2>
-<p>Core actions must be:</p>
+<p>The clipboard bars at the bottom of the screen (AUDIO / MIDI) show what is
+loaded. Then leave the browser, select the destination track on the
+<a href="audio-overview.html">Audio Overview</a> or <a href="midi-overview.html">MIDI Overview</a>,
+place the playhead and press <strong>Paste</strong> — exactly like pasting a section you
+copied within the project. The imported audio can be shaped in the
+<a href="audio-clipboard-modifier.html">Audio Clipboard Modifier</a> first, MIDI in the
+<a href="midi-clipboard-modifier.html">MIDI Clipboard Modifier</a>.</p>
 <ul>
-<li><strong>Single-step</strong></li>
-<li><strong>Immediate</strong></li>
-<li><strong>Predictable</strong></li>
+<li>Copy waits for the file to finish loading. If you press it too early, the
+waveform flashes red — press Copy again once it has settled.</li>
+<li>A file copied from the stick <strong>replaces</strong> the whole clipboard, including
+the Marker clipboard filled by a LOOP + Copy.</li>
+<li>Selecting a WAV file in the browser already empties the audio clipboard, to
+make room for the file. Anything you copied inside the project and still
+need has to be pasted before you browse a WAV. The MIDI clipboard is not
+affected.</li>
 </ul>
-<h3 id="examples"><a class="header" href="#examples">Examples</a></h3>
+<h2 id="saving-the-clipboard-to-the-stick"><a class="header" href="#saving-the-clipboard-to-the-stick">Saving the clipboard to the stick</a></h2>
+<p>Inside a folder (not at the root of the stick), two <strong>PASTE</strong> labels appear
+on Track 4 and Track 5:</p>
 <ul>
-<li>Recording</li>
-<li>Playback</li>
-<li>Marker placement</li>
-<li>Basic editing</li>
+<li><strong>Track 4 — PASTE</strong> writes the <strong>audio clipboard</strong> as a <code>.wav</code>. A
+single-track clipboard is written as it is; a multi-track clipboard (from a
+LOOP + Copy, for example) is mixed down to one stereo file using the
+current volume, pan and automation of the source tracks.</li>
+<li><strong>Track 5 — PASTE</strong> writes the <strong>MIDI clipboard</strong> as a <code>.mid</code>, one MIDI
+track per clipboard track.</li>
 </ul>
-<p>No menus. No hidden states. No delays.</p>
-<p>A user with basic recording experience should be able to use Track8 <strong>without instructions</strong>.</p>
-<hr>
-<h2 id="-expert-features"><a class="header" href="#-expert-features">🧠 Expert Features</a></h2>
-<p>Advanced functionality is welcome — but must follow strict rules:</p>
-<ul>
-<li><strong>Discoverable</strong> (users can find it)</li>
-<li><strong>Intentional</strong> (requires a deliberate action)</li>
-<li><strong>Non-disruptive</strong> (does not interfere with core workflow)</li>
-</ul>
-<p><strong>Trade-off:</strong></p>
-<blockquote>
-<p>It is acceptable for expert features to be slower if it prevents accidental use.</p>
-</blockquote>
-<h3 id="typical-characteristics"><a class="header" href="#typical-characteristics">Typical characteristics</a></h3>
-<ul>
-<li>Touch interaction</li>
-<li>Secondary screens</li>
-<li>No direct hardware shortcut (in most cases)</li>
-</ul>
-<hr>
-<h2 id="-example-marker-system"><a class="header" href="#-example-marker-system">📍 Example: Marker System</a></h2>
-<p>Markers demonstrate this design clearly.</p>
-<h3 id="core"><a class="header" href="#core">Core</a></h3>
-<ul>
-<li>Dedicated <strong>Marker button</strong></li>
-<li>Sets / removes markers instantly</li>
-<li>Defines regions for editing</li>
-</ul>
-<p>Fast, simple, always available.</p>
-<hr>
-<h3 id="expert"><a class="header" href="#expert">Expert</a></h3>
-<ul>
-<li>Name marker</li>
-<li>Lock marker (prevent deletion)</li>
-<li>Colour-code marker</li>
-</ul>
-<h3 id="access"><a class="header" href="#access">Access</a></h3>
-<ul>
-<li>Touch the marker → opens keyboard + lock toggle</li>
-</ul>
-<hr>
-<h3 id="why"><a class="header" href="#why">Why</a></h3>
-<ul>
-<li>No accidental renaming or locking</li>
-<li>No additional button combinations</li>
-<li>Clear separation between fast actions and advanced control</li>
-</ul>
-<hr>
-<h2 id="-what-to-avoid"><a class="header" href="#-what-to-avoid">🚫 What to Avoid</a></h2>
-<p>When proposing features, avoid:</p>
-<ul>
-<li>Menu-driven workflows for core tasks</li>
-<li>Multi-step interactions for simple actions</li>
-<li>Hidden modes or unclear states</li>
-<li>Overloading buttons with multiple meanings</li>
-<li>Features that interrupt recording flow</li>
-<li>“DAW-like” complexity in the primary layer</li>
-</ul>
-<hr>
-<h2 id="-what-makes-a-good-feature"><a class="header" href="#-what-makes-a-good-feature">✅ What Makes a Good Feature</a></h2>
-<p>A feature fits Track8 if it:</p>
-<ul>
-<li>Feels <strong>obvious</strong> to use</li>
-<li>Is <strong>fast</strong> in common scenarios</li>
-<li>Keeps the core workflow <strong>uninterrupted</strong></li>
-<li>Places complexity in the <strong>secondary layer</strong></li>
-<li>Requires <strong>intent</strong> for advanced actions</li>
-</ul>
-<hr>
-<h2 id="-guiding-question"><a class="header" href="#-guiding-question">🧩 Guiding Question</a></h2>
-<p>When evaluating a feature, ask:</p>
-<blockquote>
-<p>Does this make Track8 faster and more intuitive — or more complex?</p>
-</blockquote>
-<p>If it adds complexity, it must justify itself by staying out of the core workflow.</p>
-<hr>
-<h2 id="-goal"><a class="header" href="#-goal">🎯 Goal</a></h2>
-<p>Track8 is designed to:</p>
-<blockquote>
-<p>Capture ideas quickly, without breaking creative flow.</p>
-</blockquote>
-<p>Every feature should reinforce that.</p>
+<p>Track8 asks for a file name on the keyboard (the extension is added for
+you); names already used in that folder are refused. A <code>Saving as WAV</code> /
+<code>Saving as MID</code> message shows while the file is written.</p>
+<p>Because browsing a WAV empties the audio clipboard, the folder you open must
+not lead with a WAV file: use a folder that is empty or starts with a
+sub-folder or MIDI file when you want to save audio.</p>
+<h2 id="deleting"><a class="header" href="#deleting">Deleting</a></h2>
+<p>Hold <strong>SHIFT</strong> and push <strong>Encoder 4</strong> (<strong>DELETE</strong>) to delete the selected
+file or folder. A confirmation asks <code>DELETE FILE?</code> / <code>DELETE FOLDER?</code> with
+the name — <strong>Track 6</strong> confirms, <strong>Track 3</strong> cancels. Deleting a folder
+removes everything inside it.</p>
+<h2 id="controls"><a class="header" href="#controls">Controls</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Control</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>MIDI channel for MIDI file preview</td></tr>
+<tr><td>Encoder 4 (push, with <strong>SHIFT</strong>)</td><td>DELETE the selected file or folder</td></tr>
+<tr><td>Encoder 7 (push)</td><td>EXIT the current folder</td></tr>
+<tr><td>Encoder 8</td><td>SCROLL the list; push = OPEN / PLAY / STOP</td></tr>
+<tr><td>Track 1</td><td>EXIT the current folder</td></tr>
+<tr><td>Track 4</td><td>PASTE the audio clipboard as a WAV file (inside a folder)</td></tr>
+<tr><td>Track 5</td><td>PASTE the MIDI clipboard as a MIDI file (inside a folder)</td></tr>
+<tr><td>Track 8</td><td>OPEN folder / PLAY / STOP file</td></tr>
+<tr><td>Copy</td><td>Copy the selected file into the audio or MIDI clipboard</td></tr>
+<tr><td>Any screen button</td><td>Leave the browser</td></tr>
+</tbody>
+</table>
+</div>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="troubleshooting.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="settings-and-projects.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="safety-and-compliance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="utility.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -325,11 +303,11 @@ Track8 does not try to be a DAW.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="troubleshooting.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="settings-and-projects.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="safety-and-compliance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="utility.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

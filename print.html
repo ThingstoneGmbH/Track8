@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-9c5aeee9.js";
+            window.path_to_searchindex_js = "searchindex-16248123.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-db70ddd0.js"></script>
+        <script src="toc-c1567bff.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -402,7 +402,7 @@ encoder in the Audio/MIDI Overview and Edit views (since v1.1.1)</p>
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> Track FX</p>
 </li>
 <li>
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-midi-browser-dark.svg"><img alt="audio-midi-browser" src="icons/individual/track8_audio-midi-browser-light.svg" width="24"></picture> USB Browser (before <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.3">v1.1.3</a> this opened Settings)</p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-midi-browser-dark.svg"><img alt="audio-midi-browser" src="icons/individual/track8_audio-midi-browser-light.svg" width="24"></picture> <a href="#usb-browser-1">USB Browser</a> (before <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.3">v1.1.3</a> this opened Settings)</p>
 </li>
 </ul>
 <h3 id="screen-button-cycles"><a class="header" href="#screen-button-cycles">Screen Button Cycles</a></h3>
@@ -4437,7 +4437,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </tbody>
 </table>
 </div>
-<h2 id="sample-browser"><a class="header" href="#sample-browser">Sample Browser</a></h2>
+<h2 id="usb-browser"><a class="header" href="#usb-browser">USB Browser</a></h2>
 <p><strong>Encoders</strong></p>
 <div class="table-wrapper">
 <table>
@@ -5040,7 +5040,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <img alt="Audio Overview in A+A mode with volume automation curves" src="images/annotated/audio-overview-automation-detail.png" width="900">
 <p>Recording behavior:</p>
 <ul>
-<li>Recording keeps running when switching views (except Settings / USB Browser)</li>
+<li>Recording keeps running when switching views (except Settings / <a href="#usb-browser-1">USB Browser</a>)</li>
 <li>A running recording is indicated by a <strong>red border</strong> around the screen edges; actions that would silently stop it show an error instead (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Touch the <strong>overdub indicator</strong> to quickly toggle Overdub (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_arm-record-dark.svg"><img alt="record" src="icons/individual/track8_arm-record-light.svg" width="24"></picture> while recording stops playback, undoes the take and moves the playhead back to where the recording started — instant retake (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
@@ -6874,7 +6874,7 @@ the profile hides is still reachable there.</li>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="settings--projects"><a class="header" href="#settings--projects">Settings &amp; Projects</a></h1>
 <p>Press the <strong>Settings</strong> button to open the Settings screen (since v1.1.3 no
-<strong>SHIFT</strong> needed — <strong>SHIFT</strong> + Settings opens the USB Browser instead).
+<strong>SHIFT</strong> needed — <strong>SHIFT</strong> + Settings opens the <a href="#usb-browser-1">USB Browser</a> instead).
 Press <strong>Settings</strong> again to cycle to the <a href="#utility">Utility</a> screen and
 back (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</p>
 <p>Shortcuts from the Settings screen:</p>
@@ -6990,6 +6990,117 @@ WAV / MIDI clips) cannot contain <code>/ \ : * ? " &lt; &gt; |</code> — those 
 greyed out and ignored, and a name made only of dots cannot be confirmed
 (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="usb-browser-1"><a class="header" href="#usb-browser-1">USB Browser</a></h1>
+<p>The USB Browser is Track8’s way in and out of a USB stick: audition WAV and
+MIDI files on the stick, pull one into the clipboard to paste into the
+project, write the clipboard back to the stick as a file, or delete files
+you no longer need. It is a file browser for the recorder, not a sample
+library — one file at a time, straight into the clipboard.</p>
+<p>Open it with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-midi-browser-dark.svg"><img alt="audio-midi-browser" src="icons/individual/track8_audio-midi-browser-light.svg" width="24"></picture> (<strong>SHIFT</strong> + Settings, since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.3">v1.1.3</a> — before that the Settings button itself opened the browser).</p>
+<ul>
+<li>A <strong>FAT32</strong> USB stick has to be connected. Without one, Track8 shows
+<code>NO USB STICK FOUND</code>; a stick it cannot read shows <code>ERROR LOADING FROM USB</code>.</li>
+<li>The browser does not open while a recording is running (<code>Browsing</code>
+refused), and it closes on its own — back to the Audio Overview — when the
+stick is pulled.</li>
+<li>Opening the browser stops playback.</li>
+<li>In the <a href="#companion-app-mac--ipad--iphone">Companion App</a> there is no stick: a system folder
+picker opens instead, and the folder you choose becomes the browser’s root.</li>
+</ul>
+<img alt="USB Browser" src="images/screens/SampleBrowser.png" width="900">
+<h2 id="navigating"><a class="header" href="#navigating">Navigating</a></h2>
+<p>The list shows the folders, <code>.wav</code> and <code>.mid</code> files of the current folder,
+sorted by name; everything else is hidden. The path is shown top-left, and
+at the root of the stick the used space (<code>USED:</code>).</p>
+<ul>
+<li><strong>Encoder 8</strong> (SCROLL) — move the selection</li>
+<li><strong>Track 8</strong> — <strong>OPEN</strong> the selected folder, or <strong>PLAY</strong> / <strong>STOP</strong> the
+selected file (Encoder 8 push does the same)</li>
+<li><strong>Track 1</strong> or <strong>Encoder 7</strong> push — <strong>EXIT</strong> the current folder, one level
+up. At the root the browser has nowhere to go; use any screen button to
+leave it.</li>
+</ul>
+<img alt="USB Browser with a folder selected" src="images/screens/SampleBrowser-Folder.png" width="900">
+<h2 id="previewing-files"><a class="header" href="#previewing-files">Previewing files</a></h2>
+<p>Selecting a file loads it in the background, ready to play with <strong>Track 8</strong>
+and to copy.</p>
+<p><strong>WAV files</strong> show their waveform and length on the right. Mono and stereo
+files at any sample rate and bit depth are accepted; they are converted to
+Track8’s 48 kHz on the way in. The waveform is drawn while the file loads
+and brightens once it is complete. Files longer than 12 minutes are not
+loaded (<code>Too Long</code>), and a file Track8 cannot decode shows <code>Reading error</code>.</p>
+<p><strong>MIDI files</strong> show a piano-roll preview and play on the MIDI channel
+selected with <strong>Encoder 1</strong> (<code>CHANNEL 1</code>–<code>16</code>) through Track8’s MIDI
+outputs, so you hear them on whatever synth listens on that channel. The
+first track of the file is used; the channels and tempo stored in the file
+are ignored and the file plays at the project tempo.</p>
+<img alt="USB Browser previewing a MIDI file" src="images/screens/SampleBrowser-Midi.png" width="900">
+<h2 id="importing-into-the-project"><a class="header" href="#importing-into-the-project">Importing into the project</a></h2>
+<p>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_copy-area-dark.svg"><img alt="copy" src="icons/individual/track8_copy-area-light.svg" width="24"></picture> (<strong>Copy</strong>) with a file selected:</p>
+<ul>
+<li>a <code>.wav</code> goes into the <strong>audio clipboard</strong> as one track</li>
+<li>a <code>.mid</code> goes into the <strong>MIDI clipboard</strong> as one track</li>
+</ul>
+<p>The clipboard bars at the bottom of the screen (AUDIO / MIDI) show what is
+loaded. Then leave the browser, select the destination track on the
+<a href="#audio-overview-1">Audio Overview</a> or <a href="#midi-overview-1">MIDI Overview</a>,
+place the playhead and press <strong>Paste</strong> — exactly like pasting a section you
+copied within the project. The imported audio can be shaped in the
+<a href="#audio-clipboard-modifier-1">Audio Clipboard Modifier</a> first, MIDI in the
+<a href="#midi-clipboard-modifier-1">MIDI Clipboard Modifier</a>.</p>
+<ul>
+<li>Copy waits for the file to finish loading. If you press it too early, the
+waveform flashes red — press Copy again once it has settled.</li>
+<li>A file copied from the stick <strong>replaces</strong> the whole clipboard, including
+the Marker clipboard filled by a LOOP + Copy.</li>
+<li>Selecting a WAV file in the browser already empties the audio clipboard, to
+make room for the file. Anything you copied inside the project and still
+need has to be pasted before you browse a WAV. The MIDI clipboard is not
+affected.</li>
+</ul>
+<h2 id="saving-the-clipboard-to-the-stick"><a class="header" href="#saving-the-clipboard-to-the-stick">Saving the clipboard to the stick</a></h2>
+<p>Inside a folder (not at the root of the stick), two <strong>PASTE</strong> labels appear
+on Track 4 and Track 5:</p>
+<ul>
+<li><strong>Track 4 — PASTE</strong> writes the <strong>audio clipboard</strong> as a <code>.wav</code>. A
+single-track clipboard is written as it is; a multi-track clipboard (from a
+LOOP + Copy, for example) is mixed down to one stereo file using the
+current volume, pan and automation of the source tracks.</li>
+<li><strong>Track 5 — PASTE</strong> writes the <strong>MIDI clipboard</strong> as a <code>.mid</code>, one MIDI
+track per clipboard track.</li>
+</ul>
+<p>Track8 asks for a file name on the keyboard (the extension is added for
+you); names already used in that folder are refused. A <code>Saving as WAV</code> /
+<code>Saving as MID</code> message shows while the file is written.</p>
+<p>Because browsing a WAV empties the audio clipboard, the folder you open must
+not lead with a WAV file: use a folder that is empty or starts with a
+sub-folder or MIDI file when you want to save audio.</p>
+<h2 id="deleting"><a class="header" href="#deleting">Deleting</a></h2>
+<p>Hold <strong>SHIFT</strong> and push <strong>Encoder 4</strong> (<strong>DELETE</strong>) to delete the selected
+file or folder. A confirmation asks <code>DELETE FILE?</code> / <code>DELETE FOLDER?</code> with
+the name — <strong>Track 6</strong> confirms, <strong>Track 3</strong> cancels. Deleting a folder
+removes everything inside it.</p>
+<h2 id="controls-2"><a class="header" href="#controls-2">Controls</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Control</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>MIDI channel for MIDI file preview</td></tr>
+<tr><td>Encoder 4 (push, with <strong>SHIFT</strong>)</td><td>DELETE the selected file or folder</td></tr>
+<tr><td>Encoder 7 (push)</td><td>EXIT the current folder</td></tr>
+<tr><td>Encoder 8</td><td>SCROLL the list; push = OPEN / PLAY / STOP</td></tr>
+<tr><td>Track 1</td><td>EXIT the current folder</td></tr>
+<tr><td>Track 4</td><td>PASTE the audio clipboard as a WAV file (inside a folder)</td></tr>
+<tr><td>Track 5</td><td>PASTE the MIDI clipboard as a MIDI file (inside a folder)</td></tr>
+<tr><td>Track 8</td><td>OPEN folder / PLAY / STOP file</td></tr>
+<tr><td>Copy</td><td>Copy the selected file into the audio or MIDI clipboard</td></tr>
+<tr><td>Any screen button</td><td>Leave the browser</td></tr>
+</tbody>
+</table>
+</div>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="utility"><a class="header" href="#utility">Utility</a></h1>
 <p>Global device settings that apply to every project. Open the Settings
@@ -7393,7 +7504,7 @@ faster).</p>
 </ul>
 <h2 id="recording-stopped-when-switching-screens"><a class="header" href="#recording-stopped-when-switching-screens">Recording stopped when switching screens</a></h2>
 <ul>
-<li>Some screens (USB Browser, Utility sub-screens) cannot stay open during a
+<li>Some screens (<a href="#usb-browser-1">USB Browser</a>, Utility sub-screens) cannot stay open during a
 take. Since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a> such actions are refused with an on-screen error while
 recording — the red border around the screen shows that a take is rolling.</li>
 </ul>
