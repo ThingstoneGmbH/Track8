@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-16248123.js";
+            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -207,12 +207,48 @@ controllers, Bluetooth MIDI, network sessions (since
 The DEVICE screen lists the sources the iPad or Mac sees; flag a controller
 as CTRL there exactly as on the hardware, and its CCs and notes drive the
 mappings instead of being recorded. There is no DIN row in the app.
+<a href="midi-overview.html#-midi-sync">MIDI Sync</a> works in the app as on the
+hardware (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>):
+as <code>MASTER</code> it sends MIDI clock, Start / Continue / Stop and Song Position
+(or MTC) to every CoreMIDI destination, as <code>SLAVE</code> it follows clock,
+transport and Song Position from any CoreMIDI source, USB or Bluetooth,
+with the same <code>UTILITY</code> → <code>MIDI</code> settings. Clock and notes leave the app
+timed against the audio they belong to, so a sequencer on the other end
+hears a steady clock whatever the screen is doing. MTC as slave takes
+quarter frames only (no full-frame locate over Bluetooth).</p>
+<p>The app also appears as a MIDI device of its own, <strong>Track8</strong>, to other apps
+and MIDI routers such as midiMittr or AUM (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>):
+subscribe to its source to get its clock, transport and MIDI tracks, send
+to its destination to play or record into it, or sync a synth app to it.
+That is for app-to-app routing only. Hardware needs no routing: Track8
+reads every MIDI source and sends to every destination by itself, so
+routing a USB or Bluetooth device to or from <code>Track8</code> in a router would
+deliver its messages twice. What apps send to the destination shows on the
+DEVICE screen as the <code>Track8 (apps)</code> port, which can be flagged as a
+control surface like any other. MIDI thru in the app follows the
+hardware: what you play in goes out on the selected MIDI track’s channel
+while <code>MIDI MON</code> allows it, to every device except the one it came from
+(two Track8s linked both ways, or a router feeding the app its own output,
+would otherwise echo every note back and forth without end). A keyboard
+that is also the synth, with local control off, therefore does not hear
+itself through the app. With this the app also keeps playing,
+recording and sending MIDI when you switch to another app or lock the
+screen while the transport runs, so a take survives a locked phone and a
+synth app in front keeps its clock (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).
+Stopped, the app goes to sleep in the background like any other.
 Bluetooth MIDI controllers (Korg nanoKONTROL Studio, Bluetooth pedals, …)
 only become MIDI sources once they are paired through iOS’s Bluetooth MIDI
 page — not the Bluetooth settings: press <strong>BLUETOOTH</strong> on the DEVICE screen,
-tap the controller, Done. Track8 talks to the controller directly, so it
-stays connected while the app runs; a controller already paired through
-another app is picked up as a regular source.</p>
+tap the controller, Done. Track8 talks to the device directly, in both
+directions (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>
+also out: clock, transport, the MIDI tracks and thru reach a Bluetooth
+MIDI adapter such as a WIDI connected here), so it stays connected while
+the app runs; a device already paired through another app is picked up as
+a regular source.</p>
 <p>The app’s audio input <a href="utility.html">MODE</a> defaults to SINGLE — one stereo
 input feeding every track — rather than the hardware’s MULTI (since
 <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>);
@@ -252,7 +288,7 @@ after the interface’s own channels:</p>
 <tbody>
 <tr><td>a synth in the mix</td><td>plugin → <code>EXTERNAL</code> channel</td><td>live synth with volume, pan, mute and delay / reverb sends; not recorded</td></tr>
 <tr><td>a synth on tape</td><td>plugin → <code>TRK IN</code> (<code>MULTI</code> mode) and arm the track</td><td>the instrument is printed like any input; plays back on the hardware without the plugin</td></tr>
-<tr><td>an effect on one track</td><td><code>INSERTS</code>: track send → plugin, plugin → track return</td><td>“process this track through this box”; blend with <code>RETURN MIX</code> as on the hardware</td></tr>
+<tr><td>an effect on one track</td><td><code>INSERTS</code>: track send → plugin, plugin → track return</td><td>“process this track through this box”; blend with <code>INS MIX</code> on the Track FX 2 page as on the hardware</td></tr>
 <tr><td>a send effect</td><td><code>SENDS</code> n → plugin, plugin → <code>EXTERNAL</code> channel</td><td>“a parallel wash of this box”, fed from the Track Sends screen</td></tr>
 </tbody>
 </table>

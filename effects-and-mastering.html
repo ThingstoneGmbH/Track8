@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-16248123.js";
+            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -184,7 +184,7 @@
 <h2 id="-navigating-the-fx-screens"><a class="header" href="#-navigating-the-fx-screens">🧭 Navigating the FX Screens</a></h2>
 <ul>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> → Master FX. Press again to cycle <strong>Master FX → Mastering → External Inputs</strong> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>; External Inputs only with an external interface, see <a href="external-audio.html">External Audio</a>)</li>
-<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> → Track FX. Press again to cycle <strong>Track FX ↔ Track Sends</strong> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>; Track Sends only with an external interface)</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> → Track FX. Press again to cycle <strong>Track FX → Track FX 2 → Track Sends</strong> (Track Sends new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>, only with an external interface; Track FX 2 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>))</li>
 <li>The arrow keys are free in all FX screens — navigate the tape without leaving the screen (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <h3 id="-copy--cut--paste-fx-values-new-in-v121"><a class="header" href="#-copy--cut--paste-fx-values-new-in-v121">📋 Copy / Cut / Paste FX values (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
@@ -194,7 +194,8 @@
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_cut-area-dark.svg"><img alt="cut-area" src="icons/individual/track8_cut-area-light.svg" width="24"></picture> Cut = <strong>reset the view to default values</strong>. The old values are copied first, so Paste undoes the reset</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_paste-at-position-dark.svg"><img alt="paste-at-position" src="icons/individual/track8_paste-at-position-light.svg" width="24"></picture> Paste the copied values — also onto <strong>another track</strong> (Track FX / Sends)</li>
 </ul>
-<p>Works on Track FX, Track Sends, Master FX, Mastering, External Inputs and the <a href="mixer.html">Mixer</a>. Automation lanes are not touched — only the base values.</p>
+<p>Works on Track FX, Track FX 2, Track Sends, Master FX, Mastering, External Inputs and the <a href="mixer.html">Mixer</a>. Automation lanes are not touched — only the base values.</p>
+<p>Every page has its own clipboard. Copying the Track FX page from one microphone to another leaves the Channel, Polarity and Width of the target track as they are; those are copied on the Track FX 2 page.</p>
 <h3 id="-midi-learn"><a class="header" href="#-midi-learn">🎹 MIDI Learn</a></h3>
 <p>Hold any FX encoder for 2 seconds to map it to a MIDI CC — see <a href="midi-remote-control.html">MIDI Remote Control</a> (since v1.1.4).</p>
 <hr>
@@ -227,6 +228,16 @@
 <li><code>Track Button 3</code>: on/off, <code>Track Button 6</code>: cycle Ratio</li>
 <li>Gain-reduction ladder: green on top = no gain reduction, segments extend down into red as the compressor works</li>
 </ul>
+<h4 id="sidechain-since-v124-snapshot"><a class="header" href="#sidechain-since-v124-snapshot">Sidechain (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h4>
+<p>With a sidechain source selected, the compressor listens to that track instead of its own:</p>
+<ul>
+<li>It hears the source <strong>as recorded</strong> (or as monitored at the input): before Mute, Solo, Fader, Pan, Track FX 2, the Return and the source’s own Filter and Compressor</li>
+<li>A <strong>muted</strong> source still triggers the compressor — record a kick on a spare track, mute it, and use it to duck another track</li>
+<li>The Fader of the source does not change how hard the compressor works; set that with Threshold</li>
+<li>Which track number the source has makes no difference</li>
+<li>Without a sidechain source the compressor listens to its own track, after the Filter</li>
+</ul>
+<p>Up to v1.2.3 the compressor heard the source after its Mute and Fader, and after its Filter and Compressor if the source had a lower track number. Projects that use a sidechain can need a new Threshold.</p>
 <hr>
 <h3 id="sends"><a class="header" href="#sends">Sends</a></h3>
 <ul>
@@ -235,11 +246,74 @@
 <li>Delay/Reverb sends are <strong>true sends</strong> — the send taps a copy of the signal, the dry track level is never attenuated (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <hr>
+<h3 id="track-fx-2--channel-polarity-width-inserts-since-v124-snapshot"><a class="header" href="#track-fx-2--channel-polarity-width-inserts-since-v124-snapshot">Track FX 2 — Channel, Polarity, Width, Inserts (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h3>
+<img alt="Track FX 2" src="images/screens/TrackFx2.png" width="900">
+<p>Three stereo utilities per track on the left, and the three insert faders on the right (external soundcards), on the second page of Track FX:</p>
+<ul>
+<li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> again while on Track FX</li>
+<li>The three slots run left to right in signal order: <strong>Channel</strong> picks what goes into the track, <strong>Polarity</strong> flips that, <strong>Width</strong> shapes the image of the result</li>
+<li>All three act <strong>before the fader and Pan</strong>, so a stereo track can be narrowed to mono and then placed with Pan</li>
+<li>They are non-destructive: the recording on tape is not changed. Monitored input runs through them as well, so a polarity flip is audible while you place the microphones</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Track Button</code> → quick-select another track</li>
+</ul>
+<p><strong>Channel</strong> (<code>Encoder 1</code>, <code>Track Button 1</code> on/off)</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Value</th><th>Left</th><th>Right</th><th>Use</th></tr>
+</thead>
+<tbody>
+<tr><td>off</td><td>left</td><td>right</td><td>normal stereo</td></tr>
+<tr><td><code>L</code></td><td>left</td><td>left</td><td>keep one side of a stereo recording or import</td></tr>
+<tr><td><code>R</code></td><td>right</td><td>right</td><td>the same, other side</td></tr>
+<tr><td><code>SWAP</code></td><td>right</td><td>left</td><td>cables or an import the wrong way round</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Polarity</strong> (<code>Encoder 2</code>, <code>Track Button 2</code> on/off)</p>
+<ul>
+<li><code>Encoder 2</code> picks what is inverted while Polarity is on: <code>L</code>, <code>R</code> or <code>L+R</code></li>
+<li><code>Track Button 2</code> is the quick comparison: flip, listen, flip back</li>
+<li><code>L+R</code> is inaudible on a track that plays alone. It matters when another track carries the same sound — two microphones on one source, a DI next to its amp</li>
+<li><code>L</code> or <code>R</code> is audible on its own: a hollow image that loses bass and cancels in mono. Use it to repair a stereo pair with one channel wired the wrong way round</li>
+<li>Push <code>Encoder 2</code> to switch it to <strong>TRACK</strong> and pick a reference track (shown as <code>TRACK2 -&gt;</code>). Push again to return to Polarity</li>
+<li>The <strong>meter</strong> compares the track with its reference track in the low frequencies. Bars <strong>upward</strong> (green) mean the two tracks add, bars <strong>downward</strong> (yellow to red) mean they cancel. Press <code>Track Button 2</code> and keep the position where the meter points up</li>
+<li>The reference track only feeds the meter, it never changes the sound. The meter stays dark without a reference track and while either track is silent. It also works with the reference track muted or pulled down</li>
+</ul>
+<p><strong>Width</strong> (<code>Encoder 3</code>, <code>Track Button 3</code> on/off)</p>
+<ul>
+<li>0 % is mono, 100 % is unchanged, 200 % is the maximum width (only the difference between left and right is left)</li>
+<li>The two ellipses show the setting: one ellipse at 0 %, side by side at 200 %</li>
+<li>Width can be automated: it is the last entry of the Track FX parameter list in <a href="editing-audio.html">Audio Edit</a>, one step to the left of the first filter parameter</li>
+<li>A recording of a mono input has the same signal on both sides, and so has a track with Channel set to <code>L</code> or <code>R</code>. There is nothing to widen on those: above 100 % they only get quieter</li>
+</ul>
+<p><strong>Inserts: INS SEND, INS RETURN, INS MIX</strong> (<code>Encoder 6</code>, <code>7</code>, <code>8</code>, <code>Track Button 6</code> on/off)</p>
+<p>With an external audio interface, a track can run through outboard gear: it leaves on its insert send and comes back on its insert return (mapped on the <code>INSERTS</code> page of the Audio settings — see <a href="external-audio.html">External Audio</a>). The three faders follow the signal from left to right:</p>
+<ul>
+<li><code>INS SEND</code> (<code>Encoder 6</code>): level sent to the gear, -24 to +24 dB, 0 dB = the track as it leaves the fader. Use it to push a compressor or saturator harder than the level on tape allows, without touching the fader</li>
+<li><code>INS RETURN</code> (<code>Encoder 7</code>): level of what comes back, -24 to +24 dB. Bring a hot device down, or a quiet one up</li>
+<li><code>INS MIX</code> (<code>Encoder 8</code>): 0 % is the track alone, 100 % the returned signal alone, anything between is a parallel blend</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning → fine steps (0.1 dB)</li>
+<li>Each slot has a <strong>level meter</strong>: what leaves for the gear, what comes back after <code>INS RETURN</code>, and the blended result that continues into Filter and Compressor. <strong>Red on the <code>INS SEND</code> meter is real clipping</strong>: that signal goes straight to the converter. If the <code>INS MIX</code> meter stays steady while you turn the mix, the levels around the gear match</li>
+<li><code>Track Button 6</code> switches the whole insert <strong>on / off</strong>, for a quick comparison with and without the gear. Off plays the dry track, whatever <code>INS MIX</code> says; the change is a short crossfade. The send keeps running while the insert is off, so the gear stays fed and the comparison is immediate. The faders can still be set while it is off</li>
+<li>The three slots are always on the page. A slot is <strong>dimmed</strong> when the track does not have it: <code>INS SEND</code> needs an insert send mapped, <code>INS RETURN</code> and <code>INS MIX</code> an insert return. With the internal soundcard all three are dimmed and <code>Track Button 6</code> reads <code>NO INSERT</code>. A dimmed slot does not react to its encoder. The slots also dim while the insert is switched off</li>
+<li><code>INS RETURN</code> and <code>INS MIX</code> can be automated (the Return lanes in <a href="editing-audio.html">Audio Edit</a>). <code>INS SEND</code> is not automated</li>
+<li>The send is taken <strong>after the fader and Pan</strong>, so the fader still sets how hard the gear is driven; <code>INS SEND</code> trims that on top. If you use the insert sends as individual track outputs to an external mixer, <code>INS SEND</code> is simply the output level of the track</li>
+<li>Up to v1.2.3 return level and mix were encoder modes of the Audio Overview (the level from -60 to 0 dB)</li>
+</ul>
+<p><strong>Good to know</strong></p>
+<ul>
+<li>Copy / Cut / Paste on this page covers all six values of the track, so an insert setup can be copied to another track</li>
+<li>The individual track outputs of an external interface carry Channel, Polarity and Width as well</li>
+<li>EXPORT MIX and EXPORT to a track include them. Copy, Paste and Bounce work on the audio as recorded and do not; to print a polarity fix, export to a track</li>
+<li>A project with Width automation opens on older firmware, which drops that automation and keeps everything else</li>
+</ul>
+<hr>
 <h3 id="track-sends-new-in-v121"><a class="header" href="#track-sends-new-in-v121">Track Sends (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <img alt="Track Sends" src="images/screens/TrackSends.png" width="900">
 <p>With an external audio interface, each track gets <strong>8 additional aux sends</strong> to hardware outputs:</p>
 <ul>
-<li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> again while on Track FX</li>
+<li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> again while on Track FX 2</li>
 <li><code>Encoders 1-8</code> set the send level for sends 1-8</li>
 <li><code>Track Buttons 1-8</code> toggle each send on/off; <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Track Button</code> selects the track</li>
 <li>Sends are true post-fader sends, summed per bus across all tracks and routed straight to the output pairs configured under <code>SENDS</code> in the Audio settings — see <a href="external-audio.html">External Audio</a></li>

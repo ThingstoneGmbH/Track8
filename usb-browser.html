@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-16248123.js";
+            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -189,13 +189,20 @@ refused), and it closes on its own — back to the Audio Overview — when the
 stick is pulled.</li>
 <li>Opening the browser stops playback.</li>
 <li>In the <a href="companion-app.html">Companion App</a> there is no stick: a system folder
-picker opens instead, and the folder you choose becomes the browser’s root.</li>
+picker opens instead, and the folder you choose becomes the browser’s root.
+Saving the clipboard (<strong>PASTE</strong>, see below) works right in that folder
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</li>
 </ul>
 <img alt="USB Browser" src="images/screens/SampleBrowser.png" width="900">
 <h2 id="navigating"><a class="header" href="#navigating">Navigating</a></h2>
 <p>The list shows the folders, <code>.wav</code> and <code>.mid</code> files of the current folder,
-sorted by name; everything else is hidden. The path is shown top-left, and
-at the root of the stick the used space (<code>USED:</code>).</p>
+sorted by name; everything else is hidden. The extension may be written in
+any letter case (<code>.WAV</code>, <code>.Mid</code>) and <code>.midi</code> is accepted too (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>) — before
+that only lower-case <code>.wav</code> / <code>.mid</code> were listed. The path is shown
+top-left, and at the root of the stick the used space (<code>USED:</code>).</p>
+<p>A folder with nothing to list shows <code>EMPTY FOLDER</code> — it exists, but holds
+no WAV or MIDI files. EXIT works as usual (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>); until then such a folder
+came up as a blank screen.</p>
 <ul>
 <li><strong>Encoder 8</strong> (SCROLL) — move the selection</li>
 <li><strong>Track 8</strong> — <strong>OPEN</strong> the selected folder, or <strong>PLAY</strong> / <strong>STOP</strong> the
@@ -237,14 +244,17 @@ copied within the project. The imported audio can be shaped in the
 waveform flashes red — press Copy again once it has settled.</li>
 <li>A file copied from the stick <strong>replaces</strong> the whole clipboard, including
 the Marker clipboard filled by a LOOP + Copy.</li>
-<li>Selecting a WAV file in the browser already empties the audio clipboard, to
-make room for the file. Anything you copied inside the project and still
-need has to be pasted before you browse a WAV. The MIDI clipboard is not
-affected.</li>
+<li>Selecting a WAV file in the browser empties the audio clipboard when the
+clipboard and the file together would exceed 12 minutes, to make room for
+the file (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>) — shorter combinations keep the clipboard. Until v1.2.3
+browsing any WAV emptied it. Anything long you copied inside the project
+and still need has to be pasted before you browse. The MIDI clipboard is
+never affected.</li>
 </ul>
 <h2 id="saving-the-clipboard-to-the-stick"><a class="header" href="#saving-the-clipboard-to-the-stick">Saving the clipboard to the stick</a></h2>
-<p>Inside a folder (not at the root of the stick), two <strong>PASTE</strong> labels appear
-on Track 4 and Track 5:</p>
+<p>Inside a folder (not at the root of the stick; in the Companion App also in
+the picked folder itself), two <strong>PASTE</strong> labels appear on Track 4 and
+Track 5:</p>
 <ul>
 <li><strong>Track 4 — PASTE</strong> writes the <strong>audio clipboard</strong> as a <code>.wav</code>. A
 single-track clipboard is written as it is; a multi-track clipboard (from a
@@ -256,9 +266,10 @@ track per clipboard track.</li>
 <p>Track8 asks for a file name on the keyboard (the extension is added for
 you); names already used in that folder are refused. A <code>Saving as WAV</code> /
 <code>Saving as MID</code> message shows while the file is written.</p>
-<p>Because browsing a WAV empties the audio clipboard, the folder you open must
-not lead with a WAV file: use a folder that is empty or starts with a
-sub-folder or MIDI file when you want to save audio.</p>
+<p>If the audio <strong>PASTE</strong> label is dim although you copied something, the
+folder’s first WAV file was too long to keep next to your clipboard (see
+<a href="#importing-into-the-project">Importing</a>): copy again and save into a
+folder that starts with a sub-folder, a MIDI file or a shorter WAV.</p>
 <h2 id="deleting"><a class="header" href="#deleting">Deleting</a></h2>
 <p>Hold <strong>SHIFT</strong> and push <strong>Encoder 4</strong> (<strong>DELETE</strong>) to delete the selected
 file or folder. A confirmation asks <code>DELETE FILE?</code> / <code>DELETE FOLDER?</code> with

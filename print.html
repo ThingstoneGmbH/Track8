@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-16248123.js";
+            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -218,6 +218,7 @@
 <ul>
 <li>Audio Converter work at 24bit/48kHz</li>
 <li>Internal Signal path is entirely float32</li>
+<li>The filters of Track FX and MasterFX2 compute in 64 bit internally (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>), which keeps low-frequency settings free of rounding noise</li>
 <li>WAV files are stored as IEEE 48kHz / 32 bit float</li>
 </ul>
 <h2 id="connections"><a class="header" href="#connections">Connections</a></h2>
@@ -569,8 +570,6 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 2</td><td>Push: Pan</td><td>—</td></tr>
 <tr><td>Encoder 3</td><td>Push: Scroll</td><td>—</td></tr>
 <tr><td>Encoder 4</td><td>Push: Rec Offset</td><td>—</td></tr>
-<tr><td>Encoder 5</td><td>Push: Return Mix</td><td>—</td></tr>
-<tr><td>Encoder 6</td><td>Push: Return Vol</td><td>—</td></tr>
 <tr><td>Encoder 7</td><td>Push: Varispeed</td><td>—</td></tr>
 <tr><td>Encoder 8</td><td>Push: Redo</td><td>—</td></tr>
 </tbody>
@@ -640,30 +639,6 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </thead>
 <tbody>
 <tr><td>All encoders</td><td>Set the record offset per track</td><td>Push → Varispeed</td></tr>
-</tbody>
-</table>
-</div>
-<h3 id="audio-overview--return-mix"><a class="header" href="#audio-overview--return-mix">Audio Overview — Return Mix</a></h3>
-<p><strong>Encoders</strong></p>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
-</thead>
-<tbody>
-<tr><td>All encoders</td><td>Change the mix of the return signal</td><td>—</td></tr>
-</tbody>
-</table>
-</div>
-<h3 id="audio-overview--return-level"><a class="header" href="#audio-overview--return-level">Audio Overview — Return Level</a></h3>
-<p><strong>Encoders</strong></p>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
-</thead>
-<tbody>
-<tr><td>All encoders</td><td>Adjust the return level for each track</td><td>—</td></tr>
 </tbody>
 </table>
 </div>
@@ -815,7 +790,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
 <tr><td>Encoder 4</td><td>Current Value at Playhead</td><td>Turn to write automation at playhead, push to start an LFO</td></tr>
-<tr><td>Encoder 6</td><td>Select Return Mix/Volume parameter</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>Select INS MIX / INS RETURN</td><td>—</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 </tbody>
 </table>
@@ -4320,6 +4295,50 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </table>
 </div>
 <p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point.</em></p>
+<h2 id="track-fx-2"><a class="header" href="#track-fx-2">Track FX 2</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Channel: L, R or Swap</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Polarity: L, R or L+R / Reference Track for the meter</td><td>Push to switch</td></tr>
+<tr><td>Encoder 3</td><td>Stereo Width</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>Insert Send level (Track with an insert send)</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Insert Return level (Track with an insert return)</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Insert Mix: Track / Return (Track with an insert return)</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Toggle Channel On/Off</td></tr>
+<tr><td>2</td><td>Toggle Polarity On/Off</td></tr>
+<tr><td>3</td><td>Toggle Width On/Off</td></tr>
+<tr><td>6</td><td>Toggle Insert On/Off (Track with an insert return)</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons with Shift held:</strong> all track buttons — Quick select Track</p>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Cut / Copy / Paste</td><td>Copy, Cut, Paste Track FX 2. Cut resets to default</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point.</em></p>
 <h2 id="master-fx"><a class="header" href="#master-fx">Master FX</a></h2>
 <p><strong>Encoders</strong></p>
 <div class="table-wrapper">
@@ -4466,6 +4485,18 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </div>
 <p><em>The transport, edit, navigation and screen-select buttons have no labelled function on this screen.</em></p>
 <h2 id="project-browser"><a class="header" href="#project-browser">Project Browser</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 7</td><td>Filter: ALL / TEMPLATES / label / NEW LABEL</td><td>Label: rename, SHIFT: delete; NEW LABEL: create</td></tr>
+<tr><td>Encoder 8</td><td>Scroll projects, SHIFT: jump by letter</td><td>Load</td></tr>
+</tbody>
+</table>
+</div>
 <p><strong>Track buttons</strong></p>
 <div class="table-wrapper">
 <table>
@@ -4475,10 +4506,10 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tbody>
 <tr><td>2</td><td>Backup to USB Stick</td></tr>
 <tr><td>3</td><td>Import Backup from USB Stick</td></tr>
-<tr><td>4</td><td>Save As, SHIFT: save settings as Template</td></tr>
-<tr><td>5</td><td>Rename project / template</td></tr>
+<tr><td>4</td><td>Save As (Encoder 7 picks a label), SHIFT: save settings as Template</td></tr>
+<tr><td>5</td><td>Rename project / template (Encoder 7 picks a label; name unchanged = UPDATE label only)</td></tr>
 <tr><td>6</td><td>Hold SHIFT to delete</td></tr>
-<tr><td>7</td><td>New project, Encoder 1 picks a Template</td></tr>
+<tr><td>7</td><td>New project, Encoder 1 picks a Template, Encoder 7 a label</td></tr>
 <tr><td>8</td><td>Load, on a Template: new project FROM TMP</td></tr>
 </tbody>
 </table>
@@ -4931,13 +4962,13 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <li>PAN → stereo position (per track)</li>
 <li>SCROLL → timeline navigation (Encoder 1 sets the scroll increment, Encoder 8 scrolls, Encoder 3 → <a href="#move-marker">MOVE MARKER</a>, Encoder 5 → <a href="#-splice--insert--remove-time">SPLICE</a>, Encoder 7 zooms the timeline 0.25x to 4x (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)). While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid on <a href="#editing-audio">Audio Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>REC OFFSET → per-track record offset, 0 to -50 ms (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
-<li>RETURN MIX / RETURN VOL → return signal balance and level (external soundcards only)</li>
 <li>VARISPEED → tape speed (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
 </ul>
 </li>
 <li>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> and push an encoder to jump straight to a mode without the overlay (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.2">v1.1.2</a>):
 <ul>
-<li>Encoder 1 → Volume, 2 → Pan, 3 → Scroll, 4 → Rec Offset, 5 → Return Mix, 6 → Return Vol, 7 → Varispeed</li>
+<li>Encoder 1 → Volume, 2 → Pan, 3 → Scroll, 4 → Rec Offset, 7 → Varispeed</li>
+<li>Return Mix and Return Vol (Encoder 5 and 6 on external soundcards up to v1.2.3) are <code>INS MIX</code> and <code>INS RETURN</code> on the <a href="#effects--mastering">Track FX 2</a> page now (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push Encoder 8 → <strong>Redo</strong></li>
 </ul>
 </li>
@@ -5031,7 +5062,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <li><code>A+A</code>: Records audio and live automation</li>
 <li><code>ATM</code>: Records automation only, no audio</li>
 </ul>
-<p>In <code>A+A</code> and <code>ATM</code> mode the overview draws automation lines for the currently selected encoder mode (Volume, Pan, Return Mix, Return Vol). While recording is running, turning a track’s encoder writes its moves into that track’s automation lane.</p>
+<p>In <code>A+A</code> and <code>ATM</code> mode the overview draws automation lines for the currently selected encoder mode (Volume, Pan). While recording is running, turning a track’s encoder writes its moves into that track’s automation lane.</p>
 <ul>
 <li>In <code>ATM</code> mode <strong>every</strong> track records — turning any track’s encoder writes into its lane, no track selection or arming needed; in <code>A+A</code> mode automation is only written for the tracks being recorded (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>A recorded automation pass undoes as a <strong>single step</strong>, however many tracks and parameters were ridden (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
@@ -5372,9 +5403,10 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li>Filter</li>
 <li>Compressor</li>
 <li>Sends</li>
+<li>Width of the <a href="#effects--mastering">Track FX 2</a> page, the last entry of the list (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 </li>
-<li>Return Mix / Return Volume (external soundcards)</li>
+<li>Return: <code>INS MIX</code> / <code>INS RETURN</code>, the insert faders of the <a href="#effects--mastering">Track FX 2</a> page (external soundcards). <code>INS RETURN</code> runs from -24 to +24 dB (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 <h3 id="behavior"><a class="header" href="#behavior">Behavior</a></h3>
 <ul>
@@ -5408,8 +5440,8 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </div>
 <ul>
 <li>The lane’s value at the region start is the LFO’s resting level; set it with Encoder 4 before pushing, or shift it afterwards with <code>DELTA</code>, which moves the whole LFO up or down by up to half the lane’s range</li>
-<li>Volume and Return Level dip <strong>down</strong> from that level (100 % reaches silence), every other lane swings <strong>around</strong> it, TrackFX frequencies, Q and times in octaves rather than Hz</li>
-<li>Every shape except <code>SAW UP</code> starts at the resting level, so a volume LFO begins at full level; <code>SAW UP</code> swells up from the trough. On the lanes that swing around the resting level (Pan, TrackFX, Return Mix) every shape with a centre crossing starts there: <code>SINE</code>, <code>TRI</code> and <code>SAW UP</code> rise first, <code>SAW DN</code> falls first; <code>SQUARE</code> and <code>S&amp;H</code> begin at the top</li>
+<li>Volume and <code>INS RETURN</code> dip <strong>down</strong> from that level (100 % reaches silence on Volume and -24 dB on <code>INS RETURN</code>), every other lane swings <strong>around</strong> it, TrackFX frequencies, Q and times in octaves rather than Hz</li>
+<li>Every shape except <code>SAW UP</code> starts at the resting level, so a volume LFO begins at full level; <code>SAW UP</code> swells up from the trough. On the lanes that swing around the resting level (Pan, TrackFX, <code>INS MIX</code>) every shape with a centre crossing starts there: <code>SINE</code>, <code>TRI</code> and <code>SAW UP</code> rise first, <code>SAW DN</code> falls first; <code>SQUARE</code> and <code>S&amp;H</code> begin at the top</li>
 <li>Automation that was in the region is replaced; automation outside it is untouched, and the lane returns to the resting level at the region end. The region is its own section of the lane: automation before or after it is <strong>not</strong> connected to the LFO — between them the lane reads the fader, exactly as after clearing a region between markers (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>Anything other than turning the LFO encoders commits the LFO: moving the playhead, Play, touching the lane, zooming, changing the track or lane, leaving the screen, and <code>UNDO</code> itself (which then undoes the LFO)</li>
 <li>The whole LFO is <strong>one</strong> <code>UNDO</code> step</li>
@@ -5674,7 +5706,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li><code>REVERB</code> is the <a href="master-fx.html">Master FX reverb</a> with the same four programs — <code>MODERN</code> (the dense plate the group started with), <code>HALL</code>, <code>AMBIENCE</code> and <code>GATED</code> — and the same parameters: SIZE, DAMP, WIDTH, PREDEL and, for <code>GATED</code>, GATE. The <code>^</code> in the encoder’s corner marks the pushes, as elsewhere on the screen (SIZE cycles the program, Encoder 5 cycles its parameter).</li>
 <li><code>DELAY</code> / <code>PINGPONG</code> / <code>REVERB</code> are printed into the clip: inside the region <code>MIX</code> crossfades the dry signal with the effect, and the tail keeps running past <code>END</code> on top of the rest of the clip (up to 6 s, cut at the clip end). A printed tail can be reversed, granulated or resonated afterwards. The delay time is capped at 2 s</li>
 <li>While un-applied, <code>DELAY</code> / <code>PINGPONG</code> mark each repeat above the waveform (fading with <code>FEEDBACK</code>; <code>PINGPONG</code> alternates top and bottom for left and right) and <code>REVERB</code> draws its decay envelope over the region: as tall as <code>MIX</code> at <code>START</code>, falling away over the tail’s length</li>
-<li><code>ROTATE</code> turns the region cyclically by grid steps (or <code>JUMP</code> steps in <code>JUMP</code> mode) so another beat lands on its start. <code>XFADE</code> smooths the loop seam: it blends the audio that follows <code>END</code> into the region’s start (or, when <code>END</code> is the clip end, the audio before <code>START</code> into the region’s end; with neither available it fades both ends). <code>LAYER</code> stacks the region onto itself every grid step, wrapping around the region, with a decaying level — a circular canon. While un-applied the waveform shows the result of all three tools (turned, seamed and stacked, exactly as <code>APPLY</code> will print it); a dashed line marks the <code>ROTATE</code> seam, <code>XFADE</code> draws its crossfade curves over the seam span, and <code>LAYER</code> marks each tap with a fading marker</li>
+<li><code>ROTATE</code> turns the region cyclically by grid steps (or <code>JUMP</code> steps in <code>JUMP</code> mode) so another beat lands on its start. <code>XFADE</code> smooths the loop seam: it blends the audio that follows <code>END</code> into the region’s start (or, when <code>END</code> is the clip end, the audio before <code>START</code> into the region’s end; with neither available it fades both ends). <code>LAYER</code> stacks the region onto itself every grid step, wrapping around the region, with a decaying level — a circular canon. <code>LOOP</code> is rendered in the background like the <code>SPECTR</code> groups (<code>[RENDER]</code> shows while it computes, the audition and the waveform switch to the result when it is ready; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). The waveform then shows the result of all three tools (turned, seamed and stacked, exactly as <code>APPLY</code> will print it); a dashed line marks the <code>ROTATE</code> seam, <code>XFADE</code> draws its crossfade curves over the seam span, and <code>LAYER</code> marks each tap with a fading marker</li>
 </ul>
 <h3 id="dist-page-since-v122"><a class="header" href="#dist-page-since-v122">DIST page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</a></h3>
 <p>Everything that bends the waveform itself. <code>CRUSH</code> (from the <code>EDIT</code> page) and <code>COLOR</code> (from the <code>FX</code> page) live here now.</p>
@@ -5732,7 +5764,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </ul>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p>The <code>SPECTR</code> groups (and <code>HARMONY</code> on the <code>VOICE</code> page) are <strong>rendered</strong>, not played live: about a tenth of a second after you stop turning an encoder the region is rendered in the background, and <code>[RENDER]</code> shows top right while that runs. The audition keeps playing the previous render (or the dry clip before the first one) until the new one is ready, then fades to it, and the waveform shows the rendered result. <code>APPLY</code> uses exactly the same rendering, so what you auditioned is what is printed. Long regions take longer to render; the audio never stutters because of it.</p>
+<p>The <code>SPECTR</code> groups (and <code>HARMONY</code> on the <code>VOICE</code> page, <code>TUNE</code>, and <code>LOOP</code> on the <code>FX</code> page) are <strong>rendered</strong>, not played live: about a tenth of a second after you stop turning an encoder the region is rendered in the background, in one-second pieces starting at the playhead and running ahead of it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>; before, the whole region was rendered first). <code>[RENDER]</code> shows top right while the piece under the playhead is still computing. The audition fades from the previous result (or the dry clip) to the new one as soon as that piece is ready, so a long region answers as fast as a short one, and a jump of the playhead renders from the new place. The waveform shows the rendered result where a piece has been rendered and the dry clip elsewhere; while the audition stands still, the part on screen fills in. <code>APPLY</code> uses exactly the same rendering, so what you auditioned is what is printed. The audio never stutters because of a render: where no piece is ready yet the dry clip plays.</p>
 </blockquote>
 <h3 id="voice-page-since-v123"><a class="header" href="#voice-page-since-v123">VOICE page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</a></h3>
 <p>Everything that adds or reshapes copies of the voice.</p>
@@ -5951,6 +5983,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li>Clock mode: send/receive SPP, Transport and Clock individually</li>
 <li>MTC mode: frame rate (24/25/29.97/30 fps) and, as slave, an MTC offset</li>
 </ul>
+<p>The <a href="#companion-app-mac--ipad--iphone">companion app</a> has the same sync, over CoreMIDI (USB, Bluetooth, network sessions), since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>.</p>
 <p>Clock sync has been hardened over several releases (tighter DIN clock since v1.1.1, larger averaging and outlier detection for slave sync, further MIDI scheduling and jitter improvements new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</p>
 <p>The <code>DEVICE</code>, <code>CONTROL</code> and <code>CH NAMES</code> buttons on this screen configure <a href="#midi-remote-control-since-v114">MIDI Remote Control</a>, channel names and <a href="#midi-device-profiles">MIDI Device Profiles</a> (per-channel note/CC names for drum machines and synths, since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</p>
 <div style="break-before: page; page-break-before: always;"></div>
@@ -6495,6 +6528,7 @@ the profile hides is still reachable there.</li>
 <ul>
 <li>Audio Overview</li>
 <li>Track FX</li>
+<li>Track FX 2: Channel, Polarity / reference track, Width, <code>INS SEND</code>, <code>INS RETURN</code>, <code>INS MIX</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). Mappings for Return Mix and Return Vol learned on the Audio Overview with v1.2.3 or older do nothing any more: delete them in <code>CONTROL</code> and learn <code>INS MIX</code> / <code>INS RETURN</code> on this page</li>
 <li>Track Mixer (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Track Sends (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Master FX</li>
@@ -6507,7 +6541,7 @@ the profile hides is still reachable there.</li>
 <li>A mapping drives the screen and function it was learned for, whichever screen is open: a Volume knob keeps working while you are on MIDI Edit, and the Audio Overview switches to <code>VOLUME</code> when you turn it. Cycling an encoder to another mode on the device never retargets your knob</li>
 <li>Mappings learned on the Audio Overview’s <code>SCROLL</code> page follow the overview that is on screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>): while the MIDI Overview is showing, the same knobs drive its scroll step, MOVE MARKER, SPLICE, zoom and scroll, and the MIDI Overview switches to <code>SCROLL</code>. Each overview keeps its own step and zoom, as with the encoders on the device. The zoom mapping goes one step further (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>): while Audio Edit, MIDI Edit or ClipMod is open, the same knob zooms that screen, just like Encoder 7 on the device; the other <code>SCROLL</code> knobs keep driving the Audio Overview from there. Volume, Pan and the return mappings always drive the Audio Overview</li>
 <li>Audio Overview encoders are per-track: a mapping on Encoder 3 always drives Track 3. Map all 8 encoders for a full fader bank — or create a <code>SEL</code> mapping in <code>CONTROL</code> that drives whichever track is selected (see <a href="#-following-the-selected-track">Following the selected track</a>)</li>
-<li>Track FX and Track Sends mappings learned this way are locked to the track (and filter node) that was selected when you learned them. To make one follow the selected track instead, edit it in <code>CONTROL</code> and set <code>TRACK</code> to <code>SEL</code></li>
+<li>Track FX, Track FX 2 and Track Sends mappings learned this way are locked to the track (and filter node) that was selected when you learned them. To make one follow the selected track instead, edit it in <code>CONTROL</code> and set <code>TRACK</code> to <code>SEL</code></li>
 </ul>
 <!-- screenshot: MIDI Learn modal with function picker and captured CC -->
 <hr>
@@ -6603,7 +6637,7 @@ the profile hides is still reachable there.</li>
 <h2 id="-navigating-the-fx-screens"><a class="header" href="#-navigating-the-fx-screens">🧭 Navigating the FX Screens</a></h2>
 <ul>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> → Master FX. Press again to cycle <strong>Master FX → Mastering → External Inputs</strong> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>; External Inputs only with an external interface, see <a href="#external-audio-v110">External Audio</a>)</li>
-<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> → Track FX. Press again to cycle <strong>Track FX ↔ Track Sends</strong> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>; Track Sends only with an external interface)</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> → Track FX. Press again to cycle <strong>Track FX → Track FX 2 → Track Sends</strong> (Track Sends new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>, only with an external interface; Track FX 2 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>))</li>
 <li>The arrow keys are free in all FX screens — navigate the tape without leaving the screen (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <h3 id="-copy--cut--paste-fx-values-new-in-v121"><a class="header" href="#-copy--cut--paste-fx-values-new-in-v121">📋 Copy / Cut / Paste FX values (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
@@ -6613,7 +6647,8 @@ the profile hides is still reachable there.</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_cut-area-dark.svg"><img alt="cut-area" src="icons/individual/track8_cut-area-light.svg" width="24"></picture> Cut = <strong>reset the view to default values</strong>. The old values are copied first, so Paste undoes the reset</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_paste-at-position-dark.svg"><img alt="paste-at-position" src="icons/individual/track8_paste-at-position-light.svg" width="24"></picture> Paste the copied values — also onto <strong>another track</strong> (Track FX / Sends)</li>
 </ul>
-<p>Works on Track FX, Track Sends, Master FX, Mastering, External Inputs and the <a href="#track-mixer-1">Mixer</a>. Automation lanes are not touched — only the base values.</p>
+<p>Works on Track FX, Track FX 2, Track Sends, Master FX, Mastering, External Inputs and the <a href="#track-mixer-1">Mixer</a>. Automation lanes are not touched — only the base values.</p>
+<p>Every page has its own clipboard. Copying the Track FX page from one microphone to another leaves the Channel, Polarity and Width of the target track as they are; those are copied on the Track FX 2 page.</p>
 <h3 id="-midi-learn"><a class="header" href="#-midi-learn">🎹 MIDI Learn</a></h3>
 <p>Hold any FX encoder for 2 seconds to map it to a MIDI CC — see <a href="#midi-remote-control-since-v114">MIDI Remote Control</a> (since v1.1.4).</p>
 <hr>
@@ -6646,6 +6681,16 @@ the profile hides is still reachable there.</li>
 <li><code>Track Button 3</code>: on/off, <code>Track Button 6</code>: cycle Ratio</li>
 <li>Gain-reduction ladder: green on top = no gain reduction, segments extend down into red as the compressor works</li>
 </ul>
+<h4 id="sidechain-since-v124-snapshot"><a class="header" href="#sidechain-since-v124-snapshot">Sidechain (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h4>
+<p>With a sidechain source selected, the compressor listens to that track instead of its own:</p>
+<ul>
+<li>It hears the source <strong>as recorded</strong> (or as monitored at the input): before Mute, Solo, Fader, Pan, Track FX 2, the Return and the source’s own Filter and Compressor</li>
+<li>A <strong>muted</strong> source still triggers the compressor — record a kick on a spare track, mute it, and use it to duck another track</li>
+<li>The Fader of the source does not change how hard the compressor works; set that with Threshold</li>
+<li>Which track number the source has makes no difference</li>
+<li>Without a sidechain source the compressor listens to its own track, after the Filter</li>
+</ul>
+<p>Up to v1.2.3 the compressor heard the source after its Mute and Fader, and after its Filter and Compressor if the source had a lower track number. Projects that use a sidechain can need a new Threshold.</p>
 <hr>
 <h3 id="sends"><a class="header" href="#sends">Sends</a></h3>
 <ul>
@@ -6654,11 +6699,74 @@ the profile hides is still reachable there.</li>
 <li>Delay/Reverb sends are <strong>true sends</strong> — the send taps a copy of the signal, the dry track level is never attenuated (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <hr>
+<h3 id="track-fx-2--channel-polarity-width-inserts-since-v124-snapshot"><a class="header" href="#track-fx-2--channel-polarity-width-inserts-since-v124-snapshot">Track FX 2 — Channel, Polarity, Width, Inserts (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h3>
+<img alt="Track FX 2" src="images/screens/TrackFx2.png" width="900">
+<p>Three stereo utilities per track on the left, and the three insert faders on the right (external soundcards), on the second page of Track FX:</p>
+<ul>
+<li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> again while on Track FX</li>
+<li>The three slots run left to right in signal order: <strong>Channel</strong> picks what goes into the track, <strong>Polarity</strong> flips that, <strong>Width</strong> shapes the image of the result</li>
+<li>All three act <strong>before the fader and Pan</strong>, so a stereo track can be narrowed to mono and then placed with Pan</li>
+<li>They are non-destructive: the recording on tape is not changed. Monitored input runs through them as well, so a polarity flip is audible while you place the microphones</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Track Button</code> → quick-select another track</li>
+</ul>
+<p><strong>Channel</strong> (<code>Encoder 1</code>, <code>Track Button 1</code> on/off)</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Value</th><th>Left</th><th>Right</th><th>Use</th></tr>
+</thead>
+<tbody>
+<tr><td>off</td><td>left</td><td>right</td><td>normal stereo</td></tr>
+<tr><td><code>L</code></td><td>left</td><td>left</td><td>keep one side of a stereo recording or import</td></tr>
+<tr><td><code>R</code></td><td>right</td><td>right</td><td>the same, other side</td></tr>
+<tr><td><code>SWAP</code></td><td>right</td><td>left</td><td>cables or an import the wrong way round</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Polarity</strong> (<code>Encoder 2</code>, <code>Track Button 2</code> on/off)</p>
+<ul>
+<li><code>Encoder 2</code> picks what is inverted while Polarity is on: <code>L</code>, <code>R</code> or <code>L+R</code></li>
+<li><code>Track Button 2</code> is the quick comparison: flip, listen, flip back</li>
+<li><code>L+R</code> is inaudible on a track that plays alone. It matters when another track carries the same sound — two microphones on one source, a DI next to its amp</li>
+<li><code>L</code> or <code>R</code> is audible on its own: a hollow image that loses bass and cancels in mono. Use it to repair a stereo pair with one channel wired the wrong way round</li>
+<li>Push <code>Encoder 2</code> to switch it to <strong>TRACK</strong> and pick a reference track (shown as <code>TRACK2 -&gt;</code>). Push again to return to Polarity</li>
+<li>The <strong>meter</strong> compares the track with its reference track in the low frequencies. Bars <strong>upward</strong> (green) mean the two tracks add, bars <strong>downward</strong> (yellow to red) mean they cancel. Press <code>Track Button 2</code> and keep the position where the meter points up</li>
+<li>The reference track only feeds the meter, it never changes the sound. The meter stays dark without a reference track and while either track is silent. It also works with the reference track muted or pulled down</li>
+</ul>
+<p><strong>Width</strong> (<code>Encoder 3</code>, <code>Track Button 3</code> on/off)</p>
+<ul>
+<li>0 % is mono, 100 % is unchanged, 200 % is the maximum width (only the difference between left and right is left)</li>
+<li>The two ellipses show the setting: one ellipse at 0 %, side by side at 200 %</li>
+<li>Width can be automated: it is the last entry of the Track FX parameter list in <a href="#editing-audio">Audio Edit</a>, one step to the left of the first filter parameter</li>
+<li>A recording of a mono input has the same signal on both sides, and so has a track with Channel set to <code>L</code> or <code>R</code>. There is nothing to widen on those: above 100 % they only get quieter</li>
+</ul>
+<p><strong>Inserts: INS SEND, INS RETURN, INS MIX</strong> (<code>Encoder 6</code>, <code>7</code>, <code>8</code>, <code>Track Button 6</code> on/off)</p>
+<p>With an external audio interface, a track can run through outboard gear: it leaves on its insert send and comes back on its insert return (mapped on the <code>INSERTS</code> page of the Audio settings — see <a href="#external-audio-v110">External Audio</a>). The three faders follow the signal from left to right:</p>
+<ul>
+<li><code>INS SEND</code> (<code>Encoder 6</code>): level sent to the gear, -24 to +24 dB, 0 dB = the track as it leaves the fader. Use it to push a compressor or saturator harder than the level on tape allows, without touching the fader</li>
+<li><code>INS RETURN</code> (<code>Encoder 7</code>): level of what comes back, -24 to +24 dB. Bring a hot device down, or a quiet one up</li>
+<li><code>INS MIX</code> (<code>Encoder 8</code>): 0 % is the track alone, 100 % the returned signal alone, anything between is a parallel blend</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning → fine steps (0.1 dB)</li>
+<li>Each slot has a <strong>level meter</strong>: what leaves for the gear, what comes back after <code>INS RETURN</code>, and the blended result that continues into Filter and Compressor. <strong>Red on the <code>INS SEND</code> meter is real clipping</strong>: that signal goes straight to the converter. If the <code>INS MIX</code> meter stays steady while you turn the mix, the levels around the gear match</li>
+<li><code>Track Button 6</code> switches the whole insert <strong>on / off</strong>, for a quick comparison with and without the gear. Off plays the dry track, whatever <code>INS MIX</code> says; the change is a short crossfade. The send keeps running while the insert is off, so the gear stays fed and the comparison is immediate. The faders can still be set while it is off</li>
+<li>The three slots are always on the page. A slot is <strong>dimmed</strong> when the track does not have it: <code>INS SEND</code> needs an insert send mapped, <code>INS RETURN</code> and <code>INS MIX</code> an insert return. With the internal soundcard all three are dimmed and <code>Track Button 6</code> reads <code>NO INSERT</code>. A dimmed slot does not react to its encoder. The slots also dim while the insert is switched off</li>
+<li><code>INS RETURN</code> and <code>INS MIX</code> can be automated (the Return lanes in <a href="#editing-audio">Audio Edit</a>). <code>INS SEND</code> is not automated</li>
+<li>The send is taken <strong>after the fader and Pan</strong>, so the fader still sets how hard the gear is driven; <code>INS SEND</code> trims that on top. If you use the insert sends as individual track outputs to an external mixer, <code>INS SEND</code> is simply the output level of the track</li>
+<li>Up to v1.2.3 return level and mix were encoder modes of the Audio Overview (the level from -60 to 0 dB)</li>
+</ul>
+<p><strong>Good to know</strong></p>
+<ul>
+<li>Copy / Cut / Paste on this page covers all six values of the track, so an insert setup can be copied to another track</li>
+<li>The individual track outputs of an external interface carry Channel, Polarity and Width as well</li>
+<li>EXPORT MIX and EXPORT to a track include them. Copy, Paste and Bounce work on the audio as recorded and do not; to print a polarity fix, export to a track</li>
+<li>A project with Width automation opens on older firmware, which drops that automation and keeps everything else</li>
+</ul>
+<hr>
 <h3 id="track-sends-new-in-v121"><a class="header" href="#track-sends-new-in-v121">Track Sends (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <img alt="Track Sends" src="images/screens/TrackSends.png" width="900">
 <p>With an external audio interface, each track gets <strong>8 additional aux sends</strong> to hardware outputs:</p>
 <ul>
-<li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> again while on Track FX</li>
+<li>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> again while on Track FX 2</li>
 <li><code>Encoders 1-8</code> set the send level for sends 1-8</li>
 <li><code>Track Buttons 1-8</code> toggle each send on/off; <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Track Button</code> selects the track</li>
 <li>Sends are true post-fader sends, summed per bus across all tracks and routed straight to the output pairs configured under <code>SENDS</code> in the Audio settings — see <a href="#external-audio-v110">External Audio</a></li>
@@ -6777,7 +6885,7 @@ the profile hides is still reachable there.</li>
 <li><code>MODE</code> (<code>Encoder 3</code>): <code>MULTI</code> records multiple tracks at once, <code>SINGLE</code> is the classic one-track workflow</li>
 <li><code>MON</code> (<code>Encoder 5</code>): internal monitoring — routes the main mix to Track8’s own headphone output (useful for rack interfaces). Locked <code>ON</code> for input-only interfaces</li>
 <li><code>RATE</code> (<code>Encoder 6</code>): 48k / 44.1k (since v1.1.1)</li>
-<li><code>BUFFER SIZE</code> (<code>Encoder 7/8</code>): some interfaces need a higher buffer. Push the encoder to switch to <code>PERIODS</code> (3-5, default 3) if you get crackles at your preferred buffer size (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li><code>BUFFER SIZE</code> (<code>Encoder 7/8</code>): <code>96</code> or <code>144</code> for external interfaces (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>) — USB audio travels in 1 ms packets, and only whole-millisecond buffers line up with them; the other sizes made the engine restart on every other buffer. Eight tracks recording at once with every effect on needs <code>144</code>. Push the encoder to switch to <code>PERIODS</code> (3-5, default 3) if you get crackles at your preferred buffer size (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li><code>Track Button 8</code> (<code>APPLY</code>): apply changes and restart the audio engine</li>
 </ul>
 <p>⚠️ <strong>44.1kHz is a last resort</strong> (since v1.1.1). Track8 always runs at 48kHz internally — at <code>RATE</code> 44.1k all incoming/outgoing audio is resampled (in the worst case input/send/return/output resamples 4 times). This degrades audio quality and costs performance. Only use it if your interface cannot run at 48kHz.</p>
@@ -6791,7 +6899,7 @@ the profile hides is still reachable there.</li>
 <h3 id="inserts-renamed-from-sendreturns-in-v121"><a class="header" href="#inserts-renamed-from-sendreturns-in-v121">INSERTS (renamed from Send/Returns in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <ul>
 <li>Per-track <strong>insert send</strong> and <strong>insert return</strong> for external processing</li>
-<li>The insert send taps the track <strong>post volume/pan, pre track-FX</strong></li>
+<li>The insert send taps the track <strong>post volume/pan, pre track-FX</strong>, through the <code>INS SEND</code> fader</li>
 <li>The return is blended back in before the Track FX</li>
 </ul>
 <h3 id="sends-new-in-v121"><a class="header" href="#sends-new-in-v121">SENDS (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
@@ -6864,13 +6972,15 @@ the profile hides is still reachable there.</li>
 </li>
 </ul>
 <hr>
-<h2 id="-return-mixing"><a class="header" href="#-return-mixing">🎚 Return Mixing</a></h2>
-<p>For tracks with an insert return, the <a href="#audio-overview-1">Audio Overview</a> encoders gain two extra modes (push an encoder to cycle to them):</p>
+<h2 id="-inserts-send-return-mix"><a class="header" href="#-inserts-send-return-mix">🎚 Inserts: Send, Return, Mix</a></h2>
+<p>A track with an insert send and an insert return mapped (the <code>INSERTS</code> page above) goes out to your outboard gear and comes back into the same track. Its three faders are on the <a href="#effects--mastering">Track FX 2</a> page (slots 6 to 8, (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)):</p>
 <ul>
-<li><code>RETURN LEVEL</code> → level of the returned signal (-60 to 0 dB)</li>
-<li><code>RETURN MIX</code> → dry/return balance (0% = track only, 100% = return only)</li>
+<li><code>INS SEND</code> → level sent to the gear, -24 to +24 dB</li>
+<li><code>INS RETURN</code> → level of the returned signal, -24 to +24 dB</li>
+<li><code>INS MIX</code> → dry/return balance (0% = track only, 100% = return only)</li>
 </ul>
-<p>Both are also available in <code>SINGLE</code> mode (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>) and can be automated.</p>
+<p>Each slot has a level meter, and <code>Track Button 6</code> switches the whole insert on / off to compare with and without the gear. <code>INS RETURN</code> and <code>INS MIX</code> can be automated, and all three work in <code>SINGLE</code> mode too.</p>
+<p>Up to v1.2.3 the return level and mix were two encoder modes of the Audio Overview (<code>RETURN LEVEL</code>, -60 to 0 dB, and <code>RETURN MIX</code>). Projects keep their values; a return level below -24 dB now plays at -24 dB. MIDI Learn mappings for the two old modes do nothing any more and have to be learned again on Track FX 2.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="settings--projects"><a class="header" href="#settings--projects">Settings &amp; Projects</a></h1>
 <p>Press the <strong>Settings</strong> button to open the Settings screen (since v1.1.3 no
@@ -6935,17 +7045,68 @@ take is rolling (new in <a href="https://github.com/ThingstoneGmbH/Track8/releas
 <img alt="Project Browser" src="images/screens/ProjectBrowser.png" width="900">
 <ul>
 <li>Scroll projects with <strong>Encoder 8</strong> — the selected project’s waveform loads
-as a preview. Projects are sorted alphanumerically (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+as a preview. Projects are sorted alphanumerically (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).
+Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning to <strong>jump by initial letter</strong> (<code>JUMP A-Z</code>) —
+the quick way through a long list of prefix-named projects (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><strong>LOAD</strong> (Track 8 or push Encoder 8) — switch to the selected project</li>
 <li><strong>BACKUP</strong> (Track 2) — back up the selected project to a USB stick</li>
 <li><strong>IMPORT</strong> (Track 3) — import a backup from a USB stick</li>
-<li><strong>SAVE AS</strong> (Track 4) — save the current project under a new name</li>
-<li><strong>RENAME</strong> (Track 5) — rename the selected project</li>
+<li><strong>SAVE AS</strong> (Track 4) — save the current project under a new name;
+<strong>Encoder 7</strong> on the keyboard picks the copy’s <a href="#project-labels">label</a>
+(starts on the source’s)</li>
+<li><strong>RENAME</strong> (Track 5) — rename the selected project; <strong>Encoder 7</strong> on the
+keyboard picks its <a href="#project-labels">label</a>. With the name left as it is
+the button reads <strong>UPDATE</strong> and only the label changes</li>
 <li><strong>SHIFT</strong> + Track 6 — delete the selected project (the active project
 cannot be deleted; a confirmation dialog appears)</li>
 <li><strong>NEW</strong> (Track 7) — create a new project; <strong>Encoder 1</strong> on the name
-keyboard picks a <strong>template</strong> (<code>TEMPLATE: ---</code> = empty project)</li>
+keyboard picks a <strong>template</strong> (<code>TEMPLATE: ---</code> = empty project),
+<strong>Encoder 7</strong> a <a href="#project-labels">label</a> (<code>LABEL: ---</code> = none)</li>
+<li><strong>Encoder 7</strong> — <strong>FILTER</strong> the list by <a href="#project-labels">label</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li>Leaving any of these keyboards with <strong>EXIT</strong> returns to the browser</li>
 </ul>
+<h3 id="project-labels"><a class="header" href="#project-labels">Project Labels</a></h3>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</p>
+<p>A label is a short word (up to 12 characters) attached to a project —
+<code>ALBUM</code>, <code>LIVE</code>, <code>IDEAS</code>, a client name — that groups projects in the
+browser like a folder would, without moving anything on disk. A project
+has at most one label; projects without one are simply unlabelled. Labels
+exist on their own: an empty label is kept until you delete it, like an
+empty folder.</p>
+<p><strong>Looking into a label (Encoder 7, <code>FILTER:</code>)</strong></p>
+<ul>
+<li>Turn from <code>ALL</code> (projects and templates) to <code>TEMPLATES</code> (templates only)
+and on through your labels; a label shows only the projects carrying it.
+The last entry is <code>NEW LABEL</code>, which lists everything like <code>ALL</code> and shows
+a <code>^</code> on the caption: <strong>push</strong> here creates a <strong>new label</strong> on the keyboard
+and switches the filter to it — a new, empty folder. <strong>NEW</strong> then creates
+the first project inside it: the label picker on the NEW keyboard starts
+on the active filter. The filter is not remembered across a restart; the
+browser opens on <code>ALL</code>.</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push while a label is filtered <strong>deletes the label</strong> after a
+confirmation. The projects are kept, they just lose the label.</li>
+<li><strong>Push</strong> while a label is filtered opens <strong>RENAME LBL</strong>: rename the
+label (and change its colour) on every project carrying it. The <code>^</code> on
+the caption shows whenever push does something here.</li>
+</ul>
+<p><strong>Labelling a project</strong></p>
+<p>The label is decided where the name is: <strong>Encoder 7</strong> on the <strong>NEW</strong>,
+<strong>SAVE AS</strong> and <strong>RENAME</strong> keyboards picks it (<code>LABEL: ---</code> = none), like
+Encoder 1 picks a template. To change the label of an existing project,
+press <strong>RENAME</strong>, turn Encoder 7 and confirm — with the name untouched the
+button reads <strong>UPDATE</strong> and nothing is renamed. Like APPLY in the marker
+editor, the button lights up as soon as the name or the label differs from
+what you opened with. The selected project’s
+label is shown in the box on the left of the browser. A label never changes
+by an accidental encoder turn: it always goes through a keyboard.</p>
+<p>On the label keyboards (<code>NEW LABEL</code>, <code>RENAME LBL</code>) <strong>Encoder 8</strong> picks the
+label’s <strong>colour</strong> (<code>COLOR</code>, the marker palette). A new label starts on the
+first colour no other label uses. Labelled projects show a <code>&gt;</code> in the
+label’s colour in front of their name.
+Labels travel with the project: <strong>RENAME</strong>, <strong>SAVE AS</strong>, <strong>BACKUP</strong> and
+<strong>IMPORT</strong> keep them, and a label that arrives with an import joins your
+list. On the SSD a label is the one-line file <code>label</code> inside the project
+folder; the list of labels lives in the global settings.</p>
 <h3 id="project-templates"><a class="header" href="#project-templates">Project Templates</a></h3>
 <p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
 <p>A template is a project without content: it keeps the <strong>settings</strong> (BPM,
@@ -7006,13 +7167,20 @@ refused), and it closes on its own — back to the Audio Overview — when the
 stick is pulled.</li>
 <li>Opening the browser stops playback.</li>
 <li>In the <a href="#companion-app-mac--ipad--iphone">Companion App</a> there is no stick: a system folder
-picker opens instead, and the folder you choose becomes the browser’s root.</li>
+picker opens instead, and the folder you choose becomes the browser’s root.
+Saving the clipboard (<strong>PASTE</strong>, see below) works right in that folder
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</li>
 </ul>
 <img alt="USB Browser" src="images/screens/SampleBrowser.png" width="900">
 <h2 id="navigating"><a class="header" href="#navigating">Navigating</a></h2>
 <p>The list shows the folders, <code>.wav</code> and <code>.mid</code> files of the current folder,
-sorted by name; everything else is hidden. The path is shown top-left, and
-at the root of the stick the used space (<code>USED:</code>).</p>
+sorted by name; everything else is hidden. The extension may be written in
+any letter case (<code>.WAV</code>, <code>.Mid</code>) and <code>.midi</code> is accepted too (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>) — before
+that only lower-case <code>.wav</code> / <code>.mid</code> were listed. The path is shown
+top-left, and at the root of the stick the used space (<code>USED:</code>).</p>
+<p>A folder with nothing to list shows <code>EMPTY FOLDER</code> — it exists, but holds
+no WAV or MIDI files. EXIT works as usual (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>); until then such a folder
+came up as a blank screen.</p>
 <ul>
 <li><strong>Encoder 8</strong> (SCROLL) — move the selection</li>
 <li><strong>Track 8</strong> — <strong>OPEN</strong> the selected folder, or <strong>PLAY</strong> / <strong>STOP</strong> the
@@ -7054,14 +7222,17 @@ copied within the project. The imported audio can be shaped in the
 waveform flashes red — press Copy again once it has settled.</li>
 <li>A file copied from the stick <strong>replaces</strong> the whole clipboard, including
 the Marker clipboard filled by a LOOP + Copy.</li>
-<li>Selecting a WAV file in the browser already empties the audio clipboard, to
-make room for the file. Anything you copied inside the project and still
-need has to be pasted before you browse a WAV. The MIDI clipboard is not
-affected.</li>
+<li>Selecting a WAV file in the browser empties the audio clipboard when the
+clipboard and the file together would exceed 12 minutes, to make room for
+the file (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>) — shorter combinations keep the clipboard. Until v1.2.3
+browsing any WAV emptied it. Anything long you copied inside the project
+and still need has to be pasted before you browse. The MIDI clipboard is
+never affected.</li>
 </ul>
 <h2 id="saving-the-clipboard-to-the-stick"><a class="header" href="#saving-the-clipboard-to-the-stick">Saving the clipboard to the stick</a></h2>
-<p>Inside a folder (not at the root of the stick), two <strong>PASTE</strong> labels appear
-on Track 4 and Track 5:</p>
+<p>Inside a folder (not at the root of the stick; in the Companion App also in
+the picked folder itself), two <strong>PASTE</strong> labels appear on Track 4 and
+Track 5:</p>
 <ul>
 <li><strong>Track 4 — PASTE</strong> writes the <strong>audio clipboard</strong> as a <code>.wav</code>. A
 single-track clipboard is written as it is; a multi-track clipboard (from a
@@ -7073,9 +7244,10 @@ track per clipboard track.</li>
 <p>Track8 asks for a file name on the keyboard (the extension is added for
 you); names already used in that folder are refused. A <code>Saving as WAV</code> /
 <code>Saving as MID</code> message shows while the file is written.</p>
-<p>Because browsing a WAV empties the audio clipboard, the folder you open must
-not lead with a WAV file: use a folder that is empty or starts with a
-sub-folder or MIDI file when you want to save audio.</p>
+<p>If the audio <strong>PASTE</strong> label is dim although you copied something, the
+folder’s first WAV file was too long to keep next to your clipboard (see
+<a href="#importing-into-the-project">Importing</a>): copy again and save into a
+folder that starts with a sub-folder, a MIDI file or a shorter WAV.</p>
 <h2 id="deleting"><a class="header" href="#deleting">Deleting</a></h2>
 <p>Hold <strong>SHIFT</strong> and push <strong>Encoder 4</strong> (<strong>DELETE</strong>) to delete the selected
 file or folder. A confirmation asks <code>DELETE FILE?</code> / <code>DELETE FOLDER?</code> with
@@ -7244,7 +7416,7 @@ interface. See <a href="#external-audio-v110">External Audio</a> for details.</p
 <li><strong>SOUNDCARD</strong> — Internal or a connected USB interface (in the
 <a href="#audio-device">companion app</a> the device iOS is using,
 shown by name)</li>
-<li><strong>BUFFER SIZE</strong> / <strong>PERIODS</strong> — buffer size, and 3–5 audio periods for
+<li><strong>BUFFER SIZE</strong> / <strong>PERIODS</strong> — buffer size (external interfaces: <code>96</code> or <code>144</code>), and 3–5 audio periods for
 external interfaces (PERIODS new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>); the resulting round-trip
 latency is shown</li>
 <li><strong>RATE</strong> — 48k / 44.1k: last-resort compatibility mode for interfaces
@@ -7303,12 +7475,48 @@ controllers, Bluetooth MIDI, network sessions (since
 The DEVICE screen lists the sources the iPad or Mac sees; flag a controller
 as CTRL there exactly as on the hardware, and its CCs and notes drive the
 mappings instead of being recorded. There is no DIN row in the app.
+<a href="#-midi-sync">MIDI Sync</a> works in the app as on the
+hardware (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>):
+as <code>MASTER</code> it sends MIDI clock, Start / Continue / Stop and Song Position
+(or MTC) to every CoreMIDI destination, as <code>SLAVE</code> it follows clock,
+transport and Song Position from any CoreMIDI source, USB or Bluetooth,
+with the same <code>UTILITY</code> → <code>MIDI</code> settings. Clock and notes leave the app
+timed against the audio they belong to, so a sequencer on the other end
+hears a steady clock whatever the screen is doing. MTC as slave takes
+quarter frames only (no full-frame locate over Bluetooth).</p>
+<p>The app also appears as a MIDI device of its own, <strong>Track8</strong>, to other apps
+and MIDI routers such as midiMittr or AUM (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>):
+subscribe to its source to get its clock, transport and MIDI tracks, send
+to its destination to play or record into it, or sync a synth app to it.
+That is for app-to-app routing only. Hardware needs no routing: Track8
+reads every MIDI source and sends to every destination by itself, so
+routing a USB or Bluetooth device to or from <code>Track8</code> in a router would
+deliver its messages twice. What apps send to the destination shows on the
+DEVICE screen as the <code>Track8 (apps)</code> port, which can be flagged as a
+control surface like any other. MIDI thru in the app follows the
+hardware: what you play in goes out on the selected MIDI track’s channel
+while <code>MIDI MON</code> allows it, to every device except the one it came from
+(two Track8s linked both ways, or a router feeding the app its own output,
+would otherwise echo every note back and forth without end). A keyboard
+that is also the synth, with local control off, therefore does not hear
+itself through the app. With this the app also keeps playing,
+recording and sending MIDI when you switch to another app or lock the
+screen while the transport runs, so a take survives a locked phone and a
+synth app in front keeps its clock (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).
+Stopped, the app goes to sleep in the background like any other.
 Bluetooth MIDI controllers (Korg nanoKONTROL Studio, Bluetooth pedals, …)
 only become MIDI sources once they are paired through iOS’s Bluetooth MIDI
 page — not the Bluetooth settings: press <strong>BLUETOOTH</strong> on the DEVICE screen,
-tap the controller, Done. Track8 talks to the controller directly, so it
-stays connected while the app runs; a controller already paired through
-another app is picked up as a regular source.</p>
+tap the controller, Done. Track8 talks to the device directly, in both
+directions (since
+<a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>
+also out: clock, transport, the MIDI tracks and thru reach a Bluetooth
+MIDI adapter such as a WIDI connected here), so it stays connected while
+the app runs; a device already paired through another app is picked up as
+a regular source.</p>
 <p>The app’s audio input <a href="#utility">MODE</a> defaults to SINGLE — one stereo
 input feeding every track — rather than the hardware’s MULTI (since
 <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>);
@@ -7348,7 +7556,7 @@ after the interface’s own channels:</p>
 <tbody>
 <tr><td>a synth in the mix</td><td>plugin → <code>EXTERNAL</code> channel</td><td>live synth with volume, pan, mute and delay / reverb sends; not recorded</td></tr>
 <tr><td>a synth on tape</td><td>plugin → <code>TRK IN</code> (<code>MULTI</code> mode) and arm the track</td><td>the instrument is printed like any input; plays back on the hardware without the plugin</td></tr>
-<tr><td>an effect on one track</td><td><code>INSERTS</code>: track send → plugin, plugin → track return</td><td>“process this track through this box”; blend with <code>RETURN MIX</code> as on the hardware</td></tr>
+<tr><td>an effect on one track</td><td><code>INSERTS</code>: track send → plugin, plugin → track return</td><td>“process this track through this box”; blend with <code>INS MIX</code> on the Track FX 2 page as on the hardware</td></tr>
 <tr><td>a send effect</td><td><code>SENDS</code> n → plugin, plugin → <code>EXTERNAL</code> channel</td><td>“a parallel wash of this box”, fed from the Track Sends screen</td></tr>
 </tbody>
 </table>

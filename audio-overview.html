@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-16248123.js";
+            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -193,13 +193,13 @@
 <li>PAN → stereo position (per track)</li>
 <li>SCROLL → timeline navigation (Encoder 1 sets the scroll increment, Encoder 8 scrolls, Encoder 3 → <a href="#move-marker">MOVE MARKER</a>, Encoder 5 → <a href="#-splice--insert--remove-time">SPLICE</a>, Encoder 7 zooms the timeline 0.25x to 4x (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)). While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid on <a href="editing-audio.html">Audio Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>REC OFFSET → per-track record offset, 0 to -50 ms (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
-<li>RETURN MIX / RETURN VOL → return signal balance and level (external soundcards only)</li>
 <li>VARISPEED → tape speed (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
 </ul>
 </li>
 <li>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> and push an encoder to jump straight to a mode without the overlay (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.2">v1.1.2</a>):
 <ul>
-<li>Encoder 1 → Volume, 2 → Pan, 3 → Scroll, 4 → Rec Offset, 5 → Return Mix, 6 → Return Vol, 7 → Varispeed</li>
+<li>Encoder 1 → Volume, 2 → Pan, 3 → Scroll, 4 → Rec Offset, 7 → Varispeed</li>
+<li>Return Mix and Return Vol (Encoder 5 and 6 on external soundcards up to v1.2.3) are <code>INS MIX</code> and <code>INS RETURN</code> on the <a href="effects-and-mastering.html">Track FX 2</a> page now (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push Encoder 8 → <strong>Redo</strong></li>
 </ul>
 </li>
@@ -293,7 +293,7 @@
 <li><code>A+A</code>: Records audio and live automation</li>
 <li><code>ATM</code>: Records automation only, no audio</li>
 </ul>
-<p>In <code>A+A</code> and <code>ATM</code> mode the overview draws automation lines for the currently selected encoder mode (Volume, Pan, Return Mix, Return Vol). While recording is running, turning a track’s encoder writes its moves into that track’s automation lane.</p>
+<p>In <code>A+A</code> and <code>ATM</code> mode the overview draws automation lines for the currently selected encoder mode (Volume, Pan). While recording is running, turning a track’s encoder writes its moves into that track’s automation lane.</p>
 <ul>
 <li>In <code>ATM</code> mode <strong>every</strong> track records — turning any track’s encoder writes into its lane, no track selection or arming needed; in <code>A+A</code> mode automation is only written for the tracks being recorded (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>A recorded automation pass undoes as a <strong>single step</strong>, however many tracks and parameters were ridden (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>

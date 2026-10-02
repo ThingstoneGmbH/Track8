@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-16248123.js";
+            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -237,17 +237,68 @@ take is rolling (new in <a href="https://github.com/ThingstoneGmbH/Track8/releas
 <img alt="Project Browser" src="images/screens/ProjectBrowser.png" width="900">
 <ul>
 <li>Scroll projects with <strong>Encoder 8</strong> — the selected project’s waveform loads
-as a preview. Projects are sorted alphanumerically (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+as a preview. Projects are sorted alphanumerically (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).
+Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning to <strong>jump by initial letter</strong> (<code>JUMP A-Z</code>) —
+the quick way through a long list of prefix-named projects (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><strong>LOAD</strong> (Track 8 or push Encoder 8) — switch to the selected project</li>
 <li><strong>BACKUP</strong> (Track 2) — back up the selected project to a USB stick</li>
 <li><strong>IMPORT</strong> (Track 3) — import a backup from a USB stick</li>
-<li><strong>SAVE AS</strong> (Track 4) — save the current project under a new name</li>
-<li><strong>RENAME</strong> (Track 5) — rename the selected project</li>
+<li><strong>SAVE AS</strong> (Track 4) — save the current project under a new name;
+<strong>Encoder 7</strong> on the keyboard picks the copy’s <a href="#project-labels">label</a>
+(starts on the source’s)</li>
+<li><strong>RENAME</strong> (Track 5) — rename the selected project; <strong>Encoder 7</strong> on the
+keyboard picks its <a href="#project-labels">label</a>. With the name left as it is
+the button reads <strong>UPDATE</strong> and only the label changes</li>
 <li><strong>SHIFT</strong> + Track 6 — delete the selected project (the active project
 cannot be deleted; a confirmation dialog appears)</li>
 <li><strong>NEW</strong> (Track 7) — create a new project; <strong>Encoder 1</strong> on the name
-keyboard picks a <strong>template</strong> (<code>TEMPLATE: ---</code> = empty project)</li>
+keyboard picks a <strong>template</strong> (<code>TEMPLATE: ---</code> = empty project),
+<strong>Encoder 7</strong> a <a href="#project-labels">label</a> (<code>LABEL: ---</code> = none)</li>
+<li><strong>Encoder 7</strong> — <strong>FILTER</strong> the list by <a href="#project-labels">label</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li>Leaving any of these keyboards with <strong>EXIT</strong> returns to the browser</li>
 </ul>
+<h3 id="project-labels"><a class="header" href="#project-labels">Project Labels</a></h3>
+<p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</p>
+<p>A label is a short word (up to 12 characters) attached to a project —
+<code>ALBUM</code>, <code>LIVE</code>, <code>IDEAS</code>, a client name — that groups projects in the
+browser like a folder would, without moving anything on disk. A project
+has at most one label; projects without one are simply unlabelled. Labels
+exist on their own: an empty label is kept until you delete it, like an
+empty folder.</p>
+<p><strong>Looking into a label (Encoder 7, <code>FILTER:</code>)</strong></p>
+<ul>
+<li>Turn from <code>ALL</code> (projects and templates) to <code>TEMPLATES</code> (templates only)
+and on through your labels; a label shows only the projects carrying it.
+The last entry is <code>NEW LABEL</code>, which lists everything like <code>ALL</code> and shows
+a <code>^</code> on the caption: <strong>push</strong> here creates a <strong>new label</strong> on the keyboard
+and switches the filter to it — a new, empty folder. <strong>NEW</strong> then creates
+the first project inside it: the label picker on the NEW keyboard starts
+on the active filter. The filter is not remembered across a restart; the
+browser opens on <code>ALL</code>.</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push while a label is filtered <strong>deletes the label</strong> after a
+confirmation. The projects are kept, they just lose the label.</li>
+<li><strong>Push</strong> while a label is filtered opens <strong>RENAME LBL</strong>: rename the
+label (and change its colour) on every project carrying it. The <code>^</code> on
+the caption shows whenever push does something here.</li>
+</ul>
+<p><strong>Labelling a project</strong></p>
+<p>The label is decided where the name is: <strong>Encoder 7</strong> on the <strong>NEW</strong>,
+<strong>SAVE AS</strong> and <strong>RENAME</strong> keyboards picks it (<code>LABEL: ---</code> = none), like
+Encoder 1 picks a template. To change the label of an existing project,
+press <strong>RENAME</strong>, turn Encoder 7 and confirm — with the name untouched the
+button reads <strong>UPDATE</strong> and nothing is renamed. Like APPLY in the marker
+editor, the button lights up as soon as the name or the label differs from
+what you opened with. The selected project’s
+label is shown in the box on the left of the browser. A label never changes
+by an accidental encoder turn: it always goes through a keyboard.</p>
+<p>On the label keyboards (<code>NEW LABEL</code>, <code>RENAME LBL</code>) <strong>Encoder 8</strong> picks the
+label’s <strong>colour</strong> (<code>COLOR</code>, the marker palette). A new label starts on the
+first colour no other label uses. Labelled projects show a <code>&gt;</code> in the
+label’s colour in front of their name.
+Labels travel with the project: <strong>RENAME</strong>, <strong>SAVE AS</strong>, <strong>BACKUP</strong> and
+<strong>IMPORT</strong> keep them, and a label that arrives with an import joins your
+list. On the SSD a label is the one-line file <code>label</code> inside the project
+folder; the list of labels lives in the global settings.</p>
 <h3 id="project-templates"><a class="header" href="#project-templates">Project Templates</a></h3>
 <p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
 <p>A template is a project without content: it keeps the <strong>settings</strong> (BPM,

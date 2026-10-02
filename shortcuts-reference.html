@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-16248123.js";
+            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -213,8 +213,6 @@
 <tr><td>Encoder 2</td><td>Push: Pan</td><td>—</td></tr>
 <tr><td>Encoder 3</td><td>Push: Scroll</td><td>—</td></tr>
 <tr><td>Encoder 4</td><td>Push: Rec Offset</td><td>—</td></tr>
-<tr><td>Encoder 5</td><td>Push: Return Mix</td><td>—</td></tr>
-<tr><td>Encoder 6</td><td>Push: Return Vol</td><td>—</td></tr>
 <tr><td>Encoder 7</td><td>Push: Varispeed</td><td>—</td></tr>
 <tr><td>Encoder 8</td><td>Push: Redo</td><td>—</td></tr>
 </tbody>
@@ -284,30 +282,6 @@
 </thead>
 <tbody>
 <tr><td>All encoders</td><td>Set the record offset per track</td><td>Push → Varispeed</td></tr>
-</tbody>
-</table>
-</div>
-<h3 id="audio-overview--return-mix"><a class="header" href="#audio-overview--return-mix">Audio Overview — Return Mix</a></h3>
-<p><strong>Encoders</strong></p>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
-</thead>
-<tbody>
-<tr><td>All encoders</td><td>Change the mix of the return signal</td><td>—</td></tr>
-</tbody>
-</table>
-</div>
-<h3 id="audio-overview--return-level"><a class="header" href="#audio-overview--return-level">Audio Overview — Return Level</a></h3>
-<p><strong>Encoders</strong></p>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
-</thead>
-<tbody>
-<tr><td>All encoders</td><td>Adjust the return level for each track</td><td>—</td></tr>
 </tbody>
 </table>
 </div>
@@ -459,7 +433,7 @@
 <tr><td>Encoder 1</td><td>Selected Track</td><td>—</td></tr>
 <tr><td>Encoder 2</td><td>Increment Size</td><td>Push to switch Grid / ms</td></tr>
 <tr><td>Encoder 4</td><td>Current Value at Playhead</td><td>Turn to write automation at playhead, push to start an LFO</td></tr>
-<tr><td>Encoder 6</td><td>Select Return Mix/Volume parameter</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>Select INS MIX / INS RETURN</td><td>—</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 </tbody>
 </table>
@@ -3964,6 +3938,50 @@
 </table>
 </div>
 <p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point.</em></p>
+<h2 id="track-fx-2"><a class="header" href="#track-fx-2">Track FX 2</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Channel: L, R or Swap</td><td>—</td></tr>
+<tr><td>Encoder 2</td><td>Polarity: L, R or L+R / Reference Track for the meter</td><td>Push to switch</td></tr>
+<tr><td>Encoder 3</td><td>Stereo Width</td><td>—</td></tr>
+<tr><td>Encoder 6</td><td>Insert Send level (Track with an insert send)</td><td>—</td></tr>
+<tr><td>Encoder 7</td><td>Insert Return level (Track with an insert return)</td><td>—</td></tr>
+<tr><td>Encoder 8</td><td>Insert Mix: Track / Return (Track with an insert return)</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Toggle Channel On/Off</td></tr>
+<tr><td>2</td><td>Toggle Polarity On/Off</td></tr>
+<tr><td>3</td><td>Toggle Width On/Off</td></tr>
+<tr><td>6</td><td>Toggle Insert On/Off (Track with an insert return)</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons with Shift held:</strong> all track buttons — Quick select Track</p>
+<p><strong>Buttons that work differently on this screen</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Button</th><th>Action</th><th>Shift + Button</th></tr>
+</thead>
+<tbody>
+<tr><td>Cut / Copy / Paste</td><td>Copy, Cut, Paste Track FX 2. Cut resets to default</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>No labelled function on this screen: Record, Loop / Loop In / Loop Out, Cut Point.</em></p>
 <h2 id="master-fx"><a class="header" href="#master-fx">Master FX</a></h2>
 <p><strong>Encoders</strong></p>
 <div class="table-wrapper">
@@ -4110,6 +4128,18 @@
 </div>
 <p><em>The transport, edit, navigation and screen-select buttons have no labelled function on this screen.</em></p>
 <h2 id="project-browser"><a class="header" href="#project-browser">Project Browser</a></h2>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 7</td><td>Filter: ALL / TEMPLATES / label / NEW LABEL</td><td>Label: rename, SHIFT: delete; NEW LABEL: create</td></tr>
+<tr><td>Encoder 8</td><td>Scroll projects, SHIFT: jump by letter</td><td>Load</td></tr>
+</tbody>
+</table>
+</div>
 <p><strong>Track buttons</strong></p>
 <div class="table-wrapper">
 <table>
@@ -4119,10 +4149,10 @@
 <tbody>
 <tr><td>2</td><td>Backup to USB Stick</td></tr>
 <tr><td>3</td><td>Import Backup from USB Stick</td></tr>
-<tr><td>4</td><td>Save As, SHIFT: save settings as Template</td></tr>
-<tr><td>5</td><td>Rename project / template</td></tr>
+<tr><td>4</td><td>Save As (Encoder 7 picks a label), SHIFT: save settings as Template</td></tr>
+<tr><td>5</td><td>Rename project / template (Encoder 7 picks a label; name unchanged = UPDATE label only)</td></tr>
 <tr><td>6</td><td>Hold SHIFT to delete</td></tr>
-<tr><td>7</td><td>New project, Encoder 1 picks a Template</td></tr>
+<tr><td>7</td><td>New project, Encoder 1 picks a Template, Encoder 7 a label</td></tr>
 <tr><td>8</td><td>Load, on a Template: new project FROM TMP</td></tr>
 </tbody>
 </table>

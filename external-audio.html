@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-16248123.js";
+            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -192,7 +192,7 @@
 <li><code>MODE</code> (<code>Encoder 3</code>): <code>MULTI</code> records multiple tracks at once, <code>SINGLE</code> is the classic one-track workflow</li>
 <li><code>MON</code> (<code>Encoder 5</code>): internal monitoring — routes the main mix to Track8’s own headphone output (useful for rack interfaces). Locked <code>ON</code> for input-only interfaces</li>
 <li><code>RATE</code> (<code>Encoder 6</code>): 48k / 44.1k (since v1.1.1)</li>
-<li><code>BUFFER SIZE</code> (<code>Encoder 7/8</code>): some interfaces need a higher buffer. Push the encoder to switch to <code>PERIODS</code> (3-5, default 3) if you get crackles at your preferred buffer size (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li><code>BUFFER SIZE</code> (<code>Encoder 7/8</code>): <code>96</code> or <code>144</code> for external interfaces (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>) — USB audio travels in 1 ms packets, and only whole-millisecond buffers line up with them; the other sizes made the engine restart on every other buffer. Eight tracks recording at once with every effect on needs <code>144</code>. Push the encoder to switch to <code>PERIODS</code> (3-5, default 3) if you get crackles at your preferred buffer size (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li><code>Track Button 8</code> (<code>APPLY</code>): apply changes and restart the audio engine</li>
 </ul>
 <p>⚠️ <strong>44.1kHz is a last resort</strong> (since v1.1.1). Track8 always runs at 48kHz internally — at <code>RATE</code> 44.1k all incoming/outgoing audio is resampled (in the worst case input/send/return/output resamples 4 times). This degrades audio quality and costs performance. Only use it if your interface cannot run at 48kHz.</p>
@@ -206,7 +206,7 @@
 <h3 id="inserts-renamed-from-sendreturns-in-v121"><a class="header" href="#inserts-renamed-from-sendreturns-in-v121">INSERTS (renamed from Send/Returns in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <ul>
 <li>Per-track <strong>insert send</strong> and <strong>insert return</strong> for external processing</li>
-<li>The insert send taps the track <strong>post volume/pan, pre track-FX</strong></li>
+<li>The insert send taps the track <strong>post volume/pan, pre track-FX</strong>, through the <code>INS SEND</code> fader</li>
 <li>The return is blended back in before the Track FX</li>
 </ul>
 <h3 id="sends-new-in-v121"><a class="header" href="#sends-new-in-v121">SENDS (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
@@ -279,13 +279,15 @@
 </li>
 </ul>
 <hr>
-<h2 id="-return-mixing"><a class="header" href="#-return-mixing">🎚 Return Mixing</a></h2>
-<p>For tracks with an insert return, the <a href="audio-overview.html">Audio Overview</a> encoders gain two extra modes (push an encoder to cycle to them):</p>
+<h2 id="-inserts-send-return-mix"><a class="header" href="#-inserts-send-return-mix">🎚 Inserts: Send, Return, Mix</a></h2>
+<p>A track with an insert send and an insert return mapped (the <code>INSERTS</code> page above) goes out to your outboard gear and comes back into the same track. Its three faders are on the <a href="effects-and-mastering.html">Track FX 2</a> page (slots 6 to 8, (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)):</p>
 <ul>
-<li><code>RETURN LEVEL</code> → level of the returned signal (-60 to 0 dB)</li>
-<li><code>RETURN MIX</code> → dry/return balance (0% = track only, 100% = return only)</li>
+<li><code>INS SEND</code> → level sent to the gear, -24 to +24 dB</li>
+<li><code>INS RETURN</code> → level of the returned signal, -24 to +24 dB</li>
+<li><code>INS MIX</code> → dry/return balance (0% = track only, 100% = return only)</li>
 </ul>
-<p>Both are also available in <code>SINGLE</code> mode (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>) and can be automated.</p>
+<p>Each slot has a level meter, and <code>Track Button 6</code> switches the whole insert on / off to compare with and without the gear. <code>INS RETURN</code> and <code>INS MIX</code> can be automated, and all three work in <code>SINGLE</code> mode too.</p>
+<p>Up to v1.2.3 the return level and mix were two encoder modes of the Audio Overview (<code>RETURN LEVEL</code>, -60 to 0 dB, and <code>RETURN MIX</code>). Projects keep their values; a return level below -24 dB now plays at -24 dB. MIDI Learn mappings for the two old modes do nothing any more and have to be learned again on Track FX 2.</p>
 
                     </main>
 

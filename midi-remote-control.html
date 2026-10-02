@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-16248123.js";
+            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -203,6 +203,7 @@
 <ul>
 <li>Audio Overview</li>
 <li>Track FX</li>
+<li>Track FX 2: Channel, Polarity / reference track, Width, <code>INS SEND</code>, <code>INS RETURN</code>, <code>INS MIX</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). Mappings for Return Mix and Return Vol learned on the Audio Overview with v1.2.3 or older do nothing any more: delete them in <code>CONTROL</code> and learn <code>INS MIX</code> / <code>INS RETURN</code> on this page</li>
 <li>Track Mixer (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Track Sends (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Master FX</li>
@@ -215,7 +216,7 @@
 <li>A mapping drives the screen and function it was learned for, whichever screen is open: a Volume knob keeps working while you are on MIDI Edit, and the Audio Overview switches to <code>VOLUME</code> when you turn it. Cycling an encoder to another mode on the device never retargets your knob</li>
 <li>Mappings learned on the Audio Overview’s <code>SCROLL</code> page follow the overview that is on screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>): while the MIDI Overview is showing, the same knobs drive its scroll step, MOVE MARKER, SPLICE, zoom and scroll, and the MIDI Overview switches to <code>SCROLL</code>. Each overview keeps its own step and zoom, as with the encoders on the device. The zoom mapping goes one step further (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>): while Audio Edit, MIDI Edit or ClipMod is open, the same knob zooms that screen, just like Encoder 7 on the device; the other <code>SCROLL</code> knobs keep driving the Audio Overview from there. Volume, Pan and the return mappings always drive the Audio Overview</li>
 <li>Audio Overview encoders are per-track: a mapping on Encoder 3 always drives Track 3. Map all 8 encoders for a full fader bank — or create a <code>SEL</code> mapping in <code>CONTROL</code> that drives whichever track is selected (see <a href="#-following-the-selected-track">Following the selected track</a>)</li>
-<li>Track FX and Track Sends mappings learned this way are locked to the track (and filter node) that was selected when you learned them. To make one follow the selected track instead, edit it in <code>CONTROL</code> and set <code>TRACK</code> to <code>SEL</code></li>
+<li>Track FX, Track FX 2 and Track Sends mappings learned this way are locked to the track (and filter node) that was selected when you learned them. To make one follow the selected track instead, edit it in <code>CONTROL</code> and set <code>TRACK</code> to <code>SEL</code></li>
 </ul>
 <!-- screenshot: MIDI Learn modal with function picker and captured CC -->
 <hr>
