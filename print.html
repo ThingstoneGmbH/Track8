@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-fd0e17ef.js";
+            window.path_to_searchindex_js = "searchindex-420319ec.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -6572,7 +6572,8 @@ the profile hides is still reachable there.</li>
 <p>Go to <code>UTILITY</code> → <code>MIDI</code> → <code>DEVICE</code>.</p>
 <ul>
 <li>The list shows the built-in <code>DIN MIDI IN</code> plus every connected USB MIDI input</li>
-<li>Scroll with Encoder 8, toggle the <code>CTRL</code> flag with Track Button 8 (or push Encoder 8)</li>
+<li>Scroll with Encoder 8, set the flag with Track Button 8 (or push Encoder 8): each press steps a device through off → <code>CTRL</code> → <code>MACKIE</code> → off</li>
+<li><code>MACKIE</code> is for Mackie Control surfaces and needs no mappings, see <a href="#mackie">Mackie Control surfaces</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><code>EXIT</code> (Track Button 1) returns to the MIDI settings</li>
 </ul>
 <p>A device flagged <code>CTRL</code> becomes a <strong>control surface</strong>: its CCs drive your mappings and are <strong>no longer recorded into MIDI tracks</strong>. Devices you disconnect stay in the list greyed out, keeping their flag — they work again as soon as you plug them back in.</p>
@@ -6681,6 +6682,66 @@ the profile hides is still reachable there.</li>
 <li>Two’s-complement / Mackie-style encoding (e.g. Behringer X-Touch, most DIY jog wheels) is detected as well (improved detection new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <p>Set your controller’s encoder to a relative CC mode if it offers one.</p>
+<hr>
+<h2 id="mackie"><a class="header" href="#mackie">🎛 Mackie Control surfaces</a></h2>
+<p><em>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</em></p>
+<p>A controller that speaks Mackie Control (Behringer X-Touch and X-Touch One, Mackie Control, and many others in their “MC” mode) works without any mapping. Flag it <code>MACKIE</code> on the <code>DEVICE</code> screen and its buttons, faders, knobs and displays are assigned as listed here. Track8 also sends its state back, so LEDs, motor faders and displays follow what happens on the Track8.</p>
+<ul>
+<li>USB devices only; <code>DIN MIDI IN</code> cannot be <code>MACKIE</code></li>
+<li>Up to four <code>MACKIE</code> devices at once. They all show and control the same eight audio tracks and the same transport, so you can combine a fader controller with a separate time display</li>
+<li>A <code>MACKIE</code> device ignores the <code>CONTROL</code> mapping list. For your own assignments flag the device <code>CTRL</code> instead</li>
+<li>The assignment does not depend on the screen the Track8 shows. Only the jog wheel follows the overview in view (it uses that overview’s scroll step)</li>
+</ul>
+<h3 id="transport-and-navigation"><a class="header" href="#transport-and-navigation">Transport and navigation</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Controller</th><th>Track8</th><th>LED</th></tr>
+</thead>
+<tbody>
+<tr><td>Play / Stop</td><td>start / stop playback</td><td>Play lit while playing, Stop while stopped</td></tr>
+<tr><td>Record</td><td>Record</td><td>lit while recording, blinks while record is on and the tape stands</td></tr>
+<tr><td>Rewind / Forward</td><td>one step left / right, repeating while held</td><td></td></tr>
+<tr><td>Cursor Left / Right, Bank ◀ ▶</td><td>previous / next marker</td><td></td></tr>
+<tr><td>Jog wheel</td><td>moves the playhead by the scroll step</td><td></td></tr>
+<tr><td>Cycle</td><td>loop on / off</td><td>lit while looping</td></tr>
+<tr><td>Drop</td><td>punch on / off</td><td>lit while punch is on</td></tr>
+<tr><td>Marker</td><td>sets a marker at the playhead</td><td></td></tr>
+<tr><td>Click</td><td>metronome on / off</td><td>lit while on, blinks while the metronome is set to <code>REC</code></td></tr>
+<tr><td>F1 … F8</td><td><code>Locate 1</code> … <code>Locate 8</code> (see <a href="#locators">Locators</a>)</td><td></td></tr>
+<tr><td>SMPTE/BEATS</td><td>switches the time display</td><td></td></tr>
+</tbody>
+</table>
+</div>
+<p>Buttons not listed here do nothing.</p>
+<h3 id="time-display"><a class="header" href="#time-display">Time display</a></h3>
+<p>The time display shows the bar and beat of the Track8 screen (<code>BEATS</code>), or hours, minutes, seconds and frames (<code>TIME</code>, frames at the <code>FRAME RATE</code> set for MTC). The SMPTE/BEATS button switches between them, per controller, and the choice is remembered. It works in any sync mode, also while Track8 sends MIDI clock.</p>
+<h3 id="channel-strips-1"><a class="header" href="#channel-strips-1">Channel strips</a></h3>
+<p>Strip 1–8 is audio track 1–8.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Controller</th><th>Track8</th><th>Feedback</th></tr>
+</thead>
+<tbody>
+<tr><td>Fader</td><td>track volume, −60 dB at the bottom to 0 dB at the top</td><td>motor faders follow the Track8, including volume automation</td></tr>
+<tr><td>Master fader</td><td>mastering <code>OUTPUT</code> (−12 … +12 dB, 0 dB in the middle)</td><td>follows the Track8</td></tr>
+<tr><td>V-Pot (knob)</td><td>pan</td><td>LED ring shows the pan</td></tr>
+<tr><td>Select</td><td>selects the track</td><td>lit on the selected track</td></tr>
+<tr><td>Mute / Solo</td><td>mute / solo</td><td>lit while active</td></tr>
+<tr><td>Rec</td><td>arms the track</td><td>lit while armed</td></tr>
+<tr><td>Channel ◀ ▶</td><td>selects the previous / next track</td><td></td></tr>
+<tr><td>Display</td><td>track name and volume; the pan while you turn the knob</td><td></td></tr>
+<tr><td>Meter</td><td>the track’s level</td><td></td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Moving a fader or knob is the same as turning that track’s Volume or Pan encoder, so it is written into automation when automation is being recorded</li>
+<li>While you hold a touch-sensitive fader, Track8 does not move it. When you let go it settles on the Track8’s value</li>
+<li>The dB scale printed on the controller does not apply: the top of the fader is 0 dB</li>
+<li>A controller with a single fader (X-Touch One) works on the selected track</li>
+</ul>
 <hr>
 <h2 id="-one-cc-one-function"><a class="header" href="#-one-cc-one-function">⚠️ One CC, one function</a></h2>
 <p>Each CC can control exactly <strong>one</strong> function, and each function can be controlled by exactly <strong>one</strong> CC. If a mapping you learn or save would collide with an existing one — same CC source or same target — Track8 shows a warning listing what would be replaced, and the confirm button changes to <code>REPLACE</code>. Confirming removes the old mapping; cancelling keeps it.</p>
@@ -7450,58 +7511,24 @@ or <code>A &amp;&amp; M</code> recording is enabled in the project settings (sin
 <h3 id="midi-track-4"><a class="header" href="#midi-track-4">MIDI (Track 4)</a></h3>
 <img alt="MIDI Settings" src="images/screens/Midi.png" width="900">
 <ul>
-<li>
-<p><strong>SYNC MODE</strong> — CLOCK or MTC</p>
-</li>
-<li>
-<p><strong>SYNC ROLE</strong> — MASTER or SLAVE</p>
-</li>
-<li>
-<p>As Clock master: <strong>SEND SPP</strong> / <strong>SEND TRANSPORT</strong> / <strong>SEND CLOCK</strong></p>
-</li>
-<li>
-<p>As Clock master: <strong>SEND TIME SIG</strong> (Encoder 6) — tells external gear the
-time signature and the bar number, so a bar display or MIDI processor that
-counts bars from the clock shows the same bars and beats as Track8, in
-5/4, 7/8 or across signature changes. Off by default. Two standard MIDI
-messages are sent, and the receiver has to understand them:</p>
-<ul>
-<li>Time Signature (<code>F0 7F 7F 03 02 04 nn dd cc bb F7</code>) when playback starts
-and whenever the signature changes at a marker.</li>
-<li>Bar Marker (<code>F0 7F 7F 03 01 lsb msb F7</code>, “the next clock starts bar N”)
-just ahead of every bar line, and when playback starts, locates or loops
-onto one. After a start in the middle of a bar the display is right from
-the next bar line on.</li>
-</ul>
-<p>Clock always goes first: on the 5-pin output a clock tick can arrive in
-the middle of one of these messages, which MIDI allows. Not available in
-the companion app, where the setting is shown greyed out
-(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</p>
-</li>
-<li>
-<p>As Clock slave: <strong>RECV SPP</strong> / <strong>RECV TRANSPORT</strong> / <strong>RECV CLOCK</strong></p>
-</li>
-<li>
-<p>As MTC slave: <strong>MTC OFFSET</strong> (minutes/seconds)</p>
-</li>
-<li>
-<p>With MTC: <strong>FRAME RATE</strong> — 24 / 25 / 29.97 / 30 fps</p>
-</li>
-<li>
-<p>Clock and MTC are sent and received on the 5-pin MIDI ports and on USB
+<li><strong>SYNC MODE</strong> — CLOCK or MTC</li>
+<li><strong>SYNC ROLE</strong> — MASTER or SLAVE</li>
+<li>As Clock master: <strong>SEND SPP</strong> / <strong>SEND TRANSPORT</strong> / <strong>SEND CLOCK</strong></li>
+<li>As Clock slave: <strong>RECV SPP</strong> / <strong>RECV TRANSPORT</strong> / <strong>RECV CLOCK</strong></li>
+<li>As MTC slave: <strong>MTC OFFSET</strong> (minutes/seconds)</li>
+<li>With MTC: <strong>FRAME RATE</strong> — 24 / 25 / 29.97 / 30 fps</li>
+<li>Clock and MTC are sent and received on the 5-pin MIDI ports and on USB
 MIDI alike. As MTC master, timecode also goes out over USB
 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>);
 the 5-pin output is timed more tightly, so use it where a device has to
-lock closely.</p>
-</li>
-<li>
-<p><strong>DEVICE</strong> and <strong>CONTROL</strong> — flag a MIDI device for remote control and
+lock closely.</li>
+<li><strong>DEVICE</strong> and <strong>CONTROL</strong> — flag a MIDI device for remote control and
 edit control mappings, see <a href="#midi-remote-control-since-v114">MIDI Remote Control</a>
-(since v1.1.4)</p>
-</li>
-<li>
-<p><strong>CH NAMES</strong> — name your MIDI channels and bind a <a href="#midi-device-profiles">MIDI Device Profile</a> per channel (Encoder 1 picks the row, Encoder 8 the profile; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
-</li>
+(since v1.1.4). A device can also be flagged <code>MACKIE</code>: a Mackie Control
+surface that works without mappings, see
+<a href="#mackie">Mackie Control surfaces</a>
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li><strong>CH NAMES</strong> — name your MIDI channels and bind a <a href="#midi-device-profiles">MIDI Device Profile</a> per channel (Encoder 1 picks the row, Encoder 8 the profile; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <h3 id="tape-track-5"><a class="header" href="#tape-track-5">Tape (Track 5)</a></h3>
 <img alt="Tape" src="images/screens/UtilitiesTape.png" width="900">

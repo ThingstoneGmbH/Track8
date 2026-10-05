@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-fd0e17ef.js";
+            window.path_to_searchindex_js = "searchindex-420319ec.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -186,7 +186,8 @@
 <p>Go to <code>UTILITY</code> → <code>MIDI</code> → <code>DEVICE</code>.</p>
 <ul>
 <li>The list shows the built-in <code>DIN MIDI IN</code> plus every connected USB MIDI input</li>
-<li>Scroll with Encoder 8, toggle the <code>CTRL</code> flag with Track Button 8 (or push Encoder 8)</li>
+<li>Scroll with Encoder 8, set the flag with Track Button 8 (or push Encoder 8): each press steps a device through off → <code>CTRL</code> → <code>MACKIE</code> → off</li>
+<li><code>MACKIE</code> is for Mackie Control surfaces and needs no mappings, see <a href="#mackie">Mackie Control surfaces</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><code>EXIT</code> (Track Button 1) returns to the MIDI settings</li>
 </ul>
 <p>A device flagged <code>CTRL</code> becomes a <strong>control surface</strong>: its CCs drive your mappings and are <strong>no longer recorded into MIDI tracks</strong>. Devices you disconnect stay in the list greyed out, keeping their flag — they work again as soon as you plug them back in.</p>
@@ -295,6 +296,66 @@
 <li>Two’s-complement / Mackie-style encoding (e.g. Behringer X-Touch, most DIY jog wheels) is detected as well (improved detection new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <p>Set your controller’s encoder to a relative CC mode if it offers one.</p>
+<hr>
+<h2 id="mackie"><a class="header" href="#mackie">🎛 Mackie Control surfaces</a></h2>
+<p><em>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</em></p>
+<p>A controller that speaks Mackie Control (Behringer X-Touch and X-Touch One, Mackie Control, and many others in their “MC” mode) works without any mapping. Flag it <code>MACKIE</code> on the <code>DEVICE</code> screen and its buttons, faders, knobs and displays are assigned as listed here. Track8 also sends its state back, so LEDs, motor faders and displays follow what happens on the Track8.</p>
+<ul>
+<li>USB devices only; <code>DIN MIDI IN</code> cannot be <code>MACKIE</code></li>
+<li>Up to four <code>MACKIE</code> devices at once. They all show and control the same eight audio tracks and the same transport, so you can combine a fader controller with a separate time display</li>
+<li>A <code>MACKIE</code> device ignores the <code>CONTROL</code> mapping list. For your own assignments flag the device <code>CTRL</code> instead</li>
+<li>The assignment does not depend on the screen the Track8 shows. Only the jog wheel follows the overview in view (it uses that overview’s scroll step)</li>
+</ul>
+<h3 id="transport-and-navigation"><a class="header" href="#transport-and-navigation">Transport and navigation</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Controller</th><th>Track8</th><th>LED</th></tr>
+</thead>
+<tbody>
+<tr><td>Play / Stop</td><td>start / stop playback</td><td>Play lit while playing, Stop while stopped</td></tr>
+<tr><td>Record</td><td>Record</td><td>lit while recording, blinks while record is on and the tape stands</td></tr>
+<tr><td>Rewind / Forward</td><td>one step left / right, repeating while held</td><td></td></tr>
+<tr><td>Cursor Left / Right, Bank ◀ ▶</td><td>previous / next marker</td><td></td></tr>
+<tr><td>Jog wheel</td><td>moves the playhead by the scroll step</td><td></td></tr>
+<tr><td>Cycle</td><td>loop on / off</td><td>lit while looping</td></tr>
+<tr><td>Drop</td><td>punch on / off</td><td>lit while punch is on</td></tr>
+<tr><td>Marker</td><td>sets a marker at the playhead</td><td></td></tr>
+<tr><td>Click</td><td>metronome on / off</td><td>lit while on, blinks while the metronome is set to <code>REC</code></td></tr>
+<tr><td>F1 … F8</td><td><code>Locate 1</code> … <code>Locate 8</code> (see <a href="#locators">Locators</a>)</td><td></td></tr>
+<tr><td>SMPTE/BEATS</td><td>switches the time display</td><td></td></tr>
+</tbody>
+</table>
+</div>
+<p>Buttons not listed here do nothing.</p>
+<h3 id="time-display"><a class="header" href="#time-display">Time display</a></h3>
+<p>The time display shows the bar and beat of the Track8 screen (<code>BEATS</code>), or hours, minutes, seconds and frames (<code>TIME</code>, frames at the <code>FRAME RATE</code> set for MTC). The SMPTE/BEATS button switches between them, per controller, and the choice is remembered. It works in any sync mode, also while Track8 sends MIDI clock.</p>
+<h3 id="channel-strips"><a class="header" href="#channel-strips">Channel strips</a></h3>
+<p>Strip 1–8 is audio track 1–8.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Controller</th><th>Track8</th><th>Feedback</th></tr>
+</thead>
+<tbody>
+<tr><td>Fader</td><td>track volume, −60 dB at the bottom to 0 dB at the top</td><td>motor faders follow the Track8, including volume automation</td></tr>
+<tr><td>Master fader</td><td>mastering <code>OUTPUT</code> (−12 … +12 dB, 0 dB in the middle)</td><td>follows the Track8</td></tr>
+<tr><td>V-Pot (knob)</td><td>pan</td><td>LED ring shows the pan</td></tr>
+<tr><td>Select</td><td>selects the track</td><td>lit on the selected track</td></tr>
+<tr><td>Mute / Solo</td><td>mute / solo</td><td>lit while active</td></tr>
+<tr><td>Rec</td><td>arms the track</td><td>lit while armed</td></tr>
+<tr><td>Channel ◀ ▶</td><td>selects the previous / next track</td><td></td></tr>
+<tr><td>Display</td><td>track name and volume; the pan while you turn the knob</td><td></td></tr>
+<tr><td>Meter</td><td>the track’s level</td><td></td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Moving a fader or knob is the same as turning that track’s Volume or Pan encoder, so it is written into automation when automation is being recorded</li>
+<li>While you hold a touch-sensitive fader, Track8 does not move it. When you let go it settles on the Track8’s value</li>
+<li>The dB scale printed on the controller does not apply: the top of the fader is 0 dB</li>
+<li>A controller with a single fader (X-Touch One) works on the selected track</li>
+</ul>
 <hr>
 <h2 id="-one-cc-one-function"><a class="header" href="#-one-cc-one-function">⚠️ One CC, one function</a></h2>
 <p>Each CC can control exactly <strong>one</strong> function, and each function can be controlled by exactly <strong>one</strong> CC. If a mapping you learn or save would collide with an existing one — same CC source or same target — Track8 shows a warning listing what would be replaced, and the confirm button changes to <code>REPLACE</code>. Confirming removes the old mapping; cancelling keeps it.</p>

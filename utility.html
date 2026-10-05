@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-fd0e17ef.js";
+            window.path_to_searchindex_js = "searchindex-420319ec.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -289,58 +289,24 @@ or <code>A &amp;&amp; M</code> recording is enabled in the project settings (sin
 <h3 id="midi-track-4"><a class="header" href="#midi-track-4">MIDI (Track 4)</a></h3>
 <img alt="MIDI Settings" src="images/screens/Midi.png" width="900">
 <ul>
-<li>
-<p><strong>SYNC MODE</strong> — CLOCK or MTC</p>
-</li>
-<li>
-<p><strong>SYNC ROLE</strong> — MASTER or SLAVE</p>
-</li>
-<li>
-<p>As Clock master: <strong>SEND SPP</strong> / <strong>SEND TRANSPORT</strong> / <strong>SEND CLOCK</strong></p>
-</li>
-<li>
-<p>As Clock master: <strong>SEND TIME SIG</strong> (Encoder 6) — tells external gear the
-time signature and the bar number, so a bar display or MIDI processor that
-counts bars from the clock shows the same bars and beats as Track8, in
-5/4, 7/8 or across signature changes. Off by default. Two standard MIDI
-messages are sent, and the receiver has to understand them:</p>
-<ul>
-<li>Time Signature (<code>F0 7F 7F 03 02 04 nn dd cc bb F7</code>) when playback starts
-and whenever the signature changes at a marker.</li>
-<li>Bar Marker (<code>F0 7F 7F 03 01 lsb msb F7</code>, “the next clock starts bar N”)
-just ahead of every bar line, and when playback starts, locates or loops
-onto one. After a start in the middle of a bar the display is right from
-the next bar line on.</li>
-</ul>
-<p>Clock always goes first: on the 5-pin output a clock tick can arrive in
-the middle of one of these messages, which MIDI allows. Not available in
-the companion app, where the setting is shown greyed out
-(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</p>
-</li>
-<li>
-<p>As Clock slave: <strong>RECV SPP</strong> / <strong>RECV TRANSPORT</strong> / <strong>RECV CLOCK</strong></p>
-</li>
-<li>
-<p>As MTC slave: <strong>MTC OFFSET</strong> (minutes/seconds)</p>
-</li>
-<li>
-<p>With MTC: <strong>FRAME RATE</strong> — 24 / 25 / 29.97 / 30 fps</p>
-</li>
-<li>
-<p>Clock and MTC are sent and received on the 5-pin MIDI ports and on USB
+<li><strong>SYNC MODE</strong> — CLOCK or MTC</li>
+<li><strong>SYNC ROLE</strong> — MASTER or SLAVE</li>
+<li>As Clock master: <strong>SEND SPP</strong> / <strong>SEND TRANSPORT</strong> / <strong>SEND CLOCK</strong></li>
+<li>As Clock slave: <strong>RECV SPP</strong> / <strong>RECV TRANSPORT</strong> / <strong>RECV CLOCK</strong></li>
+<li>As MTC slave: <strong>MTC OFFSET</strong> (minutes/seconds)</li>
+<li>With MTC: <strong>FRAME RATE</strong> — 24 / 25 / 29.97 / 30 fps</li>
+<li>Clock and MTC are sent and received on the 5-pin MIDI ports and on USB
 MIDI alike. As MTC master, timecode also goes out over USB
 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>);
 the 5-pin output is timed more tightly, so use it where a device has to
-lock closely.</p>
-</li>
-<li>
-<p><strong>DEVICE</strong> and <strong>CONTROL</strong> — flag a MIDI device for remote control and
+lock closely.</li>
+<li><strong>DEVICE</strong> and <strong>CONTROL</strong> — flag a MIDI device for remote control and
 edit control mappings, see <a href="midi-remote-control.html">MIDI Remote Control</a>
-(since v1.1.4)</p>
-</li>
-<li>
-<p><strong>CH NAMES</strong> — name your MIDI channels and bind a <a href="midi-device-profiles.html">MIDI Device Profile</a> per channel (Encoder 1 picks the row, Encoder 8 the profile; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
-</li>
+(since v1.1.4). A device can also be flagged <code>MACKIE</code>: a Mackie Control
+surface that works without mappings, see
+<a href="midi-remote-control.html#mackie">Mackie Control surfaces</a>
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li><strong>CH NAMES</strong> — name your MIDI channels and bind a <a href="midi-device-profiles.html">MIDI Device Profile</a> per channel (Encoder 1 picks the row, Encoder 8 the profile; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <h3 id="tape-track-5"><a class="header" href="#tape-track-5">Tape (Track 5)</a></h3>
 <img alt="Tape" src="images/screens/UtilitiesTape.png" width="900">
