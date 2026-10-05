@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
+            window.path_to_searchindex_js = "searchindex-fd0e17ef.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -265,7 +265,7 @@
 <tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
 </thead>
 <tbody>
-<tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Record Offset</td></tr>
+<tr><td>Encoder 2</td><td>Change the increments of the Scroll movements</td><td>Push → Record Offset</td></tr>
 <tr><td>Encoder 3</td><td>MOVE MARKER: on a marker, turn to move it by Scroll steps (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
 <tr><td>Encoder 5</td><td>SPLICE: turn to insert (CW) or remove (CCW) blank time at the playhead by Scroll steps. Moves all tracks, MIDI and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 7</td><td>Turn to zoom the timeline (0.25x to 4x)</td><td>Push → Record Offset</td></tr>
@@ -1310,6 +1310,7 @@
 <tr><td>2</td><td>Pingpong Group</td></tr>
 <tr><td>3</td><td>Reverb Group</td></tr>
 <tr><td>4</td><td>Loop Group</td></tr>
+<tr><td>5</td><td>Convolve Group</td></tr>
 <tr><td>8</td><td>Apply</td></tr>
 </tbody>
 </table>
@@ -1362,6 +1363,7 @@
 <tr><td>2</td><td>Pingpong Group</td></tr>
 <tr><td>3</td><td>Reverb Group</td></tr>
 <tr><td>4</td><td>Loop Group</td></tr>
+<tr><td>5</td><td>Convolve Group</td></tr>
 <tr><td>8</td><td>Apply</td></tr>
 </tbody>
 </table>
@@ -1414,6 +1416,7 @@
 <tr><td>2</td><td>Pingpong Group</td></tr>
 <tr><td>3</td><td>Reverb Group</td></tr>
 <tr><td>4</td><td>Loop Group</td></tr>
+<tr><td>5</td><td>Convolve Group</td></tr>
 <tr><td>8</td><td>Apply</td></tr>
 </tbody>
 </table>
@@ -1466,6 +1469,60 @@
 <tr><td>2</td><td>Pingpong Group</td></tr>
 <tr><td>3</td><td>Reverb Group</td></tr>
 <tr><td>4</td><td>Loop Group</td></tr>
+<tr><td>5</td><td>Convolve Group</td></tr>
+<tr><td>8</td><td>Apply</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-clipboard-modifier--fx-page--convolve-group"><a class="header" href="#audio-clipboard-modifier--fx-page--convolve-group">Audio Clipboard Modifier — FX page — Convolve group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Source</td><td>Clipboard track whose material is the impulse; every other track is convolved with it</td></tr>
+<tr><td>Encoder 5</td><td>End / Start</td><td>Impulse span in the source track, grid steps, 10 ms .. 5 s; push to switch which end the encoder moves (Start carries the span along)</td></tr>
+<tr><td>Encoder 6</td><td>Mix / Tilt</td><td>Wet %; push to switch to Tilt, dark .. bright</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Encoders with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
+<tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
+<tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
+<tr><td>Encoder 4</td><td>Source</td><td>Clipboard track whose material is the impulse; every other track is convolved with it</td></tr>
+<tr><td>Encoder 5</td><td>End / Start</td><td>Impulse span in the source track, grid steps, 10 ms .. 5 s; push to switch which end the encoder moves (Start carries the span along)</td></tr>
+<tr><td>Encoder 6</td><td>Mix / Tilt</td><td>Wet %; push to switch to Tilt, dark .. bright</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Delay Group</td></tr>
+<tr><td>2</td><td>Pingpong Group</td></tr>
+<tr><td>3</td><td>Reverb Group</td></tr>
+<tr><td>4</td><td>Loop Group</td></tr>
+<tr><td>5</td><td>Convolve Group</td></tr>
 <tr><td>8</td><td>Apply</td></tr>
 </tbody>
 </table>
@@ -3711,7 +3768,7 @@
 <tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
 </thead>
 <tbody>
-<tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Rec Offset</td></tr>
+<tr><td>Encoder 2</td><td>Change the increments of the Scroll movements</td><td>Push → Rec Offset</td></tr>
 <tr><td>Encoder 3</td><td>MOVE MARKER: on a marker, turn to move it by Scroll steps (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
 <tr><td>Encoder 5</td><td>SPLICE: turn to insert (CW) or remove (CCW) blank time at the playhead by Scroll steps. Moves all tracks, audio and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 7</td><td>Turn to zoom the timeline (0.25x to 4x)</td><td>Push → Rec Offset</td></tr>

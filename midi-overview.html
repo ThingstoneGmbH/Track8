@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
+            window.path_to_searchindex_js = "searchindex-fd0e17ef.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -219,7 +219,7 @@
 </ul>
 <h3 id="scroll"><a class="header" href="#scroll">SCROLL</a></h3>
 <ul>
-<li>Encoder 8 scrolls the timeline, Encoder 1 changes the scroll increment</li>
+<li>Encoder 8 scrolls the timeline, Encoder 2 changes the scroll increment — the same encoder as the grid in <a href="editing-midi.html">MIDI Edit</a> and Audio Edit, so one external knob serves all four screens (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>); it was Encoder 1 up to v1.2.3</li>
 <li>Encoder 3 is <a href="audio-overview.html#move-marker">MOVE MARKER</a>: with the playhead on a marker, turn to stage a move by SCROLL steps, push to apply — the same as on the Audio Overview (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid in <a href="editing-midi.html">MIDI Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>Encoder 7 zooms the timeline, 0.25x to 4x around the playhead (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>). The zoom is remembered per overview (Audio and MIDI zoom independently) and resets to 1x on startup</li>
@@ -227,7 +227,7 @@
 <li>Encoder 5 → <strong>SPLICE</strong>: insert or remove time at the playhead (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)
 <ul>
 <li>Turn clockwise to stage blank time, one SCROLL step per click; counter-clockwise to stage a removal. The overview previews the result — notes, markers and loop/punch points are drawn where they will end up, an insert shows the blank as a band, a removal a cut line — and the encoder label shows the amount (<code>+1 bar</code>, <code>-2 beats</code>)</li>
-<li>Push Encoder 5 to apply. Any button press (PLAY included), Encoder 1 or Encoder 8, switching screens or the encoder mode discards the staged splice — only Encoder 5 itself and SHIFT leave it alone. Nothing changes until you push; the drawing is the preview</li>
+<li>Push Encoder 5 to apply. Any button press (PLAY included), Encoder 2 or Encoder 8, switching screens or the encoder mode discards the staged splice — only Encoder 5 itself and SHIFT leave it alone. Nothing changes until you push; the drawing is the preview</li>
 <li>It is the same operation as on the <a href="audio-overview.html#-splice--insert--remove-time">Audio Overview</a>: everything behind the splice point moves — all MIDI tracks (notes, CC, pitch-bend, aftertouch), all audio tracks with their automation, and the markers, loop and punch points. CC / pitch-bend / aftertouch set inside a removed span carry their last value over to the splice point</li>
 <li>Removals are limited to 1:30 per splice and refused over a tempo or signature marker; see the Audio Overview page for the full rules</li>
 </ul>
@@ -344,6 +344,7 @@
 <li><code>SYNC ROLE</code>: <code>MASTER</code> or <code>SLAVE</code></li>
 <li>Clock mode: send/receive SPP, Transport and Clock individually</li>
 <li>MTC mode: frame rate (24/25/29.97/30 fps) and, as slave, an MTC offset</li>
+<li>Both modes work on the 5-pin MIDI ports and on USB MIDI, as master and as slave (MTC master over USB since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 <p>The <a href="companion-app.html">companion app</a> has the same sync, over CoreMIDI (USB, Bluetooth, network sessions), since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>.</p>
 <p>Clock sync has been hardened over several releases (tighter DIN clock since v1.1.1, larger averaging and outlier detection for slave sync, further MIDI scheduling and jitter improvements new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</p>

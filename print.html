@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-c32a2f27.js";
+            window.path_to_searchindex_js = "searchindex-fd0e17ef.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -622,7 +622,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
 </thead>
 <tbody>
-<tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Record Offset</td></tr>
+<tr><td>Encoder 2</td><td>Change the increments of the Scroll movements</td><td>Push → Record Offset</td></tr>
 <tr><td>Encoder 3</td><td>MOVE MARKER: on a marker, turn to move it by Scroll steps (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
 <tr><td>Encoder 5</td><td>SPLICE: turn to insert (CW) or remove (CCW) blank time at the playhead by Scroll steps. Moves all tracks, MIDI and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 7</td><td>Turn to zoom the timeline (0.25x to 4x)</td><td>Push → Record Offset</td></tr>
@@ -1667,6 +1667,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>2</td><td>Pingpong Group</td></tr>
 <tr><td>3</td><td>Reverb Group</td></tr>
 <tr><td>4</td><td>Loop Group</td></tr>
+<tr><td>5</td><td>Convolve Group</td></tr>
 <tr><td>8</td><td>Apply</td></tr>
 </tbody>
 </table>
@@ -1719,6 +1720,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>2</td><td>Pingpong Group</td></tr>
 <tr><td>3</td><td>Reverb Group</td></tr>
 <tr><td>4</td><td>Loop Group</td></tr>
+<tr><td>5</td><td>Convolve Group</td></tr>
 <tr><td>8</td><td>Apply</td></tr>
 </tbody>
 </table>
@@ -1771,6 +1773,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>2</td><td>Pingpong Group</td></tr>
 <tr><td>3</td><td>Reverb Group</td></tr>
 <tr><td>4</td><td>Loop Group</td></tr>
+<tr><td>5</td><td>Convolve Group</td></tr>
 <tr><td>8</td><td>Apply</td></tr>
 </tbody>
 </table>
@@ -1823,6 +1826,60 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>2</td><td>Pingpong Group</td></tr>
 <tr><td>3</td><td>Reverb Group</td></tr>
 <tr><td>4</td><td>Loop Group</td></tr>
+<tr><td>5</td><td>Convolve Group</td></tr>
+<tr><td>8</td><td>Apply</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="audio-clipboard-modifier--fx-page--convolve-group"><a class="header" href="#audio-clipboard-modifier--fx-page--convolve-group">Audio Clipboard Modifier — FX page — Convolve group</a></h3>
+<p><strong>Encoders</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 4</td><td>Source</td><td>Clipboard track whose material is the impulse; every other track is convolved with it</td></tr>
+<tr><td>Encoder 5</td><td>End / Start</td><td>Impulse span in the source track, grid steps, 10 ms .. 5 s; push to switch which end the encoder moves (Start carries the span along)</td></tr>
+<tr><td>Encoder 6</td><td>Mix / Tilt</td><td>Wet %; push to switch to Tilt, dark .. bright</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Encoders with Shift held</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
+</thead>
+<tbody>
+<tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
+<tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
+<tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
+<tr><td>Encoder 4</td><td>Source</td><td>Clipboard track whose material is the impulse; every other track is convolved with it</td></tr>
+<tr><td>Encoder 5</td><td>End / Start</td><td>Impulse span in the source track, grid steps, 10 ms .. 5 s; push to switch which end the encoder moves (Start carries the span along)</td></tr>
+<tr><td>Encoder 6</td><td>Mix / Tilt</td><td>Wet %; push to switch to Tilt, dark .. bright</td></tr>
+<tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
+<tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Track buttons</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Track button</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Delay Group</td></tr>
+<tr><td>2</td><td>Pingpong Group</td></tr>
+<tr><td>3</td><td>Reverb Group</td></tr>
+<tr><td>4</td><td>Loop Group</td></tr>
+<tr><td>5</td><td>Convolve Group</td></tr>
 <tr><td>8</td><td>Apply</td></tr>
 </tbody>
 </table>
@@ -4068,7 +4125,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
 </thead>
 <tbody>
-<tr><td>Encoder 1</td><td>Change the increments of the Scroll movements</td><td>Push → Rec Offset</td></tr>
+<tr><td>Encoder 2</td><td>Change the increments of the Scroll movements</td><td>Push → Rec Offset</td></tr>
 <tr><td>Encoder 3</td><td>MOVE MARKER: on a marker, turn to move it by Scroll steps (CW later, CCW earlier). Locked markers move too</td><td>Push → apply the staged move</td></tr>
 <tr><td>Encoder 5</td><td>SPLICE: turn to insert (CW) or remove (CCW) blank time at the playhead by Scroll steps. Moves all tracks, audio and markers</td><td>Push → apply the staged SPLICE</td></tr>
 <tr><td>Encoder 7</td><td>Turn to zoom the timeline (0.25x to 4x)</td><td>Push → Rec Offset</td></tr>
@@ -4960,7 +5017,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <ul>
 <li>VOLUME → level (per track)</li>
 <li>PAN → stereo position (per track)</li>
-<li>SCROLL → timeline navigation (Encoder 1 sets the scroll increment, Encoder 8 scrolls, Encoder 3 → <a href="#move-marker">MOVE MARKER</a>, Encoder 5 → <a href="#-splice--insert--remove-time">SPLICE</a>, Encoder 7 zooms the timeline 0.25x to 4x (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)). While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid on <a href="#editing-audio">Audio Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
+<li>SCROLL → timeline navigation (Encoder 2 sets the scroll increment — the same encoder as the grid on Audio Edit and MIDI Edit, so one external knob serves all four screens (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>); it was Encoder 1 up to v1.2.3 —, Encoder 8 scrolls, Encoder 3 → <a href="#move-marker">MOVE MARKER</a>, Encoder 5 → <a href="#-splice--insert--remove-time">SPLICE</a>, Encoder 7 zooms the timeline 0.25x to 4x (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)). While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid on <a href="#editing-audio">Audio Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>REC OFFSET → per-track record offset, 0 to -50 ms (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
 <li>VARISPEED → tape speed (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
 </ul>
@@ -4999,7 +5056,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <li>Turn Encoder 5 <strong>clockwise</strong> to stage blank time at the playhead, one SCROLL step per click (SCROLL at 1/4 → 4 clicks = 1 bar). Turn <strong>counter-clockwise</strong> to stage a removal instead</li>
 <li>The overview <strong>previews the result</strong> while you stage: everything behind the splice point is drawn where it will end up — waveforms, MIDI, markers, loop and punch points. An insert shows the blank bars as a highlighted band, a removal shows the tail pulled up to a cut line at the splice point. The encoder label shows the amount, e.g. <code>+1 bar</code> / <code>-2 beats</code></li>
 <li><strong>Push Encoder 5 to apply.</strong> A <code>SPLICE 0%…100%</code> overlay locks the controls while the tape is rewritten. It shows a time estimate and how much tape is being moved: everything behind the splice point has to be rewritten on every track, so the more tape follows the splice point, the longer it takes (a few seconds per minute of tail on 8 tracks)</li>
-<li><strong>Any button press discards the staged splice</strong> — PLAY included — and so does turning Encoder 1 (grid) or Encoder 8 (scroll), switching screens, changing the encoder mode, Undo/Redo, a live recording, or turning the amount back to 0. Only Encoder 5 itself and SHIFT leave it alone. Nothing on the tape changes until you push, and there is no audible preview: the drawing <em>is</em> the preview</li>
+<li><strong>Any button press discards the staged splice</strong> — PLAY included — and so does turning Encoder 2 (grid) or Encoder 8 (scroll), switching screens, changing the encoder mode, Undo/Redo, a live recording, or turning the amount back to 0. Only Encoder 5 itself and SHIFT leave it alone. Nothing on the tape changes until you push, and there is no audible preview: the drawing <em>is</em> the preview</li>
 <li>The splice point is the playhead position at the <strong>first</strong> click. To splice somewhere else, scroll there (which discards the staged amount) and stage again</li>
 <li>Markers <strong>move with the tape</strong> — locked markers and tempo/signature markers too, so the bar/beat readout behind the splice stays what it was. Markers inside a removed span are deleted; loop and punch points inside it collapse to the splice point</li>
 <li>A removal is limited to <strong>1:30</strong> of tape per splice (the removed audio of all 8 tracks stays on the Undo stack, like a Cut). A removal that would swallow a tempo or signature marker is refused — move the playhead past it or remove the variation first</li>
@@ -5014,7 +5071,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <li>Turn Encoder 3 <strong>clockwise</strong> to stage a move later, <strong>counter-clockwise</strong> earlier, one SCROLL step per click (SCROLL at 1/4 → 4 clicks = 1 bar). The label shows the staged amount</li>
 <li>The overview <strong>previews the result</strong> while you stage: the marker is drawn where it will land, its old place stays as a muted ghost, and <code>MOVE &lt;name&gt; +2 beats - PUSH to apply</code> sits next to it. The <strong>playhead rides along</strong> with the marker, so it never leaves the screen however far you carry it — set SCROLL to a bar for long trips. Turning back onto the original place clears the staged move and brings the playhead back with the marker</li>
 <li><strong>Push Encoder 3 to apply.</strong> The playhead stays on the marker at its new place, so you can nudge it again or press Play to hear the new section start right away</li>
-<li><strong>Any other input discards the staged move</strong> — a button press, turning another encoder, scrolling, switching screens or encoder modes, Undo / Redo, a live recording. The one exception is Encoder 1: changing the SCROLL step keeps the staged move, so you can travel in bars and land in sixteenths</li>
+<li><strong>Any other input discards the staged move</strong> — a button press, turning another encoder, scrolling, switching screens or encoder modes, Undo / Redo, a live recording. The one exception is Encoder 2: changing the SCROLL step keeps the staged move, so you can travel in bars and land in sixteenths</li>
 <li><strong>The lock does not stop a move</strong>: like a SPLICE, a staged-and-pushed move is a deliberate edit, while the lock guards against accidental deletion. Tempo / signature and MIDI-event markers move too — moving a tempo marker moves the grid, MIDI and metronome behind it with it</li>
 <li>Other markers are no obstacle while turning — moving past them reorders the sections. Landing <strong>exactly on another marker</strong> is settled at push, the way a LOOP Paste treats its destination: an unlocked marker there is replaced (Undo brings it back), a locked, tempo or MIDI-event marker refuses the push (<code>locked marker there</code>) and keeps the staged move, so one more click past it is all it takes. Nothing moves before the tape start</li>
 <li><strong>Undo</strong> puts the marker back (<code>UNDO Marker Move</code>); <strong>Redo</strong> moves it again. The playhead goes with it both ways, like every other Undo lands on what changed, so Encoder 3 keeps reading <code>MOVE &lt;name&gt;</code> and you can stage the next try straight away</li>
@@ -5698,6 +5755,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><td>2</td><td><code>PINGPONG</code></td><td>TIME</td><td>FEEDBACK</td><td>MIX</td></tr>
 <tr><td>3</td><td><code>REVERB</code></td><td>SIZE (0–100), push to cycle the program <code>MODERN</code> / <code>HALL</code> / <code>AMBIENCE</code> / <code>GATED</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td><td>DAMP (0–100) · WIDTH (0–100) · PREDEL (0–120 ms) · GATE (-48–0 dB, <code>GATED</code> only) — push to cycle which one the encoder edits (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>4</td><td><code>LOOP</code></td><td>ROTATE (±64 grid steps)</td><td>XFADE (0–500 ms)</td><td>LAYER (0–100 %)</td></tr>
+<tr><td>5</td><td><code>CONVOLVE</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</td><td>SOURCE (a track of the clipboard)</td><td>END · START (push to switch; the impulse span, 10 ms–5 s)</td><td>MIX (0–100 %, 50 to start) · TILT (-100–100, push to switch)</td></tr>
 </tbody>
 </table>
 </div>
@@ -5706,6 +5764,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li><code>REVERB</code> is the <a href="master-fx.html">Master FX reverb</a> with the same four programs — <code>MODERN</code> (the dense plate the group started with), <code>HALL</code>, <code>AMBIENCE</code> and <code>GATED</code> — and the same parameters: SIZE, DAMP, WIDTH, PREDEL and, for <code>GATED</code>, GATE. The <code>^</code> in the encoder’s corner marks the pushes, as elsewhere on the screen (SIZE cycles the program, Encoder 5 cycles its parameter).</li>
 <li><code>DELAY</code> / <code>PINGPONG</code> / <code>REVERB</code> are printed into the clip: inside the region <code>MIX</code> crossfades the dry signal with the effect, and the tail keeps running past <code>END</code> on top of the rest of the clip (up to 6 s, cut at the clip end). A printed tail can be reversed, granulated or resonated afterwards. The delay time is capped at 2 s</li>
 <li>While un-applied, <code>DELAY</code> / <code>PINGPONG</code> mark each repeat above the waveform (fading with <code>FEEDBACK</code>; <code>PINGPONG</code> alternates top and bottom for left and right) and <code>REVERB</code> draws its decay envelope over the region: as tall as <code>MIX</code> at <code>START</code>, falling away over the tail’s length</li>
+<li><code>CONVOLVE</code> uses one track of the clipboard as an impulse response for all the others: copy several tracks (a drum hit, a chord, a room on one of them), choose that track with <code>SOURCE</code>, and every other track in the clipboard is convolved with the part of it between <code>START</code> and <code>END</code> — a snare through a piano chord, a voice through a reversed cymbal, a guitar through a recorded room. The span starts at the region’s <code>START</code> and is one second long until you move it: Encoder 5 moves <code>END</code> by grid steps (or <code>JUMP</code> steps), its push switches the encoder to <code>START</code>, which carries the whole span along; the span is at most 5 s. <code>MIX</code> blends each result with that track’s own dry signal (50 % to start), and the push of Encoder 6 switches the encoder to <code>TILT</code>, which darkens (negative) or brightens (positive) the impulse. While <code>CONVOLVE</code> is the selected group the source track is never part of the audition, whatever <code>MIX</code> says, so you hear only the convolved tracks; <code>APPLY</code> leaves the source track as it is. With a single track in the clipboard there is nothing to convolve: the group says so on the waveform and <code>SOURCE</code> shows <code>1 TRACK</code>. Each convolved track is level-matched to its own dry signal — measured once the impulse has fully built up — so a long, dense or tonal impulse does not jump in volume even at <code>MIX</code> 100 %. <code>CONVOLVE</code> is rendered in the background like <code>LOOP</code> and the <code>SPECTR</code> groups; like them it stops at the region’s <code>END</code> (set <code>END</code> past the material to keep the tail). While un-applied, dashed lines mark the impulse span on the waveform with its decay envelope between them, as tall as <code>MIX</code></li>
 <li><code>ROTATE</code> turns the region cyclically by grid steps (or <code>JUMP</code> steps in <code>JUMP</code> mode) so another beat lands on its start. <code>XFADE</code> smooths the loop seam: it blends the audio that follows <code>END</code> into the region’s start (or, when <code>END</code> is the clip end, the audio before <code>START</code> into the region’s end; with neither available it fades both ends). <code>LAYER</code> stacks the region onto itself every grid step, wrapping around the region, with a decaying level — a circular canon. <code>LOOP</code> is rendered in the background like the <code>SPECTR</code> groups (<code>[RENDER]</code> shows while it computes, the audition and the waveform switch to the result when it is ready; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). The waveform then shows the result of all three tools (turned, seamed and stacked, exactly as <code>APPLY</code> will print it); a dashed line marks the <code>ROTATE</code> seam, <code>XFADE</code> draws its crossfade curves over the seam span, and <code>LAYER</code> marks each tap with a fading marker</li>
 </ul>
 <h3 id="dist-page-since-v122"><a class="header" href="#dist-page-since-v122">DIST page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</a></h3>
@@ -5716,7 +5775,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><code>CRUSH</code></td><td>BIT (32 down to 1 bit)</td><td>SAMPLE (1x–32x rate reduction)</td><td>—</td></tr>
+<tr><td>1</td><td><code>CRUSH</code></td><td>BIT (32 down to 1 bit, relative to the clip’s own peak level)</td><td>SAMPLE (1x–32x rate reduction)</td><td>—</td></tr>
 <tr><td>2</td><td><code>COLOR</code></td><td>DRIVE (0–100, tape saturation)</td><td>TILT (-100 drive the lows … +100 drive the highs)</td><td>COMP (0–100, one-knob compression), push to cycle the TILT crossover <code>LOW</code> (80 Hz) / <code>MID</code> (650 Hz) / <code>HIGH</code> (2.5 kHz)</td></tr>
 <tr><td>3</td><td><code>TAPE</code></td><td>DRIVE (0–100)</td><td>DENSITY (0–100)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>4</td><td><code>AMP</code></td><td>GAIN (0–100, up to +30 dB), push to cycle the model <code>CLEAN</code> / <code>CRUNCH</code> / <code>FUZZ</code> / <code>METAL</code></td><td>TONE (-100 dark … +100 bright)</td><td>CAB (0–100, speaker low-pass)</td></tr>
@@ -5727,6 +5786,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </div>
 <p>Notes:</p>
 <ul>
+<li><code>CRUSH</code>’s BIT grid spans the clip’s own peak level, not full scale (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>): at <code>1</code> bit the loud half of the clip becomes full-height blocks and the quiet half silence, whatever level the clip was recorded at; before, anything under -6 dBFS vanished at 1 bit and a quiet clip crushed to nothing. Each track in the clipboard is crushed against its own peak. <code>SAMPLE</code> holds the crushed value, so the audition is exactly what <code>APPLY</code> prints</li>
 <li><code>TAPE</code> is the mastering tape saturator from the Master FX, printed into the clip, but let off the leash: <code>DRIVE</code> also pushes up to 12 dB of extra gain into the tape and above 50 blends in a second saturation pass, so <code>DRIVE</code> 100 is a fuzz rather than a polish. <code>DENSITY</code> is the tape’s thickness control, <code>MIX</code> blends the saturated signal with the dry one</li>
 <li><code>AMP</code> is a small amp chain: <code>TONE</code> shapes the sound before the stages (negative closes a low-pass, positive lifts the presence), <code>GAIN</code> drives the stages, <code>CAB</code> closes a 12 dB/octave speaker low-pass from fully open to 2.5 kHz. <code>CLEAN</code> is one soft stage, <code>CRUNCH</code> two asymmetric stages with a coupling filter between them, <code>FUZZ</code> a biased hard clip into a soft stage, <code>METAL</code> a tight high-pass into two hard stages with the mids scooped</li>
 <li><code>FOLD</code> is a wavefolder: <code>FOLD</code> drives the signal into the folder (up to 16x), <code>SYMMETRY</code> offsets it so even harmonics appear, <code>SMOOTH</code> morphs the folds from triangle (buzzy) to sine (round)</li>
@@ -5764,7 +5824,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </ul>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p>The <code>SPECTR</code> groups (and <code>HARMONY</code> on the <code>VOICE</code> page, <code>TUNE</code>, and <code>LOOP</code> on the <code>FX</code> page) are <strong>rendered</strong>, not played live: about a tenth of a second after you stop turning an encoder the region is rendered in the background, in one-second pieces starting at the playhead and running ahead of it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>; before, the whole region was rendered first). <code>[RENDER]</code> shows top right while the piece under the playhead is still computing. The audition fades from the previous result (or the dry clip) to the new one as soon as that piece is ready, so a long region answers as fast as a short one, and a jump of the playhead renders from the new place. The waveform shows the rendered result where a piece has been rendered and the dry clip elsewhere; while the audition stands still, the part on screen fills in. <code>APPLY</code> uses exactly the same rendering, so what you auditioned is what is printed. The audio never stutters because of a render: where no piece is ready yet the dry clip plays.</p>
+<p>The <code>SPECTR</code> groups (and <code>HARMONY</code> on the <code>VOICE</code> page, <code>TUNE</code>, and <code>LOOP</code> and <code>CONVOLVE</code> on the <code>FX</code> page) are <strong>rendered</strong>, not played live: about a tenth of a second after you stop turning an encoder the region is rendered in the background, in one-second pieces starting at the playhead and running ahead of it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>; before, the whole region was rendered first). <code>[RENDER]</code> shows top right while the piece under the playhead is still computing. The audition fades from the previous result (or the dry clip) to the new one as soon as that piece is ready, so a long region answers as fast as a short one, and a jump of the playhead renders from the new place. The waveform shows the rendered result where a piece has been rendered and the dry clip elsewhere; while the audition stands still, the part on screen fills in. <code>APPLY</code> uses exactly the same rendering, so what you auditioned is what is printed. The audio never stutters because of a render: where no piece is ready yet the dry clip plays.</p>
 </blockquote>
 <h3 id="voice-page-since-v123"><a class="header" href="#voice-page-since-v123">VOICE page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</a></h3>
 <p>Everything that adds or reshapes copies of the voice.</p>
@@ -5857,7 +5917,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </ul>
 <h3 id="scroll"><a class="header" href="#scroll">SCROLL</a></h3>
 <ul>
-<li>Encoder 8 scrolls the timeline, Encoder 1 changes the scroll increment</li>
+<li>Encoder 8 scrolls the timeline, Encoder 2 changes the scroll increment — the same encoder as the grid in <a href="#editing-midi">MIDI Edit</a> and Audio Edit, so one external knob serves all four screens (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>); it was Encoder 1 up to v1.2.3</li>
 <li>Encoder 3 is <a href="#move-marker">MOVE MARKER</a>: with the playhead on a marker, turn to stage a move by SCROLL steps, push to apply — the same as on the Audio Overview (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid in <a href="#editing-midi">MIDI Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>Encoder 7 zooms the timeline, 0.25x to 4x around the playhead (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>). The zoom is remembered per overview (Audio and MIDI zoom independently) and resets to 1x on startup</li>
@@ -5865,7 +5925,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li>Encoder 5 → <strong>SPLICE</strong>: insert or remove time at the playhead (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)
 <ul>
 <li>Turn clockwise to stage blank time, one SCROLL step per click; counter-clockwise to stage a removal. The overview previews the result — notes, markers and loop/punch points are drawn where they will end up, an insert shows the blank as a band, a removal a cut line — and the encoder label shows the amount (<code>+1 bar</code>, <code>-2 beats</code>)</li>
-<li>Push Encoder 5 to apply. Any button press (PLAY included), Encoder 1 or Encoder 8, switching screens or the encoder mode discards the staged splice — only Encoder 5 itself and SHIFT leave it alone. Nothing changes until you push; the drawing is the preview</li>
+<li>Push Encoder 5 to apply. Any button press (PLAY included), Encoder 2 or Encoder 8, switching screens or the encoder mode discards the staged splice — only Encoder 5 itself and SHIFT leave it alone. Nothing changes until you push; the drawing is the preview</li>
 <li>It is the same operation as on the <a href="#-splice--insert--remove-time">Audio Overview</a>: everything behind the splice point moves — all MIDI tracks (notes, CC, pitch-bend, aftertouch), all audio tracks with their automation, and the markers, loop and punch points. CC / pitch-bend / aftertouch set inside a removed span carry their last value over to the splice point</li>
 <li>Removals are limited to 1:30 per splice and refused over a tempo or signature marker; see the Audio Overview page for the full rules</li>
 </ul>
@@ -5982,6 +6042,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li><code>SYNC ROLE</code>: <code>MASTER</code> or <code>SLAVE</code></li>
 <li>Clock mode: send/receive SPP, Transport and Clock individually</li>
 <li>MTC mode: frame rate (24/25/29.97/30 fps) and, as slave, an MTC offset</li>
+<li>Both modes work on the 5-pin MIDI ports and on USB MIDI, as master and as slave (MTC master over USB since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 <p>The <a href="#companion-app-mac--ipad--iphone">companion app</a> has the same sync, over CoreMIDI (USB, Bluetooth, network sessions), since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>.</p>
 <p>Clock sync has been hardened over several releases (tighter DIN clock since v1.1.1, larger averaging and outlier detection for slave sync, further MIDI scheduling and jitter improvements new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</p>
@@ -6539,7 +6600,7 @@ the profile hides is still reachable there.</li>
 <ul>
 <li>A full sweep of the CC (0–127) always covers the full parameter range</li>
 <li>A mapping drives the screen and function it was learned for, whichever screen is open: a Volume knob keeps working while you are on MIDI Edit, and the Audio Overview switches to <code>VOLUME</code> when you turn it. Cycling an encoder to another mode on the device never retargets your knob</li>
-<li>Mappings learned on the Audio Overview’s <code>SCROLL</code> page follow the overview that is on screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>): while the MIDI Overview is showing, the same knobs drive its scroll step, MOVE MARKER, SPLICE, zoom and scroll, and the MIDI Overview switches to <code>SCROLL</code>. Each overview keeps its own step and zoom, as with the encoders on the device. The zoom mapping goes one step further (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>): while Audio Edit, MIDI Edit or ClipMod is open, the same knob zooms that screen, just like Encoder 7 on the device; the other <code>SCROLL</code> knobs keep driving the Audio Overview from there. Volume, Pan and the return mappings always drive the Audio Overview</li>
+<li>Mappings learned on the Audio Overview’s <code>SCROLL</code> page follow the overview that is on screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>): while the MIDI Overview is showing, the same knobs drive its scroll step, MOVE MARKER, SPLICE, zoom and scroll, and the MIDI Overview switches to <code>SCROLL</code>. Each overview keeps its own step and zoom, as with the encoders on the device. The zoom mapping goes one step further (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>): while Audio Edit, MIDI Edit or ClipMod is open, the same knob zooms that screen, just like Encoder 7 on the device. The scroll-step mapping (Encoder 2) does the same on Audio Edit and MIDI Edit, where Encoder 2 is the grid (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>); a step mapping learned on v1.2.3 or older, when the step was Encoder 1, is moved to Encoder 2 automatically. The other <code>SCROLL</code> knobs keep driving the Audio Overview from there. Volume, Pan and the return mappings always drive the Audio Overview</li>
 <li>Audio Overview encoders are per-track: a mapping on Encoder 3 always drives Track 3. Map all 8 encoders for a full fader bank — or create a <code>SEL</code> mapping in <code>CONTROL</code> that drives whichever track is selected (see <a href="#-following-the-selected-track">Following the selected track</a>)</li>
 <li>Track FX, Track FX 2 and Track Sends mappings learned this way are locked to the track (and filter node) that was selected when you learned them. To make one follow the selected track instead, edit it in <code>CONTROL</code> and set <code>TRACK</code> to <code>SEL</code></li>
 </ul>
@@ -7389,16 +7450,58 @@ or <code>A &amp;&amp; M</code> recording is enabled in the project settings (sin
 <h3 id="midi-track-4"><a class="header" href="#midi-track-4">MIDI (Track 4)</a></h3>
 <img alt="MIDI Settings" src="images/screens/Midi.png" width="900">
 <ul>
-<li><strong>SYNC MODE</strong> — CLOCK or MTC</li>
-<li><strong>SYNC ROLE</strong> — MASTER or SLAVE</li>
-<li>As Clock master: <strong>SEND SPP</strong> / <strong>SEND TRANSPORT</strong> / <strong>SEND CLOCK</strong></li>
-<li>As Clock slave: <strong>RECV SPP</strong> / <strong>RECV TRANSPORT</strong> / <strong>RECV CLOCK</strong></li>
-<li>As MTC slave: <strong>MTC OFFSET</strong> (minutes/seconds)</li>
-<li>With MTC: <strong>FRAME RATE</strong> — 24 / 25 / 29.97 / 30 fps</li>
-<li><strong>DEVICE</strong> and <strong>CONTROL</strong> — flag a MIDI device for remote control and
+<li>
+<p><strong>SYNC MODE</strong> — CLOCK or MTC</p>
+</li>
+<li>
+<p><strong>SYNC ROLE</strong> — MASTER or SLAVE</p>
+</li>
+<li>
+<p>As Clock master: <strong>SEND SPP</strong> / <strong>SEND TRANSPORT</strong> / <strong>SEND CLOCK</strong></p>
+</li>
+<li>
+<p>As Clock master: <strong>SEND TIME SIG</strong> (Encoder 6) — tells external gear the
+time signature and the bar number, so a bar display or MIDI processor that
+counts bars from the clock shows the same bars and beats as Track8, in
+5/4, 7/8 or across signature changes. Off by default. Two standard MIDI
+messages are sent, and the receiver has to understand them:</p>
+<ul>
+<li>Time Signature (<code>F0 7F 7F 03 02 04 nn dd cc bb F7</code>) when playback starts
+and whenever the signature changes at a marker.</li>
+<li>Bar Marker (<code>F0 7F 7F 03 01 lsb msb F7</code>, “the next clock starts bar N”)
+just ahead of every bar line, and when playback starts, locates or loops
+onto one. After a start in the middle of a bar the display is right from
+the next bar line on.</li>
+</ul>
+<p>Clock always goes first: on the 5-pin output a clock tick can arrive in
+the middle of one of these messages, which MIDI allows. Not available in
+the companion app, where the setting is shown greyed out
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</p>
+</li>
+<li>
+<p>As Clock slave: <strong>RECV SPP</strong> / <strong>RECV TRANSPORT</strong> / <strong>RECV CLOCK</strong></p>
+</li>
+<li>
+<p>As MTC slave: <strong>MTC OFFSET</strong> (minutes/seconds)</p>
+</li>
+<li>
+<p>With MTC: <strong>FRAME RATE</strong> — 24 / 25 / 29.97 / 30 fps</p>
+</li>
+<li>
+<p>Clock and MTC are sent and received on the 5-pin MIDI ports and on USB
+MIDI alike. As MTC master, timecode also goes out over USB
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>);
+the 5-pin output is timed more tightly, so use it where a device has to
+lock closely.</p>
+</li>
+<li>
+<p><strong>DEVICE</strong> and <strong>CONTROL</strong> — flag a MIDI device for remote control and
 edit control mappings, see <a href="#midi-remote-control-since-v114">MIDI Remote Control</a>
-(since v1.1.4)</li>
-<li><strong>CH NAMES</strong> — name your MIDI channels and bind a <a href="#midi-device-profiles">MIDI Device Profile</a> per channel (Encoder 1 picks the row, Encoder 8 the profile; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+(since v1.1.4)</p>
+</li>
+<li>
+<p><strong>CH NAMES</strong> — name your MIDI channels and bind a <a href="#midi-device-profiles">MIDI Device Profile</a> per channel (Encoder 1 picks the row, Encoder 8 the profile; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
+</li>
 </ul>
 <h3 id="tape-track-5"><a class="header" href="#tape-track-5">Tape (Track 5)</a></h3>
 <img alt="Tape" src="images/screens/UtilitiesTape.png" width="900">
