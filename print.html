@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-2f7fff65.js";
+            window.path_to_searchindex_js = "searchindex-6d52c5e5.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -5049,6 +5049,21 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> → <a href="#editing-audio">Audio Edit</a>. The edit view opens on the parameter you last adjusted with an encoder — turn a Volume/Pan/Send encoder, then <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> to edit its automation directly (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <hr>
+<h3 id="end-of-tape"><a class="header" href="#end-of-tape">⏹ The end of the tape (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h3>
+<p>The tape is <strong>3 hours</strong> long — the longest track file the SD card’s format
+can hold. The end is drawn like the start: the beat ruler and the track
+lanes stop there, on both overviews.</p>
+<ul>
+<li>Playback and recording <strong>stop</strong> when the playhead reaches the end
+(<code>END OF TAPE</code>); a locate never goes past it, and loop and punch points
+stay inside it</li>
+<li>Anything written past the end is <strong>cut off</strong>: a paste, a
+<a href="#long-files-streamed-import">long import</a>, a recording,
+or the tail a SPLICE insert pushes over the edge (<code>CLIPPED AT TAPE END</code>).
+Undo of a clipped SPLICE brings the cut tail back</li>
+<li>Long pastes, cuts, clears, undos and redos — anything over a minute of
+audio — show their progress as a percentage bar while the tape is rewritten</li>
+</ul>
 <h3 id="-splice--insert--remove-time-new-in-v122"><a class="header" href="#-splice--insert--remove-time-new-in-v122">✂️ SPLICE — insert / remove time (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</a></h3>
 <p>Open up blank bars at the playhead, or remove bars so everything after closes the gap — the two things a razor blade does on real tape. One splice moves <strong>everything</strong> behind the splice point: all 8 audio tracks with their automation, all MIDI tracks, and the markers, loop and punch points.</p>
 <ul>
@@ -5060,6 +5075,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <li>The splice point is the playhead position at the <strong>first</strong> click. To splice somewhere else, scroll there (which discards the staged amount) and stage again</li>
 <li>Markers <strong>move with the tape</strong> — locked markers and tempo/signature markers too, so the bar/beat readout behind the splice stays what it was. Markers inside a removed span are deleted; loop and punch points inside it collapse to the splice point</li>
 <li>A removal is limited to <strong>1:30</strong> of tape per splice (the removed audio of all 8 tracks stays on the Undo stack, like a Cut). A removal that would swallow a tempo or signature marker is refused — move the playhead past it or remove the variation first</li>
+<li>An insert that pushes audio past the <a href="#end-of-tape">end of the tape</a> (3 hours) cuts that audio off (<code>CLIPPED AT TAPE END</code>); Undo brings it back (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Audio automation: an insert opens a gap that plays at the fader value; a removal lets the neighbouring points interpolate across the seam. MIDI CC / pitch-bend / aftertouch set inside a removed span carry their last value over to the splice point</li>
 <li><strong>Undo</strong> reverts a splice completely — audio, automation, MIDI, and since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a> also the markers, loop and punch points — from either screen (<code>UNDO SPLICE n%</code>); <strong>Redo</strong> re-applies it</li>
 <li>The same SPLICE encoder is on the <a href="#scroll">MIDI Overview</a> and does exactly the same thing from there</li>
@@ -5582,6 +5598,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <h2 id="entering--leaving"><a class="header" href="#entering--leaving">Entering / Leaving</a></h2>
 <ul>
 <li><strong>Enter</strong> by touching the clipboard indicator on the <a href="#audio-overview-1">Audio Overview</a> or <a href="#editing-audio">Audio Edit</a> screen after a Cut/Copy</li>
+<li>Not available for a <a href="#long-files-streamed-import">long file imported from the stick</a> (<code>LONG IMPORT - NO MODIFIER</code>, (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)): such a clipboard refers to the file instead of holding the audio — paste it and edit on the tape</li>
 <li>Or from Audio Edit: Track Button 6 <code>CLIPMOD</code> opens the modifier; <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track Button 6 <code>COPY &gt; CLIP</code> copies the current selection and opens the modifier in one step (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
 <li>Multi-track clipboards open with all copied tracks included — every edit is applied to all of them</li>
 <li><strong>Exit</strong> via any view button (e.g. <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> or <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture>)</li>
@@ -5884,6 +5901,9 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <hr>
 <h2 id="-midi-overview"><a class="header" href="#-midi-overview">🖥 MIDI Overview</a></h2>
 <img width="900" alt="MIDI Overview with labels" src="images/annotated/midi-overview-labeled.png" />
+<p>The beat ruler ends with the audio tape at <strong>3 hours</strong> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>), where playback stops (see
+<a href="#end-of-tape">the end of the tape</a>); MIDI notes past it are
+kept but never reached.</p>
 <h3 id="track-behavior"><a class="header" href="#track-behavior">Track Behavior</a></h3>
 <p>Track8 aims to make MIDI routing as simple as possible. Instead of listing all connected MIDI devices Track8 introduces a Track to MIDI Channel mapping.</p>
 <ul>
@@ -7323,8 +7343,13 @@ and to copy.</p>
 <p><strong>WAV files</strong> show their waveform and length on the right. Mono and stereo
 files at any sample rate and bit depth are accepted; they are converted to
 Track8’s 48 kHz on the way in. The waveform is drawn while the file loads
-and brightens once it is complete. Files longer than 12 minutes are not
-loaded (<code>Too Long</code>), and a file Track8 cannot decode shows <code>Reading error</code>.</p>
+and brightens once it is complete. A file Track8 cannot decode shows
+<code>Reading error</code>.</p>
+<p>A file <strong>longer than 12 minutes</strong> shows <code>LONG FILE - FIRST 2 MIN</code>
+above the waveform: only its first two minutes are loaded for the waveform
+and for <strong>PLAY</strong>, while the length line shows the whole file (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). Such a file
+is imported by streaming (see below) — until v1.2.3 it was refused with
+<code>Too Long</code>.</p>
 <p><strong>MIDI files</strong> show a piano-roll preview and play on the MIDI channel
 selected with <strong>Encoder 1</strong> (<code>CHANNEL 1</code>–<code>16</code>) through Track8’s MIDI
 outputs, so you hear them on whatever synth listens on that channel. The
@@ -7357,6 +7382,40 @@ browsing any WAV emptied it. Anything long you copied inside the project
 and still need has to be pasted before you browse. The MIDI clipboard is
 never affected.</li>
 </ul>
+<h3 id="long-files-streamed-import"><a class="header" href="#long-files-streamed-import">Long files (streamed import)</a></h3>
+<p>A WAV or AIFF longer than 12 minutes — a long jam, an album side, a podcast
+— does not fit the clipboard’s memory, so Track8 imports it differently
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>), with the same two presses
+(<a href="https://github.com/ThingstoneGmbH/Track8/issues/347">#347</a>):</p>
+<ul>
+<li><strong>Copy</strong> puts a <em>reference</em> to the file in the audio clipboard (the
+clipboard bar fills as usual).</li>
+<li><strong>Paste</strong> on the Audio Overview or Audio Edit streams the file from the
+stick onto the selected track, a few seconds at a time. An <code>IMPORTING</code>
+overlay with a percentage bar shows the progress; a 40-minute file takes
+a minute or two. Leave the stick in until it is done.</li>
+</ul>
+<p>What is different about a long import:</p>
+<ul>
+<li>It cannot be opened in the <a href="#audio-clipboard-modifier-1">Audio Clipboard Modifier</a>
+(<code>LONG IMPORT - NO MODIFIER</code>): paste it and edit on the tape with markers,
+LOOP + Cut / Copy, <a href="#-splice--insert--remove-time">SPLICE</a>
+and <a href="#editing-audio">Audio Edit</a>.</li>
+<li><strong>SHIFT + Paste</strong> (bounce) pastes it plainly onto the selected track.</li>
+<li>The browser’s <strong>PASTE</strong> (save to stick) is dim: the file is already on the
+stick.</li>
+<li>Pasting it <strong>over existing audio</strong> longer than 12 minutes cannot be
+undone (<code>NO UNDO FOR THIS PASTE</code>); pasting onto empty tape, or over less,
+undoes as usual.</li>
+<li>Pulling the stick <strong>empties</strong> a clipboard that refers to a file on it
+(the audio clipboard bar goes dark); plug it back in and Copy again. Should
+the file be gone for another reason, Paste says <code>FILE NOT FOUND</code> and
+empties the clipboard too. Pulled <em>during</em> the import, what was written
+stays (<code>IMPORT STOPPED AT …</code>).</li>
+<li>The tape is <strong>3 hours</strong> long: a file that would reach past that is cut
+off at the end (<code>CLIPPED AT TAPE END</code>), see the
+<a href="#end-of-tape">Audio Overview</a>.</li>
+</ul>
 <h2 id="picking-an-impulse-for-convolve"><a class="header" href="#picking-an-impulse-for-convolve">Picking an impulse for CONVOLVE</a></h2>
 <p>The browser also opens from the <a href="#audio-clipboard-modifier-1">Audio Clipboard Modifier</a>’s
 <code>CONVOLVE</code> group (push Encoder 4, <code>SOURCE</code>; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).
@@ -7383,7 +7442,9 @@ you); names already used in that folder are refused. A <code>Saving as WAV</code
 <p>If the audio <strong>PASTE</strong> label is dim although you copied something, the
 folder’s first WAV file was too long to keep next to your clipboard (see
 <a href="#importing-into-the-project">Importing</a>): copy again and save into a
-folder that starts with a sub-folder, a MIDI file or a shorter WAV.</p>
+folder that starts with a sub-folder, a MIDI file or a shorter WAV. It is
+also dim while the clipboard holds a <a href="#long-files-streamed-import">long file</a>,
+which is on the stick already.</p>
 <h2 id="deleting"><a class="header" href="#deleting">Deleting</a></h2>
 <p>Hold <strong>SHIFT</strong> and push <strong>Encoder 4</strong> (<strong>DELETE</strong>) to delete the selected
 file or folder. A confirmation asks <code>DELETE FILE?</code> / <code>DELETE FOLDER?</code> with

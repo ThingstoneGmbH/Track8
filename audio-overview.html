@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-2f7fff65.js";
+            window.path_to_searchindex_js = "searchindex-6d52c5e5.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -223,6 +223,21 @@
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> → <a href="editing-audio.html">Audio Edit</a>. The edit view opens on the parameter you last adjusted with an encoder — turn a Volume/Pan/Send encoder, then <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> to edit its automation directly (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <hr>
+<h3 id="end-of-tape"><a class="header" href="#end-of-tape">⏹ The end of the tape (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h3>
+<p>The tape is <strong>3 hours</strong> long — the longest track file the SD card’s format
+can hold. The end is drawn like the start: the beat ruler and the track
+lanes stop there, on both overviews.</p>
+<ul>
+<li>Playback and recording <strong>stop</strong> when the playhead reaches the end
+(<code>END OF TAPE</code>); a locate never goes past it, and loop and punch points
+stay inside it</li>
+<li>Anything written past the end is <strong>cut off</strong>: a paste, a
+<a href="usb-browser.html#long-files-streamed-import">long import</a>, a recording,
+or the tail a SPLICE insert pushes over the edge (<code>CLIPPED AT TAPE END</code>).
+Undo of a clipped SPLICE brings the cut tail back</li>
+<li>Long pastes, cuts, clears, undos and redos — anything over a minute of
+audio — show their progress as a percentage bar while the tape is rewritten</li>
+</ul>
 <h3 id="-splice--insert--remove-time-new-in-v122"><a class="header" href="#-splice--insert--remove-time-new-in-v122">✂️ SPLICE — insert / remove time (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</a></h3>
 <p>Open up blank bars at the playhead, or remove bars so everything after closes the gap — the two things a razor blade does on real tape. One splice moves <strong>everything</strong> behind the splice point: all 8 audio tracks with their automation, all MIDI tracks, and the markers, loop and punch points.</p>
 <ul>
@@ -234,6 +249,7 @@
 <li>The splice point is the playhead position at the <strong>first</strong> click. To splice somewhere else, scroll there (which discards the staged amount) and stage again</li>
 <li>Markers <strong>move with the tape</strong> — locked markers and tempo/signature markers too, so the bar/beat readout behind the splice stays what it was. Markers inside a removed span are deleted; loop and punch points inside it collapse to the splice point</li>
 <li>A removal is limited to <strong>1:30</strong> of tape per splice (the removed audio of all 8 tracks stays on the Undo stack, like a Cut). A removal that would swallow a tempo or signature marker is refused — move the playhead past it or remove the variation first</li>
+<li>An insert that pushes audio past the <a href="#end-of-tape">end of the tape</a> (3 hours) cuts that audio off (<code>CLIPPED AT TAPE END</code>); Undo brings it back (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Audio automation: an insert opens a gap that plays at the fader value; a removal lets the neighbouring points interpolate across the seam. MIDI CC / pitch-bend / aftertouch set inside a removed span carry their last value over to the splice point</li>
 <li><strong>Undo</strong> reverts a splice completely — audio, automation, MIDI, and since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a> also the markers, loop and punch points — from either screen (<code>UNDO SPLICE n%</code>); <strong>Redo</strong> re-applies it</li>
 <li>The same SPLICE encoder is on the <a href="midi-overview.html#scroll">MIDI Overview</a> and does exactly the same thing from there</li>
