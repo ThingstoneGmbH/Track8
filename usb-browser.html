@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-420319ec.js";
+            window.path_to_searchindex_js = "searchindex-a33f04a8.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -229,9 +229,10 @@ are ignored and the file plays at the project tempo.</p>
 <h2 id="importing-into-the-project"><a class="header" href="#importing-into-the-project">Importing into the project</a></h2>
 <p>Press <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_copy-area-dark.svg"><img alt="copy" src="icons/individual/track8_copy-area-light.svg" width="24"></picture> (<strong>Copy</strong>) with a file selected:</p>
 <ul>
-<li>a <code>.wav</code> goes into the <strong>audio clipboard</strong> as one track</li>
+<li>a <code>.wav</code> or an AIFF (<code>.aif</code> / <code>.aiff</code> / <code>.aifc</code>) goes into the <strong>audio clipboard</strong> as one track</li>
 <li>a <code>.mid</code> goes into the <strong>MIDI clipboard</strong> as one track</li>
 </ul>
+<p>Audio files are recognised by their content, not their name (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>): an AIFF file that was named <code>.wav</code> — Logic’s Space Designer exports its impulse responses that way — loads like any other. WAV and AIFF at any sample rate, 8 to 32 bit or float, mono or stereo are converted to the project format on the way in; AIFF-C files compressed with anything but plain PCM, and files with more than two channels, show <code>Reading error</code>.</p>
 <p>The clipboard bars at the bottom of the screen (AUDIO / MIDI) show what is
 loaded. Then leave the browser, select the destination track on the
 <a href="audio-overview.html">Audio Overview</a> or <a href="midi-overview.html">MIDI Overview</a>,
@@ -251,6 +252,14 @@ browsing any WAV emptied it. Anything long you copied inside the project
 and still need has to be pasted before you browse. The MIDI clipboard is
 never affected.</li>
 </ul>
+<h2 id="picking-an-impulse-for-convolve"><a class="header" href="#picking-an-impulse-for-convolve">Picking an impulse for CONVOLVE</a></h2>
+<p>The browser also opens from the <a href="audio-clipboard-modifier.html">Audio Clipboard Modifier</a>’s
+<code>CONVOLVE</code> group (push Encoder 4, <code>SOURCE</code>; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).
+It then says <code>IMPULSE FOR CONVOLVE</code> along the bottom instead of the
+clipboard bars: browse and preview as usual, and <strong>Copy</strong> on a <code>.wav</code> takes
+the file’s first 5 s as the impulse and returns to the modifier (WAV or AIFF alike) — the
+clipboard is not touched, whatever its size. <strong>Track 1</strong> at the root of
+the stick (<code>BACK</code>) returns without a file; PASTE is not offered in this mode.</p>
 <h2 id="saving-the-clipboard-to-the-stick"><a class="header" href="#saving-the-clipboard-to-the-stick">Saving the clipboard to the stick</a></h2>
 <p>Inside a folder (not at the root of the stick; in the Companion App also in
 the picked folder itself), two <strong>PASTE</strong> labels appear on Track 4 and
