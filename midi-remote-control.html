@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-a33f04a8.js";
+            window.path_to_searchindex_js = "searchindex-39ab6409.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -317,11 +317,12 @@
 <tr><td>Record</td><td>Record</td><td>lit while recording, blinks while record is on and the tape stands</td></tr>
 <tr><td>Rewind / Forward</td><td>one step left / right, repeating while held</td><td></td></tr>
 <tr><td>Cursor Left / Right, Bank ◀ ▶</td><td>previous / next marker</td><td></td></tr>
-<tr><td>Zoom</td><td>latches: the cursor buttons then zoom the overview in view (Right / Up in, Left / Down out); Bank ◀ ▶ keep jumping between markers</td><td>lit while latched</td></tr>
+<tr><td>Zoom</td><td>latches: the cursor buttons then work on the overview in view — Left / Right zoom out / in, Up / Down make the scroll step finer / coarser (the jog wheel moves in that step); Bank ◀ ▶ keep jumping between markers</td><td>lit while latched</td></tr>
 <tr><td>Jog wheel</td><td>moves the playhead by the scroll step</td><td></td></tr>
 <tr><td>Cycle</td><td>loop on / off</td><td>lit while looping</td></tr>
 <tr><td>Drop</td><td>punch on / off</td><td>lit while punch is on</td></tr>
 <tr><td>Marker</td><td>sets a marker at the playhead</td><td></td></tr>
+<tr><td>Nudge</td><td>SHIFT + Play: to the start marker, or wherever <code>SHIFT PLAY</code> is set to go</td><td></td></tr>
 <tr><td>Click</td><td>metronome on / off</td><td>lit while on, blinks while the metronome is set to <code>REC</code></td></tr>
 <tr><td>F1 … F8</td><td><code>Locate 1</code> … <code>Locate 8</code> (see <a href="#locators">Locators</a>)</td><td></td></tr>
 <tr><td>SMPTE/BEATS</td><td>switches the time display</td><td></td></tr>
@@ -330,7 +331,7 @@
 </div>
 <p>Buttons not listed here do nothing.</p>
 <h3 id="time-display"><a class="header" href="#time-display">Time display</a></h3>
-<p>The time display shows the bar and beat of the Track8 screen (<code>BEATS</code>), or a timecode readout <code>000.00.00.00</code> — hours, minutes, seconds and frames (<code>TIME</code>, frames at the <code>FRAME RATE</code> set for MTC). The SMPTE/BEATS button switches between them, per controller, and the choice is remembered. It works in any sync mode, also while Track8 sends MIDI clock.</p>
+<p>The time display shows the bar and beat of the Track8 screen (<code>BEATS</code>), or a timecode readout <code>00.00.00.00</code> — hours, minutes, seconds and frames (<code>TIME</code>, frames at the <code>FRAME RATE</code> set for MTC). The SMPTE/BEATS button switches between them, per controller, and the choice is remembered. It works in any sync mode, also while Track8 sends MIDI clock.</p>
 <h3 id="channel-strips"><a class="header" href="#channel-strips">Channel strips</a></h3>
 <p>Strip 1–8 is audio track 1–8.</p>
 <div class="table-wrapper">
