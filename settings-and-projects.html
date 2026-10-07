@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-6d52c5e5.js";
+            window.path_to_searchindex_js = "searchindex-563a8914.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -244,61 +244,70 @@ the quick way through a long list of prefix-named projects (since <a href="https
 <li><strong>BACKUP</strong> (Track 2) — back up the selected project to a USB stick</li>
 <li><strong>IMPORT</strong> (Track 3) — import a backup from a USB stick</li>
 <li><strong>SAVE AS</strong> (Track 4) — save the current project under a new name;
-<strong>Encoder 7</strong> on the keyboard picks the copy’s <a href="#project-labels">label</a>
-(starts on the source’s)</li>
+<strong>Encoder 7</strong> on the keyboard picks the copy’s <a href="#project-disks">disk</a>
+(starts on the disk you are looking at)</li>
 <li><strong>RENAME</strong> (Track 5) — rename the selected project; <strong>Encoder 7</strong> on the
-keyboard picks its <a href="#project-labels">label</a>. With the name left as it is
-the button reads <strong>UPDATE</strong> and only the label changes</li>
+keyboard picks its <a href="#project-disks">disk</a>. With the name left as it is the
+button reads <strong>UPDATE</strong> and only the disk changes, and the project moves to its new disk at once</li>
 <li><strong>SHIFT</strong> + Track 6 — delete the selected project (the active project
 cannot be deleted; a confirmation dialog appears)</li>
 <li><strong>NEW</strong> (Track 7) — create a new project; <strong>Encoder 1</strong> on the name
-keyboard picks a <strong>template</strong> (<code>TEMPLATE: ---</code> = empty project),
-<strong>Encoder 7</strong> a <a href="#project-labels">label</a> (<code>LABEL: ---</code> = none)</li>
-<li><strong>Encoder 7</strong> — <strong>FILTER</strong> the list by <a href="#project-labels">label</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+keyboard picks a <strong>template</strong> (<code>TEMPLATE: ---</code> = empty project; a
+highlighted template is preselected),
+<strong>Encoder 7</strong> a <a href="#project-disks">disk</a> (<code>DISK: ---</code> = unlabelled)</li>
+<li><strong>Encoder 7</strong> — slide along the row of <a href="#project-disks">disks</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Leaving any of these keyboards with <strong>EXIT</strong> returns to the browser</li>
 </ul>
-<h3 id="project-labels"><a class="header" href="#project-labels">Project Labels</a></h3>
+<h3 id="project-disks"><a class="header" href="#project-disks">Project Disks</a></h3>
 <p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</p>
-<p>A label is a short word (up to 12 characters) attached to a project —
-<code>ALBUM</code>, <code>LIVE</code>, <code>IDEAS</code>, a client name — that groups projects in the
-browser like a folder would, without moving anything on disk. A project
-has at most one label; projects without one are simply unlabelled. Labels
-exist on their own: an empty label is kept until you delete it, like an
-empty folder.</p>
-<p><strong>Looking into a label (Encoder 7, <code>FILTER:</code>)</strong></p>
+<p>Think of a shelf of floppy disks: every project sits on exactly one, and
+the browser shows one disk at a time with its neighbours peeking in from
+the sides. A disk is a label — a short word (up to 12 characters) such as
+<code>ALBUM</code>, <code>LIVE</code>, <code>IDEAS</code> or a client name — with a colour. Nothing moves
+in the file system, and a disk stays on the shelf until you delete it,
+even when it is empty.</p>
+<p><strong>The shelf</strong> (Encoder 7), from left to right:</p>
+<ol>
+<li><code>UNLABELED</code> — every project without a label. If you never label
+anything, this is simply your project list.</li>
+<li>One disk per label, in alphabetical order, with its name in its colour
+as the header over the list.</li>
+<li><code>TEMPLATES</code> — your <a href="#project-templates">templates</a>.</li>
+<li><code>NEW DISK</code> — an empty page: <strong>push</strong> Encoder 7 here to create a disk on
+the keyboard (<strong>Encoder 8</strong> picks its colour). The browser then shows
+the new, empty disk and <strong>NEW</strong> creates the first project in it.</li>
+</ol>
+<img alt="Project Browser with the ALBUM disk on show" src="images/screens/ProjectBrowser-Disk.png" width="900">
+<p>The shelf is drawn as a row of floppy disks across the top of the screen,
+one per disk in its colour with its name underneath. The disk on show is the
+big one in the middle; the others get smaller and dimmer the further out
+they sit and run off both edges of the screen, so you always see where you
+are on the shelf. Turning Encoder 7 slides the whole row by one disk; the
+caption under the encoder repeats the disk’s name. The disk’s project list
+and the waveform preview sit underneath, side by side. Each disk remembers
+which project you had highlighted until the next restart; the browser
+opens on <code>UNLABELED</code>.</p>
 <ul>
-<li>Turn from <code>ALL</code> (projects and templates) to <code>TEMPLATES</code> (templates only)
-and on through your labels; a label shows only the projects carrying it.
-The last entry is <code>NEW LABEL</code>, which lists everything like <code>ALL</code> and shows
-a <code>^</code> on the caption: <strong>push</strong> here creates a <strong>new label</strong> on the keyboard
-and switches the filter to it — a new, empty folder. <strong>NEW</strong> then creates
-the first project inside it: the label picker on the NEW keyboard starts
-on the active filter. The filter is not remembered across a restart; the
-browser opens on <code>ALL</code>.</li>
-<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push while a label is filtered <strong>deletes the label</strong> after a
-confirmation. The projects are kept, they just lose the label.</li>
-<li><strong>Push</strong> while a label is filtered opens <strong>RENAME LBL</strong>: rename the
-label (and change its colour) on every project carrying it. The <code>^</code> on
-the caption shows whenever push does something here.</li>
+<li><strong>Push</strong> on a disk opens <strong>RENAME DISK</strong>: rename it (and change its
+colour) for every project in it. The <code>^</code> on the caption shows whenever
+push does something.</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push on a disk <strong>deletes the disk</strong> after a confirmation. The
+projects are kept; they move to <code>UNLABELED</code>.</li>
 </ul>
-<p><strong>Labelling a project</strong></p>
-<p>The label is decided where the name is: <strong>Encoder 7</strong> on the <strong>NEW</strong>,
-<strong>SAVE AS</strong> and <strong>RENAME</strong> keyboards picks it (<code>LABEL: ---</code> = none), like
-Encoder 1 picks a template. To change the label of an existing project,
-press <strong>RENAME</strong>, turn Encoder 7 and confirm — with the name untouched the
-button reads <strong>UPDATE</strong> and nothing is renamed. Like APPLY in the marker
-editor, the button lights up as soon as the name or the label differs from
-what you opened with. The selected project’s
-label is shown in the box on the left of the browser. A label never changes
-by an accidental encoder turn: it always goes through a keyboard.</p>
-<p>On the label keyboards (<code>NEW LABEL</code>, <code>RENAME LBL</code>) <strong>Encoder 8</strong> picks the
-label’s <strong>colour</strong> (<code>COLOR</code>, the marker palette). A new label starts on the
-first colour no other label uses. Labelled projects show a <code>&gt;</code> in the
-label’s colour in front of their name.
-Labels travel with the project: <strong>RENAME</strong>, <strong>SAVE AS</strong>, <strong>BACKUP</strong> and
-<strong>IMPORT</strong> keep them, and a label that arrives with an import joins your
-list. On the SSD a label is the one-line file <code>label</code> inside the project
-folder; the list of labels lives in the global settings.</p>
+<p><strong>Putting a project in a disk</strong></p>
+<p>The disk is decided where the name is: <strong>Encoder 7</strong> on the <strong>NEW</strong>,
+<strong>SAVE AS</strong> and <strong>RENAME</strong> keyboards picks it (<code>DISK: ---</code> = unlabelled),
+like Encoder 1 picks a template. NEW and SAVE AS start on the disk you are
+looking at, RENAME on the project’s current disk. To move an existing
+project, press <strong>RENAME</strong>, turn Encoder 7 and confirm — with the name
+untouched the button reads <strong>UPDATE</strong> and nothing is renamed. Like APPLY in
+the marker editor, the button lights up as soon as the name or the disk
+differs from what you opened with. A project never changes disk by an
+accidental encoder turn: it always goes through a keyboard.</p>
+<p>Disks travel with the project: <strong>RENAME</strong>, <strong>SAVE AS</strong>, <strong>BACKUP</strong> and
+<strong>IMPORT</strong> keep them, and a disk that arrives with an import joins your
+shelf. On the SSD a disk is the one-line file <code>label</code> inside the project
+folder; the shelf itself lives in the global settings.</p>
 <h3 id="project-templates"><a class="header" href="#project-templates">Project Templates</a></h3>
 <p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
 <p>A template is a project without content: it keeps the <strong>settings</strong> (BPM,
@@ -310,10 +319,10 @@ audio interface configuration, MIDI sync settings, threshold record and
 tuner settings (channel names and device profiles stay as they are).</p>
 <ul>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <strong>SAVE AS</strong> → <strong>SAVE TMP</strong> saves the current project’s settings as a template</li>
-<li>Templates are listed at the bottom of the browser as <code>TEMPLATE: &lt;name&gt;</code>
-(no waveform preview). With a template highlighted, <strong>LOAD</strong> turns into
-<strong>FROM TMP</strong>: enter a name for the new project (a random one is
-suggested) and it is created from the template</li>
+<li>Templates live on their own <code>TEMPLATES</code> <a href="#project-disks">disk</a> in the
+browser, listed by name (no waveform preview). With a template
+highlighted, <strong>LOAD</strong> turns into <strong>FROM TMP</strong>: enter a name for the new
+project (a random one is suggested) and it is created from the template</li>
 <li><strong>RENAME</strong> and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track 6 (delete) work on templates too</li>
 <li>The template’s setup is applied when the project is created. The active
 audio interface itself is never switched automatically: if the template

@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-6d52c5e5.js";
+            window.path_to_searchindex_js = "searchindex-563a8914.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -190,7 +190,7 @@
 <ul>
 <li><code>SOUNDCARD</code> (<code>Encoder 1</code>): select the interface (must be class-compliant)</li>
 <li><code>MODE</code> (<code>Encoder 3</code>): <code>MULTI</code> records multiple tracks at once, <code>SINGLE</code> is the classic one-track workflow</li>
-<li><code>MON</code> (<code>Encoder 5</code>): internal monitoring — routes the main mix to Track8’s own headphone output (useful for rack interfaces). Locked <code>ON</code> for input-only interfaces</li>
+<li><code>HYBRID</code> (<code>Encoder 5</code>, was <code>MON</code> up to v1.2.3): how much of Track8’s own soundcard stays in use next to the interface (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). <code>OFF</code> = the interface alone. <code>MON</code> = the main mix also plays on Track8’s headphone output (useful for rack interfaces). <code>FULL</code> = <code>MON</code> plus Track8’s own XLR / line inputs, which then appear as <code>INT L</code> / <code>INT R</code> on every input mapping page, after the interface’s channels. Input-only interfaces start at <code>MON</code></li>
 <li><code>RATE</code> (<code>Encoder 6</code>): 48k / 44.1k (since v1.1.1)</li>
 <li><code>BUFFER SIZE</code> (<code>Encoder 7/8</code>): <code>96</code> or <code>144</code> for external interfaces (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>) — USB audio travels in 1 ms packets, and only whole-millisecond buffers line up with them; the other sizes made the engine restart on every other buffer. Eight tracks recording at once with every effect on needs <code>144</code>. Push the encoder to switch to <code>PERIODS</code> (3-5, default 3) if you get crackles at your preferred buffer size (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li><code>Track Button 8</code> (<code>APPLY</code>): apply changes and restart the audio engine</li>
@@ -202,6 +202,8 @@
 <h3 id="trk-in"><a class="header" href="#trk-in">TRK IN</a></h3>
 <ul>
 <li>Assign an input pair per track (in <code>SINGLE</code> mode: one <code>SINGLE IN</code> input pair)</li>
+<li>With <code>HYBRID</code> = <code>FULL</code>, Track8’s own inputs are offered as <code>INT L</code> / <code>INT R</code> after the interface’s channels — on <code>TRK IN</code>, <code>SINGLE IN</code>, the insert return and <code>EXTERNAL</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). The two cards do not share a clock, so these two inputs are matched to the interface’s clock on the way in and arrive a few milliseconds later than the interface’s own inputs; a recorded take is shifted by that amount automatically, on top of the track’s <code>REC OFFSET</code>. Give them a name on <code>IO NAMES</code> like any other input</li>
+<li>Switching <code>HYBRID</code> below <code>FULL</code> keeps a mapping that points at <code>INT L</code> / <code>INT R</code>, but it carries no signal: the mapping pages show it in brackets, <code>(INT L)</code>, the Overview’s input indicator shows <code>-</code>, and the track cannot be armed until <code>HYBRID</code> is <code>FULL</code> again</li>
 </ul>
 <h3 id="inserts-renamed-from-sendreturns-in-v121"><a class="header" href="#inserts-renamed-from-sendreturns-in-v121">INSERTS (renamed from Send/Returns in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <ul>
@@ -247,8 +249,8 @@
 <hr>
 <h2 id="-monitoring"><a class="header" href="#-monitoring">🎧 Monitoring</a></h2>
 <ul>
-<li>Internal Monitoring (<code>MON</code>) routes the main mix to the built-in headphone output</li>
-<li>Interfaces <strong>without outputs</strong> are supported (since v1.1.5) — internal monitoring is then always on, and the Inserts/Sends/Main Out pages are hidden</li>
+<li><code>HYBRID</code> = <code>MON</code> or <code>FULL</code> routes the main mix to the built-in headphone output (<code>MON</code> was a simple on/off up to v1.2.3)</li>
+<li>Interfaces <strong>without outputs</strong> are supported (since v1.1.5) — <code>HYBRID</code> is then at least <code>MON</code>, and the Inserts/Sends/Main Out pages are hidden</li>
 <li>If the USB interface disconnects, Track8 automatically falls back to the internal soundcard</li>
 </ul>
 <hr>

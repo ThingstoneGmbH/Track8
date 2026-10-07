@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-6d52c5e5.js";
+            window.path_to_searchindex_js = "searchindex-563a8914.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -415,8 +415,8 @@ family of related views:</p>
 classic route via the UTILITY track button still works</li>
 <li><strong>Master FX</strong> → Master FX → Mastering → External Inputs (External Inputs
 only with an external soundcard) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
-<li><strong>SHIFT + Master FX</strong> → Track FX ↔ Track Sends (Track Sends only with an
-external soundcard) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li><strong>SHIFT + Master FX</strong> → Track FX → Track FX 2 → Track Sends (Track Sends only with an
+external soundcard) (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>); the page changes on release, so the held key can solo (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 <h3 id="hold-shortcuts"><a class="header" href="#hold-shortcuts">Hold Shortcuts</a></h3>
 <ul>
@@ -424,6 +424,9 @@ external soundcard) (new in <a href="https://github.com/ThingstoneGmbH/Track8/re
 Overview (since v1.1.2)</li>
 <li>Hold <strong>Midi</strong> + Track Button — solo/unsolo a MIDI track on the Midi
 Overview (since v1.1.2)</li>
+<li>Hold <strong>SHIFT</strong> + <strong>Master FX</strong> (the Track FX key) + Track Button — solo/unsolo
+an audio track on Track FX, Track FX 2 and Track Sends; the SHIFT row shows
+each track’s <code>MUTED</code> / <code>SOLO</code> state (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Hold <strong>Audio</strong> + <strong>Midi</strong>, then press a Track Button — select the same
 track for both Audio and MIDI (since v1.1.3)</li>
 <li>Hold <strong>Settings</strong>, then press <strong>Audio</strong> — open the Soundcard settings</li>
@@ -1269,8 +1272,8 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Grain Size</td><td>Note value</td></tr>
-<tr><td>Encoder 5</td><td>Grain Rate</td><td>Onset interval, note value</td></tr>
+<tr><td>Encoder 4</td><td>Grain Size</td><td>Note value, ms in Jump mode</td></tr>
+<tr><td>Encoder 5</td><td>Grain Rate</td><td>Onset interval, note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 6</td><td>Contour</td><td>Push to toggle Follow / Hold</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -1287,8 +1290,8 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Grain Size</td><td>Note value</td></tr>
-<tr><td>Encoder 5</td><td>Grain Rate</td><td>Onset interval, note value</td></tr>
+<tr><td>Encoder 4</td><td>Grain Size</td><td>Note value, ms in Jump mode</td></tr>
+<tr><td>Encoder 5</td><td>Grain Rate</td><td>Onset interval, note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 6</td><td>Contour</td><td>Push to toggle Follow / Hold</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -1422,7 +1425,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1440,7 +1443,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1474,7 +1477,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1492,7 +1495,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1526,7 +1529,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1544,7 +1547,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1578,7 +1581,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>-100 to 100 %, positive low-pass, negative high-pass</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1596,7 +1599,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>-100 to 100 %, positive low-pass, negative high-pass</td></tr>
 <tr><td>Encoder 6</td><td>Shape</td><td>Push to advance phase 90°</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1630,7 +1633,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Time</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Time</td><td>Note value, ms in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Feedback</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Mix</td><td>Wet %</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1648,7 +1651,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Time</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Time</td><td>Note value, ms in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Feedback</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Mix</td><td>Wet %</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1683,7 +1686,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Time</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Time</td><td>Note value, ms in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Feedback</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Mix</td><td>Wet %</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1701,7 +1704,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Time</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Time</td><td>Note value, ms in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Feedback</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Mix</td><td>Wet %</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -1839,9 +1842,9 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
 </thead>
 <tbody>
-<tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
-<tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 1</td><td>Jump Step</td><td>Push to toggle Grid / ms</td></tr>
+<tr><td>Encoder 2</td><td>Start (ms)</td><td>Push to set to playhead</td></tr>
+<tr><td>Encoder 3</td><td>End (ms)</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 4</td><td>Source</td><td>Clipboard track (or the WAV loaded from the USB stick) whose material is the impulse; every other track is convolved with it. Push opens the USB browser: Copy there takes a WAV’s first 5 s as the impulse</td></tr>
 <tr><td>Encoder 5</td><td>End / Start</td><td>Impulse span in the source (track or file), grid steps, 10 ms .. 5 s; push to switch which end the encoder moves (Start carries the span along, or trims it from the front while End is at the end of the material)</td></tr>
 <tr><td>Encoder 6</td><td>Mix / Tilt</td><td>Wet %; push to switch to Tilt, dark .. bright</td></tr>
@@ -2216,7 +2219,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 4</td><td>Factor</td><td>1x .. 64x, the region holds the first 1/factor of the source, smeared</td></tr>
-<tr><td>Encoder 5</td><td>Window</td><td>Note value: short = grainy, long = smooth</td></tr>
+<tr><td>Encoder 5</td><td>Window</td><td>Note value (ms in Jump mode): short = grainy, long = smooth</td></tr>
 <tr><td>Encoder 6</td><td>Origin</td><td>Where in the region the stretched source starts %, push to take the playhead</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -2234,7 +2237,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
 <tr><td>Encoder 4</td><td>Factor</td><td>1x .. 64x, the region holds the first 1/factor of the source, smeared</td></tr>
-<tr><td>Encoder 5</td><td>Window</td><td>Note value: short = grainy, long = smooth</td></tr>
+<tr><td>Encoder 5</td><td>Window</td><td>Note value (ms in Jump mode): short = grainy, long = smooth</td></tr>
 <tr><td>Encoder 6</td><td>Origin</td><td>Where in the region the stretched source starts %, push to take the playhead</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -2271,7 +2274,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 4</td><td>Point</td><td>Where the freeze starts %, push to take the playhead</td></tr>
-<tr><td>Encoder 5</td><td>Length</td><td>Note value, or To End</td></tr>
+<tr><td>Encoder 5</td><td>Length</td><td>Note value (ms in Jump mode), or To End</td></tr>
 <tr><td>Encoder 6</td><td>Blur</td><td>0 loops the frame, 100 random phases</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -2289,7 +2292,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
 <tr><td>Encoder 4</td><td>Point</td><td>Where the freeze starts %, push to take the playhead</td></tr>
-<tr><td>Encoder 5</td><td>Length</td><td>Note value, or To End</td></tr>
+<tr><td>Encoder 5</td><td>Length</td><td>Note value (ms in Jump mode), or To End</td></tr>
 <tr><td>Encoder 6</td><td>Blur</td><td>0 loops the frame, 100 random phases</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
 <tr><td>Encoder 8</td><td>Scroll</td><td>—</td></tr>
@@ -2325,7 +2328,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Time</td><td>Smear across time, note value</td></tr>
+<tr><td>Encoder 4</td><td>Time</td><td>Smear across time, note value, ms in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Freq</td><td>Smear across frequency %</td></tr>
 <tr><td>Encoder 6</td><td>Mix</td><td>Wet %</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -2343,7 +2346,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Time</td><td>Smear across time, note value</td></tr>
+<tr><td>Encoder 4</td><td>Time</td><td>Smear across time, note value, ms in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Freq</td><td>Smear across frequency %</td></tr>
 <tr><td>Encoder 6</td><td>Mix</td><td>Wet %</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -2600,7 +2603,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Mix</td><td>Wet %, push to cycle 2 / 3 / 4 voices</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -2618,7 +2621,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Mix</td><td>Wet %, push to cycle 2 / 3 / 4 voices</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -2655,7 +2658,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Feedback</td><td>-95 .. 95 %, negative inverts</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -2673,7 +2676,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%</td></tr>
 <tr><td>Encoder 6</td><td>Feedback</td><td>-95 .. 95 %, negative inverts</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -2710,7 +2713,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Grid</td><td>Push to toggle Grid / ms</td></tr>
 <tr><td>Encoder 2</td><td>Start</td><td>Push to set to playhead</td></tr>
 <tr><td>Encoder 3</td><td>End</td><td>Push to set to playhead</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%, push to cycle 4 / 8 / 12 stages</td></tr>
 <tr><td>Encoder 6</td><td>Feedback</td><td>-95 .. 95 %, negative inverts</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -2728,7 +2731,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 1</td><td>Scale</td><td>Chromatic, modes, pentatonics, blues, whole tone, fifths, single — for Spray / Reso / Tune / Tuned / Comb / Harmony</td></tr>
 <tr><td>Encoder 2</td><td>Span</td><td>Octaves</td></tr>
 <tr><td>Encoder 3</td><td>Root</td><td>Note</td></tr>
-<tr><td>Encoder 4</td><td>Rate</td><td>Note value</td></tr>
+<tr><td>Encoder 4</td><td>Rate</td><td>Note value, Hz in Jump mode</td></tr>
 <tr><td>Encoder 5</td><td>Depth</td><td>%, push to cycle 4 / 8 / 12 stages</td></tr>
 <tr><td>Encoder 6</td><td>Feedback</td><td>-95 .. 95 %, negative inverts</td></tr>
 <tr><td>Encoder 7</td><td>Zoom factor</td><td>0.25x to 2048x</td></tr>
@@ -4339,7 +4342,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </tbody>
 </table>
 </div>
-<p><strong>Track buttons with Shift held:</strong> all track buttons — Quick select Track</p>
+<p><strong>Track buttons with Shift held:</strong> all track buttons — Quick select Track; with the Track FX key (Shift + Master FX) held too: Solo / Un-solo</p>
 <p><strong>Buttons that work differently on this screen</strong></p>
 <div class="table-wrapper">
 <table>
@@ -4383,7 +4386,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </tbody>
 </table>
 </div>
-<p><strong>Track buttons with Shift held:</strong> all track buttons — Quick select Track</p>
+<p><strong>Track buttons with Shift held:</strong> all track buttons — Quick select Track; with the Track FX key (Shift + Master FX) held too: Solo / Un-solo</p>
 <p><strong>Buttons that work differently on this screen</strong></p>
 <div class="table-wrapper">
 <table>
@@ -4549,7 +4552,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><th>Encoder</th><th>Turn</th><th>Push</th></tr>
 </thead>
 <tbody>
-<tr><td>Encoder 7</td><td>Filter: ALL / TEMPLATES / label / NEW LABEL</td><td>Label: rename, SHIFT: delete; NEW LABEL: create</td></tr>
+<tr><td>Encoder 7</td><td>Disk: UNLABELED / labels / TEMPLATES / NEW DISK</td><td>Disk: rename, SHIFT: delete; NEW DISK: create</td></tr>
 <tr><td>Encoder 8</td><td>Scroll projects, SHIFT: jump by letter</td><td>Load</td></tr>
 </tbody>
 </table>
@@ -4563,10 +4566,10 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tbody>
 <tr><td>2</td><td>Backup to USB Stick</td></tr>
 <tr><td>3</td><td>Import Backup from USB Stick</td></tr>
-<tr><td>4</td><td>Save As (Encoder 7 picks a label), SHIFT: save settings as Template</td></tr>
-<tr><td>5</td><td>Rename project / template (Encoder 7 picks a label; name unchanged = UPDATE label only)</td></tr>
+<tr><td>4</td><td>Save As (Encoder 7 picks a disk), SHIFT: save settings as Template</td></tr>
+<tr><td>5</td><td>Rename project / template (Encoder 7 picks a disk; name unchanged = UPDATE disk only)</td></tr>
 <tr><td>6</td><td>Hold SHIFT to delete</td></tr>
-<tr><td>7</td><td>New project, Encoder 1 picks a Template, Encoder 7 a label</td></tr>
+<tr><td>7</td><td>New project, Encoder 1 picks a Template, Encoder 7 a disk</td></tr>
 <tr><td>8</td><td>Load, on a Template: new project FROM TMP</td></tr>
 </tbody>
 </table>
@@ -4798,6 +4801,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tbody>
 <tr><td>Encoder 1</td><td>Select a Soundcard</td><td>Must be class-compliant</td></tr>
 <tr><td>Encoder 3</td><td>Multi allows to record more than 1 Track at a time</td><td>—</td></tr>
+<tr><td>Encoder 5</td><td>Hybrid: MON plays the mix on the headphone out, FULL also offers the built-in inputs</td><td>—</td></tr>
 <tr><td>Encoder 6</td><td>Fallback to 44.1k</td><td>Degrades audio</td></tr>
 <tr><td>Encoder 7</td><td>Some Interfaces might need a higher Buffer</td><td>—</td></tr>
 </tbody>
@@ -5617,7 +5621,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><th>Encoder</th><th>Function</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><code>GRID</code> — step size for Start/End/Scroll. Push to toggle <code>JUMP</code> mode (free millisecond steps instead of the musical grid)</td></tr>
+<tr><td>1</td><td><code>GRID</code> — step size for Start/End/Scroll. Push to toggle <code>JUMP</code> mode (free millisecond steps instead of the musical grid). The groups’ rate and time encoders follow it, see <a href="#free-rates-and-times">Free rates and times</a></td></tr>
 <tr><td>2</td><td><code>START</code> of the edit region — push to set Start to the playhead</td></tr>
 <tr><td>3</td><td><code>END</code> of the edit region — push to set End to the playhead</td></tr>
 <tr><td>4–6</td><td>Parameters of the selected group (see below)</td></tr>
@@ -5627,6 +5631,14 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </table>
 </div>
 <p>All edits apply to the region between <code>START</code> and <code>END</code> — by default the whole clipboard. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning a parameter encoder for fine steps.</p>
+<h3 id="free-rates-and-times"><a class="header" href="#free-rates-and-times">Free rates and times (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h3>
+<p>Every group encoder that holds a note value — <code>GRAIN</code> <code>SIZE</code> / <code>RATE</code>, the <code>RATE</code> of the four <code>MOD</code> LFOs and of <code>CHORUS</code> / <code>FLANGE</code> / <code>PHASER</code>, <code>DELAY</code> / <code>PINGPONG</code> <code>TIME</code>, <code>STRETCH</code> <code>WINDOW</code>, <code>FREEZE</code> <code>LENGTH</code> and <code>BLUR</code> <code>TIME</code> — follows Encoder 1:</p>
+<ul>
+<li>On the <code>GRID</code> it steps through the note values, now from <code>1/64</code> up to four whole notes (<code>4/1</code>), so a slow sweep is reachable without leaving the tempo</li>
+<li>Push Encoder 1 into <code>JUMP</code> mode and the same encoders become <strong>free of the tempo</strong>: a rate reads in Hz (<code>0.05Hz</code>–<code>20.0Hz</code>, a 20 s sweep at the slow end — the chorus at a tenth of a hertz the <code>VOICE</code> effects wanted), a time in ms (<code>1.00ms</code>–<code>20.00s</code>). They step in thirds of an octave like the <code>FILTER</code> cutoffs, a twelfth with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture>. The engines keep their own limits (a delay of at most 2 s, a blur of about a second)</li>
+<li>The push itself changes nothing you hear: the first click converts the value. In <code>JUMP</code> mode a note value turns into its time at the session tempo and steps on from there; back on the <code>GRID</code> a free value snaps to the next note value in the direction you turn</li>
+<li>A free value stays as it is when the tempo changes, a note value follows the tempo. Until it is turned on the <code>GRID</code> again, a free value keeps showing its Hz or ms, whichever mode Encoder 1 is in, so you can see it is not synced</li>
+</ul>
 <h3 id="tuning-settings---encoders-13-since-v122"><a class="header" href="#tuning-settings---encoders-13-since-v122">Tuning settings (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Encoders 1–3) (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</a></h3>
 <p>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> and the first three encoders become the <strong>tuning settings</strong> that the <code>SPRAY</code>, <code>RESO</code>, <code>TUNE</code>, <code>TUNED</code>, <code>COMB</code> and <code>HARMONY</code> groups read. They are settings, not edits: they persist like <code>GRID</code>, have no <code>APPLY</code>, and turning them never discards a group’s un-applied changes. The pushes keep their normal jobs.</p>
 <div class="table-wrapper">
@@ -5727,7 +5739,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><code>GRAIN</code></td><td>SIZE (grain length, note value 1/1–1/64)</td><td>RATE (grain onset interval, note value)</td><td>CONTOUR (-100 ramp down · SINE · +100 ramp up), push to toggle <code>FOLLOW</code> / <code>HOLD</code></td></tr>
+<tr><td>1</td><td><code>GRAIN</code></td><td>SIZE (grain length, note value 4/1–1/64, or ms in <code>JUMP</code> mode)</td><td>RATE (grain onset interval, note value, or Hz in <code>JUMP</code> mode)</td><td>CONTOUR (-100 ramp down · SINE · +100 ramp up), push to toggle <code>FOLLOW</code> / <code>HOLD</code></td></tr>
 <tr><td>2</td><td><code>SPRAY</code> (grains follow <code>GRID</code>)</td><td>POSITION (0–100 %, read-position scatter), push to re-roll</td><td>PITCH (0–100 %, chance of a scale-degree transposition)</td><td>REVERSE (0–100 %, chance of a backwards grain)</td></tr>
 <tr><td>3</td><td><code>RESO</code></td><td>SLOPE (<code>LP</code> -100 · <code>BP</code> · <code>HP</code> +100)</td><td>DECAY (0–100, ring time)</td><td>MIX (0–100 %) — the wet is level-matched to the dry (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td></tr>
 </tbody>
@@ -5748,7 +5760,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><code>VOL LFO</code> (tremolo)</td><td>RATE (note value 1/1–1/64)</td><td>DEPTH (0–100 %)</td><td>SHAPE (<code>SINE</code>, <code>TRI</code>, <code>SAW DN</code>, <code>SAW UP</code>, <code>SQUARE</code>, <code>S&amp;H</code>), push to advance the phase by 90°</td></tr>
+<tr><td>1</td><td><code>VOL LFO</code> (tremolo)</td><td>RATE (note value 4/1–1/64, or Hz in <code>JUMP</code> mode)</td><td>DEPTH (0–100 %)</td><td>SHAPE (<code>SINE</code>, <code>TRI</code>, <code>SAW DN</code>, <code>SAW UP</code>, <code>SQUARE</code>, <code>S&amp;H</code>), push to advance the phase by 90°</td></tr>
 <tr><td>2</td><td><code>PAN LFO</code> (auto-pan)</td><td>RATE</td><td>DEPTH</td><td>SHAPE</td></tr>
 <tr><td>3</td><td><code>PITCH LFO</code> (vibrato, ±12 st at 100 %)</td><td>RATE</td><td>DEPTH</td><td>SHAPE</td></tr>
 <tr><td>4</td><td><code>FILT LFO</code> (auto-wah)</td><td>RATE</td><td>DEPTH (-100 to 100 %): positive closes a low-pass from 20 kHz by up to 8 octaves, negative opens a high-pass from 20 Hz by up to 8 octaves</td><td>SHAPE</td></tr>
@@ -5768,7 +5780,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><code>DELAY</code></td><td>TIME (note value)</td><td>FEEDBACK (0–95 %)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>1</td><td><code>DELAY</code></td><td>TIME (note value, or ms in <code>JUMP</code> mode)</td><td>FEEDBACK (0–95 %)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>2</td><td><code>PINGPONG</code></td><td>TIME</td><td>FEEDBACK</td><td>MIX</td></tr>
 <tr><td>3</td><td><code>REVERB</code></td><td>SIZE (0–100), push to cycle the program <code>MODERN</code> / <code>HALL</code> / <code>AMBIENCE</code> / <code>GATED</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td><td>DAMP (0–100) · WIDTH (0–100) · PREDEL (0–120 ms) · GATE (-48–0 dB, <code>GATED</code> only) — push to cycle which one the encoder edits (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>4</td><td><code>LOOP</code></td><td>ROTATE (±64 grid steps)</td><td>XFADE (0–500 ms)</td><td>LAYER (0–100 %)</td></tr>
@@ -5811,7 +5823,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <li><code>FOLD</code> is a wavefolder: <code>FOLD</code> drives the signal into the folder (up to 16x), <code>SYMMETRY</code> offsets it so even harmonics appear, <code>SMOOTH</code> morphs the folds from triangle (buzzy) to sine (round)</li>
 <li><code>AMP</code> and <code>FOLD</code> hold the level: their output is matched to the input’s envelope, so <code>GAIN</code> and <code>FOLD</code> add harmonics rather than volume and the result pastes back onto the tape at the level it was copied</li>
 <li><code>RING</code> multiplies the region with a carrier at <code>FREQ</code>: low carriers tremble, higher ones produce the metallic sidebands ring modulation is known for. <code>FREQ</code> steps in thirds of an octave (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> = a twelfth). The carrier is locked to the region’s Start, so audition and <code>APPLY</code> sound the same</li>
-<li>While a <code>TAPE</code>, <code>AMP</code>, <code>FOLD</code> or <code>RING</code> setting is un-applied the waveform shows the distorted result</li>
+<li>While a <code>TAPE</code>, <code>AMP</code>, <code>FOLD</code> or <code>RING</code> setting is un-applied the waveform shows the distorted result; after a change it fills in from the playhead outward over a fraction of a second (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 <h3 id="spectr-page-since-v123"><a class="header" href="#spectr-page-since-v123">SPECTR page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.3">v1.2.3</a>)</a></h3>
 <p>Everything on this page works on the <strong>spectrum</strong> of the region, frame by frame, and is the experimental end of the modifier. It is where sounds are turned into textures.</p>
@@ -5821,9 +5833,9 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><code>STRETCH</code></td><td>FACTOR (1x–64x)</td><td>WINDOW (note value 1/1–1/64)</td><td>ORIGIN (0–100 %), push to take the playhead</td></tr>
-<tr><td>2</td><td><code>FREEZE</code></td><td>POINT (0–100 %), push to take the playhead</td><td>LENGTH (note value 1/64–1/1, one step further down = <code>TO END</code>)</td><td>BLUR (0–100)</td></tr>
-<tr><td>3</td><td><code>BLUR</code></td><td>TIME (note value)</td><td>FREQ (0–100)</td><td>MIX (0–100 %)</td></tr>
+<tr><td>1</td><td><code>STRETCH</code></td><td>FACTOR (1x–64x)</td><td>WINDOW (note value 4/1–1/64, or ms in <code>JUMP</code> mode)</td><td>ORIGIN (0–100 %), push to take the playhead</td></tr>
+<tr><td>2</td><td><code>FREEZE</code></td><td>POINT (0–100 %), push to take the playhead</td><td>LENGTH (note value 1/64–4/1, or ms in <code>JUMP</code> mode; one step further down = <code>TO END</code>)</td><td>BLUR (0–100)</td></tr>
+<tr><td>3</td><td><code>BLUR</code></td><td>TIME (note value, or ms in <code>JUMP</code> mode)</td><td>FREQ (0–100)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>4</td><td><code>GATE</code></td><td>THRESH (-60–0 dB), push to cycle <code>KEEP</code> / <code>RESIDUE</code></td><td>SMOOTH (0–100)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>5</td><td><code>TUNED</code></td><td>WIDTH (5–50 cents, steps of 2)</td><td>DEPTH (0–100 %)</td><td>MIX (0–100 %)</td></tr>
 <tr><td>6</td><td><code>SHIFT</code></td><td>SHIFT (-2000–+2000 Hz)</td><td>MIX (0–100 %)</td><td>FEEDBK (0–90)</td></tr>
@@ -5834,7 +5846,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <p>Notes:</p>
 <ul>
 <li><code>STRETCH</code> is a Paulstretch <strong>in place</strong>: the region is stretched by <code>FACTOR</code> and cut back to its own length, so it ends up holding the first <code>1/FACTOR</code> of the source, smeared into a texture. <code>ORIGIN</code> chooses where in the region that source starts (it wraps around the region), <code>WINDOW</code> sets the grain: short windows keep some rhythm and sound grainy, long ones are smooth and cloud-like. <code>FACTOR</code> 1 = off</li>
-<li><code>FREEZE</code> holds the instant at <code>POINT</code> for <code>LENGTH</code> — a spectral freeze. <code>LENGTH</code> steps through the note values like <code>GRID</code> (turn up for shorter); one step down past 1/1 is <code>TO END</code>, which holds the instant to the end of the region. <code>BLUR</code> 0 loops that instant as it is (a static, buzzing hold), 100 randomises the phases into a smooth cloud. The material before <code>POINT</code>, and after the held length, stays as it was, with a short crossfade at both ends</li>
+<li><code>FREEZE</code> holds the instant at <code>POINT</code> for <code>LENGTH</code> — a spectral freeze. <code>LENGTH</code> steps through the note values like <code>GRID</code> (turn up for shorter), or free milliseconds in <code>JUMP</code> mode; one step down past the longest value is <code>TO END</code>, which holds the instant to the end of the region. <code>BLUR</code> 0 loops that instant as it is (a static, buzzing hold), 100 randomises the phases into a smooth cloud. The material before <code>POINT</code>, and after the held length, stays as it was, with a short crossfade at both ends</li>
 <li><code>BLUR</code> smears the spectrum: <code>TIME</code> averages each moment with its neighbours (up to about a second each way), so attacks turn into swells and notes bleed into each other; <code>FREQ</code> smears across frequency, blurring pitch into noise. What is silent stays silent</li>
 <li><code>GATE</code> is a spectral gate: every frequency bin below <code>THRESH</code> (0 dB = a full-scale sine) is removed, so <code>KEEP</code> cleans a sound down to its loud partials. <code>RESIDUE</code> keeps exactly what <code>KEEP</code> throws away — the quiet ghost of a sound, the breath under a voice. <code>SMOOTH</code> slows how fast each bin opens and closes</li>
 <li><code>TUNED</code> is a scale sieve: it keeps only the frequencies within <code>WIDTH</code> cents of a note of <code>SCALE</code> / <code>ROOT</code> (in every octave), eases out over another <code>WIDTH</code>, and attenuates everything else by <code>DEPTH</code> — so narrow widths leave thin, pure tones and 50 lets the sieve just touch the neighbouring notes. Unlike <code>RESO</code> it adds no ringing — it is <code>RESO</code>’s transparent sibling, and tunes noise and drums to a key</li>
@@ -5853,7 +5865,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 <tr><th>Button</th><th>Group</th><th>Encoder 4</th><th>Encoder 5</th><th>Encoder 6</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><code>CHORUS</code></td><td>RATE (note value)</td><td>DEPTH (0–100)</td><td>MIX (0–100 %), push to cycle <code>2</code> / <code>3</code> / <code>4</code> voices</td></tr>
+<tr><td>1</td><td><code>CHORUS</code></td><td>RATE (note value, or Hz in <code>JUMP</code> mode)</td><td>DEPTH (0–100)</td><td>MIX (0–100 %), push to cycle <code>2</code> / <code>3</code> / <code>4</code> voices</td></tr>
 <tr><td>2</td><td><code>FLANGE</code></td><td>RATE</td><td>DEPTH (0–100)</td><td>FEEDBK (-95–+95)</td></tr>
 <tr><td>3</td><td><code>PHASER</code></td><td>RATE</td><td>DEPTH (0–100), push to cycle <code>4</code> / <code>8</code> / <code>12</code> stages</td><td>FEEDBK (-95–+95)</td></tr>
 <tr><td>4</td><td><code>COMB</code></td><td>NOTE (scale degrees from <code>ROOT</code>, -24–+24)</td><td>FEEDBK (-95–+95)</td><td>MIX (0–100 %)</td></tr>
@@ -5865,7 +5877,7 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </div>
 <p>Notes:</p>
 <ul>
-<li><code>CHORUS</code>, <code>FLANGE</code> and <code>PHASER</code> sweep with a tempo-synced <code>RATE</code> like the <code>MOD</code> page LFOs, locked to <code>START</code>, so the audition and <code>APPLY</code> sound the same. <code>CHORUS</code> stacks two to four detuned copies around 20 ms; <code>FLANGE</code> sweeps one short tap (0.5–7.5 ms) with feedback, <code>PHASER</code> sweeps a cascade of allpass stages over four octaves. Negative <code>FEEDBK</code> inverts the feedback for a hollower tone. While un-applied the sweep is traced over the region, as tall as <code>DEPTH</code></li>
+<li><code>CHORUS</code>, <code>FLANGE</code> and <code>PHASER</code> sweep with a tempo-synced <code>RATE</code> like the <code>MOD</code> page LFOs, locked to <code>START</code>, so the audition and <code>APPLY</code> sound the same; in <code>JUMP</code> mode the <code>RATE</code> is a free Hz value down to <code>0.05Hz</code>, the slow drift a chorus or phaser usually wants (see <a href="#free-rates-and-times">Free rates and times</a>). <code>CHORUS</code> stacks two to four detuned copies around 20 ms; <code>FLANGE</code> sweeps one short tap (0.5–7.5 ms) with feedback, <code>PHASER</code> sweeps a cascade of allpass stages over four octaves. Negative <code>FEEDBK</code> inverts the feedback for a hollower tone. While un-applied the sweep is traced over the region, as tall as <code>DEPTH</code></li>
 <li><code>COMB</code> is a feedback comb tuned to a note of <code>SCALE</code> / <code>ROOT</code> (<code>NOTE</code> counts scale degrees, the resulting note is shown): it rings the region at that pitch’s harmonics. Negative <code>FEEDBK</code> puts the peaks on the odd harmonics of the note an octave down. The wet signal is held at the input’s level, like <code>AMP</code> / <code>FOLD</code> / <code>RESO</code>, so <code>FEEDBK</code> adds resonance rather than volume. The comb rings out past <code>END</code></li>
 <li><code>FORMANT</code> shifts the <strong>formants</strong> — the resonances that give a voice or instrument its character — without changing the pitch: up for a smaller, brighter body, down for a larger, darker one. Rendered like the <code>SPECTR</code> groups</li>
 <li><code>HARMONY</code> layers a pitch-shifted copy at <code>INTERVAL</code> scale degrees above or below (<code>SCALE</code> decides what a degree is; <code>ROOT</code> is ignored, the interval is relative to the material) with <code>DETUNE</code> in cents; <code>MIX</code> is the level of the added voice. Rendered like the <code>SPECTR</code> groups</li>
@@ -6783,7 +6795,7 @@ the profile hides is still reachable there.</li>
 <h2 id="-navigating-the-fx-screens"><a class="header" href="#-navigating-the-fx-screens">🧭 Navigating the FX Screens</a></h2>
 <ul>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> → Master FX. Press again to cycle <strong>Master FX → Mastering → External Inputs</strong> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>; External Inputs only with an external interface, see <a href="#external-audio-v110">External Audio</a>)</li>
-<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> → Track FX. Press again to cycle <strong>Track FX → Track FX 2 → Track Sends</strong> (Track Sends new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>, only with an external interface; Track FX 2 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>))</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> → Track FX. Press again to cycle <strong>Track FX → Track FX 2 → Track Sends</strong> (the page changes when you release the key, so the held key can solo — see <a href="#-track-fx">Track FX</a>) (Track Sends new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>, only with an external interface; Track FX 2 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>))</li>
 <li>The arrow keys are free in all FX screens — navigate the tape without leaving the screen (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <h3 id="-copy--cut--paste-fx-values-new-in-v121"><a class="header" href="#-copy--cut--paste-fx-values-new-in-v121">📋 Copy / Cut / Paste FX values (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
@@ -6804,6 +6816,8 @@ the profile hides is still reachable there.</li>
 <li>Access via <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture></li>
 <li>The edited track is clearly labeled <strong>TRACK n</strong> at the top (since v1.1.3)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Track Button</code> → quick-select another track</li>
+<li>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_master-fx-dark.svg"><img alt="master-fx" src="icons/individual/track8_master-fx-light.svg" width="24"></picture> and press a <code>Track Button</code> → <strong>Solo / Un-solo</strong> that track, exactly as <code>AUDIO</code> + <code>Track Button</code> does on the <a href="#audio-overview-1">Audio Overview</a>: press again to un-solo, another track moves the solo, mutes are ignored. Since the key is held, the page only changes when you let go without having pressed a Track Button (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li>While <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> is held the track-button row shows every track’s state — <code>3 SOLO</code>, <code>2 MUTED</code> or just the number — so you can see at once why an edit makes no difference (the track is muted, or another track is soloed) without leaving the screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 <hr>
 <h3 id="filter"><a class="header" href="#filter">Filter</a></h3>
@@ -7029,7 +7043,7 @@ the profile hides is still reachable there.</li>
 <ul>
 <li><code>SOUNDCARD</code> (<code>Encoder 1</code>): select the interface (must be class-compliant)</li>
 <li><code>MODE</code> (<code>Encoder 3</code>): <code>MULTI</code> records multiple tracks at once, <code>SINGLE</code> is the classic one-track workflow</li>
-<li><code>MON</code> (<code>Encoder 5</code>): internal monitoring — routes the main mix to Track8’s own headphone output (useful for rack interfaces). Locked <code>ON</code> for input-only interfaces</li>
+<li><code>HYBRID</code> (<code>Encoder 5</code>, was <code>MON</code> up to v1.2.3): how much of Track8’s own soundcard stays in use next to the interface (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). <code>OFF</code> = the interface alone. <code>MON</code> = the main mix also plays on Track8’s headphone output (useful for rack interfaces). <code>FULL</code> = <code>MON</code> plus Track8’s own XLR / line inputs, which then appear as <code>INT L</code> / <code>INT R</code> on every input mapping page, after the interface’s channels. Input-only interfaces start at <code>MON</code></li>
 <li><code>RATE</code> (<code>Encoder 6</code>): 48k / 44.1k (since v1.1.1)</li>
 <li><code>BUFFER SIZE</code> (<code>Encoder 7/8</code>): <code>96</code> or <code>144</code> for external interfaces (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>) — USB audio travels in 1 ms packets, and only whole-millisecond buffers line up with them; the other sizes made the engine restart on every other buffer. Eight tracks recording at once with every effect on needs <code>144</code>. Push the encoder to switch to <code>PERIODS</code> (3-5, default 3) if you get crackles at your preferred buffer size (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li><code>Track Button 8</code> (<code>APPLY</code>): apply changes and restart the audio engine</li>
@@ -7041,6 +7055,8 @@ the profile hides is still reachable there.</li>
 <h3 id="trk-in"><a class="header" href="#trk-in">TRK IN</a></h3>
 <ul>
 <li>Assign an input pair per track (in <code>SINGLE</code> mode: one <code>SINGLE IN</code> input pair)</li>
+<li>With <code>HYBRID</code> = <code>FULL</code>, Track8’s own inputs are offered as <code>INT L</code> / <code>INT R</code> after the interface’s channels — on <code>TRK IN</code>, <code>SINGLE IN</code>, the insert return and <code>EXTERNAL</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). The two cards do not share a clock, so these two inputs are matched to the interface’s clock on the way in and arrive a few milliseconds later than the interface’s own inputs; a recorded take is shifted by that amount automatically, on top of the track’s <code>REC OFFSET</code>. Give them a name on <code>IO NAMES</code> like any other input</li>
+<li>Switching <code>HYBRID</code> below <code>FULL</code> keeps a mapping that points at <code>INT L</code> / <code>INT R</code>, but it carries no signal: the mapping pages show it in brackets, <code>(INT L)</code>, the Overview’s input indicator shows <code>-</code>, and the track cannot be armed until <code>HYBRID</code> is <code>FULL</code> again</li>
 </ul>
 <h3 id="inserts-renamed-from-sendreturns-in-v121"><a class="header" href="#inserts-renamed-from-sendreturns-in-v121">INSERTS (renamed from Send/Returns in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <ul>
@@ -7086,8 +7102,8 @@ the profile hides is still reachable there.</li>
 <hr>
 <h2 id="-monitoring"><a class="header" href="#-monitoring">🎧 Monitoring</a></h2>
 <ul>
-<li>Internal Monitoring (<code>MON</code>) routes the main mix to the built-in headphone output</li>
-<li>Interfaces <strong>without outputs</strong> are supported (since v1.1.5) — internal monitoring is then always on, and the Inserts/Sends/Main Out pages are hidden</li>
+<li><code>HYBRID</code> = <code>MON</code> or <code>FULL</code> routes the main mix to the built-in headphone output (<code>MON</code> was a simple on/off up to v1.2.3)</li>
+<li>Interfaces <strong>without outputs</strong> are supported (since v1.1.5) — <code>HYBRID</code> is then at least <code>MON</code>, and the Inserts/Sends/Main Out pages are hidden</li>
 <li>If the USB interface disconnects, Track8 automatically falls back to the internal soundcard</li>
 </ul>
 <hr>
@@ -7199,61 +7215,70 @@ the quick way through a long list of prefix-named projects (since <a href="https
 <li><strong>BACKUP</strong> (Track 2) — back up the selected project to a USB stick</li>
 <li><strong>IMPORT</strong> (Track 3) — import a backup from a USB stick</li>
 <li><strong>SAVE AS</strong> (Track 4) — save the current project under a new name;
-<strong>Encoder 7</strong> on the keyboard picks the copy’s <a href="#project-labels">label</a>
-(starts on the source’s)</li>
+<strong>Encoder 7</strong> on the keyboard picks the copy’s <a href="#project-disks">disk</a>
+(starts on the disk you are looking at)</li>
 <li><strong>RENAME</strong> (Track 5) — rename the selected project; <strong>Encoder 7</strong> on the
-keyboard picks its <a href="#project-labels">label</a>. With the name left as it is
-the button reads <strong>UPDATE</strong> and only the label changes</li>
+keyboard picks its <a href="#project-disks">disk</a>. With the name left as it is the
+button reads <strong>UPDATE</strong> and only the disk changes, and the project moves to its new disk at once</li>
 <li><strong>SHIFT</strong> + Track 6 — delete the selected project (the active project
 cannot be deleted; a confirmation dialog appears)</li>
 <li><strong>NEW</strong> (Track 7) — create a new project; <strong>Encoder 1</strong> on the name
-keyboard picks a <strong>template</strong> (<code>TEMPLATE: ---</code> = empty project),
-<strong>Encoder 7</strong> a <a href="#project-labels">label</a> (<code>LABEL: ---</code> = none)</li>
-<li><strong>Encoder 7</strong> — <strong>FILTER</strong> the list by <a href="#project-labels">label</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+keyboard picks a <strong>template</strong> (<code>TEMPLATE: ---</code> = empty project; a
+highlighted template is preselected),
+<strong>Encoder 7</strong> a <a href="#project-disks">disk</a> (<code>DISK: ---</code> = unlabelled)</li>
+<li><strong>Encoder 7</strong> — slide along the row of <a href="#project-disks">disks</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Leaving any of these keyboards with <strong>EXIT</strong> returns to the browser</li>
 </ul>
-<h3 id="project-labels"><a class="header" href="#project-labels">Project Labels</a></h3>
+<h3 id="project-disks"><a class="header" href="#project-disks">Project Disks</a></h3>
 <p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</p>
-<p>A label is a short word (up to 12 characters) attached to a project —
-<code>ALBUM</code>, <code>LIVE</code>, <code>IDEAS</code>, a client name — that groups projects in the
-browser like a folder would, without moving anything on disk. A project
-has at most one label; projects without one are simply unlabelled. Labels
-exist on their own: an empty label is kept until you delete it, like an
-empty folder.</p>
-<p><strong>Looking into a label (Encoder 7, <code>FILTER:</code>)</strong></p>
+<p>Think of a shelf of floppy disks: every project sits on exactly one, and
+the browser shows one disk at a time with its neighbours peeking in from
+the sides. A disk is a label — a short word (up to 12 characters) such as
+<code>ALBUM</code>, <code>LIVE</code>, <code>IDEAS</code> or a client name — with a colour. Nothing moves
+in the file system, and a disk stays on the shelf until you delete it,
+even when it is empty.</p>
+<p><strong>The shelf</strong> (Encoder 7), from left to right:</p>
+<ol>
+<li><code>UNLABELED</code> — every project without a label. If you never label
+anything, this is simply your project list.</li>
+<li>One disk per label, in alphabetical order, with its name in its colour
+as the header over the list.</li>
+<li><code>TEMPLATES</code> — your <a href="#project-templates">templates</a>.</li>
+<li><code>NEW DISK</code> — an empty page: <strong>push</strong> Encoder 7 here to create a disk on
+the keyboard (<strong>Encoder 8</strong> picks its colour). The browser then shows
+the new, empty disk and <strong>NEW</strong> creates the first project in it.</li>
+</ol>
+<img alt="Project Browser with the ALBUM disk on show" src="images/screens/ProjectBrowser-Disk.png" width="900">
+<p>The shelf is drawn as a row of floppy disks across the top of the screen,
+one per disk in its colour with its name underneath. The disk on show is the
+big one in the middle; the others get smaller and dimmer the further out
+they sit and run off both edges of the screen, so you always see where you
+are on the shelf. Turning Encoder 7 slides the whole row by one disk; the
+caption under the encoder repeats the disk’s name. The disk’s project list
+and the waveform preview sit underneath, side by side. Each disk remembers
+which project you had highlighted until the next restart; the browser
+opens on <code>UNLABELED</code>.</p>
 <ul>
-<li>Turn from <code>ALL</code> (projects and templates) to <code>TEMPLATES</code> (templates only)
-and on through your labels; a label shows only the projects carrying it.
-The last entry is <code>NEW LABEL</code>, which lists everything like <code>ALL</code> and shows
-a <code>^</code> on the caption: <strong>push</strong> here creates a <strong>new label</strong> on the keyboard
-and switches the filter to it — a new, empty folder. <strong>NEW</strong> then creates
-the first project inside it: the label picker on the NEW keyboard starts
-on the active filter. The filter is not remembered across a restart; the
-browser opens on <code>ALL</code>.</li>
-<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push while a label is filtered <strong>deletes the label</strong> after a
-confirmation. The projects are kept, they just lose the label.</li>
-<li><strong>Push</strong> while a label is filtered opens <strong>RENAME LBL</strong>: rename the
-label (and change its colour) on every project carrying it. The <code>^</code> on
-the caption shows whenever push does something here.</li>
+<li><strong>Push</strong> on a disk opens <strong>RENAME DISK</strong>: rename it (and change its
+colour) for every project in it. The <code>^</code> on the caption shows whenever
+push does something.</li>
+<li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + push on a disk <strong>deletes the disk</strong> after a confirmation. The
+projects are kept; they move to <code>UNLABELED</code>.</li>
 </ul>
-<p><strong>Labelling a project</strong></p>
-<p>The label is decided where the name is: <strong>Encoder 7</strong> on the <strong>NEW</strong>,
-<strong>SAVE AS</strong> and <strong>RENAME</strong> keyboards picks it (<code>LABEL: ---</code> = none), like
-Encoder 1 picks a template. To change the label of an existing project,
-press <strong>RENAME</strong>, turn Encoder 7 and confirm — with the name untouched the
-button reads <strong>UPDATE</strong> and nothing is renamed. Like APPLY in the marker
-editor, the button lights up as soon as the name or the label differs from
-what you opened with. The selected project’s
-label is shown in the box on the left of the browser. A label never changes
-by an accidental encoder turn: it always goes through a keyboard.</p>
-<p>On the label keyboards (<code>NEW LABEL</code>, <code>RENAME LBL</code>) <strong>Encoder 8</strong> picks the
-label’s <strong>colour</strong> (<code>COLOR</code>, the marker palette). A new label starts on the
-first colour no other label uses. Labelled projects show a <code>&gt;</code> in the
-label’s colour in front of their name.
-Labels travel with the project: <strong>RENAME</strong>, <strong>SAVE AS</strong>, <strong>BACKUP</strong> and
-<strong>IMPORT</strong> keep them, and a label that arrives with an import joins your
-list. On the SSD a label is the one-line file <code>label</code> inside the project
-folder; the list of labels lives in the global settings.</p>
+<p><strong>Putting a project in a disk</strong></p>
+<p>The disk is decided where the name is: <strong>Encoder 7</strong> on the <strong>NEW</strong>,
+<strong>SAVE AS</strong> and <strong>RENAME</strong> keyboards picks it (<code>DISK: ---</code> = unlabelled),
+like Encoder 1 picks a template. NEW and SAVE AS start on the disk you are
+looking at, RENAME on the project’s current disk. To move an existing
+project, press <strong>RENAME</strong>, turn Encoder 7 and confirm — with the name
+untouched the button reads <strong>UPDATE</strong> and nothing is renamed. Like APPLY in
+the marker editor, the button lights up as soon as the name or the disk
+differs from what you opened with. A project never changes disk by an
+accidental encoder turn: it always goes through a keyboard.</p>
+<p>Disks travel with the project: <strong>RENAME</strong>, <strong>SAVE AS</strong>, <strong>BACKUP</strong> and
+<strong>IMPORT</strong> keep them, and a disk that arrives with an import joins your
+shelf. On the SSD a disk is the one-line file <code>label</code> inside the project
+folder; the shelf itself lives in the global settings.</p>
 <h3 id="project-templates"><a class="header" href="#project-templates">Project Templates</a></h3>
 <p>(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</p>
 <p>A template is a project without content: it keeps the <strong>settings</strong> (BPM,
@@ -7265,10 +7290,10 @@ audio interface configuration, MIDI sync settings, threshold record and
 tuner settings (channel names and device profiles stay as they are).</p>
 <ul>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <strong>SAVE AS</strong> → <strong>SAVE TMP</strong> saves the current project’s settings as a template</li>
-<li>Templates are listed at the bottom of the browser as <code>TEMPLATE: &lt;name&gt;</code>
-(no waveform preview). With a template highlighted, <strong>LOAD</strong> turns into
-<strong>FROM TMP</strong>: enter a name for the new project (a random one is
-suggested) and it is created from the template</li>
+<li>Templates live on their own <code>TEMPLATES</code> <a href="#project-disks">disk</a> in the
+browser, listed by name (no waveform preview). With a template
+highlighted, <strong>LOAD</strong> turns into <strong>FROM TMP</strong>: enter a name for the new
+project (a random one is suggested) and it is created from the template</li>
 <li><strong>RENAME</strong> and <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track 6 (delete) work on templates too</li>
 <li>The template’s setup is applied when the project is created. The active
 audio interface itself is never switched automatically: if the template
