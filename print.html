@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-563a8914.js";
+            window.path_to_searchindex_js = "searchindex-40bf6c88.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -337,6 +337,19 @@ take is rolling (solid). It is visible on every screen (new in <a href="https://
 <li>While a take is rolling, actions that would break the recording (changing
 BPM, switching the record domain, opening heavy screens) are refused with
 an on-screen error instead of silently stopping the take (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
+<li>Long operations show a picture under the title of their overlay, so you
+see what Track8 is doing without reading: a hard disk whose head follows
+the progress while a file is written (export, Save WAV / MID, backup), a
+floppy rising into its drive while a project loads or is saved as new,
+stick-arrow-floppy for an import, two tape reels for EXPORT TO TRACK,
+and a turning arrow while undo, redo or a clipboard operation runs.
+Confirmations that cannot be undone (DELETE, OVERWRITE, TRUNCATE) carry
+a red warning triangle beside their title. A few screens carry a picture
+of what they are about: the TEMPLATES disk has a hatched sticker, the
+Tape utility shows the tape as two reels, the Soundcard page a jack or
+USB plug for the built-in or an external card, the MIDI Device list a DIN
+socket or USB plug per device, and the AU rack its rack units
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>The status bar at the bottom of the Overview screens shows the active
 recording mode, the overdub state and the current time/beat position.
 Bars and beats are counted from 1, so the start of the tape reads
@@ -5054,9 +5067,9 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 </ul>
 <hr>
 <h3 id="end-of-tape"><a class="header" href="#end-of-tape">⏹ The end of the tape (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h3>
-<p>The tape is <strong>3 hours</strong> long — the longest track file the SD card’s format
-can hold. The end is drawn like the start: the beat ruler and the track
-lanes stop there, on both overviews.</p>
+<p>The tape is <strong>3 hours</strong> long — the longest a WAV file can be. The end is
+drawn like the start: the beat ruler and the track lanes stop there, on
+both overviews.</p>
 <ul>
 <li>Playback and recording <strong>stop</strong> when the playhead reaches the end
 (<code>END OF TAPE</code>); a locate never goes past it, and loop and punch points
@@ -5943,6 +5956,7 @@ kept but never reached.</p>
 <li>Sets the MIDI output channel (1–16) per track</li>
 <li>Channels already used by another track are skipped</li>
 <li>Playback stops while changing channels</li>
+<li>After channel 16 the encoder reaches every device flagged <code>MPE</code> on the <a href="#-step-1-flag-your-controller-device">DEVICE screen</a> (<code>MPE Osmose</code>): the track then plays into that device alone, one MIDI channel per note, see <a href="#-mpe-devices-osmose">MPE devices</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 <h3 id="offset"><a class="header" href="#offset">OFFSET</a></h3>
 <ul>
@@ -6007,6 +6021,17 @@ kept but never reached.</p>
 <li>Toggling any Mute (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <code>Track Button</code>) exits solo mode</li>
 </ul>
 <hr>
+<h2 id="-mpe-devices-osmose"><a class="header" href="#-mpe-devices-osmose">🎹 MPE devices (Osmose)</a></h2>
+<p>An MPE instrument (Expressive E Osmose, ROLI Seaboard, LinnStrument, …) plays every note on its own MIDI channel and sends that note’s pitch bend, pressure and timbre on the same channel. Track8 records and plays this back (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>):</p>
+<ol>
+<li>Flag the instrument’s port <code>MPE</code> on the <a href="#-step-1-flag-your-controller-device">DEVICE screen</a>. An <strong>Osmose</strong> is flagged for you the first time it is plugged in: its <code>sound engine</code> port is <code>MPE</code>, its <code>play</code>, <code>haken</code>, <code>daw control</code> and <code>din interface</code> ports are <code>IGNORE</code> (they carry editor and DAW-control traffic that would otherwise be recorded and echoed)</li>
+<li>On the MIDI Overview, turn the <code>CHANNEL</code> encoder past channel 16 to <code>MPE Osmose</code> on the track you record into. The track now plays only into that device, every note on a member channel of its own, and the live input is echoed the same way</li>
+<li>Record as usual. Each note keeps its own bend, pressure and timbre: move, quantize, copy or undo a note and its expression goes with it. Pitch bend, CCs and aftertouch played on the instrument’s master channel land in the track’s lanes as before</li>
+</ol>
+<p>What to set on the Osmose (<code>MIDI I/O</code> tab): <code>haken local control</code> <strong>off</strong>, so the keys reach the sound engine through the Track8 (it resets to on after every Osmose reboot); <code>usb haken mode</code> <code>disabled</code>. The Osmose’s own pitch bend range on the <code>sound engine</code> port is ±96 semitones; Track8 sends back exactly what it recorded, so nothing has to be matched. Its sound engine answers on channels 2–14 only, and Track8 spreads the notes of an <code>MPE Osmose</code> track over exactly those.</p>
+<p>Playing a plain keyboard into an <code>MPE</code> track works too: its notes are spread over the device’s channels, its bend and CCs go to the master channel. The reverse, an MPE port into a channel track, records the notes and the master channel’s data; the per-note expression is left out.</p>
+<p>In <a href="#-midi-edit-notes">MIDI Edit</a> a note with expression shows its bend as a line leaving the note’s row (one row per semitone), its pressure as a band under the note and its timbre as dots above it. Per-note expression cannot be edited yet; the master channel’s lanes can.</p>
+<p>Notes recorded this way are saved as a standard MPE file (<code>track&lt;N&gt;.mid</code>: one voice per channel 2–16, the track’s own data on channel 1), so a DAW reads the expression too.</p>
 <h2 id="-indicators"><a class="header" href="#-indicators">📊 Indicators</a></h2>
 <h3 id="input-activity"><a class="header" href="#input-activity">Input Activity</a></h3>
 <ul>
@@ -6014,7 +6039,7 @@ kept but never reached.</p>
 </ul>
 <h3 id="output-activity"><a class="header" href="#output-activity">Output Activity</a></h3>
 <ul>
-<li>Shows outgoing MIDI activity</li>
+<li>Shows outgoing MIDI activity (for an <code>MPE</code> track: on any of its channels)</li>
 </ul>
 <h3 id="quick-settings"><a class="header" href="#quick-settings">Quick Settings</a></h3>
 <ul>
@@ -6134,6 +6159,8 @@ note cursor (<code>Encoder 6</code>) steps from row to row; <code>SNAP</code> is
 <li>Press again to confirm</li>
 </ol>
 <p>Unconfirmed edits are discarded when leaving the screen. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning to edit immediately without the confirm step.</p>
+<h3 id="expression-overlay-since-v124-snapshot"><a class="header" href="#expression-overlay-since-v124-snapshot">Expression overlay (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h3>
+<p>A note recorded from an <a href="#-mpe-devices-osmose">MPE device</a> carries its own pitch bend, pressure and timbre. The piano roll shows the bend as a line that leaves the note’s row by one row per semitone, the pressure as a band under the note and the timbre (CC74) as dots above it. Editing the note moves its expression with it; the expression itself cannot be edited yet.</p>
 <h3 id="note-colors-since-v112"><a class="header" href="#note-colors-since-v112">Note colors (since v1.1.2)</a></h3>
 <p>The selected note is displayed bright, all other notes in the muted color. This makes velocity values easier to read and clearly shows which note is selected.</p>
 <h3 id="add--replace--delete"><a class="header" href="#add--replace--delete">Add / Replace / Delete</a></h3>
@@ -6606,8 +6633,10 @@ the profile hides is still reachable there.</li>
 <p>Go to <code>UTILITY</code> → <code>MIDI</code> → <code>DEVICE</code>.</p>
 <ul>
 <li>The list shows the built-in <code>DIN MIDI IN</code> plus every connected USB MIDI input</li>
-<li>Scroll with Encoder 8, set the flag with Track Button 8 (or push Encoder 8): each press steps a device through off → <code>CTRL</code> → <code>MACKIE</code> → off</li>
+<li>Scroll with Encoder 8, set the flag with Track Button 8 (or push Encoder 8): each press steps a device through off → <code>CTRL</code> → <code>MACKIE</code> → <code>MPE</code> → <code>IGNORE</code> → off</li>
 <li><code>MACKIE</code> is for Mackie Control surfaces and needs no mappings, see <a href="#mackie">Mackie Control surfaces</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li><code>MPE</code> is for an MPE instrument such as the Osmose: its channels are kept apart while recording and tracks can play into it, see <a href="#-mpe-devices-osmose">MPE devices</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li><code>IGNORE</code> makes Track8 ignore the port entirely — it is neither recorded nor sent anything, clock included (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><code>EXIT</code> (Track Button 1) returns to the MIDI settings</li>
 </ul>
 <p>A device flagged <code>CTRL</code> becomes a <strong>control surface</strong>: its CCs drive your mappings and are <strong>no longer recorded into MIDI tracks</strong>. Devices you disconnect stay in the list greyed out, keeping their flag — they work again as soon as you plug them back in.</p>
@@ -7204,7 +7233,9 @@ Track Names / Browse / Export) are refused with an on-screen error while a
 take is rolling (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</p>
 <hr>
 <h2 id="project-browser-1"><a class="header" href="#project-browser-1">Project Browser</a></h2>
-<p>Open with <strong>BROWSE</strong> (Track 7) on the Settings screen.</p>
+<p>Open with <strong>BROWSE</strong> (Track 7) on the Settings screen. The browser opens
+on the project you are in: its <a href="#project-disks">disk</a> comes on show and the
+project is highlighted (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
 <img alt="Project Browser" src="images/screens/ProjectBrowser.png" width="900">
 <ul>
 <li>Scroll projects with <strong>Encoder 8</strong> — the selected project’s waveform loads
@@ -7256,8 +7287,9 @@ they sit and run off both edges of the screen, so you always see where you
 are on the shelf. Turning Encoder 7 slides the whole row by one disk; the
 caption under the encoder repeats the disk’s name. The disk’s project list
 and the waveform preview sit underneath, side by side. Each disk remembers
-which project you had highlighted until the next restart; the browser
-opens on <code>UNLABELED</code>.</p>
+which project you had highlighted until the next restart, except the disk
+holding the project you are in: that one always comes back on the current
+project, and it is the disk the browser opens on.</p>
 <ul>
 <li><strong>Push</strong> on a disk opens <strong>RENAME DISK</strong>: rename it (and change its
 colour) for every project in it. The <code>^</code> on the caption shows whenever
@@ -7332,7 +7364,8 @@ you no longer need. It is a file browser for the recorder, not a sample
 library — one file at a time, straight into the clipboard.</p>
 <p>Open it with <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_plus-dark.svg"><img alt="plus" src="icons/individual/track8_plus-light.svg" width="12"></picture><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-midi-browser-dark.svg"><img alt="audio-midi-browser" src="icons/individual/track8_audio-midi-browser-light.svg" width="24"></picture> (<strong>SHIFT</strong> + Settings, since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.3">v1.1.3</a> — before that the Settings button itself opened the browser).</p>
 <ul>
-<li>A <strong>FAT32</strong> USB stick has to be connected. Without one, Track8 shows
+<li>A <strong>FAT32</strong> USB stick has to be connected (units of the second production
+batch also read <strong>exFAT</strong> sticks). Without one, Track8 shows
 <code>NO USB STICK FOUND</code>; a stick it cannot read shows <code>ERROR LOADING FROM USB</code>.</li>
 <li>The browser does not open while a recording is running (<code>Browsing</code>
 refused), and it closes on its own — back to the Audio Overview — when the
@@ -7349,7 +7382,11 @@ Saving the clipboard (<strong>PASTE</strong>, see below) works right in that fol
 sorted by name; everything else is hidden. The extension may be written in
 any letter case (<code>.WAV</code>, <code>.Mid</code>) and <code>.midi</code> is accepted too (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>) — before
 that only lower-case <code>.wav</code> / <code>.mid</code> were listed. The path is shown
-top-left, and at the root of the stick the used space (<code>USED:</code>).</p>
+top-left, and at the root of the stick the used space (<code>USED:</code>). A USB
+stick is drawn in the left column so the browser is told apart from the
+Project Browser’s disk shelf at a glance: large at the root, filled up to
+the selected stick’s used space, small above the folder box once you are
+inside a folder (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
 <p>A folder with nothing to list shows <code>EMPTY FOLDER</code> — it exists, but holds
 no WAV or MIDI files. EXIT works as usual (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>); until then such a folder
 came up as a blank screen.</p>
@@ -7905,7 +7942,7 @@ changes after asking for confirmation and restores the selected theme.</p>
 <h2 id="access-internal-ssd"><a class="header" href="#access-internal-ssd">Access Internal SSD</a></h2>
 <ol>
 <li>Connect via USB-C → USB-A</li>
-<li>Device mounts as drive</li>
+<li>Device mounts as drive <code>TRACK8</code></li>
 <li>Access:
 <ul>
 <li>projects/</li>
@@ -7914,6 +7951,8 @@ changes after asking for confirmation and restores the selected theme.</p>
 </ul>
 </li>
 </ol>
+<p>The drive is formatted exFAT on units from the second production batch and
+FAT32 on earlier units; macOS, Windows and Linux read and write both.</p>
 <h2 id="updating-track8"><a class="header" href="#updating-track8">Updating Track8</a></h2>
 <ol>
 <li>Download latest release:
@@ -7921,6 +7960,7 @@ https://github.com/ThingstoneGmbH/Track8/releases</li>
 <li>Copy new binary into <code>/bin</code></li>
 <li>Eject the <code>TRACK8</code> drive</li>
 </ol>
+<p>The same firmware file runs on every Track8, whichever batch it is from.</p>
 <p>After updating, the first load of each project may take a little longer
 while the waveform overview is rebuilt (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a> projects then load
 faster).</p>
