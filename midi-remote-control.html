@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-653c7cb0.js";
+            window.path_to_searchindex_js = "searchindex-0e93a947.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -190,6 +190,7 @@
 <li><code>MACKIE</code> is for Mackie Control surfaces and needs no mappings, see <a href="#mackie">Mackie Control surfaces</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><code>MPE</code> is for an MPE instrument such as the Osmose: its channels are kept apart while recording and tracks can play into it, see <a href="midi-overview.html#-mpe-devices-osmose">MPE devices</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><code>IGNORE</code> makes Track8 ignore the port entirely — it is neither recorded nor sent anything, clock included (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li><code>ROUTE</code> (Track Button 7) opens the highlighted device’s manual routing: what is recorded and echoed from it, which channels and which sync it gets, see <a href="midi-overview.html#routing">Manual MIDI routing</a>. Devices set up there show <code>[ROUTE]</code> in the list (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><code>EXIT</code> (Track Button 1) returns to the MIDI settings</li>
 </ul>
 <p>A device flagged <code>CTRL</code> becomes a <strong>control surface</strong>: its CCs drive your mappings and are <strong>no longer recorded into MIDI tracks</strong>. Devices you disconnect stay in the list greyed out, keeping their flag — they work again as soon as you plug them back in.</p>

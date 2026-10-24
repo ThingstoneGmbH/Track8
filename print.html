@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-653c7cb0.js";
+            window.path_to_searchindex_js = "searchindex-0e93a947.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -6112,6 +6112,51 @@ kept but never reached.</p>
 <p>The <a href="#companion-app-mac--ipad--iphone">companion app</a> has the same sync, over CoreMIDI (USB, Bluetooth, network sessions), since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>.</p>
 <p>Clock sync has been hardened over several releases (tighter DIN clock since v1.1.1, larger averaging and outlier detection for slave sync, further MIDI scheduling and jitter improvements new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</p>
 <p>The <code>DEVICE</code>, <code>CONTROL</code> and <code>CH NAMES</code> buttons on this screen configure <a href="#midi-remote-control-since-v114">MIDI Remote Control</a>, channel names and <a href="#midi-device-profiles">MIDI Device Profiles</a> (per-channel note/CC names for drum machines and synths, since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</p>
+<hr>
+<h2 id="routing"><a class="header" href="#routing">🔀 Manual MIDI routing (expert)</a></h2>
+<p>Out of the box Track8 needs no MIDI routing: every track has a channel, every connected device hears everything, and each device listens on its own channel. Your playing is echoed to all devices, and clock or MTC goes to all of them.</p>
+<p>In bigger setups, with a sequencer such as a Hapax that echoes MIDI itself, or a router, this can make MIDI go round in a loop, or a device gets clock it should not have. For those setups each device has a <code>ROUTE</code> page (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>), on the hardware and in the <a href="#companion-app-mac--ipad--iphone">companion app</a>:</p>
+<ol>
+<li>Go to <code>UTILITY</code> → <code>MIDI</code> → <code>DEVICE</code>, scroll to the device with Encoder 8</li>
+<li>Press Track Button 7 <code>ROUTE</code>. Encoder 8 steps to the next device without leaving the page</li>
+</ol>
+<img alt="MIDI device list with a routed device" src="images/screens/MidiDevice-Route.png" width="900">
+<img alt="ROUTE page of a device" src="images/screens/MidiRoute.png" width="900">
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Encoder</th><th>Setting</th><th>What it does</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>REC</code></td><td><code>ON</code>: what you play on this device is recorded. <code>OFF</code>: it is only echoed</td></tr>
+<tr><td>2</td><td><code>IN CH</code></td><td><code>ALL</code>, or one channel: only that channel of the device is recorded and echoed, the rest is ignored. Handy for a sequencer that sends many parts</td></tr>
+<tr><td>3</td><td><code>THRU</code></td><td>Where your playing on this device is echoed: <code>ALL</code> devices, <code>OTHERS</code> (everything but back to this device), or <code>OFF</code> (nowhere). <code>MIDI MON</code> still switches all echo on and off</td></tr>
+<tr><td>4</td><td><code>SYNC IN</code></td><td><code>OFF</code>: Track8 ignores this device’s clock, transport and MTC as slave. Only matters with <code>SYNC ROLE</code> <code>SLAVE</code></td></tr>
+<tr><td>5</td><td><code>TRACKS</code></td><td>Which track channels the device hears: <code>ALL</code>, <code>OFF</code>, or your own set. Push Encoder 5 (or touch the box) to pick channels: Encoder 1 moves, pushing it or touching a channel switches it, Track Button 1 <code>DONE</code></td></tr>
+<tr><td>6</td><td><code>SYNC OUT</code></td><td>What the device gets as sync master: <code>DEFAULT</code> (what <code>SYNC MODE</code> says), <code>CLOCK</code>, <code>MTC</code> or <code>OFF</code>. A device never gets both</td></tr>
+<tr><td>7</td><td><code>SENDS</code></td><td>Shows what the device actually gets</td></tr>
+</tbody>
+</table>
+</div>
+<img alt="TRACKS channel picker" src="images/screens/MidiRoute-Tracks.png" width="900">
+<p>The picker shows your <a href="#midi-track-4">channel names</a>, so a set reads like a list of synths. Here the Tonverk hears tracks on channels 1 to 4 and never gets its own playing back (<code>THRU</code> <code>OTHERS</code>).</p>
+<ul>
+<li><code>RESET</code> (Track Button 8) puts the device back to the defaults</li>
+<li>A device whose routing was changed shows <code>[ROUTE]</code> in the <code>DEVICE</code> list, so you can always see which devices are set up by hand</li>
+<li>The settings belong to the device and stay when you switch projects or unplug it</li>
+<li><code>SYNC OUT</code>: with <code>SYNC MODE</code> <code>CLOCK</code> you can still send MTC to one device (a DAW, a video player) while the others get clock, and the other way round. Those devices use the clock and MTC settings of the <code>MIDI</code> page. To change the settings of the other type, switch <code>SYNC MODE</code> over, change them and switch back; do this with the transport stopped, because in the meantime the other devices get the other type</li>
+<li><code>DIN MIDI</code> (hardware) stands for both sockets: <code>TRACKS</code> and <code>SYNC OUT</code> act on MIDI Out, the other settings on MIDI In. Leave <code>THRU</code> on <code>ALL</code> for DIN if a keyboard on DIN In plays a synth on DIN Out: <code>OTHERS</code> means “not back out of DIN”</li>
+<li>An <code>MPE</code> device has no <code>IN CH</code> and <code>TRACKS</code>: its tracks pick it directly. A <code>CTRL</code> controller only has <code>SYNC IN</code>. <code>MACKIE</code> and <code>IGNORE</code> devices have nothing to route</li>
+<li>Up to eight devices can have changed <code>TRACKS</code>, <code>SYNC OUT</code> or <code>THRU OTHERS</code> at once. A ninth is sent like an unrouted device, and its page says so</li>
+</ul>
+<p><strong>Examples</strong></p>
+<ul>
+<li><em>A sequencer that plays its own synths and is recorded by Track8 (Hapax):</em> <code>THRU</code> <code>OFF</code>, <code>IN CH</code> the part you want to record, <code>TRACKS</code> the channels it should pass on from Track8’s tracks (or <code>OFF</code>)</li>
+<li><em>Keyboard on DIN, synths on USB, nothing echoed back to the keyboard:</em> DIN <code>THRU</code> <code>OTHERS</code>, <code>TRACKS</code> <code>OFF</code></li>
+<li><em>Clock-only device:</em> <code>REC</code> <code>OFF</code>, <code>THRU</code> <code>OFF</code>, <code>TRACKS</code> <code>OFF</code></li>
+<li><em>MTC to a DAW, clock to everything else:</em> <code>SYNC MODE</code> <code>CLOCK</code>, the DAW’s <code>SYNC OUT</code> <code>MTC</code> and <code>TRACKS</code> <code>OFF</code></li>
+<li><em>Track8 as slave to one master only:</em> <code>SYNC IN</code> <code>OFF</code> on every other device</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="editing-midi"><a class="header" href="#editing-midi">Editing MIDI</a></h1>
 <h2 id="-midi-edit-notes"><a class="header" href="#-midi-edit-notes">🖥 MIDI Edit (Notes)</a></h2>
@@ -6643,6 +6688,7 @@ the profile hides is still reachable there.</li>
 <li><code>MACKIE</code> is for Mackie Control surfaces and needs no mappings, see <a href="#mackie">Mackie Control surfaces</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><code>MPE</code> is for an MPE instrument such as the Osmose: its channels are kept apart while recording and tracks can play into it, see <a href="#-mpe-devices-osmose">MPE devices</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><code>IGNORE</code> makes Track8 ignore the port entirely — it is neither recorded nor sent anything, clock included (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li><code>ROUTE</code> (Track Button 7) opens the highlighted device’s manual routing: what is recorded and echoed from it, which channels and which sync it gets, see <a href="#routing">Manual MIDI routing</a>. Devices set up there show <code>[ROUTE]</code> in the list (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><code>EXIT</code> (Track Button 1) returns to the MIDI settings</li>
 </ul>
 <p>A device flagged <code>CTRL</code> becomes a <strong>control surface</strong>: its CCs drive your mappings and are <strong>no longer recorded into MIDI tracks</strong>. Devices you disconnect stay in the list greyed out, keeping their flag — they work again as soon as you plug them back in.</p>
@@ -7672,6 +7718,7 @@ edit control mappings, see <a href="#midi-remote-control-since-v114">MIDI Remote
 surface that works without mappings, see
 <a href="#mackie">Mackie Control surfaces</a>
 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li><strong>ROUTE</strong> (on the <code>DEVICE</code> screen, Track Button 7) — per-device MIDI routing for bigger setups: recording, echo, channels and clock / MTC per device, see <a href="#routing">Manual MIDI routing</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><strong>CH NAMES</strong> — name your MIDI channels and bind a <a href="#midi-device-profiles">MIDI Device Profile</a> per channel (Encoder 1 picks the row, Encoder 8 the profile; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <h3 id="tape-track-5"><a class="header" href="#tape-track-5">Tape (Track 5)</a></h3>
@@ -7714,6 +7761,11 @@ performance overlays</li>
 <li><strong>DEBUG LOG</strong> — verbose logging</li>
 <li><strong>LOGS → USB</strong> — copy the device logs to a USB stick for a support
 request</li>
+<li>On units from the second production batch, one more line shows the
+<strong>power controller</strong>: its firmware version, the supply voltage now and the
+lowest since switching on, and why the unit last switched off (for
+example <code>last off: brown-out 7.1 V</code>). LOGS → USB then also copies its full
+log, <code>power-controller.txt</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="companion-app-mac--ipad--iphone"><a class="header" href="#companion-app-mac--ipad--iphone">Companion App (Mac / iPad / iPhone)</a></h1>
@@ -7800,7 +7852,12 @@ such as the Osmose hear themselves through Track8. <code>MIDI MON</code> switche
 off for all devices: do that when a keyboard synth plays its own notes
 twice (local control on), or when two apps or devices feed each other’s
 MIDI back (two Track8s linked both ways, a router sending the app its own
-output), which would echo every note without end. With this the app also keeps playing,
+output), which would echo every note without end. For finer control, each
+device’s <a href="#routing"><code>ROUTE</code> page</a> works in the app as on
+the hardware (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>): set <code>THRU</code> to <code>OTHERS</code> on the device that
+feeds MIDI back, keep clock away from a device, or send MTC to one app
+while the others get clock. MTC from the app has no full-frame message, so
+a device that needs one to locate should get MTC from the hardware. With this the app also keeps playing,
 recording and sending MIDI when you switch to another app or lock the
 screen while the transport runs, so a take survives a locked phone and a
 synth app in front keeps its clock (since
@@ -8018,11 +8075,23 @@ faster).</p>
 take. Since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a> such actions are refused with an on-screen error while
 recording — the red border around the screen shows that a take is rolling.</li>
 </ul>
+<h2 id="midi-loops-doubled-notes-or-a-device-hears-nothing"><a class="header" href="#midi-loops-doubled-notes-or-a-device-hears-nothing">MIDI loops, doubled notes, or a device hears nothing</a></h2>
+<ul>
+<li>Notes repeat or hang, or MIDI goes round between two devices: set <code>THRU</code> to <code>OTHERS</code> or <code>OFF</code> on the device that echoes MIDI back (<a href="#routing">Manual MIDI routing</a>), or switch <code>MIDI MON</code> off</li>
+<li>A device gets no notes or no clock: look for <code>[ROUTE]</code> next to it under <code>UTILITY</code> → <code>MIDI</code> → <code>DEVICE</code>. Its <code>ROUTE</code> page shows what it gets; <code>RESET</code> (Track Button 8) restores the defaults</li>
+</ul>
 <h2 id="waveform-does-not-match-the-audio"><a class="header" href="#waveform-does-not-match-the-audio">Waveform does not match the audio</a></h2>
 <ul>
 <li>Use <strong>REBUILD WAVEFORM</strong> under <strong>UTILITY → DEBUG</strong> to re-read the
 waveform overview from the tape (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</li>
 </ul>
+<h2 id="weak-charger-message"><a class="header" href="#weak-charger-message">WEAK CHARGER message</a></h2>
+<p>Units from the second production batch watch their supply. <strong>WEAK CHARGER</strong>
+appears once (never while recording or playing) when the voltage from the
+USB-C charger dropped too low under load, or when the last switch-off or a
+refused switch-on was caused by it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). Use a USB-C PD charger that
+delivers 9 V at 18 W or more, and a short, good cable. Phone chargers that only
+deliver 5 V cannot run the Track8.</p>
 <h2 id="reporting-a-problem"><a class="header" href="#reporting-a-problem">Reporting a problem</a></h2>
 <ul>
 <li>Your firmware version is shown under <strong>UTILITY → DEBUG</strong> (since v1.1.3)</li>

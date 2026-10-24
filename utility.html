@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-653c7cb0.js";
+            window.path_to_searchindex_js = "searchindex-0e93a947.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -307,6 +307,7 @@ edit control mappings, see <a href="midi-remote-control.html">MIDI Remote Contro
 surface that works without mappings, see
 <a href="midi-remote-control.html#mackie">Mackie Control surfaces</a>
 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li><strong>ROUTE</strong> (on the <code>DEVICE</code> screen, Track Button 7) — per-device MIDI routing for bigger setups: recording, echo, channels and clock / MTC per device, see <a href="midi-overview.html#routing">Manual MIDI routing</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li><strong>CH NAMES</strong> — name your MIDI channels and bind a <a href="midi-device-profiles.html">MIDI Device Profile</a> per channel (Encoder 1 picks the row, Encoder 8 the profile; since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <h3 id="tape-track-5"><a class="header" href="#tape-track-5">Tape (Track 5)</a></h3>
@@ -349,6 +350,11 @@ performance overlays</li>
 <li><strong>DEBUG LOG</strong> — verbose logging</li>
 <li><strong>LOGS → USB</strong> — copy the device logs to a USB stick for a support
 request</li>
+<li>On units from the second production batch, one more line shows the
+<strong>power controller</strong>: its firmware version, the supply voltage now and the
+lowest since switching on, and why the unit last switched off (for
+example <code>last off: brown-out 7.1 V</code>). LOGS → USB then also copies its full
+log, <code>power-controller.txt</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 
                     </main>

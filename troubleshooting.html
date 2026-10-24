@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-653c7cb0.js";
+            window.path_to_searchindex_js = "searchindex-0e93a947.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -195,11 +195,23 @@
 take. Since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a> such actions are refused with an on-screen error while
 recording — the red border around the screen shows that a take is rolling.</li>
 </ul>
+<h2 id="midi-loops-doubled-notes-or-a-device-hears-nothing"><a class="header" href="#midi-loops-doubled-notes-or-a-device-hears-nothing">MIDI loops, doubled notes, or a device hears nothing</a></h2>
+<ul>
+<li>Notes repeat or hang, or MIDI goes round between two devices: set <code>THRU</code> to <code>OTHERS</code> or <code>OFF</code> on the device that echoes MIDI back (<a href="midi-overview.html#routing">Manual MIDI routing</a>), or switch <code>MIDI MON</code> off</li>
+<li>A device gets no notes or no clock: look for <code>[ROUTE]</code> next to it under <code>UTILITY</code> → <code>MIDI</code> → <code>DEVICE</code>. Its <code>ROUTE</code> page shows what it gets; <code>RESET</code> (Track Button 8) restores the defaults</li>
+</ul>
 <h2 id="waveform-does-not-match-the-audio"><a class="header" href="#waveform-does-not-match-the-audio">Waveform does not match the audio</a></h2>
 <ul>
 <li>Use <strong>REBUILD WAVEFORM</strong> under <strong>UTILITY → DEBUG</strong> to re-read the
 waveform overview from the tape (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>).</li>
 </ul>
+<h2 id="weak-charger-message"><a class="header" href="#weak-charger-message">WEAK CHARGER message</a></h2>
+<p>Units from the second production batch watch their supply. <strong>WEAK CHARGER</strong>
+appears once (never while recording or playing) when the voltage from the
+USB-C charger dropped too low under load, or when the last switch-off or a
+refused switch-on was caused by it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). Use a USB-C PD charger that
+delivers 9 V at 18 W or more, and a short, good cable. Phone chargers that only
+deliver 5 V cannot run the Track8.</p>
 <h2 id="reporting-a-problem"><a class="header" href="#reporting-a-problem">Reporting a problem</a></h2>
 <ul>
 <li>Your firmware version is shown under <strong>UTILITY → DEBUG</strong> (since v1.1.3)</li>

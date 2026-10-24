@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-653c7cb0.js";
+            window.path_to_searchindex_js = "searchindex-0e93a947.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -258,7 +258,12 @@ such as the Osmose hear themselves through Track8. <code>MIDI MON</code> switche
 off for all devices: do that when a keyboard synth plays its own notes
 twice (local control on), or when two apps or devices feed each other’s
 MIDI back (two Track8s linked both ways, a router sending the app its own
-output), which would echo every note without end. With this the app also keeps playing,
+output), which would echo every note without end. For finer control, each
+device’s <a href="midi-overview.html#routing"><code>ROUTE</code> page</a> works in the app as on
+the hardware (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>): set <code>THRU</code> to <code>OTHERS</code> on the device that
+feeds MIDI back, keep clock away from a device, or send MTC to one app
+while the others get clock. MTC from the app has no full-frame message, so
+a device that needs one to locate should get MTC from the hardware. With this the app also keeps playing,
 recording and sending MIDI when you switch to another app or lock the
 screen while the transport runs, so a take survives a locked phone and a
 synth app in front keeps its clock (since
