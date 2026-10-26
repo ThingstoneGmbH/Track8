@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0e93a947.js";
+            window.path_to_searchindex_js = "searchindex-034d8cba.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -298,9 +298,9 @@ or <code>A &amp;&amp; M</code> recording is enabled in the project settings (sin
 <li>With MTC: <strong>FRAME RATE</strong> — 24 / 25 / 29.97 / 30 fps</li>
 <li>Clock and MTC are sent and received on the 5-pin MIDI ports and on USB
 MIDI alike. As MTC master, timecode also goes out over USB
-(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>);
-the 5-pin output is timed more tightly, so use it where a device has to
-lock closely.</li>
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).
+USB MIDI is now timed as tightly as the 5-pin output: every clock tick
+and note leaves at its exact moment (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</li>
 <li><strong>DEVICE</strong> and <strong>CONTROL</strong> — flag a MIDI device for remote control and
 edit control mappings, see <a href="midi-remote-control.html">MIDI Remote Control</a>
 (since v1.1.4). A device can also be flagged <code>MACKIE</code>: a Mackie Control
@@ -350,6 +350,12 @@ performance overlays</li>
 <li><strong>DEBUG LOG</strong> — verbose logging</li>
 <li><strong>LOGS → USB</strong> — copy the device logs to a USB stick for a support
 request</li>
+<li><strong>AUDIO ENGINE</strong> (Encoder 8) — for testing: <strong>JACK</strong> (the default) or
+<strong>DIRECT</strong>, Track8’s own audio engine without the JACK server. Turn right
+for DIRECT, left for JACK; the audio restarts. DIRECT offers every buffer
+size from 48 to 144 frames on the built-in card and on USB interfaces;
+switching back to JACK moves the buffer to the nearest size JACK offers
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>On units from the second production batch, one more line shows the
 <strong>power controller</strong>: its firmware version, the supply voltage now and the
 lowest since switching on, and why the unit last switched off (for

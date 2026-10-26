@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0e93a947.js";
+            window.path_to_searchindex_js = "searchindex-034d8cba.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -264,6 +264,8 @@
 <ul>
 <li>Must support <strong>48kHz</strong> (or use the <code>RATE</code> 44.1k fallback, see above)</li>
 <li>Interfaces that combine MIDI and audio in separate USB audio blocks (e.g. the Elektron Tonverk) are supported since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a> — earlier versions showed <code>USB AUDIO CONNECTED</code> but did not list them under <code>SOUNDCARD</code></li>
+<li>Elektron Digitakt, Digitakt II, Digitone, Digitone Keys, Digitone II, Syntakt and Analog Heat MKII in class-compliant USB audio mode are set up for Linux’s implicit-feedback sync since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a> — earlier versions recorded from them but played back distorted or at the wrong speed. Built from the Linux fix verified on these boxes, not yet confirmed on a Track8; please report in <a href="https://github.com/ThingstoneGmbH/Track8/issues/59">#59</a></li>
+<li>The Elektron Tonverk is paced the same way since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a> — before, what Track8 played through it dropped out for a few milliseconds every few seconds, heard as a crackle</li>
 <li>Bus-powered: &lt;5W</li>
 </ul>
 <hr>

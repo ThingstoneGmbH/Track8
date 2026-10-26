@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0e93a947.js";
+            window.path_to_searchindex_js = "searchindex-034d8cba.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -242,6 +242,7 @@ kept but never reached.</p>
 <li>Per-track MIDI record offset, 0 to -50 ms — the MIDI counterpart of the audio REC OFFSET</li>
 <li>Recorded notes and CCs are stored this much earlier than they arrive. Use it when your takes land late on the grid: what you hear while recording (metronome, tracks) reaches your monitors after the audio output latency, so notes played in time with it arrive that much late</li>
 <li>Start with roughly your audio buffer latency and adjust by ear; it applies to live recording only (not step record)</li>
+<li>Notes from USB MIDI devices and from the 5-pin input are placed alike, at the moment they arrive (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). USB notes used to arrive one audio buffer later: if you set <code>REC OFFSET</code> for a USB device before, check it again</li>
 <li>Turn left to increase (shifts earlier), like the audio REC OFFSET</li>
 </ul>
 <h3 id="quantize-new-in-v121"><a class="header" href="#quantize-new-in-v121">QUANTIZE (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
