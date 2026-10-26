@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-034d8cba.js";
+            window.path_to_searchindex_js = "searchindex-a62b7722.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -203,7 +203,7 @@
 <ul>
 <li>Assign an input pair per track (in <code>SINGLE</code> mode: one <code>SINGLE IN</code> input pair)</li>
 <li>With <code>HYBRID</code> = <code>FULL</code>, Track8’s own inputs are offered as <code>INT L</code> / <code>INT R</code> after the interface’s channels — on <code>TRK IN</code>, <code>SINGLE IN</code>, the insert return and <code>EXTERNAL</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). The two cards do not share a clock, so these two inputs are matched to the interface’s clock on the way in and arrive a few milliseconds later than the interface’s own inputs; a recorded take is shifted by that amount automatically, on top of the track’s <code>REC OFFSET</code>. Give them a name on <code>IO NAMES</code> like any other input</li>
-<li>Switching <code>HYBRID</code> below <code>FULL</code> keeps a mapping that points at <code>INT L</code> / <code>INT R</code>, but it carries no signal: the mapping pages show it in brackets, <code>(INT L)</code>, the Overview’s input indicator shows <code>-</code>, and the track cannot be armed until <code>HYBRID</code> is <code>FULL</code> again</li>
+<li>Switching <code>HYBRID</code> below <code>FULL</code> keeps a mapping that points at <code>INT L</code> / <code>INT R</code>, but it carries no signal: the mapping pages show it in brackets, <code>(INT L)</code>, the Overview’s input indicator shows <code>-</code>, and an armed track records silence until <code>HYBRID</code> is <code>FULL</code> again</li>
 </ul>
 <h3 id="inserts-renamed-from-sendreturns-in-v121"><a class="header" href="#inserts-renamed-from-sendreturns-in-v121">INSERTS (renamed from Send/Returns in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</a></h3>
 <ul>
@@ -274,12 +274,14 @@
 <li>Arm tracks first:
 <ul>
 <li>Hold <code>Track Button</code> + press <code>Record</code></li>
-<li>Only tracks with assigned inputs can be armed</li>
+<li>Any track can be armed; a track without an input records silence (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>; before, only tracks with an input could be armed)</li>
 </ul>
 </li>
 <li>Recording:
 <ul>
 <li>All armed tracks start together</li>
+<li>With no track armed, <code>Record</code> records the selected track from its own input (silence if it has none), and that track turns red like an armed one</li>
+<li>A track being recorded does not play its old audio meanwhile (unless Overdub is on)</li>
 </ul>
 </li>
 </ul>
