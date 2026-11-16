@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0693bc56.js";
+            window.path_to_searchindex_js = "searchindex-aa8b7406.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -218,9 +218,11 @@ note cursor (<code>Encoder 6</code>) steps from row to row; <code>SNAP</code> is
 <li>Velocity (Encoder 5)</li>
 <li>Pitch / Note (Encoder 6)</li>
 </ul>
+<p>The keys you hold on the connected keyboard or pads <strong>light up</strong> on the piano roll’s keyboard (in the profile piano roll: the row’s name), with Record on or off and whether the transport runs or not, so you can see where what you play sits after scrolling. An arrow at the top or bottom of the keyboard points to a held key that is off screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
+<p>The piano roll covers the whole MIDI note range, <code>C-1</code> to <code>G9</code> — also the notes below <code>A0</code> that samplers and drum machines send (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
 <h3 id="workflow"><a class="header" href="#workflow">Workflow</a></h3>
 <ol>
-<li>Select a note (move the cursor onto it with Encoder 6 / Encoder 8)</li>
+<li>Select a note (move the cursor onto it with Encoder 6 / Encoder 8). The cursor is one point in time: a note is selected while the cursor is inside it. Encoder 8 moves on the <code>GRID</code>, so a note shorter than a grid step that lies between two grid lines is not reached this way — switch <code>Track 7</code> to <code>TRKR SNAP</code> or <code>HARM SNAP</code> (<a href="#-snap-modes-since-v112">SNAP Modes</a>) and the cursor lands on every note</li>
 <li>Press encoder (3–6) to enter edit mode</li>
 <li>Edit the value</li>
 <li>Press again to confirm</li>
@@ -260,6 +262,7 @@ note cursor (<code>Encoder 6</code>) steps from row to row; <code>SNAP</code> is
 <h2 id="-grid-system"><a class="header" href="#-grid-system">⏱ Grid System</a></h2>
 <ul>
 <li>Controls timing resolution (down to 1/64)</li>
+<li>The grid lines on screen thin out when they would run into each other: zoomed out, a <code>1/64</code> grid is drawn as <code>1/16</code>, then as beats, then as bars. The encoders keep stepping on the <code>GRID</code> value (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Push Encoder 2 (<code>GRID</code>) to toggle triplet subdivisions, e.g. <code>1/8</code> → <code>1/8T</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Affects:
 <ul>

@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0693bc56.js";
+            window.path_to_searchindex_js = "searchindex-aa8b7406.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -210,6 +210,7 @@
 </tbody>
 </table>
 </div>
+<p><code>START</code> and <code>END</code> always move to the <strong>next grid line</strong> in the direction you turn, so an edge that sits between two lines — put on the playhead, or left over from another <code>GRID</code> value or the triplet toggle — is back on the grid after one click; <code>SLIDE</code> follows the same rule (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
 <p>All edits apply to the notes that <strong>start</strong> between <code>START</code> and <code>END</code> — by default the whole clipboard. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning a parameter encoder for fine steps. Several groups treat notes that start together (within a 32nd note, so a played chord counts) as <strong>one onset</strong>: <code>STRUM</code>, <code>ARP</code>, <code>MELODIZE</code>, <code>CHANCE</code>, <code>EUCLID</code>, <code>LENGTH</code>’s legato.</p>
 <h3 id="tuning-settings---encoders-13"><a class="header" href="#tuning-settings---encoders-13">Tuning settings (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Encoders 1–3)</a></h3>
 <p>The same <code>SCALE</code> / <code>SPAN</code> / <code>ROOT</code> settings as on the audio modifier, read by every control that works in <strong>scale degrees</strong>: <code>TRANSPOSE</code>’s <code>DEGREE</code> and <code>SNAP</code>, <code>MELODIZE</code>, <code>CHORD</code>, <code>ECHO</code>’s pitched repeats. They persist like <code>GRID</code>, have no <code>APPLY</code>, and turning them never discards a group’s un-applied changes.</p>

@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0693bc56.js";
+            window.path_to_searchindex_js = "searchindex-aa8b7406.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -4350,7 +4350,9 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>1</td><td>Toggle Filter On/Off</td></tr>
 <tr><td>2</td><td>Node Filter Type</td></tr>
 <tr><td>3</td><td>Toggle Compressor On/Off</td></tr>
-<tr><td>6</td><td>Ratio</td></tr>
+<tr><td>4</td><td>Pre Vol: compress before the track volume</td></tr>
+<tr><td>5</td><td>Compressor / Expander</td></tr>
+<tr><td>6</td><td>Ratio: 1:1 to 32:1, as expander 1:2 / 1:4</td></tr>
 <tr><td>7</td><td>Toggle Send</td></tr>
 </tbody>
 </table>
@@ -4440,7 +4442,8 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>3</td><td>Toggle Reverb</td></tr>
 <tr><td>4</td><td>Select Algorithm</td></tr>
 <tr><td>5</td><td>Toggle Compressor</td></tr>
-<tr><td>8</td><td>Ratio</td></tr>
+<tr><td>7</td><td>Compressor / Expander</td></tr>
+<tr><td>8</td><td>Ratio: 1:1 to 32:1, as expander 1:2 / 1:4</td></tr>
 </tbody>
 </table>
 </div>
@@ -5167,6 +5170,8 @@ audio — show their progress as a percentage bar while the tape is rewritten</l
 <p>Recording behavior:</p>
 <ul>
 <li>Recording keeps running when switching views (except Settings / <a href="#usb-browser-1">USB Browser</a>)</li>
+<li>Record inside a Loop region records <strong>one pass</strong>: when the playhead wraps from loop out back to loop in, Record switches off and the loop keeps playing, so a take is never overwritten by the next pass. This is the same with Overdub on or off, for audio and MIDI</li>
+<li>To keep recording on every pass, use Punch: set the Punch region over the Loop region (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture>) and start playback. With Overdub on every pass is layered onto the one before; with Overdub off every pass is a new take (see <a href="#-multi-take-recording-new-in-v121-preview">Multi-Take Recording</a>)</li>
 <li>A running recording is indicated by a <strong>red border</strong> around the screen edges; actions that would silently stop it show an error instead (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Touch the <strong>overdub indicator</strong> to quickly toggle Overdub (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_arm-record-dark.svg"><img alt="record" src="icons/individual/track8_arm-record-light.svg" width="24"></picture> while recording stops playback, undoes the take and moves the playhead back to where the recording started — instant retake (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
@@ -5648,6 +5653,8 @@ Input Gain → Track Volume → Master FX → Mastering → Output</p>
 </tbody>
 </table>
 </div>
+<p>On the <code>GRID</code>, <code>START</code> and <code>END</code> always move to the <strong>next grid line</strong> in the direction you turn, so an edge that sits between two lines — trimmed in <code>JUMP</code> mode, put on the playhead, or left over from another <code>GRID</code> value — is back in time after one click. Pushing Encoder 1 from <code>JUMP</code> back to <code>GRID</code> puts both edges on their nearest grid lines right away (an <code>END</code> at the end of the clip stays there); <code>SLIDE</code> follows the same rule. An edge stops in front of the other one instead of crossing it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
+<p>The grid lines on screen thin out when they would run into each other — zoomed out, a <code>1/64</code> grid is drawn as <code>1/16</code>, then as beats and bars — while the encoders (and <code>SPRAY</code>’s grains) keep following the <code>GRID</code> value (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
 <p>All edits apply to the region between <code>START</code> and <code>END</code> — by default the whole clipboard. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning a parameter encoder for fine steps.</p>
 <h3 id="free-rates-and-times"><a class="header" href="#free-rates-and-times">Free rates and times (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h3>
 <p>Every group encoder that holds a note value — <code>GRAIN</code> <code>SIZE</code> / <code>RATE</code>, the <code>RATE</code> of the four <code>MOD</code> LFOs and of <code>CHORUS</code> / <code>FLANGE</code> / <code>PHASER</code>, <code>DELAY</code> / <code>PINGPONG</code> <code>TIME</code>, <code>STRETCH</code> <code>WINDOW</code>, <code>FREEZE</code> <code>LENGTH</code> and <code>BLUR</code> <code>TIME</code> — follows Encoder 1:</p>
@@ -5960,6 +5967,7 @@ kept but never reached.</p>
 <ul>
 <li>Sets the MIDI output channel (1–16) per track</li>
 <li>Channels already used by another track are skipped</li>
+<li>Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning to choose a channel another track already uses: several tracks then play into the same device, for example the beat on one track and its fills on another, each editable on its own. A shared channel shows a <code>+</code> (<code>C10+</code>). A key that two of those tracks hold at the same time is released when the last one lets go (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Playback stops while changing channels</li>
 <li>After channel 16 the encoder reaches every device flagged <code>MPE</code> on the <a href="#-step-1-flag-your-controller-device">DEVICE screen</a> (<code>MPE Osmose</code>): the track then plays into that device alone, one MIDI channel per note, see <a href="#-mpe-devices-osmose">MPE devices</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
@@ -5974,7 +5982,7 @@ kept but never reached.</p>
 <li>Encoder 3 is <a href="#move-marker">MOVE MARKER</a>: with the playhead on a marker, turn to stage a move by SCROLL steps, push to apply — the same as on the Audio Overview (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid in <a href="#editing-midi">MIDI Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>Encoder 7 zooms the timeline, 0.25x to 4x around the playhead (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>). The zoom is remembered per overview (Audio and MIDI zoom independently) and resets to 1x on startup</li>
-<li>A mouse scroll wheel (USB) also scrolls the timeline (since v1.1.1)</li>
+<li>A mouse scroll wheel (USB) also scrolls the timeline (since v1.1.1): one <code>SCROLL</code> step per notch. The wheel’s travel is what counts, so a fast spin covers a long stretch, and a high-resolution scroll dial moves in single steps when you turn it slowly (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Encoder 5 → <strong>SPLICE</strong>: insert or remove time at the playhead (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)
 <ul>
 <li>Turn clockwise to stage blank time, one SCROLL step per click; counter-clockwise to stage a removal. The overview previews the result — notes, markers and loop/punch points are drawn where they will end up, an insert shows the blank as a band, a removal a cut line — and the encoder label shows the amount (<code>+1 bar</code>, <code>-2 beats</code>)</li>
@@ -6048,6 +6056,7 @@ kept but never reached.</p>
 <ul>
 <li>Shows outgoing MIDI activity (for an <code>MPE</code> track: on any of its channels)</li>
 </ul>
+<p>Both light on every message and fade over about a fifth of a second, so a single short note is visible (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
 <h3 id="quick-settings"><a class="header" href="#quick-settings">Quick Settings</a></h3>
 <ul>
 <li><strong>Touch and hold the track area</strong> (about a second) to open the <strong>Quick Settings</strong> panel with the everyday <a href="#utility">Utility</a> toggles (MKR LEG, MOD HI, BIG TIME, SHIFT HOLD, SHIFT NAV, TIMED JUMP, SHIFT PLAY, PASTE JMP, SCROLL SND, TAPE SND, OVERDUB) and the <a href="#free-bar">FREE BAR</a> locate, which jumps to the next bar that is empty on all audio and MIDI tracks; see <a href="#-touch">Touch</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
@@ -6098,7 +6107,7 @@ kept but never reached.</p>
 <li>In the Project Settings, push Encoder 8 to cycle between <code>AUDIO MON</code> and <code>MIDI MON</code>, then turn to set <code>OFF</code>/<code>ON</code>/<code>PUNCH</code></li>
 <li><code>PUNCH</code> echoes input only while the playhead is inside the punch brackets — whether or not punch recording is armed — so a rehearsal pass sounds exactly like the recorded result (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Defaults to <code>ON</code></li>
-<li>Note-off messages always pass, so no notes get stuck</li>
+<li>With <code>OFF</code> nothing you play comes back to your devices. The one exception keeps notes from getting stuck: a key that was echoed and is still held when the monitor mutes (you switch to <code>OFF</code>, or the playhead leaves the punch brackets) still gets its note-off. A note-off for a note that was never echoed is not sent (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 </ul>
 <hr>
 <h2 id="-midi-sync"><a class="header" href="#-midi-sync">🕰 MIDI Sync</a></h2>
@@ -6203,9 +6212,11 @@ note cursor (<code>Encoder 6</code>) steps from row to row; <code>SNAP</code> is
 <li>Velocity (Encoder 5)</li>
 <li>Pitch / Note (Encoder 6)</li>
 </ul>
+<p>The keys you hold on the connected keyboard or pads <strong>light up</strong> on the piano roll’s keyboard (in the profile piano roll: the row’s name), with Record on or off and whether the transport runs or not, so you can see where what you play sits after scrolling. An arrow at the top or bottom of the keyboard points to a held key that is off screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
+<p>The piano roll covers the whole MIDI note range, <code>C-1</code> to <code>G9</code> — also the notes below <code>A0</code> that samplers and drum machines send (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
 <h3 id="workflow-1"><a class="header" href="#workflow-1">Workflow</a></h3>
 <ol>
-<li>Select a note (move the cursor onto it with Encoder 6 / Encoder 8)</li>
+<li>Select a note (move the cursor onto it with Encoder 6 / Encoder 8). The cursor is one point in time: a note is selected while the cursor is inside it. Encoder 8 moves on the <code>GRID</code>, so a note shorter than a grid step that lies between two grid lines is not reached this way — switch <code>Track 7</code> to <code>TRKR SNAP</code> or <code>HARM SNAP</code> (<a href="#-snap-modes-since-v112">SNAP Modes</a>) and the cursor lands on every note</li>
 <li>Press encoder (3–6) to enter edit mode</li>
 <li>Edit the value</li>
 <li>Press again to confirm</li>
@@ -6245,6 +6256,7 @@ note cursor (<code>Encoder 6</code>) steps from row to row; <code>SNAP</code> is
 <h2 id="-grid-system"><a class="header" href="#-grid-system">⏱ Grid System</a></h2>
 <ul>
 <li>Controls timing resolution (down to 1/64)</li>
+<li>The grid lines on screen thin out when they would run into each other: zoomed out, a <code>1/64</code> grid is drawn as <code>1/16</code>, then as beats, then as bars. The encoders keep stepping on the <code>GRID</code> value (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Push Encoder 2 (<code>GRID</code>) to toggle triplet subdivisions, e.g. <code>1/8</code> → <code>1/8T</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Affects:
 <ul>
@@ -6364,6 +6376,7 @@ fits on screen; otherwise the view stays on the part nearest the cursor
 </tbody>
 </table>
 </div>
+<p><code>START</code> and <code>END</code> always move to the <strong>next grid line</strong> in the direction you turn, so an edge that sits between two lines — put on the playhead, or left over from another <code>GRID</code> value or the triplet toggle — is back on the grid after one click; <code>SLIDE</code> follows the same rule (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
 <p>All edits apply to the notes that <strong>start</strong> between <code>START</code> and <code>END</code> — by default the whole clipboard. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning a parameter encoder for fine steps. Several groups treat notes that start together (within a 32nd note, so a played chord counts) as <strong>one onset</strong>: <code>STRUM</code>, <code>ARP</code>, <code>MELODIZE</code>, <code>CHANCE</code>, <code>EUCLID</code>, <code>LENGTH</code>’s legato.</p>
 <h3 id="tuning-settings---encoders-13"><a class="header" href="#tuning-settings---encoders-13">Tuning settings (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Encoders 1–3)</a></h3>
 <p>The same <code>SCALE</code> / <code>SPAN</code> / <code>ROOT</code> settings as on the audio modifier, read by every control that works in <strong>scale degrees</strong>: <code>TRANSPOSE</code>’s <code>DEGREE</code> and <code>SNAP</code>, <code>MELODIZE</code>, <code>CHORD</code>, <code>ECHO</code>’s pitched repeats. They persist like <code>GRID</code>, have no <code>APPLY</code>, and turning them never discards a group’s un-applied changes.</p>
@@ -6921,6 +6934,8 @@ the profile hides is still reachable there.</li>
 <li><code>Encoder 3</code>: Attack — push to switch to <strong>sidechain source</strong> (select another track, or off)</li>
 <li><code>Encoder 4</code>: Release, <code>Encoder 5</code>: Threshold, <code>Encoder 6</code>: Makeup gain</li>
 <li><code>Track Button 3</code>: on/off, <code>Track Button 6</code>: cycle Ratio</li>
+<li><code>Track Button 5</code> <code>COMPR</code> / <code>EXPAND</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>): switches the compressor into a downward expander. As <code>EXPAND</code> the Ratio button offers <code>1:2</code> and <code>1:4</code> instead of <code>1:1</code> … <code>32:1</code>, and the compressor works the other way round: everything <strong>below</strong> the Threshold is turned down, 2 (or 4) dB for every dB it falls under it, and what is above passes untouched. Each mode remembers its own ratio, so you can switch back and forth to compare. Use it to push down bleed, noise or a ringing tail between phrases. Attack sets how fast it opens when the signal returns, Release how fast it closes; it never turns down by more than 48 dB</li>
+<li><code>Track Button 4</code> <code>PRE VOL</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>): off (the default), the track’s volume comes before the compressor, so turning the track up pushes it harder into the Threshold and Gain makes up the level. On, the compressor hears the track <strong>before</strong> its volume: moving the volume (or its automation) no longer changes how hard the compressor works, the way an insert on a mixer or a plugin in a DAW behaves. With a sidechain source the switch does nothing: the compressor then listens to the source before its fader anyway</li>
 <li>Gain-reduction ladder: green on top = no gain reduction, segments extend down into red as the compressor works</li>
 </ul>
 <h4 id="sidechain-since-v124-snapshot"><a class="header" href="#sidechain-since-v124-snapshot">Sidechain (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h4>
@@ -7062,6 +7077,7 @@ the profile hides is still reachable there.</li>
 <ul>
 <li><code>Encoder 5</code>: Attack, <code>Encoder 6</code>: Release, <code>Encoder 7</code>: Threshold, <code>Encoder 8</code>: Makeup gain</li>
 <li><code>Track Button 5</code>: on/off, <code>Track Button 8</code>: cycle Ratio</li>
+<li><code>Track Button 7</code> <code>COMPR</code> / <code>EXPAND</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>): switches the compressor into a downward expander with the ratios <code>1:2</code> and <code>1:4</code>, as on the <a href="#compressor">track compressor</a></li>
 </ul>
 <hr>
 <h2 id="-mastering-section"><a class="header" href="#-mastering-section">🎚 Mastering Section</a></h2>
@@ -7252,8 +7268,8 @@ back (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2
 <tbody>
 <tr><td>1</td><td><strong>BPM</strong></td><td>30–360. Push to switch between whole BPM and decimals (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>). Whole mode: <strong>SHIFT</strong> = steps of 10. Decimal mode: steps of 0.01, <strong>SHIFT</strong> = 0.1</td></tr>
 <tr><td>2</td><td><strong>MEASURE</strong></td><td>Time signature. Push to cycle numerator (1–32) / denominator (1–64, powers of 2)</td></tr>
-<tr><td>3</td><td><strong>METRONOME</strong></td><td>OFF / REC (only while recording) / ON. Push to switch to the metronome level. Beats follow the time signature’s denominator — in 7/8 it clicks every eighth with the accent on 1 (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>). The click sound is chosen in <a href="#utility">Utility</a> with Encoder 4 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</td></tr>
-<tr><td>4</td><td><strong>COUNT IN</strong></td><td>OFF or 1–16 beats, counted in the same beat as the metronome (7 beats = one bar of 7/8)</td></tr>
+<tr><td>3</td><td><strong>METRONOME</strong></td><td>OFF / REC (only while recording) / ON. <code>REC</code> clicks while Record is on, and with Punch on for as long as the tape rolls, lead-in to the punch region included (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>). Push to switch to the metronome level. Beats follow the time signature’s denominator — in 7/8 it clicks every eighth with the accent on 1 (fixed in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>). The click sound is chosen in <a href="#utility">Utility</a> with Encoder 4 (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</td></tr>
+<tr><td>4</td><td><strong>COUNT IN</strong></td><td>OFF or 1–16 beats, counted in the same beat as the metronome (7 beats = one bar of 7/8). Stopping during the count-in puts the playhead back where you pressed Play (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</td></tr>
 <tr><td>5</td><td><strong>OVERDUB</strong></td><td>ON / OFF</td></tr>
 <tr><td>6</td><td><strong>RECORDING</strong></td><td><code>A &amp;&amp; M</code> records Audio and MIDI together, <code>A || M</code> records only the domain you are in</td></tr>
 <tr><td>7</td><td><strong>FOOTSWITCH</strong></td><td>PLAY / RECORD / HOLD REC / TUNER / MARKER</td></tr>

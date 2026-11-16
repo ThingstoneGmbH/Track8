@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0693bc56.js";
+            window.path_to_searchindex_js = "searchindex-aa8b7406.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -228,6 +228,8 @@
 <li><code>Encoder 3</code>: Attack — push to switch to <strong>sidechain source</strong> (select another track, or off)</li>
 <li><code>Encoder 4</code>: Release, <code>Encoder 5</code>: Threshold, <code>Encoder 6</code>: Makeup gain</li>
 <li><code>Track Button 3</code>: on/off, <code>Track Button 6</code>: cycle Ratio</li>
+<li><code>Track Button 5</code> <code>COMPR</code> / <code>EXPAND</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>): switches the compressor into a downward expander. As <code>EXPAND</code> the Ratio button offers <code>1:2</code> and <code>1:4</code> instead of <code>1:1</code> … <code>32:1</code>, and the compressor works the other way round: everything <strong>below</strong> the Threshold is turned down, 2 (or 4) dB for every dB it falls under it, and what is above passes untouched. Each mode remembers its own ratio, so you can switch back and forth to compare. Use it to push down bleed, noise or a ringing tail between phrases. Attack sets how fast it opens when the signal returns, Release how fast it closes; it never turns down by more than 48 dB</li>
+<li><code>Track Button 4</code> <code>PRE VOL</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>): off (the default), the track’s volume comes before the compressor, so turning the track up pushes it harder into the Threshold and Gain makes up the level. On, the compressor hears the track <strong>before</strong> its volume: moving the volume (or its automation) no longer changes how hard the compressor works, the way an insert on a mixer or a plugin in a DAW behaves. With a sidechain source the switch does nothing: the compressor then listens to the source before its fader anyway</li>
 <li>Gain-reduction ladder: green on top = no gain reduction, segments extend down into red as the compressor works</li>
 </ul>
 <h4 id="sidechain-since-v124-snapshot"><a class="header" href="#sidechain-since-v124-snapshot">Sidechain (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h4>
@@ -369,6 +371,7 @@
 <ul>
 <li><code>Encoder 5</code>: Attack, <code>Encoder 6</code>: Release, <code>Encoder 7</code>: Threshold, <code>Encoder 8</code>: Makeup gain</li>
 <li><code>Track Button 5</code>: on/off, <code>Track Button 8</code>: cycle Ratio</li>
+<li><code>Track Button 7</code> <code>COMPR</code> / <code>EXPAND</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>): switches the compressor into a downward expander with the ratios <code>1:2</code> and <code>1:4</code>, as on the <a href="#compressor">track compressor</a></li>
 </ul>
 <hr>
 <h2 id="-mastering-section"><a class="header" href="#-mastering-section">🎚 Mastering Section</a></h2>

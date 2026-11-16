@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0693bc56.js";
+            window.path_to_searchindex_js = "searchindex-aa8b7406.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -319,6 +319,8 @@ audio — show their progress as a percentage bar while the tape is rewritten</l
 <p>Recording behavior:</p>
 <ul>
 <li>Recording keeps running when switching views (except Settings / <a href="usb-browser.html">USB Browser</a>)</li>
+<li>Record inside a Loop region records <strong>one pass</strong>: when the playhead wraps from loop out back to loop in, Record switches off and the loop keeps playing, so a take is never overwritten by the next pass. This is the same with Overdub on or off, for audio and MIDI</li>
+<li>To keep recording on every pass, use Punch: set the Punch region over the Loop region (<picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_toggle-loop-dark.svg"><img alt="loop" src="icons/individual/track8_toggle-loop-light.svg" width="24"></picture>) and start playback. With Overdub on every pass is layered onto the one before; with Overdub off every pass is a new take (see <a href="#-multi-take-recording-new-in-v121-preview">Multi-Take Recording</a>)</li>
 <li>A running recording is indicated by a <strong>red border</strong> around the screen edges; actions that would silently stop it show an error instead (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 <li>Touch the <strong>overdub indicator</strong> to quickly toggle Overdub (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.4">v1.1.4</a>)</li>
 <li><picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_arm-record-dark.svg"><img alt="record" src="icons/individual/track8_arm-record-light.svg" width="24"></picture> while recording stops playback, undoes the take and moves the playhead back to where the recording started — instant retake (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>

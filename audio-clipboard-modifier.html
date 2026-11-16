@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0693bc56.js";
+            window.path_to_searchindex_js = "searchindex-aa8b7406.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -210,6 +210,8 @@
 </tbody>
 </table>
 </div>
+<p>On the <code>GRID</code>, <code>START</code> and <code>END</code> always move to the <strong>next grid line</strong> in the direction you turn, so an edge that sits between two lines — trimmed in <code>JUMP</code> mode, put on the playhead, or left over from another <code>GRID</code> value — is back in time after one click. Pushing Encoder 1 from <code>JUMP</code> back to <code>GRID</code> puts both edges on their nearest grid lines right away (an <code>END</code> at the end of the clip stays there); <code>SLIDE</code> follows the same rule. An edge stops in front of the other one instead of crossing it (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
+<p>The grid lines on screen thin out when they would run into each other — zoomed out, a <code>1/64</code> grid is drawn as <code>1/16</code>, then as beats and bars — while the encoders (and <code>SPRAY</code>’s grains) keep following the <code>GRID</code> value (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>).</p>
 <p>All edits apply to the region between <code>START</code> and <code>END</code> — by default the whole clipboard. Hold <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> while turning a parameter encoder for fine steps.</p>
 <h3 id="free-rates-and-times"><a class="header" href="#free-rates-and-times">Free rates and times (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h3>
 <p>Every group encoder that holds a note value — <code>GRAIN</code> <code>SIZE</code> / <code>RATE</code>, the <code>RATE</code> of the four <code>MOD</code> LFOs and of <code>CHORUS</code> / <code>FLANGE</code> / <code>PHASER</code>, <code>DELAY</code> / <code>PINGPONG</code> <code>TIME</code>, <code>STRETCH</code> <code>WINDOW</code>, <code>FREEZE</code> <code>LENGTH</code> and <code>BLUR</code> <code>TIME</code> — follows Encoder 1:</p>
