@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-aa8b7406.js";
+            window.path_to_searchindex_js = "searchindex-b5e6b938.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -186,12 +186,12 @@
 <li>Or from Audio Edit: Track Button 6 <code>CLIPMOD</code> opens the modifier; <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_shift-dark.svg"><img alt="shift" src="icons/individual/track8_shift-light.svg" width="24"></picture> + Track Button 6 <code>COPY &gt; CLIP</code> copies the current selection and opens the modifier in one step (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.1.5">v1.1.5</a>)</li>
 <li>Multi-track clipboards open with all copied tracks included — every edit is applied to all of them</li>
 <li><strong>Exit</strong> via any view button (e.g. <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_audio-overview-dark.svg"><img alt="audio-overview" src="icons/individual/track8_audio-overview-light.svg" width="24"></picture> or <picture><source media="(prefers-color-scheme: dark)" srcset="icons/individual/track8_midi-overview-dark.svg"><img alt="midi-overview" src="icons/individual/track8_midi-overview-light.svg" width="24"></picture>)</li>
-<li>The modifier remembers the page and group you last worked in and reopens there (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>, pages (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)); all parameters start neutral on each visit</li>
+<li>The modifier remembers the page and group you last worked in and reopens there (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>, pages (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)); all parameters start neutral on each visit. What you have applied to the clipboard is remembered for <a href="#macros">macros</a> until you copy or cut something new</li>
 <li>It also remembers the encoder 1 resolution — the <code>GRID</code> division, or <code>JUMP</code> mode and its millisecond step — so switching to the overview or wave edit screen and back no longer resets it to <code>1/4</code> (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.1">v1.2.1</a>)</li>
 </ul>
 <blockquote class="blockquote-tag blockquote-tag-important">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
-<p>Clipboard edits have <strong>no undo</strong>. If you don’t like a result, Copy the audio again for a fresh clipboard.</p>
+<p>Clipboard edits have <strong>no undo</strong>. If you don’t like a result, Copy the audio again for a fresh clipboard. This holds for a <a href="#macros">macro</a> too.</p>
 </blockquote>
 <hr>
 <h2 id="navigation-encoders"><a class="header" href="#navigation-encoders">Navigation Encoders</a></h2>
@@ -472,6 +472,29 @@
 <li>Only available when the current group has no un-applied changes — <code>APPLY</code> first</li>
 <li>The write back is a normal paste on the tape, so it can be undone with <code>UNDO</code></li>
 </ul>
+<h3 id="macros"><a class="header" href="#macros">Macros (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</a></h3>
+<p>Track8 remembers what you <code>APPLY</code> to a clipboard: which groups, with which settings, in which order. You can keep that chain as a <strong>macro</strong> in one of eight slots and run it again on another clip, in any project. A macro with a single step is a preset for that group.</p>
+<img alt="Macro panel of the Audio Clipboard Modifier" src="images/screens/AudioClipboardEdit-Macros.png" width="900">
+<ul>
+<li><strong>Touch and hold the waveform</strong> for about a second to open the macro panel. Its top line shows what has been applied to this clipboard since it was copied</li>
+<li><strong>Touch a slot</strong> to run its macro on the clipboard you have now</li>
+<li><strong>Touch and hold a slot</strong> to save what you applied to this clipboard there. The keyboard opens for a name: <code>SAVE</code> stores the macro, Escape leaves the slot as it was. Holding a slot that already has a macro saves over it, and the keyboard starts with the old name so you see what you are replacing. Leave the name empty and the slot shows the order of the effects instead</li>
+<li>Empty slots read <code>HOLD TO SAVE</code> as soon as there is something to save, <code>EMPTY</code> before that</li>
+<li>Touch beside the slots to close the panel. Any button or encoder closes it as well and still does its normal job</li>
+<li>Slot 1 comes with an example, <code>Pitched Metal AMP</code>: pitched down 5 semitones (<code>REPITCH</code>), then the <code>METAL</code> amp. Save over it whenever you like</li>
+</ul>
+<p>Running a macro:</p>
+<img alt="A macro running: progress bar and STOP button" src="images/screens/Overlay-MacroRun.png" width="900">
+<ul>
+<li>The steps print one after another, each on the <code>START</code> / <code>END</code> you have set and on every track of the clipboard. The audition stops, and settings you had dialled in but not applied are dropped</li>
+<li>An overlay shows the macro’s name, the step that is printing and one bar for the whole macro. Track Button 3 (or a touch on the button) is <strong><code>STOP</code></strong>: the macro stops after the step that is printing. What has printed stays in the clipboard</li>
+<li>A macro prints without an audition of the whole chain and, like every clipboard edit, without undo. Listen to the result afterwards and Copy the audio again if it is not what you wanted (after a Cut: <code>UNDO</code> the cut first)</li>
+<li>Note values keep their meaning: a <code>1/4</code> delay, an LFO rate or a grain size set as a note value follows the tempo of the song the macro runs in. Free times (ms, Hz) stay as they were set. A group that mixes both is treated as free</li>
+<li><code>START</code> / <code>END</code> are not part of a macro. If you moved them between two <code>APPLY</code>s, the macro still runs every step on the one region you have set. A step that changes the length (<code>SPEED</code>, <code>WARP</code>, <code>CROP</code>) puts the region back to the whole clip for the steps after it, as it does by hand</li>
+<li><code>CONVOLVE</code> with a <strong>file from the USB stick</strong> remembers where the file was. To run such a macro the same stick has to be plugged in with the file in the same place; otherwise <code>MACRO NEEDS FILE</code> appears and nothing is printed</li>
+<li>A step the clipboard refuses (the 12-minute clipboard limit) stops the macro there with a message; the steps before it stay</li>
+</ul>
+<p>A macro holds up to 32 steps; a clipboard with more applied to it cannot be saved. Macros are stored on the SSD under <code>Track8/clipmod_macros</code> and are for the Audio Clipboard Modifier only.</p>
 <hr>
 <h2 id="audition"><a class="header" href="#audition">Audition</a></h2>
 <ul>
