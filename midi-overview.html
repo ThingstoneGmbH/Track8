@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-50002dbb.js";
+            window.path_to_searchindex_js = "searchindex-a0cd6f6f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -228,7 +228,7 @@ kept but never reached.</p>
 <li>Encoder 3 is <a href="audio-overview.html#move-marker">MOVE MARKER</a>: with the playhead on a marker, turn to stage a move by SCROLL steps, push to apply — the same as on the Audio Overview (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid in <a href="editing-midi.html">MIDI Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>Encoder 7 zooms the timeline, 0.25x to 4x around the playhead (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>). The zoom is remembered per overview (Audio and MIDI zoom independently) and resets to 1x on startup</li>
-<li>A mouse scroll wheel (USB) also scrolls the timeline (since v1.1.1): one <code>SCROLL</code> step per notch. The wheel’s travel is what counts, so a fast spin covers a long stretch, and a high-resolution scroll dial moves in single steps when you turn it slowly (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li>A mouse scroll wheel (USB) also scrolls the timeline (since v1.1.1): one <code>SCROLL</code> step per notch. The wheel’s travel is what counts, and a high-resolution scroll dial moves in single steps when you turn it slowly. A fast spin is accelerated: the faster you spin, the further each notch takes you, so the same dial that steps through 1/64 notes on a slow turn crosses the song on a spin. How strong that is, is set with <strong>WHEEL ACC</strong> on the <a href="utility.html">Utility</a> screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Encoder 5 → <strong>SPLICE</strong>: insert or remove time at the playhead (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)
 <ul>
 <li>Turn clockwise to stage blank time, one SCROLL step per click; counter-clockwise to stage a removal. The overview previews the result — notes, markers and loop/punch points are drawn where they will end up, an insert shows the blank as a band, a removal a cut line — and the encoder label shows the amount (<code>+1 bar</code>, <code>-2 beats</code>)</li>

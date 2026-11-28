@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-50002dbb.js";
+            window.path_to_searchindex_js = "searchindex-a0cd6f6f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c1567bff.js"></script>
@@ -394,7 +394,10 @@ a slot to save the one you just applied (since <a href="https://github.com/Thing
 </li>
 <li>
 <p>A USB mouse scroll wheel or a jog wheel behaves like the <strong>SCROLL</strong>
-encoder in the Audio/MIDI Overview and Edit views (since v1.1.1)</p>
+encoder in the Audio/MIDI Overview and Edit views (since v1.1.1). A slow
+turn of a USB wheel or scroll dial moves one step per notch, a fast spin
+is accelerated; <strong>WHEEL ACC</strong> on the <a href="#utility">Utility</a> screen sets by
+how much (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</p>
 </li>
 </ul>
 <h2 id="buttons-and-shortcuts"><a class="header" href="#buttons-and-shortcuts">Buttons and Shortcuts</a></h2>
@@ -4722,7 +4725,7 @@ FX and Mastering screens (new in <a href="https://github.com/ThingstoneGmbH/Trac
 <tr><td>Encoder 3</td><td>Timed Jump</td><td>with MARKER navigation</td></tr>
 <tr><td>Encoder 4</td><td>Metronome click sound: WOOD / BEEP / RIM / BELL / LOW, USER when bin/static/tic.wav + toc.wav are on the SSD</td><td>Push to hear it</td></tr>
 <tr><td>Encoder 5</td><td>Create new Project at Startup</td><td>—</td></tr>
-<tr><td>Encoder 6</td><td>Marker Legs / Modified Highlight / Scroll Sound / SHIFT Play target (overridden by a start marker: START MKR) / Paste Jump / Tape Stop Sound / Big Time</td><td>Push to cycle</td></tr>
+<tr><td>Encoder 6</td><td>Marker Legs / Modified Highlight / Scroll Sound / SHIFT Play target (overridden by a start marker: START MKR) / Paste Jump / Tape Stop Sound / Big Time / Wheel Acceleration (USB scroll wheel or dial: OFF, x2 to x16)</td><td>Push to cycle</td></tr>
 <tr><td>Encoder 7</td><td>Theme / Shader (OFF, BLOOM, CRT, SCANLINE, SOFT, SHARP, CUSTOM when bin/static/bloom.glsl exists) / Temp (colour temperature 2500–6500 K)</td><td>Push to cycle</td></tr>
 <tr><td>Encoder 8</td><td>Brightness / Standby</td><td>Push to toggle</td></tr>
 </tbody>
@@ -6015,7 +6018,7 @@ kept but never reached.</p>
 <li>Encoder 3 is <a href="#move-marker">MOVE MARKER</a>: with the playhead on a marker, turn to stage a move by SCROLL steps, push to apply — the same as on the Audio Overview (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>While SCROLL is active, the beat ruler shows the scroll increment as shorter ticks between the beats, like the grid in <a href="#editing-midi">MIDI Edit</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)</li>
 <li>Encoder 7 zooms the timeline, 0.25x to 4x around the playhead (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>). The zoom is remembered per overview (Audio and MIDI zoom independently) and resets to 1x on startup</li>
-<li>A mouse scroll wheel (USB) also scrolls the timeline (since v1.1.1): one <code>SCROLL</code> step per notch. The wheel’s travel is what counts, so a fast spin covers a long stretch, and a high-resolution scroll dial moves in single steps when you turn it slowly (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
+<li>A mouse scroll wheel (USB) also scrolls the timeline (since v1.1.1): one <code>SCROLL</code> step per notch. The wheel’s travel is what counts, and a high-resolution scroll dial moves in single steps when you turn it slowly. A fast spin is accelerated: the faster you spin, the further each notch takes you, so the same dial that steps through 1/64 notes on a slow turn crosses the song on a spin. How strong that is, is set with <strong>WHEEL ACC</strong> on the <a href="#utility">Utility</a> screen (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</li>
 <li>Encoder 5 → <strong>SPLICE</strong>: insert or remove time at the playhead (new in <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>)
 <ul>
 <li>Turn clockwise to stage blank time, one SCROLL step per click; counter-clockwise to stage a removal. The overview previews the result — notes, markers and loop/punch points are drawn where they will end up, an insert shows the blank as a band, a removal a cut line — and the encoder label shows the amount (<code>+1 bar</code>, <code>-2 beats</code>)</li>
@@ -7670,7 +7673,7 @@ screen and press <strong>UTILITY</strong> (Track 2) — or simply press <strong>
 previews every change live on the real UI and exports the finished
 <code>theme.json</code> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>).</p>
 <h3 id="feature-toggles-encoder-6-push-to-cycle"><a class="header" href="#feature-toggles-encoder-6-push-to-cycle">Feature toggles (Encoder 6, push to cycle)</a></h3>
-<p>All of these (together with SHIFT NAV, SHIFT HOLD, TIMED JUMP and OVERDUB)
+<p>All of these except WHEEL ACC (together with SHIFT NAV, SHIFT HOLD, TIMED JUMP and OVERDUB)
 are also one touch away on the overviews: <strong>touch and hold the track area</strong>
 of the Audio or MIDI Overview to open the <strong>Quick Settings</strong> panel, see
 <a href="#-touch">Touch</a> (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>).</p>
@@ -7723,6 +7726,17 @@ next slot reads <code>M: -</code> and the countdown <code>--:--</code>
 Also toggled by <strong>touching the time / beat readout</strong> at the bottom of
 either overview (since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.2">v1.2.2</a>):</p>
 <img alt="BIG TIME overlay on the Audio Overview" src="images/screens/AudioOverview-BigTime.png" width="900">
+</li>
+<li>
+<p><strong>WHEEL ACC</strong> — OFF / x2 / x4 / x8 / x16 (default x8): how much further
+a fast spin of a USB scroll wheel or scroll dial travels. A slow turn is
+always one <code>SCROLL</code> step per notch, so fine positioning stays fine; the
+faster you spin, the more steps each notch is worth, up to the factor set
+here. An ordinary mouse wheel only gets a gentle push when flicked; a
+high-resolution dial reaches the full factor and crosses a song in one
+spin. <code>OFF</code> takes exactly one step per notch at any speed. Not shown in
+Quick Settings; it does not affect MIDI jog wheels
+(since <a href="https://github.com/ThingstoneGmbH/Track8/releases/tag/v1.2.4-SNAPSHOT">v1.2.4-SNAPSHOT</a>)</p>
 </li>
 </ul>
 <h2 id="sub-screens"><a class="header" href="#sub-screens">Sub-screens</a></h2>
